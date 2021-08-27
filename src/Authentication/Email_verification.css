@@ -1,0 +1,43 @@
+.email {
+    margin-bottom: 100px;
+}
+.email h3 {
+    font-family: "SegoeUISemibold";
+    margin-top: 30px;
+    margin-left: 34px;
+    font-size: 20px;
+    margin-top: 20px;
+    text-align: center;
+}
+.mailsent {
+    margin-top: 15px;
+    margin-bottom: 20px;
+}
+.email p {
+    text-align: center;
+    font-family: "SegoeUISemibold";
+    font-size: 12px;
+    margin-top: -5px;
+}
+.bold {
+    font-family: "SegoeUIBold";
+}
+.resend_email {
+    background-color: #0052cc;
+    border: none;
+    color: white;
+    border-radius: 4px;
+    height: 28px;
+    width: 95px;
+    margin-top: 15px;
+    font-family: "SegoeUI";
+    font-size: 12px;
+    cursor: pointer;
+    margin-bottom: 30px;
+}
+.resend_email:hover {
+    background-color: #003d99;
+}
+.blue_text {
+    color: #0052cc;
+}

@@ -1,0 +1,114 @@
+.create_site {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+.create_site_logo {
+    margin-top: 40px;
+    margin-bottom: 15px;
+}
+.create_site_pane {
+    height: 300px;
+    width: 390px;
+    margin-top: 20px;
+    border-radius: 5px;
+    -webkit-backdrop-filter: blur(30px);
+    backdrop-filter: blur(30px);
+    box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.16);
+    background-color: #fff;
+}
+.create_site_pane h1 {
+    font-family: "SegoeUISemibold";
+    font-size: 28px;
+    text-align: center;
+    margin-top: 30px;
+}
+.create_site_pane h4 {
+    font-family: "SegoeUISemibold";
+    margin-top: 30px;
+    margin-left: 34px;
+}
+.create_site_pane p {
+    font-family: "SegoeUI";
+    margin-top: -15px;
+    text-align: center;
+    font-size: 13px;
+}
+.create_site_inputfield {
+    margin-left: 34px;
+    margin-top: 10px;
+}
+.create_site_inputfield::placeholder {
+    font-family: "SegoeUI";
+    font-size: 10px;
+    margin-right: -5px;
+    color: #8690a3;
+}
+.create_site_button {
+    margin-left: 34px;
+    margin-top: 30px;
+    width: 322px;
+    background-color: #f5f6f7;
+    border: none;
+    height: 30px;
+    border-radius: 4px;
+    font-family: "SegoeUI";
+    color: #8690a3;
+    font-size: 12px;
+}
+.create_site_button:hover {
+    cursor: pointer;
+}
+
+/* Mobile */
+
+.mob_create_site_pane {
+    height: 300px;
+    width: 260px;
+    margin-top: 20px;
+    border-radius: 5px;
+    -webkit-backdrop-filter: blur(30px);
+    backdrop-filter: blur(30px);
+    box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.16);
+    background-color: #fff;
+}
+.mob_create_site_pane h1 {
+    font-family: "SegoeUISemibold";
+    font-size: 24px;
+    text-align: center;
+    margin-top: 30px;
+}
+.mob_create_site_pane h4 {
+    font-family: "SegoeUISemibold";
+    margin-top: 30px;
+    margin-left: 20px;
+}
+.mob_create_site_pane p {
+    font-family: "SegoeUI";
+    margin-top: -15px;
+    margin-left: 20px;
+    font-size: 12px;
+    text-align: left;
+}
+.mob_create_site_inputfield {
+    margin-left: 20px;
+    margin-top: 10px;
+}
+.mob_create_site_inputfield::placeholder {
+    font-family: "SegoeUI";
+    font-size: 10px;
+    margin-right: -5px;
+    color: #8690a3;
+}
+.mob_create_site_button {
+    margin-left: 20px;
+    margin-top: 30px;
+    width: 220px;
+    background-color: #f5f6f7;
+    border: none;
+    height: 30px;
+    border-radius: 4px;
+    font-family: "SegoeUI";
+    color: #8690a3;
+    font-size: 12px;
+}

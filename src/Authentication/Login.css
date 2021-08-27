@@ -1,0 +1,253 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+.logo {
+    margin-top: -220px;
+    display: flex;
+    justify-content: center;
+}
+.login {
+    display: flex;
+    justify-content: center;
+}
+.path {
+    width: 100%;
+}
+.login_pane {
+    position: absolute;
+    height: 405px;
+    width: 370px;
+    margin-top: 20px;
+    background-color: white;
+    border-radius: 5px;
+    -webkit-backdrop-filter: blur(30px);
+    backdrop-filter: blur(30px);
+    box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.16);
+    background-color: #fff;
+}
+.login_pane .p1 {
+    font-family: "SegoeUI";
+    margin-top: 40px;
+    text-align: center;
+    font-size: 14px;
+}
+.login_pane .p2 {
+    font-family: "GTEestiProDisplay-Thin";
+    letter-spacing: 0.5px;
+    margin-top: 15px;
+    color: gray;
+    text-align: center;
+    font-size: 10px;
+}
+.login_pane h5 {
+    font-family: "SegoeUISemibold";
+    margin-top: -13px;
+    font-size: 14px;
+    text-align: center;
+    margin-bottom: 14px;
+}
+.login_inputfield {
+    margin-left: 55px;
+    margin-top: 15px;
+}
+.login_continue {
+    margin-left: 55px;
+    margin-top: 15px;
+    width: 265px;
+    height: 30px;
+    border: none;
+    border-radius: 4px;
+    background-color: #0052cc;
+    color: white;
+    font-size: 12px;
+    font-family: "SegoeUI";
+    cursor: pointer;
+}
+.login_continue:hover {
+    background-color: #003d99;
+}
+.login_btn {
+    margin-left: 55px;
+    margin-top: 10px;
+    box-shadow: 0 6px 15px 0 rgba(0, 0, 0, 0.13);
+    background-color: #fff;
+    border: none;
+    border-radius: 4px;
+    width: 265px;
+    height: 30px;
+    cursor: pointer;
+    padding-top: 5px;
+}
+.login_btn:hover {
+    border: solid 0.5px #d4d4d4;
+}
+.border {
+    margin-left: 55px;
+    border: solid #dedede;
+    border-width: thin;
+    margin-top: 30px;
+    width: 265px;
+    margin-bottom: -7px;
+}
+.end_div {
+    display: flex;
+    justify-content: center;
+}
+.end_border {
+    border: solid #dedede;
+    border-width: thin;
+    margin-top: 10px;
+    width: 370px;
+    margin-bottom: 20px;
+}
+.login_inputfield::placeholder {
+    font-size: 11px;
+    font-family: "GTEestiProDisplay-Thin";
+    letter-spacing: 0.6px;
+    color: #949494;
+}
+ul {
+    display: inline-block;
+}
+li {
+    color: #707070;
+    margin-left: -10px;
+}
+.login_link {
+    text-decoration: none;
+    color: #0052cc;
+    font-family: "GTEestiProDisplay-Thin";
+    letter-spacing: 0.5px;
+    font-size: 11px;
+    margin-left: 80px;
+}
+.login_li {
+    text-decoration: none;
+    color: #0052cc;
+    font-family: "GTEestiProDisplay-Thin";
+    text-align: center;
+    letter-spacing: 0.5px;
+    font-size: 11px;
+}
+.outside {
+    margin-top: 450px;
+    display: flex;
+    justify-content: center;
+    margin-left: -100px;
+}
+.li {
+    margin-top: -20px;
+}
+
+/* Mobile */
+
+.mob_login_pane {
+    position: absolute;
+    height: 335px;
+    width: 260px;
+    margin-top: 0;
+    background-color: white;
+    border-radius: 5px;
+    -webkit-backdrop-filter: blur(30px);
+    backdrop-filter: blur(30px);
+    box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.16);
+    background-color: #fff;
+}
+.mob_login_pane .p1 {
+    font-family: "SegoeUI";
+    margin-top: 20px;
+    text-align: center;
+    font-size: 14px;
+}
+.mob_login_pane .p2 {
+    font-family: "GTEestiProDisplay-Thin";
+    letter-spacing: 0.5px;
+    margin-top: 15px;
+    color: gray;
+    text-align: center;
+    font-size: 10px;
+}
+.mob_login_pane h5 {
+    font-family: "SegoeUISemibold";
+    margin-top: -13px;
+    font-size: 14px;
+    text-align: center;
+    margin-bottom: 14px;
+}
+.mob_logo {
+    margin-top: -65px;
+    display: flex;
+    justify-content: center;
+}
+.mob_login_inputfield {
+    margin-left: 25px;
+    margin-top: 10px;
+}
+.mob_login_continue {
+    margin-left: 25px;
+    margin-top: 10px;
+    width: 210px;
+    height: 30px;
+    border: none;
+    border-radius: 4px;
+    background-color: #0052cc;
+    color: white;
+    font-size: 12px;
+    font-family: "SegoeUI";
+}
+
+.mob_login_btn {
+    margin-left: 25px;
+    box-shadow: 0 6px 15px 0 rgba(0, 0, 0, 0.13);
+    background-color: #fff;
+    border: none;
+    border-radius: 4px;
+    width: 210px;
+    height: 30px;
+}
+.mob_border {
+    margin-left: 25px;
+    border: solid #dedede;
+    border-width: thin;
+    margin-top: 20px;
+    width: 210px;
+    margin-bottom: -7px;
+}
+.mob_login_link {
+    text-decoration: none;
+    color: #0052cc;
+    font-family: "GTEestiProDisplay-Thin";
+    letter-spacing: 0.5px;
+    font-size: 11px;
+    margin-left: 29px;
+}
+.mob_outside {
+    margin-top: 360px;
+    display: flex;
+    justify-content: center;
+    margin-left: -100px;
+}
+.mob_login_li {
+    text-decoration: none;
+    color: #0052cc;
+    font-family: "GTEestiProDisplay-Thin";
+    text-align: center;
+    letter-spacing: 0.5px;
+    font-size: 11px;
+}
+.mob_end_border {
+    border: solid #dedede;
+    border-width: thin;
+    margin-top: 10px;
+    width: 260px;
+    margin-bottom: 20px;
+}
+
+/* Tablet */
+
+.tab_logo {
+    margin-top: -145px;
+    display: flex;
+    justify-content: center;
+}
