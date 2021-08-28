@@ -6,6 +6,7 @@ import "./fonts/gt-eesti-pro-display-bold.otf";
 import "./fonts/gt-eesti-pro-display-light.otf";
 import "./fonts/segoeui.ttf";
 import "./fonts/seguisb.ttf";
+import "./fonts/segoeuisl.ttf";
 
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import Login from "./Authentication/Login";

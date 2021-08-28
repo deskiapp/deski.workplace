@@ -1,6 +1,7 @@
 import React from "react";
 import "./Home.css";
 import Workplace from "../Workplace/Workplace";
+import Header from "../Workplace/Header";
 import add from "../assets/add.svg";
 import bug from "../assets/bug.svg";
 import app from "../assets/app.svg";
@@ -14,7 +15,7 @@ import template from "../assets/template.svg";
 import scratch from "../assets/scratch.svg";
 import arrow from "../assets/arrow.svg";
 import add_circle from "../assets/add_circle.svg";
-import { Pane, DragHandleVerticalIcon, Popover, Menu, TextInputField, Dialog, SelectMenu } from "evergreen-ui";
+import { Pane, DragHandleVerticalIcon, Popover, Menu, TextInputField, Dialog, SelectMenu, Avatar } from "evergreen-ui";
 import avatar from "../assets/avatar.jpg";
 import avatar1 from "../assets/avatar1.jpeg";
 import avatar2 from "../assets/avatar2.jpeg";
@@ -23,11 +24,12 @@ import clock from "../assets/clock.png";
 function Home() {
     const [selected, setSelected] = React.useState(null);
     const [isShown, setIsShown] = React.useState(false);
+    const [isShown1, setIsShown1] = React.useState(false);
     const containerStyles = {
         height: 3.5,
         width: "100%",
         backgroundColor: "#dfe1ef",
-        borderRadius: 80,
+        borderRadius: "10px",
         marginTop: -3,
     };
 
@@ -42,23 +44,24 @@ function Home() {
     const textinput = {
         height: "40px",
         border: "solid 0.1px #cecece",
+        color: "#9a9a9a",
     };
     return (
         <div>
+            <Header />
             <Workplace />
             <div className="cotainer">
                 <Pane className="workspace_container">
                     <div>
                         <h2>My First Workspace</h2>
                         <Popover
-                            bringFocusInside
                             // position={Position.BOTTOM_LEFT}
                             content={
                                 <Menu>
                                     <Menu.Group>
                                         <Menu.Item
                                             className="menu"
-                                            icon={<img src={settings} alt="" height="10" width="10" />}
+                                            icon={<Avatar src={settings} shape="square" size={10} />}
                                         >
                                             <p className="menucontent">Workspace settings</p>
                                         </Menu.Item>
@@ -75,7 +78,11 @@ function Home() {
                                         >
                                             <p className="menucontent">Rename workspace</p>
                                         </Menu.Item>
-                                        <Menu.Item className="menu" icon={<img src={dlt} alt="" height="10" width="10" />}>
+                                        <Menu.Item
+                                            onClick={() => setIsShown1(true)}
+                                            className="menu"
+                                            icon={<img src={dlt} alt="" height="10" width="10" />}
+                                        >
                                             <p className="menucontent">Delete workspace</p>
                                         </Menu.Item>
                                     </Menu.Group>
@@ -85,11 +92,39 @@ function Home() {
                             <img src={arrow} alt="" className="more" />
                         </Popover>
                         <Dialog
+                            topOffset={235}
+                            width={435}
+                            minHeightContent={160}
+                            onCloseComplete={() => setIsShown1(false)}
+                            preventBodyScrolling
+                            hasHeader={false}
+                            isShown={isShown1}
+                            hasFooter={false}
+                        >
+                            <div className="dlt_workspace">
+                                <h4>Are you sure you want to delete this workspace ? </h4>
+                                <p>Recently deleted workspaces can be restored from trash.</p>
+
+                                <div>
+                                    <button className="cancel_btn cncl" onClick={() => setIsShown1(false)}>
+                                        Cancel
+                                    </button>
+                                    <button className="dlt_btn" onClick={() => setIsShown1(false)}>
+                                        Delete workspace
+                                    </button>
+                                </div>
+                            </div>
+                        </Dialog>
+                        <Dialog
+                            margin="none"
+                            padding="none"
+                            topOffset={170}
                             width={465}
                             minHeightContent={305}
+                            onCloseComplete={() => setIsShown(false)}
+                            preventBodyScrolling
                             hasHeader={false}
                             isShown={isShown}
-                            onCloseComplete={() => setIsShown(false)}
                             hasFooter={false}
                         >
                             <div className="share_workspace">
@@ -102,7 +137,7 @@ function Home() {
                                     width={400}
                                     style={textinput}
                                     className="share_input"
-                                    placeholder="Type name , grop or email address"
+                                    placeholder="Type name, group or email address"
                                 />
                                 <SelectMenu
                                     height={140}
@@ -113,15 +148,17 @@ function Home() {
                                         value: label,
                                     }))}
                                     selected={selected}
+                                    closeOnSelect={true}
                                     hasFilter={false}
                                     hasTitle={false}
                                     onSelect={(item) => setSelected(item.value)}
                                 >
-                                    <button className="dropdown">{selected || "Administrator"}</button>
+                                    <button className="dropdown">
+                                        {selected || "Administrator"}
+                                        <img src={arrow} className="drop_icon" alt="" height="8" width="15" />
+                                    </button>
                                 </SelectMenu>
-                                <div className="drop_icon">
-                                    <img src={arrow} alt="" height="8" width="15" />
-                                </div>
+
                                 <div>
                                     <button className="cancel_btn" onClick={() => setIsShown(false)}>
                                         Cancel
@@ -195,67 +232,67 @@ function Home() {
                                 <p>3 days left</p>
                             </div>
                         </Pane>
-                        <Pane className="space">
-                            <center>
-                                <Popover
-                                    bringFocusInside
-                                    content={
-                                        <Pane width={420} height={155} padding={10} flexDirection="column">
-                                            <Pane>
-                                                <Pane className="container">
-                                                    <img src={scratch} alt="" height="25" width="25" />
-                                                    <Pane className="popover">
-                                                        <p className="title">Start from scratch</p>
-                                                        <p className="des">Standardize your work with own workflow</p>
-                                                    </Pane>
-                                                </Pane>
+
+                        <Popover
+                            bringFocusInside
+                            content={
+                                <Pane width={420} height={155} padding={10} flexDirection="column">
+                                    <Pane>
+                                        <Pane className="container">
+                                            <img src={scratch} alt="" height="25" width="25" />
+                                            <Pane className="popover">
+                                                <p className="title">Start from scratch</p>
+                                                <p className="des">Standardize your work with own workflow</p>
                                             </Pane>
-                                            <Pane className="row_2">
-                                                <Pane className="container">
-                                                    <img src={kanban} alt="" height="25" width="25" />
-                                                    <Pane className="popover">
-                                                        <p className="title">Kanban</p>
-                                                        <p className="des">
-                                                            Visualize and advance your project on a powerful board
-                                                        </p>
-                                                    </Pane>
-                                                </Pane>
-                                            </Pane>
-                                            <div className="pop_row">
-                                                <Pane>
-                                                    <Pane className="container">
-                                                        <img src={scrum} alt="" height="25" width="25" />
-                                                        <Pane className="popover">
-                                                            <p className="title">Scrum</p>
-                                                            <p className="des">
-                                                                Sprint towards your project goals with a board ,backlog and
-                                                                road map
-                                                            </p>
-                                                        </Pane>
-                                                    </Pane>
-                                                </Pane>
-                                                <Pane className="row_2">
-                                                    <Pane className="container">
-                                                        <img src={template} alt="" height="25" width="25" />
-                                                        <Pane className="popover">
-                                                            <p className="title">Start with templates</p>
-                                                            <p className="des">
-                                                                Pre-build templates, where you can quickly get started
-                                                            </p>
-                                                        </Pane>
-                                                    </Pane>
-                                                </Pane>
-                                            </div>
                                         </Pane>
-                                    }
-                                >
+                                    </Pane>
+                                    <Pane className="row_2">
+                                        <Pane className="container">
+                                            <img src={kanban} alt="" height="25" width="25" />
+                                            <Pane className="popover">
+                                                <p className="title">Kanban</p>
+                                                <p className="des">
+                                                    Visualize and advance your project on a powerful board
+                                                </p>
+                                            </Pane>
+                                        </Pane>
+                                    </Pane>
+                                    <div className="pop_row">
+                                        <Pane>
+                                            <Pane className="container">
+                                                <img src={scrum} alt="" height="25" width="25" />
+                                                <Pane className="popover">
+                                                    <p className="title">Scrum</p>
+                                                    <p className="des">
+                                                        Sprint towards your project goals with a board ,backlog and road map
+                                                    </p>
+                                                </Pane>
+                                            </Pane>
+                                        </Pane>
+                                        <Pane className="row_2">
+                                            <Pane className="container">
+                                                <img src={template} alt="" height="25" width="25" />
+                                                <Pane className="popover">
+                                                    <p className="title">Start with templates</p>
+                                                    <p className="des">
+                                                        Pre-build templates, where you can quickly get started
+                                                    </p>
+                                                </Pane>
+                                            </Pane>
+                                        </Pane>
+                                    </div>
+                                </Pane>
+                            }
+                        >
+                            <Pane className="space spc">
+                                <center>
                                     <img src={add_circle} className="add_circle" alt="add_circle" height="22" width="22" />
-                                </Popover>
-                            </center>
-                            <center>
-                                <p className="add_space">Add Space</p>
-                            </center>
-                        </Pane>
+                                </center>
+                                <center>
+                                    <p className="add_space">Add Space</p>
+                                </center>
+                            </Pane>
+                        </Popover>
                     </div>
                 </Pane>
                 <Pane className="workspace_container">
@@ -285,7 +322,11 @@ function Home() {
                                         >
                                             <p className="menucontent">Rename workspace</p>
                                         </Menu.Item>
-                                        <Menu.Item className="menu" icon={<img src={dlt} alt="" height="10" width="10" />}>
+                                        <Menu.Item
+                                            onClick={() => setIsShown1(true)}
+                                            className="menu"
+                                            icon={<img src={dlt} alt="" height="10" width="10" />}
+                                        >
                                             <p className="menucontent">Delete workspace</p>
                                         </Menu.Item>
                                     </Menu.Group>
@@ -357,67 +398,67 @@ function Home() {
                                 <p>3 days left</p>
                             </div>
                         </Pane>
-                        <Pane className="space">
-                            <center>
-                                <Popover
-                                    bringFocusInside
-                                    content={
-                                        <Pane width={420} height={155} padding={10} flexDirection="column">
-                                            <Pane>
-                                                <Pane className="container">
-                                                    <img src={scratch} alt="" height="25" width="25" />
-                                                    <Pane className="popover">
-                                                        <p className="title">Start from scratch</p>
-                                                        <p className="des">Standardize your work with own workflow</p>
-                                                    </Pane>
-                                                </Pane>
+
+                        <Popover
+                            bringFocusInside
+                            content={
+                                <Pane width={420} height={155} padding={10} flexDirection="column">
+                                    <Pane>
+                                        <Pane className="container">
+                                            <img src={scratch} alt="" height="25" width="25" />
+                                            <Pane className="popover">
+                                                <p className="title">Start from scratch</p>
+                                                <p className="des">Standardize your work with own workflow</p>
                                             </Pane>
-                                            <Pane className="row_2">
-                                                <Pane className="container">
-                                                    <img src={kanban} alt="" height="25" width="25" />
-                                                    <Pane className="popover">
-                                                        <p className="title">Kanban</p>
-                                                        <p className="des">
-                                                            Visualize and advance your project on a powerful board
-                                                        </p>
-                                                    </Pane>
-                                                </Pane>
-                                            </Pane>
-                                            <div className="pop_row">
-                                                <Pane>
-                                                    <Pane className="container">
-                                                        <img src={scrum} alt="" height="25" width="25" />
-                                                        <Pane className="popover">
-                                                            <p className="title">Scrum</p>
-                                                            <p className="des">
-                                                                Sprint towards your project goals with a board ,backlog and
-                                                                road map
-                                                            </p>
-                                                        </Pane>
-                                                    </Pane>
-                                                </Pane>
-                                                <Pane className="row_2">
-                                                    <Pane className="container">
-                                                        <img src={template} alt="" height="25" width="25" />
-                                                        <Pane className="popover">
-                                                            <p className="title">Start with templates</p>
-                                                            <p className="des">
-                                                                Pre-build templates, where you can quickly get started
-                                                            </p>
-                                                        </Pane>
-                                                    </Pane>
-                                                </Pane>
-                                            </div>
                                         </Pane>
-                                    }
-                                >
+                                    </Pane>
+                                    <Pane className="row_2">
+                                        <Pane className="container">
+                                            <img src={kanban} alt="" height="25" width="25" />
+                                            <Pane className="popover">
+                                                <p className="title">Kanban</p>
+                                                <p className="des">
+                                                    Visualize and advance your project on a powerful board
+                                                </p>
+                                            </Pane>
+                                        </Pane>
+                                    </Pane>
+                                    <div className="pop_row">
+                                        <Pane>
+                                            <Pane className="container">
+                                                <img src={scrum} alt="" height="25" width="25" />
+                                                <Pane className="popover">
+                                                    <p className="title">Scrum</p>
+                                                    <p className="des">
+                                                        Sprint towards your project goals with a board ,backlog and road map
+                                                    </p>
+                                                </Pane>
+                                            </Pane>
+                                        </Pane>
+                                        <Pane className="row_2">
+                                            <Pane className="container">
+                                                <img src={template} alt="" height="25" width="25" />
+                                                <Pane className="popover">
+                                                    <p className="title">Start with templates</p>
+                                                    <p className="des">
+                                                        Pre-build templates, where you can quickly get started
+                                                    </p>
+                                                </Pane>
+                                            </Pane>
+                                        </Pane>
+                                    </div>
+                                </Pane>
+                            }
+                        >
+                            <Pane className="space spc">
+                                <center>
                                     <img src={add_circle} className="add_circle" alt="" height="22" width="22" />
-                                </Popover>
-                            </center>
-                            <center>
-                                <p className="add_space">Add Space</p>
-                            </center>
-                        </Pane>
+                                </center>
+                                <center>
+                                    <p className="add_space">Add Space</p>
+                                </center>
+                            </Pane>
+                        </Popover>
                     </div>
                 </Pane>
                 <Pane className="add_workspace">

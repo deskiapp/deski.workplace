@@ -22,3 +22,7 @@
     font-family: "SegoeUIBold";
     src: local("SegoeUIBold"), url("./fonts/segoeuib.ttf") format("truetype");
 }
+@font-face {
+    font-family: "SegoeUISemilight";
+    src: local("SegoeUISemilight"), url("./fonts/segoeuisl.ttf") format("truetype");
+}

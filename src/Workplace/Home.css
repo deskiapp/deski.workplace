@@ -29,6 +29,10 @@
     background-color: #fff;
     margin-right: 22px;
     margin-bottom: 50px;
+    cursor: pointer;
+}
+.spc:hover {
+    background-color: #f3f1f5;
 }
 .add_space {
     color: #344563;
@@ -39,7 +43,6 @@
 .add_circle {
     margin-top: 80px;
     margin-bottom: -5px;
-    cursor: pointer;
 }
 .space h4 {
     color: #344563;
@@ -149,6 +152,7 @@
 }
 .menu {
     height: 30px;
+    background-color: white;
 }
 .menucontent {
     font-family: "SegoeUI";
@@ -168,7 +172,7 @@
     margin-top: -12px;
     width: 150px;
     color: #7b7b7b;
-    font-family: "SegoeUI";
+    font-family: "SegoeUISemilight";
     font-size: 9px;
 }
 .container {
@@ -208,8 +212,22 @@
     padding-left: 10px;
 }
 .drop_icon {
-    display: inline;
-    margin-left: -30px;
+    float: right;
+    margin-right: 20px;
+    margin-top: 5px;
+}
+.dlt_workspace h4 {
+    letter-spacing: 0.3px;
+    color: #344563;
+    font-family: "GTEestiProDisplay-Thin";
+}
+.dlt_workspace p {
+    margin-top: -5px;
+    margin-bottom: 15px;
+    font-size: 11px;
+    font-family: "SegoeUI";
+    color: #7b7b7b;
+    width: 400px;
 }
 .dropdown {
     width: 400px;
@@ -221,36 +239,57 @@
     font-family: "SegoeUI";
     text-align: left;
     padding-left: 25px;
+    cursor: pointer;
 }
 .cancel_btn {
-    width: 115px;
-    height: 32px;
-    border-radius: 5px;
-    background-color: #efefef;
-    color: #8690a3;
+    width: 59.4px;
+    height: 27px;
+    border-radius: 4px;
+    background-color: white;
+    color: #7f7c82;
     font-family: "SegoeUISemibold";
-    font-size: 16px;
+    font-size: 13px;
     border: none;
     border-color: #efefef;
     margin-top: 30px;
-    margin-left: 155px;
+    margin-left: 245px;
     cursor: pointer;
 }
 .add_btn {
-    border-radius: 5px;
-    font-family: "SegoeUISemibold";
-    font-size: 16px;
+    border-radius: 4px;
+    font-family: "SegoeUI";
+    font-size: 13px;
     background-color: #0052cc;
-    width: 115px;
+    width: 80.4px;
+    height: 27px;
     cursor: pointer;
-    height: 32px;
     color: #fff;
     border: none;
     border-color: #0052cc;
     margin-left: 15px;
 }
+.cncl {
+    margin-left: 150px;
+    margin-top: 20px;
+}
+.dlt_btn {
+    border-radius: 4px;
+    font-family: "SegoeUISemibold";
+    font-size: 13px;
+    background-color: #ff2442;
+    width: 124px;
+    height: 27px;
+    cursor: pointer;
+    color: #fff;
+    border: none;
+    border-color: #ff2442;
+    margin-left: 15px;
+}
+.dlt_btn:hover {
+    background-color: #fc6075;
+}
 .cancel_btn:hover {
-    background-color: #dbdbdb;
+    background-color: #f3f1f5;
 }
 .add_btn:hover {
     background-color: #086bff;
