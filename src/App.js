@@ -22,6 +22,7 @@ import Feed from "./Workplace/Feed";
 import Account from "./Profile/Account";
 import Collaborators from "./Profile/Collaborators";
 import Workspaces from "./Profile/Workspaces";
+import Referrals from "./Profile/Referrals";
 
 function App() {
     return (
@@ -39,6 +40,7 @@ function App() {
                 <Route path="/account" component={Account} />
                 <Route path="/collaborators" component={Collaborators} />
                 <Route path="/workspaces" component={Workspaces} />
+                <Route path="/referrals" component={Referrals} />
             </Router>
         </div>
     );

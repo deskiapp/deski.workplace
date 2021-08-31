@@ -30,10 +30,12 @@ function Profile() {
                         <p className="content">Collaborators</p>
                     </div>
                 </Link>
-                <div className="rows">
-                    <img src={star} alt="" height="13" width="13" />
-                    <p className="content">Referrals and Credit</p>
-                </div>
+                <Link to="/referrals" className="link">
+                    <div className="rows">
+                        <img src={star} alt="" height="13" width="13" />
+                        <p className="content">Referrals and Credit</p>
+                    </div>
+                </Link>
                 <div className="rows_">
                     <img src={trash} alt="" height="10" width="10" />
                     <p className="content">Trash</p>
