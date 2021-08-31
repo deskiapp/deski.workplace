@@ -3,6 +3,7 @@ import "./App.css";
 
 import "./fonts/gt-eesti-pro-display-thin.otf";
 import "./fonts/gt-eesti-pro-display-bold.otf";
+import "./fonts/gt-eesti-pro-display-medium.otf";
 import "./fonts/gt-eesti-pro-display-light.otf";
 import "./fonts/segoeui.ttf";
 import "./fonts/seguisb.ttf";
@@ -18,6 +19,9 @@ import Forgot_password from "./Authentication/Forgot_password";
 import Template from "./Workplace/Template";
 import Home from "./Workplace/Home";
 import Feed from "./Workplace/Feed";
+import Account from "./Profile/Account";
+import Collaborators from "./Profile/Collaborators";
+import Workspaces from "./Profile/Workspaces";
 
 function App() {
     return (
@@ -32,6 +36,9 @@ function App() {
                 <Route path="/home" component={Home} />
                 <Route path="/feed" component={Feed} />
                 <Route path="/template" component={Template} />
+                <Route path="/account" component={Account} />
+                <Route path="/collaborators" component={Collaborators} />
+                <Route path="/workspaces" component={Workspaces} />
             </Router>
         </div>
     );

@@ -1,0 +1,44 @@
+.workspaces {
+    padding-top: 100px;
+    margin-left: 360px;
+}
+.workspaces h2 {
+    font-family: "GTEestiProDisplay-light";
+    font-size: 21px;
+    letter-spacing: 0.7px;
+    color: #344563;
+}
+.my_workspace {
+    margin-left: 10px;
+}
+.my_workspace h4 {
+    color: #344563;
+    font-family: "GTEestiProDisplay-light";
+    letter-spacing: 0.5px;
+    margin-top: 45px;
+}
+.card_div h4 {
+    color: #344563;
+    letter-spacing: 0.4px;
+    font-family: "SegoeUI";
+    margin-left: 55px;
+    margin-top: -40px;
+    font-size: 14px;
+}
+.card_div .span4 {
+    color: #a0a2a7;
+    font-size: 9px;
+    font-family: "SegoeUI";
+    margin-left: 55px;
+    margin-top: -17px;
+}
+.card_div .des {
+    color: #7b7b7b;
+    font-size: 10px;
+    font-family: "SegoeUI";
+    margin-top: 13px;
+    width: 200px;
+}
+.card_secondrow {
+    margin-top: 80px;
+}

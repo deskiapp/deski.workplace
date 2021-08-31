@@ -11,6 +11,10 @@
     src: local("GTEestiProDisplay-Thin"), url("./fonts/gt-eesti-pro-display-thin.otf") format("truetype");
 }
 @font-face {
+    font-family: "GTEestiProDisplay-Medium";
+    src: local("GTEestiProDisplay-Medium"), url("./fonts/gt-eesti-pro-display-medium.otf") format("truetype");
+}
+@font-face {
     font-family: "SegoeUI";
     src: local("SegoeUI"), url("./fonts/segoeui.ttf") format("truetype");
 }

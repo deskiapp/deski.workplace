@@ -1,0 +1,86 @@
+body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+/* width */
+::-webkit-scrollbar {
+    width: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: white;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #cecece;
+    border-radius: 4px;
+    width: 5px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #dddddd;
+}
+.header_right {
+    float: right;
+    margin-right: 110px;
+    margin-top: -7px;
+}
+.bell {
+    float: right;
+    margin-right: 20px;
+}
+header {
+    height: 55px;
+    width: 100%;
+    padding-left: 55px;
+    position: fixed;
+    top: 0;
+    box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
+    background-color: #fff;
+}
+.wrknav_links {
+    text-decoration: none;
+    font-family: "GTEestiProDisplay-light";
+    color: #344563;
+    margin-left: 30px;
+    letter-spacing: 0.2px;
+    font-size: 14px;
+    position: relative;
+    padding: 0 10px;
+}
+.wrk_nav {
+    margin-top: -47px;
+    margin-left: 220px;
+}
+.wrknav_links:after {
+    content: "";
+    position: absolute;
+    height: 4px;
+    width: 0;
+    left: 0;
+    bottom: -20px;
+    background-color: #3250fe;
+}
+.wrknav_links:hover:after {
+    width: 100%;
+}
+.profile_menu p {
+    font-family: "GTEestiProDisplay-thin";
+    font-size: 13px;
+    color: #171717;
+}
+.profile {
+    cursor: pointer;
+}
+.disabled p {
+    font-family: "GTEestiProDisplay-Light";
+    color: #171717;
+    font-size: 13px;
+}
+.link {
+    text-decoration: none;
+}

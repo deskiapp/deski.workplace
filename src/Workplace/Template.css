@@ -1,0 +1,107 @@
+.template_main_title {
+    width: 100%;
+    color: #545970;
+    display: flex;
+    justify-content: center;
+    margin-bottom: -85px;
+    font-family: "GTEestiProDisplay-Bold";
+    font-size: 27px;
+}
+.template_title {
+    width: 100%;
+    display: flex;
+    color: #545970;
+    justify-content: center;
+    font-size: 27px;
+    font-family: "GTEestiProDisplay-Bold";
+    margin-bottom: -25px;
+}
+.template_panerow2 {
+    background-color: white;
+    height: 152px;
+    width: 290px;
+    float: left;
+    margin-left: 30px;
+    margin-top: 25px;
+    border-radius: 12px;
+    padding-left: 20px;
+    padding-top: 5px;
+}
+.template_panerow2frst {
+    background-color: white;
+    height: 152px;
+    width: 290px;
+    float: left;
+    margin-top: 25px;
+    border-radius: 12px;
+    padding-left: 20px;
+    padding-top: 5px;
+}
+.template_panerow1 {
+    background-color: white;
+    height: 152px;
+    width: 290px;
+    float: left;
+    margin-left: 30px;
+    margin-top: 80px;
+    border-radius: 12px;
+    padding-left: 20px;
+    padding-top: 5px;
+}
+.template_panerow1frst {
+    background-color: white;
+    height: 152px;
+    width: 290px;
+    float: left;
+    margin-top: 80px;
+    border-radius: 12px;
+    padding-left: 20px;
+    padding-top: 5px;
+}
+.template_card {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+.card_head {
+    float: right;
+    font-family: "GTEestiProDisplay-light";
+    font-weight: bolder;
+    background-color: #ddfce2;
+    color: #008d16;
+    font-size: 10px;
+    margin-right: 15px;
+    border-radius: 4px;
+    padding: 5px;
+    letter-spacing: 0.3px;
+}
+.card_headred {
+    float: right;
+    font-family: "GTEestiProDisplay-light";
+    font-weight: bolder;
+    background-color: #fff1f1;
+    color: #ff1414;
+    font-size: 10px;
+    margin-right: 15px;
+    border-radius: 4px;
+    padding: 5px;
+    letter-spacing: 0.3px;
+}
+.card_title {
+    font-family: "GTEestiProDisplay-Bold";
+    display: block;
+    margin-top: 25px;
+    color: black;
+}
+.card_des {
+    font-family: "GTEestiProDisplay-Thin";
+    font-size: 11px;
+    margin-right: 15px;
+    letter-spacing: 0.2px;
+    color: #858585;
+}
+.template {
+    height: 700px;
+    margin-left: 310px;
+    padding-top: 80px;
+}

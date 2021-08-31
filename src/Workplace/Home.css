@@ -2,7 +2,7 @@
     margin-top: 18px;
 }
 .cotainer {
-    margin-top: 120px;
+    padding-top: 120px;
 }
 .workspace_container {
     /* background-color: brown; */
@@ -29,10 +29,10 @@
     background-color: #fff;
     margin-right: 22px;
     margin-bottom: 50px;
-    cursor: pointer;
 }
 .spc:hover {
     background-color: #f3f1f5;
+    cursor: pointer;
 }
 .add_space {
     color: #344563;
@@ -54,7 +54,7 @@
     float: right;
     color: #cecece;
 }
-.more {
+.arrow {
     display: inline;
     cursor: pointer;
     margin-left: 12px;
@@ -150,10 +150,6 @@
     font-size: 17px;
     margin-left: 17px;
 }
-.menu {
-    height: 30px;
-    background-color: white;
-}
 .menucontent {
     font-family: "SegoeUI";
     color: #707070;
@@ -193,6 +189,7 @@
     margin-top: 20px;
 }
 .share_workspace h4 {
+    font-size: 15px;
     letter-spacing: 0.3px;
     color: #344563;
     font-family: "GTEestiProDisplay-Thin";
@@ -217,17 +214,19 @@
     margin-top: 5px;
 }
 .dlt_workspace h4 {
+    margin-left: -15px;
     letter-spacing: 0.3px;
     color: #344563;
+    font-size: 15px;
     font-family: "GTEestiProDisplay-Thin";
 }
 .dlt_workspace p {
+    margin-left: -15px;
     margin-top: -5px;
     margin-bottom: 15px;
     font-size: 11px;
     font-family: "SegoeUI";
     color: #7b7b7b;
-    width: 400px;
 }
 .dropdown {
     width: 400px;
@@ -269,7 +268,7 @@
     margin-left: 15px;
 }
 .cncl {
-    margin-left: 150px;
+    margin-left: 130px;
     margin-top: 20px;
 }
 .dlt_btn {
@@ -284,9 +283,6 @@
     border: none;
     border-color: #ff2442;
     margin-left: 15px;
-}
-.dlt_btn:hover {
-    background-color: #fc6075;
 }
 .cancel_btn:hover {
     background-color: #f3f1f5;

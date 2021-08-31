@@ -1,0 +1,44 @@
+.profile_sidebar {
+    margin-top: 60px;
+    width: 250px;
+    padding-left: 60px;
+    padding-top: 70px;
+    position: fixed;
+    overflow-y: scroll;
+    height: 80%;
+}
+.profile_sidebar .content {
+    display: inline;
+    font-family: "GTEestiProDisplay-Light";
+    letter-spacing: 0.5px;
+    font-size: 13px;
+    color: #858585;
+    margin-left: 10px;
+}
+.profile_sidebar .title {
+    font-family: "SegoeUISemibold";
+    color: #858585;
+    font-size: 13px;
+    margin-bottom: 30px;
+}
+.profile_sidebar .rows {
+    margin-top: 12px;
+    cursor: pointer;
+    border-radius: 2px;
+    padding: 3px;
+    width: 160px;
+}
+.profile_sidebar .rows:hover {
+    background-color: #f3f1f5;
+}
+.profile_sidebar .rows_ {
+    padding: 3px;
+    width: 160px;
+    cursor: pointer;
+    border-radius: 2px;
+    margin-top: 12px;
+    margin-left: 2px;
+}
+.profile_sidebar .rows_:hover {
+    background-color: #f3f1f5;
+}

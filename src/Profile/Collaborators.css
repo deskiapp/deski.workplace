@@ -1,0 +1,58 @@
+.collaborators {
+    padding-top: 100px;
+    margin-left: 360px;
+}
+.collaborators h2 {
+    font-family: "GTEestiProDisplay-light";
+    font-size: 21px;
+    letter-spacing: 0.7px;
+    color: #344563;
+}
+.grid_container {
+    display: grid;
+    grid-template-columns: 450px 300px 100px;
+    grid-row-gap: 50px;
+}
+.more {
+    color: #cecece;
+    float: right;
+    margin-top: 5px;
+    width: 13px;
+    height: 13px;
+}
+.grid_container h5 {
+    color: #344563;
+    font-family: "SegoeUI";
+    font-size: 12px;
+    letter-spacing: 0.2px;
+}
+.dropdwn {
+    margin-left: 10px;
+}
+.cursor {
+    cursor: pointer;
+}
+.grid_container .p {
+    color: #858585;
+    font-family: "SegoeUI";
+    font-size: 13px;
+}
+.user_name {
+    margin-left: 65px;
+    margin-top: -40px;
+}
+.id {
+    margin-left: 65px;
+    margin-top: -12px;
+    font-size: 11px;
+    color: #858585;
+    font-family: "SegoeUI";
+}
+.user_name:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
+.id:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}

@@ -25,6 +25,10 @@ function Home() {
     const [selected, setSelected] = React.useState(null);
     const [isShown, setIsShown] = React.useState(false);
     const [isShown1, setIsShown1] = React.useState(false);
+
+    const menu = {
+        height: "30px",
+    };
     const containerStyles = {
         height: 3.5,
         width: "100%",
@@ -55,32 +59,25 @@ function Home() {
                     <div>
                         <h2>My First Workspace</h2>
                         <Popover
-                            // position={Position.BOTTOM_LEFT}
                             content={
                                 <Menu>
                                     <Menu.Group>
-                                        <Menu.Item
-                                            className="menu"
-                                            icon={<Avatar src={settings} shape="square" size={10} />}
-                                        >
+                                        <Menu.Item style={menu} icon={<Avatar src={settings} shape="square" size={10} />}>
                                             <p className="menucontent">Workspace settings</p>
                                         </Menu.Item>
                                         <Menu.Item
-                                            onClick={() => setIsShown(true)}
-                                            className="menu"
+                                            onSelect={() => setIsShown(true)}
+                                            style={menu}
                                             icon={<img src={share} alt="" height="10" width="10" />}
                                         >
                                             <p className="menucontent">Share workspace</p>
                                         </Menu.Item>
-                                        <Menu.Item
-                                            className="menu"
-                                            icon={<img src={rename} alt="" height="10" width="10" />}
-                                        >
+                                        <Menu.Item style={menu} icon={<img src={rename} alt="" height="10" width="10" />}>
                                             <p className="menucontent">Rename workspace</p>
                                         </Menu.Item>
                                         <Menu.Item
                                             onClick={() => setIsShown1(true)}
-                                            className="menu"
+                                            style={menu}
                                             icon={<img src={dlt} alt="" height="10" width="10" />}
                                         >
                                             <p className="menucontent">Delete workspace</p>
@@ -89,11 +86,11 @@ function Home() {
                                 </Menu>
                             }
                         >
-                            <img src={arrow} alt="" className="more" />
+                            <img src={arrow} alt="" className="arrow" />
                         </Popover>
                         <Dialog
                             topOffset={235}
-                            width={435}
+                            width={400}
                             minHeightContent={160}
                             onCloseComplete={() => setIsShown1(false)}
                             preventBodyScrolling
@@ -303,28 +300,22 @@ function Home() {
                             content={
                                 <Menu>
                                     <Menu.Group>
-                                        <Menu.Item
-                                            className="menu"
-                                            icon={<img src={settings} alt="" height="10" width="10" />}
-                                        >
+                                        <Menu.Item style={menu} icon={<img src={settings} alt="" height="10" width="10" />}>
                                             <p className="menucontent">Workspace settings</p>
                                         </Menu.Item>
                                         <Menu.Item
                                             onClick={() => setIsShown(true)}
-                                            className="menu"
+                                            style={menu}
                                             icon={<img src={share} alt="" height="10" width="10" />}
                                         >
                                             <p className="menucontent">Share workspace</p>
                                         </Menu.Item>
-                                        <Menu.Item
-                                            className="menu"
-                                            icon={<img src={rename} alt="" height="10" width="10" />}
-                                        >
+                                        <Menu.Item style={menu} icon={<img src={rename} alt="" height="10" width="10" />}>
                                             <p className="menucontent">Rename workspace</p>
                                         </Menu.Item>
                                         <Menu.Item
                                             onClick={() => setIsShown1(true)}
-                                            className="menu"
+                                            style={menu}
                                             icon={<img src={dlt} alt="" height="10" width="10" />}
                                         >
                                             <p className="menucontent">Delete workspace</p>
@@ -333,7 +324,7 @@ function Home() {
                                 </Menu>
                             }
                         >
-                            <img src={arrow} alt="" className="more" />
+                            <img src={arrow} alt="" className="arrow" />
                         </Popover>
                     </div>
                     <div>
