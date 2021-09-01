@@ -8,6 +8,7 @@ import dropdown_circle from "../assets/dropdown-circle.svg";
 import { MoreIcon } from "evergreen-ui";
 import { TextInputField, Dialog, SelectMenu } from "evergreen-ui";
 import arrow from "../assets/arrow.svg";
+import { Link } from "react-router-dom";
 
 function Collaborators() {
     const [selected, setSelected] = React.useState(null);
@@ -26,9 +27,16 @@ function Collaborators() {
                 <h2>Manage people</h2>
                 <div className="grid_container">
                     <div className="grid_item">
-                        <h5 onClick={() => setIsShown(true)} className="cursor">
+                        <h5>
                             Invite workspace collaborators
-                            <img className="dropdwn" src={send} alt="" height="14" width="14" />
+                            <img
+                                onClick={() => setIsShown(true)}
+                                className="send"
+                                src={send}
+                                alt=""
+                                height="14"
+                                width="14"
+                            />
                         </h5>
                     </div>
                     <div className="grid_item">
@@ -43,8 +51,10 @@ function Collaborators() {
                     </div>
                     <div className="grid_item">
                         <img src={user} alt="" height="37" width="37" />
-                        <p className="p user_name">Ameen</p>
-                        <p className="id">ameenmoosa@deski.app</p>
+                        <Link to="/user_details" className="link">
+                            <p className="p user_name">Ameen</p>
+                            <p className="id">ameenmoosa@deski.app</p>
+                        </Link>
                     </div>
                     <div className="grid_item">
                         <p className="p">Workspace collaborator</p>
@@ -57,8 +67,10 @@ function Collaborators() {
                     </div>
                     <div className="grid_item">
                         <img src={user} alt="" height="37" width="37" />
-                        <p className="p user_name">Abdul</p>
-                        <p className="id">ameenmoosa@deski.app</p>
+                        <Link to="/user_details" className="link">
+                            <p className="p user_name">Abdul</p>
+                            <p className="id">ameenmoosa@deski.app</p>
+                        </Link>
                     </div>
                     <div className="grid_item">
                         <p className="p">Workspace collaborator</p>
@@ -71,8 +83,10 @@ function Collaborators() {
                     </div>
                     <div className="grid_item">
                         <img src={user} alt="" height="37" width="37" />
-                        <p className="p user_name">Mashood</p>
-                        <p className="id">ameenmoosa@deski.app</p>
+                        <Link to="/user_details" className="link">
+                            <p className="p user_name">Mashood</p>
+                            <p className="id">ameenmoosa@deski.app</p>
+                        </Link>
                     </div>
                     <div className="grid_item">
                         <p className="p">Workspace collaborator</p>
@@ -84,8 +98,10 @@ function Collaborators() {
                     </div>
                     <div className="grid_item">
                         <img src={user} alt="" height="37" width="37" />
-                        <p className="p user_name">Paul walker</p>
-                        <p className="id">ameenmoosa@deski.app</p>
+                        <Link to="/user_details" className="link">
+                            <p className="p user_name">Paul walker</p>
+                            <p className="id">ameenmoosa@deski.app</p>
+                        </Link>
                     </div>
                     <div className="grid_item">
                         <p className="p">Workspace collaborator</p>

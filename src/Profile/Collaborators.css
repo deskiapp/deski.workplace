@@ -29,8 +29,15 @@
 .dropdwn {
     margin-left: 10px;
 }
-.cursor {
+.send:hover {
+    background-color: #f5f5f5;
     cursor: pointer;
+    border-radius: 3px;
+}
+.send {
+    margin-left: 5px;
+    padding: 5px;
+    margin-bottom: -10px;
 }
 .grid_container .p {
     color: #858585;
