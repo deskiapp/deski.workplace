@@ -1,0 +1,65 @@
+.user_details {
+    padding-top: 100px;
+    margin-left: 360px;
+}
+.user_details h2 {
+    font-family: "GTEestiProDisplay-light";
+    font-size: 21px;
+    letter-spacing: 0.7px;
+    color: #344563;
+}
+.profile_user {
+    display: grid;
+    grid-template-columns: 220px 240px 200px;
+    grid-row-gap: 10px;
+    margin-top: -80px;
+}
+.user_div {
+    margin-left: 140px;
+}
+.key {
+    height: 10px;
+    width: 14px;
+    margin-right: 5px;
+}
+.accountholder {
+    font-family: "SegoeUISemibold";
+    color: #858585;
+    font-size: 13px;
+}
+.work_field {
+    font-family: "SegoeUI";
+    color: #858585;
+    font-size: 13px;
+}
+.places_in {
+    font-family: "SegoeUISemibold";
+    color: #858585;
+    font-size: 14px;
+    margin-top: 80px;
+    margin-bottom: 60px;
+}
+.remove_user {
+    margin-top: 270px;
+    padding: 3px;
+    margin-bottom: 40px;
+    width: 175px;
+}
+.userdetail_img {
+    width: 85.6px;
+    height: 83.5px;
+    margin-top: 40px;
+}
+.remove_user:hover {
+    background-color: #f5f5f5;
+    cursor: pointer;
+    border-radius: 3px;
+}
+.remove_user p {
+    display: inline;
+    margin-left: 10px;
+    font-family: "GTEestiProDisplay-light";
+    color: #858585;
+    font-size: 11px;
+    letter-spacing: 0.2px;
+}

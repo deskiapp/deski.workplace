@@ -40,5 +40,96 @@
     width: 200px;
 }
 .card_secondrow {
-    margin-top: 80px;
+    margin-top: 110px;
+}
+.second_workspace {
+    margin-top: 240px;
+    margin-left: 15px;
+    height: 300px;
+}
+.second_workspace h4 {
+    color: #344563;
+    font-family: "GTEestiProDisplay-light";
+    letter-spacing: 0.5px;
+    margin-top: 45px;
+}
+.card_div h4 {
+    color: #344563;
+    letter-spacing: 0.4px;
+    font-family: "SegoeUI";
+    margin-left: 55px;
+    margin-top: -40px;
+    font-size: 14px;
+}
+.second_workspace h4 span {
+    color: #2b2b2b;
+    font-family: "GTEestiProDisplay-light";
+    font-size: 9px;
+    border-radius: 2px;
+    background-color: #a4a4a4;
+    margin-left: 10px;
+    padding: 1px 4px 0 4px;
+}
+.arrow1 {
+    display: inline;
+    cursor: pointer;
+    width: 12px;
+    height: 10px;
+}
+.arrow_div {
+    width: 30px;
+    margin-left: 145px;
+    margin-top: -40px;
+}
+.more_ {
+    color: #cecece;
+    cursor: pointer;
+    float: right;
+    margin-top: -5px;
+    width: 13px;
+    height: 13px;
+}
+.menucontentred {
+    font-family: "SegoeUI";
+    color: #707070;
+    font-size: 12px;
+    color: #ff2442;
+}
+.dropdwn {
+    width: 400px;
+    height: 25px;
+    border: solid 0.1px #cecece;
+    background-color: #fff;
+    color: #9a9a9a;
+    font-size: 10px;
+    font-family: "GTEestiProDisplay-Light";
+    text-align: left;
+    padding-left: 5px;
+    margin-left: 0;
+    cursor: pointer;
+}
+.drop_icon_pro {
+    float: right;
+    margin-right: 10px;
+    margin-top: 3px;
+    width: 12px;
+}
+.move_btn {
+    border-radius: 4px;
+    font-family: "SegoeUI";
+    font-size: 13px;
+    background-color: #0052cc;
+    width: 105px;
+    height: 28px;
+    cursor: pointer;
+    color: #fff;
+    border: none;
+    border-color: #0052cc;
+    margin-left: 15px;
+}
+.move_btn:hover {
+    background-color: #086bff;
+}
+.move {
+    margin-left: 220px;
 }

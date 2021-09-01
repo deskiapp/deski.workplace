@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 import "./Account.css";
 import Header from "../Workplace/Header";
 import Profile from "./Profile";
@@ -12,16 +12,23 @@ import bug from "../assets/bug.svg";
 import delet from "../assets/delet.svg";
 import app from "../assets/app.svg";
 import add_blue from "../assets/add_blue.svg";
-import { Pane } from "evergreen-ui";
+import { Pane, Dialog } from "evergreen-ui";
 
 function Account() {
+    const inputFile = useRef(null);
+    const onButtonClick = () => {
+        inputFile.current.click();
+    };
+    const [isShown, setIsShown] = React.useState(false);
+
     return (
         <div>
             <Header />
             <Profile />
             <div className="account">
                 <h2>Account overview</h2>
-                <img src={user} alt="" className="user_img" />
+                <img onClick={onButtonClick} src={user} alt="" className="user_img" />
+                <input type="file" id="file" ref={inputFile} style={{ display: "none" }} />
                 <div className="account_con">
                     <span className="span1">
                         My Account
@@ -70,10 +77,34 @@ function Account() {
                                 </p>
                             </Pane>
                         </div>
-                        <div className="dlt_acnt">
+                        <div className="dlt_acnt" onClick={() => setIsShown(true)}>
                             <img src={delet} alt="" height="12" width="12" />
                             <p>Delete your deski account</p>
                         </div>
+                        <Dialog
+                            topOffset={235}
+                            width={400}
+                            minHeightContent={160}
+                            onCloseComplete={() => setIsShown(false)}
+                            preventBodyScrolling
+                            hasHeader={false}
+                            isShown={isShown}
+                            hasFooter={false}
+                        >
+                            <div className="dlt_workspace">
+                                <h4>Are you sure you want to remove this user ?</h4>
+                                <p>The user will be removed in your workplace/space</p>
+
+                                <div>
+                                    <button className="cancel_btn cncl" onClick={() => setIsShown(false)}>
+                                        Cancel
+                                    </button>
+                                    <button className="dlt_btn" onClick={() => setIsShown(false)}>
+                                        Delete workspace
+                                    </button>
+                                </div>
+                            </div>
+                        </Dialog>
                     </div>
                 </div>
             </div>
