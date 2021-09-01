@@ -1,7 +1,7 @@
 import React from "react";
 import "./Header.css";
 import deski_ash from "../assets/deski_ash.svg";
-import { Link } from "react-router-dom";
+import { Link,useLocation } from "react-router-dom";
 import bell from "../assets/bell.svg";
 import logout from "../assets/logout.svg";
 import upgrade from "../assets/upgrade.svg";
@@ -12,6 +12,11 @@ import avatar from "../assets/avatar.jpg";
 import { Avatar, Menu, Popover, Position } from "evergreen-ui";
 
 function Header() {
+
+
+    const location = useLocation();
+    const [selectedtab,setSelectedTab] = React.useState(0)
+
     const disabled = {
         marginTop: "-15px",
         height: "70px",
@@ -26,6 +31,31 @@ function Header() {
     const profile_menu = {
         height: "30px",
     };
+
+
+    React.useEffect(()=>{
+
+        
+         // alert(location.pathname)
+            if(location.pathname==="/home"){
+                 setSelectedTab(0)
+            }
+
+            if(location.pathname==="/feed"){
+                setSelectedTab(1)
+            }
+
+            if(location.pathname==="/template"){
+                setSelectedTab(2)
+            }
+
+
+
+
+    })
+
+
+
     return (
         <div>
             <header>
@@ -33,13 +63,13 @@ function Header() {
                     <img src={deski_ash} alt="" height="60" width="110" />
                 </Link>
                 <div className="wrk_nav">
-                    <Link to="/home" className="wrknav_links">
+                    <Link to="/home" className={selectedtab===0 ?"wrknav_links_selected":"wrknav_links"}>
                         Home
                     </Link>
-                    <Link to="/feed" className="wrknav_links">
+                    <Link to="/feed" className={selectedtab===1 ?"wrknav_links_selected":"wrknav_links"}>
                         Feed
                     </Link>
-                    <Link to="/template" className="wrknav_links">
+                    <Link to="/template" className={selectedtab===2 ?"wrknav_links_selected":"wrknav_links"}>
                         Templates
                     </Link>
 
