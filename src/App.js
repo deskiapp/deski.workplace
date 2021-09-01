@@ -25,6 +25,8 @@ import Collaborators from "./Profile/Collaborators";
 import Workspaces from "./Profile/Workspaces";
 import Referrals from "./Profile/Referrals";
 import User_details from "./Profile/User_details";
+import Workplace_trash from "./Workplace/Workplace_trash";
+import Profile_trash from "./Profile/Profile_trash";
 
 function App() {
     return (
@@ -44,6 +46,8 @@ function App() {
                 <Route path="/workspaces" component={Workspaces} />
                 <Route path="/referrals" component={Referrals} />
                 <Route path="/user_details" component={User_details} />
+                <Route path="/workplace_trash" component={Workplace_trash} />
+                <Route path="/profile_trash" component={Profile_trash} />
             </Router>
         </div>
     );

@@ -92,7 +92,7 @@ function Workplace() {
                         <img src={add} alt="" height="10" width="10" />
                         <p className="img_titl">Add Workspace</p>
                     </div>
-                    <Link to="/trash" className="links">
+                    <Link to="/workplace_trash" className="links">
                         <div className="workspace spc">
                             <img src={trash} alt="" height="10" width="10" />
                             <p className="img_titl">Trash</p>

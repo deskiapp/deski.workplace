@@ -36,10 +36,12 @@ function Profile() {
                         <p className="content">Referrals and Credit</p>
                     </div>
                 </Link>
-                <div className="rows_">
-                    <img src={trash} alt="" height="10" width="10" />
-                    <p className="content">Trash</p>
-                </div>
+                <Link to="/profile_trash" className="link">
+                    <div className="rows_">
+                        <img src={trash} alt="" height="10" width="10" />
+                        <p className="content">Trash</p>
+                    </div>
+                </Link>
             </div>
         </div>
     );
