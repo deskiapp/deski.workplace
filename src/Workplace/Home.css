@@ -290,3 +290,16 @@
 .add_btn:hover {
     background-color: #086bff;
 }
+.more_home {
+    color: #cecece;
+    cursor: pointer;
+    float: right;
+    margin-top: 1px;
+    margin-right: 5px;
+    width: 13px;
+    height: 13px;
+    visibility: hidden;
+}
+.space:hover .more_home {
+    visibility: visible;
+}

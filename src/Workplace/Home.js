@@ -15,7 +15,17 @@ import template from "../assets/template.svg";
 import scratch from "../assets/scratch.svg";
 import arrow from "../assets/arrow.svg";
 import add_circle from "../assets/add_circle.svg";
-import { Pane, DragHandleVerticalIcon, Popover, Menu, TextInputField, Dialog, SelectMenu, Avatar } from "evergreen-ui";
+import {
+    Pane,
+    DragHandleVerticalIcon,
+    Popover,
+    Menu,
+    TextInputField,
+    Dialog,
+    SelectMenu,
+    Avatar,
+    MoreIcon,
+} from "evergreen-ui";
 import avatar from "../assets/avatar.jpg";
 import avatar1 from "../assets/avatar1.jpeg";
 import avatar2 from "../assets/avatar2.jpeg";
@@ -23,8 +33,10 @@ import clock from "../assets/clock.png";
 
 function Home() {
     const [selected, setSelected] = React.useState(null);
+    const [selected1, setSelected1] = React.useState(null);
     const [isShown, setIsShown] = React.useState(false);
     const [isShown1, setIsShown1] = React.useState(false);
+    const [isShown2, setIsShown2] = React.useState(false);
 
     const menu = {
         height: "30px",
@@ -59,6 +71,7 @@ function Home() {
                     <div>
                         <h2>My First Workspace</h2>
                         <Popover
+                            minWidth={120}
                             content={
                                 <Menu>
                                     <Menu.Group>
@@ -108,6 +121,57 @@ function Home() {
                                     </button>
                                     <button className="dlt_btn" onClick={() => setIsShown1(false)}>
                                         Delete workspace
+                                    </button>
+                                </div>
+                            </div>
+                        </Dialog>
+                        <Dialog
+                            margin="none"
+                            padding="none"
+                            topOffset={220}
+                            width={465}
+                            minHeightContent={205}
+                            onCloseComplete={() => setIsShown2(false)}
+                            preventBodyScrolling
+                            hasHeader={false}
+                            isShown={isShown2}
+                            hasFooter={false}
+                        >
+                            <div className="share_workspace">
+                                <h4>Move My First workplace to another workspace</h4>
+                                <p>Choose workspace</p>
+
+                                <SelectMenu
+                                    height={140}
+                                    width={400}
+                                    title="My second workspace"
+                                    options={[
+                                        "My first workspace",
+                                        "My second workspace",
+                                        "My third workspace",
+                                        "My fourth workspace",
+                                    ].map((label) => ({
+                                        label,
+                                        value: label,
+                                    }))}
+                                    selected={selected1}
+                                    closeOnSelect={true}
+                                    hasFilter={false}
+                                    hasTitle={false}
+                                    onSelect={(item) => setSelected1(item.value)}
+                                >
+                                    <button className="dropdwn">
+                                        {selected1 || "My second workspace"}
+                                        <img src={arrow} className="drop_icon_pro" alt="" height="8" width="15" />
+                                    </button>
+                                </SelectMenu>
+
+                                <div>
+                                    <button className="cancel_btn move" onClick={() => setIsShown2(false)}>
+                                        Cancel
+                                    </button>
+                                    <button className="move_btn" onClick={() => setIsShown2(false)} s>
+                                        Move
                                     </button>
                                 </div>
                             </div>
@@ -170,6 +234,32 @@ function Home() {
                     <div>
                         <Pane className="space">
                             <DragHandleVerticalIcon className="moreicon" />
+                            <Popover
+                                minWidth={50}
+                                content={
+                                    <Menu>
+                                        <Menu.Group>
+                                            <Menu.Item style={menu}>
+                                                <p className="menucontent">Rename space</p>
+                                            </Menu.Item>
+                                            <Menu.Item style={menu}>
+                                                <p className="menucontent">Share</p>
+                                            </Menu.Item>
+                                            <Menu.Item onSelect={() => setIsShown2(true)} style={menu}>
+                                                <p className="menucontent">Move space</p>
+                                            </Menu.Item>
+                                            <Menu.Item style={menu}>
+                                                <p className="menucontent">Duplicate</p>
+                                            </Menu.Item>
+                                            <Menu.Item intent="danger" style={menu}>
+                                                <p className="menucontentred">Delete</p>
+                                            </Menu.Item>
+                                        </Menu.Group>
+                                    </Menu>
+                                }
+                            >
+                                <MoreIcon className="more_home" />
+                            </Popover>
 
                             <img src={bug} alt="" height="35" width="35" />
                             <h4>Bug Tracking</h4>
@@ -205,6 +295,32 @@ function Home() {
                         </Pane>
                         <Pane className="space">
                             <DragHandleVerticalIcon className="moreicon" />
+                            <Popover
+                                minWidth={50}
+                                content={
+                                    <Menu>
+                                        <Menu.Group>
+                                            <Menu.Item style={menu}>
+                                                <p className="menucontent">Rename space</p>
+                                            </Menu.Item>
+                                            <Menu.Item style={menu}>
+                                                <p className="menucontent">Share</p>
+                                            </Menu.Item>
+                                            <Menu.Item onSelect={() => setIsShown2(true)} style={menu}>
+                                                <p className="menucontent">Move space</p>
+                                            </Menu.Item>
+                                            <Menu.Item style={menu}>
+                                                <p className="menucontent">Duplicate</p>
+                                            </Menu.Item>
+                                            <Menu.Item intent="danger" style={menu}>
+                                                <p className="menucontentred">Delete</p>
+                                            </Menu.Item>
+                                        </Menu.Group>
+                                    </Menu>
+                                }
+                            >
+                                <MoreIcon className="more_home" />
+                            </Popover>
 
                             <img src={app} alt="" height="35" width="35" />
                             <h4>App Development</h4>
@@ -296,6 +412,7 @@ function Home() {
                     <div>
                         <h2>My Second Workspace</h2>
                         <Popover
+                            minWidth={120}
                             // position={Position.BOTTOM_LEFT}
                             content={
                                 <Menu>
@@ -330,6 +447,32 @@ function Home() {
                     <div>
                         <Pane className="space">
                             <DragHandleVerticalIcon className="moreicon" />
+                            <Popover
+                                minWidth={50}
+                                content={
+                                    <Menu>
+                                        <Menu.Group>
+                                            <Menu.Item style={menu}>
+                                                <p className="menucontent">Rename space</p>
+                                            </Menu.Item>
+                                            <Menu.Item style={menu}>
+                                                <p className="menucontent">Share</p>
+                                            </Menu.Item>
+                                            <Menu.Item onSelect={() => setIsShown2(true)} style={menu}>
+                                                <p className="menucontent">Move space</p>
+                                            </Menu.Item>
+                                            <Menu.Item style={menu}>
+                                                <p className="menucontent">Duplicate</p>
+                                            </Menu.Item>
+                                            <Menu.Item intent="danger" style={menu}>
+                                                <p className="menucontentred">Delete</p>
+                                            </Menu.Item>
+                                        </Menu.Group>
+                                    </Menu>
+                                }
+                            >
+                                <MoreIcon className="more_home" />
+                            </Popover>
 
                             <img src={bug} alt="" height="35" width="35" />
                             <h4>Bug Tracking</h4>
@@ -365,6 +508,32 @@ function Home() {
                         </Pane>
                         <Pane className="space">
                             <DragHandleVerticalIcon className="moreicon" />
+                            <Popover
+                                minWidth={50}
+                                content={
+                                    <Menu>
+                                        <Menu.Group>
+                                            <Menu.Item style={menu}>
+                                                <p className="menucontent">Rename space</p>
+                                            </Menu.Item>
+                                            <Menu.Item style={menu}>
+                                                <p className="menucontent">Share</p>
+                                            </Menu.Item>
+                                            <Menu.Item onSelect={() => setIsShown2(true)} style={menu}>
+                                                <p className="menucontent">Move space</p>
+                                            </Menu.Item>
+                                            <Menu.Item style={menu}>
+                                                <p className="menucontent">Duplicate</p>
+                                            </Menu.Item>
+                                            <Menu.Item intent="danger" style={menu}>
+                                                <p className="menucontentred">Delete</p>
+                                            </Menu.Item>
+                                        </Menu.Group>
+                                    </Menu>
+                                }
+                            >
+                                <MoreIcon className="more_home" />
+                            </Popover>
 
                             <img src={app} alt="" height="35" width="35" />
                             <h4>App Development</h4>
