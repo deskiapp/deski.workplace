@@ -20,7 +20,8 @@
 }
 .sidepane .wrk_title {
     color: #858585;
-    font-family: "SegoeUI";
+    font-family: "GTEestiProDisplay-light";
+    letter-spacing: 0.5px;
     font-size: 13px;
 }
 .img_title {

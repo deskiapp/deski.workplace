@@ -21,6 +21,7 @@ import {
     Popover,
     Menu,
     TextInputField,
+    TextInput,
     Dialog,
     SelectMenu,
     Avatar,
@@ -38,6 +39,7 @@ function Home() {
     const [isShown, setIsShown] = React.useState(false);
     const [isShown1, setIsShown1] = React.useState(false);
     const [isShown2, setIsShown2] = React.useState(false);
+    const [isShown3, setIsShown3] = React.useState(false);
 
     const menu = {
         height: "30px",
@@ -87,7 +89,11 @@ function Home() {
                                         >
                                             <p className="menucontent">Share workspace</p>
                                         </Menu.Item>
-                                        <Menu.Item style={menu} icon={<img src={rename} alt="" height="10" width="10" />}>
+                                        <Menu.Item
+                                            onSelect={() => setIsShown3(true)}
+                                            style={menu}
+                                            icon={<img src={rename} alt="" height="10" width="10" />}
+                                        >
                                             <p className="menucontent">Rename workspace</p>
                                         </Menu.Item>
                                         <Menu.Item
@@ -123,6 +129,38 @@ function Home() {
                                     </button>
                                     <button className="dlt_btn" onClick={() => setIsShown1(false)}>
                                         Delete workspace
+                                    </button>
+                                </div>
+                            </div>
+                        </Dialog>
+                        <Dialog
+                            margin="none"
+                            padding="none"
+                            topOffset={220}
+                            width={465}
+                            minHeightContent={205}
+                            onCloseComplete={() => setIsShown3(false)}
+                            preventBodyScrolling
+                            hasHeader={false}
+                            isShown={isShown3}
+                            hasFooter={false}
+                        >
+                            <div className="share_workspace">
+                                <h4>Change App Development to</h4>
+                                <p>Change your space name to another</p>
+                                <TextInput
+                                    className="new_name"
+                                    borderRadius="none"
+                                    width={400}
+                                    height={25}
+                                    placeholder="Enter new name"
+                                />
+                                <div>
+                                    <button className="cancel_btn" onClick={() => setIsShown3(false)}>
+                                        Cancel
+                                    </button>
+                                    <button className="add_btn" onClick={() => setIsShown3(false)}>
+                                        Save
                                     </button>
                                 </div>
                             </div>
@@ -242,7 +280,7 @@ function Home() {
                                 content={
                                     <Menu>
                                         <Menu.Group>
-                                            <Menu.Item style={menu}>
+                                            <Menu.Item onSelect={() => setIsShown3(true)} style={menu}>
                                                 <p className="menucontent">Rename space</p>
                                             </Menu.Item>
                                             <Menu.Item onSelect={() => setIsShown(true)} style={menu}>
@@ -304,7 +342,7 @@ function Home() {
                                 content={
                                     <Menu>
                                         <Menu.Group>
-                                            <Menu.Item style={menu}>
+                                            <Menu.Item onSelect={() => setIsShown3(true)} style={menu}>
                                                 <p className="menucontent">Rename space</p>
                                             </Menu.Item>
                                             <Menu.Item onSelect={() => setIsShown(true)} style={menu}>
@@ -431,7 +469,11 @@ function Home() {
                                         >
                                             <p className="menucontent">Share workspace</p>
                                         </Menu.Item>
-                                        <Menu.Item style={menu} icon={<img src={rename} alt="" height="10" width="10" />}>
+                                        <Menu.Item
+                                            onSelect={() => setIsShown3(true)}
+                                            style={menu}
+                                            icon={<img src={rename} alt="" height="10" width="10" />}
+                                        >
                                             <p className="menucontent">Rename workspace</p>
                                         </Menu.Item>
                                         <Menu.Item
@@ -456,7 +498,7 @@ function Home() {
                                 content={
                                     <Menu>
                                         <Menu.Group>
-                                            <Menu.Item style={menu}>
+                                            <Menu.Item onSelect={() => setIsShown3(true)} style={menu}>
                                                 <p className="menucontent">Rename space</p>
                                             </Menu.Item>
                                             <Menu.Item onSelect={() => setIsShown(true)} style={menu}>
@@ -518,7 +560,7 @@ function Home() {
                                 content={
                                     <Menu>
                                         <Menu.Group>
-                                            <Menu.Item style={menu}>
+                                            <Menu.Item onSelect={() => setIsShown3(true)} style={menu}>
                                                 <p className="menucontent">Rename space</p>
                                             </Menu.Item>
                                             <Menu.Item onSelect={() => setIsShown(true)} style={menu}>

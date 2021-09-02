@@ -17,18 +17,18 @@ function User() {
     return (
         <div>
             <div className="profile_sidebar">
-                <p className="title">SETTINGS</p>
+                <p className="title1">SETTINGS</p>
                 <Link to="/user_details" className={selectedtab1 === 0 ? "profile_links_selected" : "profile_links"}>
-                    <img src={ash_user} alt="" height="13" width="13" />
-                    <p className="content">Account overview</p>
+                    <img src={ash_user} alt="" height="14" width="14" />
+                    <p className="content1">Account overview</p>
                 </Link>
                 <Link to="#" className="profile_links">
-                    <img src={activity} alt="" height="13" width="13" />
-                    <p className="content">Activity</p>
+                    <img src={activity} alt="" height="14" width="14" />
+                    <p className="content1">Activity</p>
                 </Link>
                 <Link to="/collaborators" className="profile_links left_">
-                    <img src={arrow_back} alt="" height="10" width="10" />
-                    <p className="content">Back</p>
+                    <img src={arrow_back} alt="" height="11" width="11" />
+                    <p className="content1">Back</p>
                 </Link>
             </div>
         </div>

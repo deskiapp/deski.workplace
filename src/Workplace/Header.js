@@ -52,6 +52,7 @@ function Header() {
                     <div className="header_right">
                         <Popover
                             minWidth={240}
+                            marginTop={100}
                             position={Position.BOTTOM_RIGHT}
                             content={
                                 <Menu>
@@ -83,7 +84,9 @@ function Header() {
                                 </Menu>
                             }
                         >
-                            <Avatar className="profile" src={avatar} size={34} />
+                            <div className="profile_div">
+                                <Avatar className="profile" src={avatar} size={34} />
+                            </div>
                         </Popover>
                     </div>
                     <div className="bell">

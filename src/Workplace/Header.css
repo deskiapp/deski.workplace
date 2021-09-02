@@ -76,6 +76,9 @@ header {
 .profile {
     cursor: pointer;
 }
+.profile_div {
+    height: 46px;
+}
 .disabled p {
     font-family: "GTEestiProDisplay-Medium";
     color: #171717;

@@ -1,4 +1,11 @@
-.abc {
+.feed {
+    padding-top: 105px;
     margin-left: 360px;
-    padding-top: 100px;
+}
+.feed h2 {
+    font-family: "GTEestiProDisplay-light";
+    font-size: 21px;
+    letter-spacing: 0.7px;
+    color: #344563;
+    margin-bottom: 50px;
 }

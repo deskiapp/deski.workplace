@@ -14,6 +14,9 @@ function Collaborators() {
     const menu = {
         height: "25px",
     };
+    const menus = {
+        height: "30px",
+    };
     const [selected, setSelected] = React.useState(null);
     const [isShown, setIsShown] = React.useState(false);
     const textinput = {
@@ -45,7 +48,30 @@ function Collaborators() {
                     <div className="grid_item">
                         <h5>
                             All workspace
-                            <img className="dropdwn_icon" src={dropdown_circle} alt="" height="10" width="10" />
+                            <Popover
+                                position={Position.BOTTOM_LEFT}
+                                minWidth={190}
+                                content={
+                                    <Menu>
+                                        <Menu.Group>
+                                            <Menu.Item style={menus}>
+                                                <p className="menucontent">All workspace</p>
+                                            </Menu.Item>
+                                            <Menu.Item style={menus}>
+                                                <p className="menucontent">My first workspace</p>
+                                            </Menu.Item>
+                                            <Menu.Item style={menus}>
+                                                <p className="menucontent">Digital ocean work</p>
+                                            </Menu.Item>
+                                            <Menu.Item style={menus}>
+                                                <p className="menucontent">Bug tracking</p>
+                                            </Menu.Item>
+                                        </Menu.Group>
+                                    </Menu>
+                                }
+                            >
+                                <img className="dropdwn_icon" src={dropdown_circle} alt="" height="10" width="10" />
+                            </Popover>
                         </h5>
                     </div>
                     <div className="grid_item">
@@ -72,9 +98,11 @@ function Collaborators() {
                                 content={
                                     <Menu>
                                         <Menu.Group>
-                                            <Menu.Item style={menu}>
-                                                <p className="menucontent">Manage</p>
-                                            </Menu.Item>
+                                            <Link to="/user_details" className="links">
+                                                <Menu.Item style={menu}>
+                                                    <p className="menucontent">Manage</p>
+                                                </Menu.Item>
+                                            </Link>
                                             <Menu.Item style={menu}>
                                                 <p className="menucontent">Change roll</p>
                                             </Menu.Item>
@@ -105,9 +133,11 @@ function Collaborators() {
                                 content={
                                     <Menu>
                                         <Menu.Group>
-                                            <Menu.Item style={menu}>
-                                                <p className="menucontent">Manage</p>
-                                            </Menu.Item>
+                                            <Link to="/user_details" className="links">
+                                                <Menu.Item style={menu}>
+                                                    <p className="menucontent">Manage</p>
+                                                </Menu.Item>
+                                            </Link>
                                             <Menu.Item style={menu}>
                                                 <p className="menucontent">Change roll</p>
                                             </Menu.Item>
@@ -138,9 +168,11 @@ function Collaborators() {
                                 content={
                                     <Menu>
                                         <Menu.Group>
-                                            <Menu.Item style={menu}>
-                                                <p className="menucontent">Manage</p>
-                                            </Menu.Item>
+                                            <Link to="/user_details" className="links">
+                                                <Menu.Item style={menu}>
+                                                    <p className="menucontent">Manage</p>
+                                                </Menu.Item>
+                                            </Link>
                                             <Menu.Item style={menu}>
                                                 <p className="menucontent">Change roll</p>
                                             </Menu.Item>
@@ -171,9 +203,11 @@ function Collaborators() {
                                 content={
                                     <Menu>
                                         <Menu.Group>
-                                            <Menu.Item style={menu}>
-                                                <p className="menucontent">Manage</p>
-                                            </Menu.Item>
+                                            <Link to="/user_details" className="links">
+                                                <Menu.Item style={menu}>
+                                                    <p className="menucontent">Manage</p>
+                                                </Menu.Item>
+                                            </Link>
                                             <Menu.Item style={menu}>
                                                 <p className="menucontent">Change roll</p>
                                             </Menu.Item>
