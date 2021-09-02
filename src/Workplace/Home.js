@@ -245,7 +245,7 @@ function Home() {
                                             <Menu.Item style={menu}>
                                                 <p className="menucontent">Rename space</p>
                                             </Menu.Item>
-                                            <Menu.Item style={menu}>
+                                            <Menu.Item onSelect={() => setIsShown(true)} style={menu}>
                                                 <p className="menucontent">Share</p>
                                             </Menu.Item>
                                             <Menu.Item onSelect={() => setIsShown2(true)} style={menu}>
@@ -254,7 +254,7 @@ function Home() {
                                             <Menu.Item style={menu}>
                                                 <p className="menucontent">Duplicate</p>
                                             </Menu.Item>
-                                            <Menu.Item intent="danger" style={menu}>
+                                            <Menu.Item onSelect={() => setIsShown1(true)} intent="danger" style={menu}>
                                                 <p className="menucontentred">Delete</p>
                                             </Menu.Item>
                                         </Menu.Group>
@@ -307,7 +307,7 @@ function Home() {
                                             <Menu.Item style={menu}>
                                                 <p className="menucontent">Rename space</p>
                                             </Menu.Item>
-                                            <Menu.Item style={menu}>
+                                            <Menu.Item onSelect={() => setIsShown(true)} style={menu}>
                                                 <p className="menucontent">Share</p>
                                             </Menu.Item>
                                             <Menu.Item onSelect={() => setIsShown2(true)} style={menu}>
@@ -316,7 +316,7 @@ function Home() {
                                             <Menu.Item style={menu}>
                                                 <p className="menucontent">Duplicate</p>
                                             </Menu.Item>
-                                            <Menu.Item intent="danger" style={menu}>
+                                            <Menu.Item onSelect={() => setIsShown1(true)} intent="danger" style={menu}>
                                                 <p className="menucontentred">Delete</p>
                                             </Menu.Item>
                                         </Menu.Group>
@@ -459,7 +459,7 @@ function Home() {
                                             <Menu.Item style={menu}>
                                                 <p className="menucontent">Rename space</p>
                                             </Menu.Item>
-                                            <Menu.Item style={menu}>
+                                            <Menu.Item onSelect={() => setIsShown(true)} style={menu}>
                                                 <p className="menucontent">Share</p>
                                             </Menu.Item>
                                             <Menu.Item onSelect={() => setIsShown2(true)} style={menu}>
@@ -468,7 +468,7 @@ function Home() {
                                             <Menu.Item style={menu}>
                                                 <p className="menucontent">Duplicate</p>
                                             </Menu.Item>
-                                            <Menu.Item intent="danger" style={menu}>
+                                            <Menu.Item onSelect={() => setIsShown1(true)} intent="danger" style={menu}>
                                                 <p className="menucontentred">Delete</p>
                                             </Menu.Item>
                                         </Menu.Group>
@@ -521,7 +521,7 @@ function Home() {
                                             <Menu.Item style={menu}>
                                                 <p className="menucontent">Rename space</p>
                                             </Menu.Item>
-                                            <Menu.Item style={menu}>
+                                            <Menu.Item onSelect={() => setIsShown(true)} style={menu}>
                                                 <p className="menucontent">Share</p>
                                             </Menu.Item>
                                             <Menu.Item onSelect={() => setIsShown2(true)} style={menu}>
@@ -530,7 +530,7 @@ function Home() {
                                             <Menu.Item style={menu}>
                                                 <p className="menucontent">Duplicate</p>
                                             </Menu.Item>
-                                            <Menu.Item intent="danger" style={menu}>
+                                            <Menu.Item onSelect={() => setIsShown1(true)} intent="danger" style={menu}>
                                                 <p className="menucontentred">Delete</p>
                                             </Menu.Item>
                                         </Menu.Group>

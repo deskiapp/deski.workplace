@@ -28,7 +28,7 @@ function Setting_up() {
                 </div>
                 <h1>One moment your, site is starting up</h1>
                 <div className="create_site">
-                    <img src={business_team} alt="" height="280" width="480" />
+                    <img src={business_team} alt="" className="business_team" />
                 </div>
                 <div className="create_site">
                     <div style={containerStyles}>

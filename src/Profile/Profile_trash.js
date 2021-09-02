@@ -4,6 +4,7 @@ import Profile from "./Profile";
 import Header from "../Workplace/Header";
 import trash from "../assets/trash.svg";
 import arrow from "../assets/arrow.svg";
+import restore from "../assets/restore.svg";
 import { Popover, Menu, Position, Pane, MoreIcon } from "evergreen-ui";
 import bug from "../assets/bug.svg";
 import app from "../assets/app.svg";
@@ -47,7 +48,7 @@ function Profile_trash() {
                     content={
                         <Menu>
                             <Menu.Group>
-                                <Menu.Item style={menu} icon={<img src={trash} alt="" height="10" width="10" />}>
+                                <Menu.Item style={menu} icon={<img src={restore} alt="" height="10" width="10" />}>
                                     <p className="menucontent">Restore workspace</p>
                                 </Menu.Item>
                                 <Menu.Item style={menu} icon={<img src={trash} alt="" height="10" width="10" />}>

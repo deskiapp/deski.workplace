@@ -3,11 +3,6 @@ import "./Header.css";
 import deski_ash from "../assets/deski_ash.svg";
 import { Link, useLocation } from "react-router-dom";
 import bell from "../assets/bell.svg";
-import logout from "../assets/logout.svg";
-import upgrade from "../assets/upgrade.svg";
-import account from "../assets/account.svg";
-import contact from "../assets/contact.svg";
-import connect from "../assets/connect.svg";
 import avatar from "../assets/avatar.jpg";
 import { Avatar, Menu, Popover, Position } from "evergreen-ui";
 
@@ -16,15 +11,7 @@ function Header() {
     const [selectedtab, setSelectedTab] = React.useState(0);
 
     const disabled = {
-        marginTop: "-15px",
-        height: "70px",
-    };
-    const line = {
-        marginLeft: "-20px",
-        marginRight: "-20px",
-        marginTop: "-5px",
-        width: "185px",
-        borderBottom: "solid 1px #707070",
+        marginTop: "5px",
     };
     const profile_menu = {
         height: "30px",
@@ -64,33 +51,35 @@ function Header() {
 
                     <div className="header_right">
                         <Popover
+                            minWidth={240}
                             position={Position.BOTTOM_RIGHT}
                             content={
                                 <Menu>
                                     <Menu.Group>
                                         <Menu.Item className="disabled" style={disabled} disabled>
-                                            <p>hey@deski.app</p>
-                                            <div className="line" style={line}></div>
+                                            <p>deski.app</p>
                                         </Menu.Item>
                                         <Link to="/account" className="link">
-                                            <Menu.Item style={profile_menu} icon={<img src={account} alt="" />}>
+                                            <Menu.Item className="profile_menu">
                                                 <p>Account</p>
                                             </Menu.Item>
                                         </Link>
-                                        <Menu.Item style={profile_menu} icon={<img src={upgrade} alt="" />}>
+                                        <Menu.Item className="profile_menu">
                                             <p>Upgrade</p>
                                         </Menu.Item>
-                                        <Menu.Item style={profile_menu} icon={<img src={contact} alt="" />}>
+                                        <Menu.Item className="profile_menu">
                                             <p>Contact sales</p>
                                         </Menu.Item>
-                                        <Menu.Item style={profile_menu} icon={<img src={connect} alt="" />}>
+                                        <Menu.Item className="profile_menu">
                                             <p>Connected accounts</p>
-                                        </Menu.Item>
-                                        <Menu.Item style={profile_menu} icon={<img src={logout} alt="" />}>
-                                            <p>Logout</p>
                                         </Menu.Item>
                                     </Menu.Group>
                                     <Menu.Divider />
+                                    <Menu.Group>
+                                        <Menu.Item style={profile_menu} className="profile_menu">
+                                            <p>Logout</p>
+                                        </Menu.Item>
+                                    </Menu.Group>
                                 </Menu>
                             }
                         >
