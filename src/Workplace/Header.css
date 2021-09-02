@@ -56,17 +56,17 @@ header {
     margin-top: -47px;
     margin-left: 220px;
 }
-.wrknav_links:after {
-    content: "";
-    position: absolute;
-    height: 4px;
-    width: 0;
-    left: 0;
-    bottom: -20px;
-    background-color: #3250fe;
-}
-.wrknav_links:hover:after {
-    width: 100%;
+.wrknav_links_selected {
+    text-decoration: none;
+    font-family: "GTEestiProDisplay-light";
+    color: #344563;
+    margin-left: 30px;
+    letter-spacing: 0.2px;
+    font-size: 14px;
+    position: relative;
+    padding: 0 10px;
+    padding-bottom: 16px;
+    border-bottom: 4px solid #3250fe;
 }
 .profile_menu p {
     font-family: "GTEestiProDisplay-thin";

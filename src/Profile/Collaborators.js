@@ -41,12 +41,13 @@ function Collaborators() {
                     </div>
                     <div className="grid_item">
                         <h5>
-                            All workspace <img className="dropdwn" src={dropdown_circle} alt="" height="10" width="10" />
+                            All workspace
+                            <img className="dropdwn_icon" src={dropdown_circle} alt="" height="10" width="10" />
                         </h5>
                     </div>
                     <div className="grid_item">
                         <h5>
-                            User rolls <img className="dropdwn" src={dropdown_circle} alt="" height="10" width="10" />
+                            User rolls <img className="dropdwn_icon" src={dropdown_circle} alt="" height="10" width="10" />
                         </h5>
                     </div>
                     <div className="grid_item">
