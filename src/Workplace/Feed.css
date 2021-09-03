@@ -1,11 +1,198 @@
 .feed {
     padding-top: 105px;
     margin-left: 360px;
+    margin-bottom: 100px;
 }
 .feed h2 {
     font-family: "GTEestiProDisplay-light";
     font-size: 21px;
     letter-spacing: 0.7px;
     color: #344563;
-    margin-bottom: 50px;
+}
+.color_line {
+    background-color: #fcb400;
+    height: 160px;
+    width: 13px;
+    margin-left: -25px;
+    margin-top: -158px;
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+}
+.color_line1 {
+    background-color: #2079d2;
+    height: 160px;
+    width: 13px;
+    margin-left: -25px;
+    margin-top: -158px;
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+}
+.color_line2 {
+    background-color: #7cd8d5;
+    height: 160px;
+    width: 13px;
+    margin-left: -25px;
+    margin-top: -158px;
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+}
+.feed_card {
+    padding: 12px;
+    padding-left: 25px;
+    margin-top: 20px;
+    float: left;
+    height: 160px;
+    width: 225px;
+    border-radius: 4px;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.16);
+    background-color: #fff;
+    margin-right: 22px;
+}
+
+.feed_card h4 {
+    color: #344563;
+    letter-spacing: 0.4px;
+    font-family: "SegoeUI";
+    margin-left: 48px;
+    margin-top: -35px;
+    font-size: 14px;
+}
+
+.feed_card .deski {
+    color: #a0a2a7;
+    font-size: 9px;
+    font-family: "SegoeUI";
+    margin-left: 50px;
+    margin-top: -17px;
+}
+
+.moreicon {
+    float: right;
+    color: #cecece;
+}
+.feed_card .des {
+    color: #7b7b7b;
+    font-family: "SegoeUI";
+    font-size: 10px;
+    margin-top: 18px;
+    margin-bottom: 16px;
+}
+.feed_card .progress {
+    text-align: center;
+    color: #344563;
+    font-family: "GTEestiProDisplay-light";
+    font-size: 7px;
+    margin-top: 15px;
+}
+.feed_card .task {
+    font-family: "SegoeUISemibold";
+    color: #344563;
+    font-size: 10px;
+    margin-left: 10px;
+}
+.feed_card .task:hover {
+    background-color: #f5f5f5;
+}
+.feed_card .div {
+    float: right;
+    font-family: "SegoeUISemibold";
+    color: #344563;
+    font-size: 10px;
+    width: 22px;
+    height: 15px;
+    text-align: center;
+    border-radius: 9px;
+    margin-right: 10px;
+    background-color: #f5f5f5;
+}
+.feed_center {
+    margin-top: 230px;
+    margin-left: -35px;
+    display: flex;
+    justify-content: center;
+    font-family: "GTEestiProDisplay-regular";
+    font-size: 9px;
+    letter-spacing: 0.2px;
+    color: #344563;
+}
+.feed_arrow {
+    margin-left: 3px;
+}
+.alert_issues {
+    background-color: #ff0d0d;
+    display: inline;
+    color: white;
+    padding: 0 5px 0 7px;
+    margin-left: 5px;
+    font-size: 10px;
+    font-family: "SegoeUI";
+    border-radius: 10px;
+}
+.feed_btns button {
+    font-family: "GTEestiProDisplay-regular";
+    color: #344563;
+    cursor: pointer;
+    font-size: 14px;
+    margin-top: 20px;
+    margin-right: 45px;
+    background-color: white;
+    border: none;
+    float: left;
+    padding: 0 0 8px 0;
+    border-bottom: 3px solid #3250fe;
+}
+.feed_contents {
+    margin-top: 70px;
+    /* display: none; */
+}
+.task_search::placeholder {
+    font-family: "SegoeUISemibold";
+    color: #6d6d6d;
+    font-size: 13px;
+}
+.filter {
+    margin-right: 10px;
+}
+.filter_btn {
+    width: 80px;
+    cursor: pointer;
+    color: #292929;
+    font-family: "SegoeUISemibold";
+    font-size: 10px;
+    float: right;
+    margin-right: 40px;
+    border-radius: 5px;
+    padding: 5px;
+    padding-right: 10px;
+    border: solid 1px #dbdbdb;
+    background-color: white;
+}
+.ellipse {
+    float: left;
+}
+.status_btn {
+    cursor: pointer;
+    font-size: 10px;
+    float: right;
+    border: none;
+    border-radius: 3px;
+    border: solid 1px #dedede;
+    background-color: #fff;
+    margin-right: 40px;
+    width: 100px;
+    height: 21px;
+    font-family: "SegoeUISemibold";
+    color: #344563;
+}
+.task_con {
+    margin-top: 30px;
+    margin-bottom: 35px;
+}
+.task_con p {
+    color: #7b7b7b;
+    font-family: "SegoeUI";
+    font-size: 10px;
+    width: 590px;
+    margin-left: 50px;
+    margin-top: -35px;
 }

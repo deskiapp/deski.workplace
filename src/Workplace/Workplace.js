@@ -1,21 +1,21 @@
 import React from "react";
 import "./Workplace.css";
-import { Link, useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 import group_work from "../assets/group_work.svg";
 import trash from "../assets/trash.svg";
 import add from "../assets/add.svg";
 import { Pane, SearchInput, DragHandleVerticalIcon } from "evergreen-ui";
 
 function Workplace() {
-    const location = useLocation();
-    const [selectedtabs, setSelectedTabs] = React.useState(0);
+    // const location = useLocation();
+    // const [selectedtabs, setSelectedTabs] = React.useState(0);
 
-    React.useEffect(() => {
-        // alert(location.pathname)
-        if (location.pathname === "/workplace_trash") {
-            setSelectedTabs(0);
-        }
-    });
+    // React.useEffect(() => {
+    //     // alert(location.pathname)
+    //     if (location.pathname === "/workplace_trash") {
+    //         setSelectedTabs(0);
+    //     }
+    // });
     const searchinput = {
         width: "210px",
         borderRadius: "4px",
