@@ -4,7 +4,7 @@ import Header from "../Workplace/Header";
 import Profile from "./Profile";
 import bug from "../assets/bug.svg";
 import app from "../assets/app.svg";
-import { Pane, Popover, Menu, TextInputField, Dialog, SelectMenu, Avatar, MoreIcon } from "evergreen-ui";
+import { Pane, Popover, Menu, TextInputField, Dialog, SelectMenu, Avatar, MoreIcon, Position } from "evergreen-ui";
 import share from "../assets/share.svg";
 import dlt from "../assets/dlt.svg";
 import rename from "../assets/rename.svg";
@@ -36,6 +36,7 @@ function Workspaces() {
                 <div className="my_workspace">
                     <h4>My first workspace</h4>
                     <Popover
+                        position={Position.BOTTOM_LEFT}
                         minWidth={120}
                         content={
                             <Menu>
@@ -200,6 +201,7 @@ function Workspaces() {
                     <div className="card_div">
                         <Pane className="card1">
                             <Popover
+                                position={Position.BOTTOM_LEFT}
                                 minWidth={50}
                                 content={
                                     <Menu>
@@ -225,6 +227,7 @@ function Workspaces() {
                             >
                                 <MoreIcon className="more_" />
                             </Popover>
+
                             <img src={bug} alt="" height="34" width="34" />
                             <h4>Hexcode</h4>
                             <p className="span4">www.hexcode.co</p>
@@ -234,6 +237,7 @@ function Workspaces() {
                         </Pane>
                         <Pane className="card2">
                             <Popover
+                                position={Position.BOTTOM_LEFT}
                                 minWidth={50}
                                 content={
                                     <Menu>
@@ -268,6 +272,7 @@ function Workspaces() {
                         </Pane>
                         <Pane className="card2">
                             <Popover
+                                position={Position.BOTTOM_LEFT}
                                 minWidth={50}
                                 content={
                                     <Menu>
@@ -305,6 +310,7 @@ function Workspaces() {
                     <div className="card_div card_secondrow">
                         <Pane className="card1">
                             <Popover
+                                position={Position.BOTTOM_LEFT}
                                 minWidth={50}
                                 content={
                                     <Menu>
@@ -339,6 +345,7 @@ function Workspaces() {
                         </Pane>
                         <Pane className="card2">
                             <Popover
+                                position={Position.BOTTOM_LEFT}
                                 minWidth={50}
                                 content={
                                     <Menu>
@@ -373,6 +380,7 @@ function Workspaces() {
                         </Pane>
                         <Pane className="card2">
                             <Popover
+                                position={Position.BOTTOM_LEFT}
                                 minWidth={50}
                                 content={
                                     <Menu>
@@ -415,6 +423,7 @@ function Workspaces() {
                     <div className="card_div">
                         <Pane className="card1">
                             <Popover
+                                position={Position.BOTTOM_LEFT}
                                 minWidth={50}
                                 content={
                                     <Menu>
@@ -449,6 +458,7 @@ function Workspaces() {
                         </Pane>
                         <Pane className="card2">
                             <Popover
+                                position={Position.BOTTOM_LEFT}
                                 minWidth={50}
                                 content={
                                     <Menu>
@@ -483,6 +493,7 @@ function Workspaces() {
                         </Pane>
                         <Pane className="card2">
                             <Popover
+                                position={Position.BOTTOM_LEFT}
                                 minWidth={50}
                                 content={
                                     <Menu>

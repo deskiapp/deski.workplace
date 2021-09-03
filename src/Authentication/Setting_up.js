@@ -1,7 +1,7 @@
 import React from "react";
 import "./Setting_up.css";
 import deski_ash from "../assets/deski_ash.svg";
-import business_team from "../assets/business_team.svg";
+import business_team from "../assets/business_team.png";
 
 function Setting_up() {
     const containerStyles = {

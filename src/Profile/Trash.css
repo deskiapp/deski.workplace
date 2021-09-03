@@ -1,0 +1,25 @@
+.trash {
+    padding-top: 100px;
+    margin-left: 360px;
+}
+.trash h2 {
+    font-family: "GTEestiProDisplay-light";
+    font-size: 21px;
+    letter-spacing: 0.7px;
+    color: #344563;
+}
+.trash_p {
+    font-family: "GTEestiProDisplay-light";
+    color: #aaa;
+    font-size: 12px;
+    margin-top: 30px;
+    margin-bottom: 40px;
+}
+.arrow_trash {
+    width: 30px;
+    margin-left: 185px;
+    margin-top: -38px;
+}
+.other_space {
+    margin-top: 320px;
+}

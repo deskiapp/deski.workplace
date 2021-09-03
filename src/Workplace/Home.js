@@ -25,6 +25,7 @@ import {
     SelectMenu,
     Avatar,
     MoreIcon,
+    Position,
 } from "evergreen-ui";
 import avatar from "../assets/avatar.jpg";
 import avatar1 from "../assets/avatar1.jpeg";
@@ -71,6 +72,7 @@ function Home() {
                     <div>
                         <h2>My First Workspace</h2>
                         <Popover
+                            position={Position.BOTTOM_LEFT}
                             minWidth={120}
                             content={
                                 <Menu>
@@ -235,6 +237,7 @@ function Home() {
                         <Pane className="space">
                             <DragHandleVerticalIcon className="moreicon" />
                             <Popover
+                                position={Position.BOTTOM_LEFT}
                                 minWidth={50}
                                 content={
                                     <Menu>
@@ -296,6 +299,7 @@ function Home() {
                         <Pane className="space">
                             <DragHandleVerticalIcon className="moreicon" />
                             <Popover
+                                position={Position.BOTTOM_LEFT}
                                 minWidth={50}
                                 content={
                                     <Menu>
@@ -413,7 +417,7 @@ function Home() {
                         <h2>My Second Workspace</h2>
                         <Popover
                             minWidth={120}
-                            // position={Position.BOTTOM_LEFT}
+                            position={Position.BOTTOM_LEFT}
                             content={
                                 <Menu>
                                     <Menu.Group>
@@ -509,6 +513,7 @@ function Home() {
                         <Pane className="space">
                             <DragHandleVerticalIcon className="moreicon" />
                             <Popover
+                                position={Position.BOTTOM_LEFT}
                                 minWidth={50}
                                 content={
                                     <Menu>
