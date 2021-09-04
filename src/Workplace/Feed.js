@@ -2,7 +2,7 @@ import React from "react";
 import "./Feed.css";
 import Workplace from "../Workplace/Workplace";
 import Header from "../Workplace/Header";
-import { Pane, DragHandleVerticalIcon, SearchInput } from "evergreen-ui";
+import { Pane, DragHandleVerticalIcon, SearchInput, Popover, Menu } from "evergreen-ui";
 import app from "../assets/app.svg";
 import bug from "../assets/bug.svg";
 import alert from "../assets/alert.svg";
@@ -13,6 +13,9 @@ import ellipse3 from "../assets/ellipse3.svg";
 import filter from "../assets/filter.svg";
 
 function Feed() {
+    const menu = {
+        height: "25px",
+    };
     const [selectedTab, setSelectedTab] = React.useState(0);
 
     return (
@@ -54,11 +57,11 @@ function Feed() {
                             <div className="div">5</div>
                             <p className="task">My tasks</p>
                         </div>
-                        <div className="div">24</div>
                         <div className="issue_con">
+                            <div className="div">24</div>
                             <p className="task">Open Issues</p>
-                            <div className="color_line1"></div>
                         </div>
+                        <div className="color_line1"></div>
                     </Pane>
                     <Pane className="feed_card">
                         <DragHandleVerticalIcon className="moreicon" />
@@ -126,10 +129,28 @@ function Feed() {
 
                 {selectedTab === 0 ? (
                     <div className="feed_contents">
-                        <button className="filter_btn">
-                            <img src={filter} className="filter" alt="" height="10" width="14" />
-                            Filter
-                        </button>
+                        <Popover
+                            minWidth={30}
+                            content={
+                                <Menu>
+                                    <Menu.Group>
+                                        <Menu.Item style={menu}>
+                                            <p className="menucontent">Sort as latest</p>
+                                        </Menu.Item>
+
+                                        <Menu.Item style={menu}>
+                                            <p className="menucontent">Sort as first</p>
+                                        </Menu.Item>
+                                    </Menu.Group>
+                                </Menu>
+                            }
+                        >
+                            <button className="filter_btn">
+                                <img src={filter} className="filter" alt="" height="10" width="14" />
+                                Filter
+                            </button>
+                        </Popover>
+
                         <SearchInput height={27} className="task_search" width={200} placeholder="Find your task" />
                         <div className="task_con">
                             <button className="status_btn">
@@ -138,7 +159,7 @@ function Feed() {
                             </button>
                             <img src={bug} alt="" height="35" width="35" />
                             <p>
-                                1 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas imperdiet velit,Lorem
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas imperdiet velit,Lorem
                                 ipsum dolor sit amet, consectetur adipiscing elit. Maecenas imperdiet velit
                             </p>
                         </div>
@@ -164,13 +185,96 @@ function Feed() {
                                 ipsum dolor sit amet, consectetur adipiscing elit. Maecenas imperdiet velit
                             </p>
                         </div>
+                        <div className="task_con">
+                            <button className="status_btn">
+                                <img src={ellipse3} className="ellipse" alt="" height="12" width="10" />
+                                Inprogress
+                            </button>
+                            <img src={bug} alt="" height="35" width="35" />
+                            <p>
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas imperdiet velit,Lorem
+                                ipsum dolor sit amet, consectetur adipiscing elit. Maecenas imperdiet velit
+                            </p>
+                        </div>
+                        <div className="task_con">
+                            <button className="status_btn">
+                                <img src={ellipse3} className="ellipse" alt="" height="12" width="10" />
+                                Inprogress
+                            </button>
+                            <img src={bug} alt="" height="35" width="35" />
+                            <p>
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas imperdiet velit,Lorem
+                                ipsum dolor sit amet, consectetur adipiscing elit. Maecenas imperdiet velit
+                            </p>
+                        </div>
+                        <div className="task_con">
+                            <button className="status_btn">
+                                <img src={ellipse3} className="ellipse" alt="" height="12" width="10" />
+                                Inprogress
+                            </button>
+                            <img src={bug} alt="" height="35" width="35" />
+                            <p>
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas imperdiet velit,Lorem
+                                ipsum dolor sit amet, consectetur adipiscing elit. Maecenas imperdiet velit
+                            </p>
+                        </div>
+                        <div className="task_con">
+                            <button className="status_btn">
+                                <img src={ellipse3} className="ellipse" alt="" height="12" width="10" />
+                                Inprogress
+                            </button>
+                            <img src={bug} alt="" height="35" width="35" />
+                            <p>
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas imperdiet velit,Lorem
+                                ipsum dolor sit amet, consectetur adipiscing elit. Maecenas imperdiet velit
+                            </p>
+                        </div>
+                        <div className="task_con">
+                            <button className="status_btn">
+                                <img src={ellipse3} className="ellipse" alt="" height="12" width="10" />
+                                Inprogress
+                            </button>
+                            <img src={bug} alt="" height="35" width="35" />
+                            <p>
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas imperdiet velit,Lorem
+                                ipsum dolor sit amet, consectetur adipiscing elit. Maecenas imperdiet velit
+                            </p>
+                        </div>
+                        <div className="task_con">
+                            <button className="status_btn">
+                                <img src={ellipse3} className="ellipse" alt="" height="12" width="10" />
+                                Inprogress
+                            </button>
+                            <img src={bug} alt="" height="35" width="35" />
+                            <p>
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas imperdiet velit,Lorem
+                                ipsum dolor sit amet, consectetur adipiscing elit. Maecenas imperdiet velit
+                            </p>
+                        </div>
                     </div>
                 ) : selectedTab === 1 ? (
                     <div className="feed_contents">
-                        <button className="filter_btn">
-                            <img src={filter} className="filter" alt="" height="10" width="14" />
-                            Filter
-                        </button>
+                        <Popover
+                            minWidth={30}
+                            content={
+                                <Menu>
+                                    <Menu.Group>
+                                        <Menu.Item style={menu}>
+                                            <p className="menucontent">Sort as latest</p>
+                                        </Menu.Item>
+
+                                        <Menu.Item style={menu}>
+                                            <p className="menucontent">Sort as first</p>
+                                        </Menu.Item>
+                                    </Menu.Group>
+                                </Menu>
+                            }
+                        >
+                            <button className="filter_btn">
+                                <img src={filter} className="filter" alt="" height="10" width="14" />
+                                Filter
+                            </button>
+                        </Popover>
                         <SearchInput height={27} className="task_search" width={200} placeholder="Find your task" />
                         <div className="task_con">
                             <button className="status_btn">
@@ -179,7 +283,7 @@ function Feed() {
                             </button>
                             <img src={bug} alt="" height="35" width="35" />
                             <p>
-                                2 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas imperdiet velit,Lorem
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas imperdiet velit,Lorem
                                 ipsum dolor sit amet, consectetur adipiscing elit. Maecenas imperdiet velit
                             </p>
                         </div>
@@ -208,10 +312,27 @@ function Feed() {
                     </div>
                 ) : selectedTab === 2 ? (
                     <div className="feed_contents">
-                        <button className="filter_btn">
-                            <img src={filter} className="filter" alt="" height="10" width="14" />
-                            Filter
-                        </button>
+                        <Popover
+                            minWidth={30}
+                            content={
+                                <Menu>
+                                    <Menu.Group>
+                                        <Menu.Item style={menu}>
+                                            <p className="menucontent">Sort as latest</p>
+                                        </Menu.Item>
+
+                                        <Menu.Item style={menu}>
+                                            <p className="menucontent">Sort as first</p>
+                                        </Menu.Item>
+                                    </Menu.Group>
+                                </Menu>
+                            }
+                        >
+                            <button className="filter_btn">
+                                <img src={filter} className="filter" alt="" height="10" width="14" />
+                                Filter
+                            </button>
+                        </Popover>
                         <SearchInput height={27} className="task_search" width={200} placeholder="Find your task" />
                         <div className="task_con">
                             <button className="status_btn">
@@ -220,7 +341,7 @@ function Feed() {
                             </button>
                             <img src={bug} alt="" height="35" width="35" />
                             <p>
-                                3 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas imperdiet velit,Lorem
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas imperdiet velit,Lorem
                                 ipsum dolor sit amet, consectetur adipiscing elit. Maecenas imperdiet velit
                             </p>
                         </div>
@@ -249,10 +370,27 @@ function Feed() {
                     </div>
                 ) : selectedTab === 3 ? (
                     <div className="feed_contents">
-                        <button className="filter_btn">
-                            <img src={filter} className="filter" alt="" height="10" width="14" />
-                            Filter
-                        </button>
+                        <Popover
+                            minWidth={30}
+                            content={
+                                <Menu>
+                                    <Menu.Group>
+                                        <Menu.Item style={menu}>
+                                            <p className="menucontent">Sort as latest</p>
+                                        </Menu.Item>
+
+                                        <Menu.Item style={menu}>
+                                            <p className="menucontent">Sort as first</p>
+                                        </Menu.Item>
+                                    </Menu.Group>
+                                </Menu>
+                            }
+                        >
+                            <button className="filter_btn">
+                                <img src={filter} className="filter" alt="" height="10" width="14" />
+                                Filter
+                            </button>
+                        </Popover>
                         <SearchInput height={27} className="task_search" width={200} placeholder="Find your task" />
                         <div className="task_con">
                             <button className="status_btn">
@@ -261,7 +399,7 @@ function Feed() {
                             </button>
                             <img src={app} alt="" height="35" width="35" />
                             <p>
-                                4 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas imperdiet velit,Lorem
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas imperdiet velit,Lorem
                                 ipsum dolor sit amet, consectetur adipiscing elit. Maecenas imperdiet velit
                             </p>
                         </div>
@@ -290,10 +428,27 @@ function Feed() {
                     </div>
                 ) : selectedTab === 4 ? (
                     <div className="feed_contents">
-                        <button className="filter_btn">
-                            <img src={filter} className="filter" alt="" height="10" width="14" />
-                            Filter
-                        </button>
+                        <Popover
+                            minWidth={30}
+                            content={
+                                <Menu>
+                                    <Menu.Group>
+                                        <Menu.Item style={menu}>
+                                            <p className="menucontent">Sort as latest</p>
+                                        </Menu.Item>
+
+                                        <Menu.Item style={menu}>
+                                            <p className="menucontent">Sort as first</p>
+                                        </Menu.Item>
+                                    </Menu.Group>
+                                </Menu>
+                            }
+                        >
+                            <button className="filter_btn">
+                                <img src={filter} className="filter" alt="" height="10" width="14" />
+                                Filter
+                            </button>
+                        </Popover>
                         <SearchInput height={27} className="task_search" width={200} placeholder="Find your task" />
                         <div className="task_con">
                             <button className="status_btn">
@@ -302,7 +457,7 @@ function Feed() {
                             </button>
                             <img src={app} alt="" height="35" width="35" />
                             <p>
-                                5Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas imperdiet velit,Lorem
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas imperdiet velit,Lorem
                                 ipsum dolor sit amet, consectetur adipiscing elit. Maecenas imperdiet velit
                             </p>
                         </div>

@@ -12,13 +12,16 @@ import bug from "../assets/bug.svg";
 import delet from "../assets/delet.svg";
 import app from "../assets/app.svg";
 import add_blue from "../assets/add_blue.svg";
-import { Pane, Dialog } from "evergreen-ui";
+import { Pane, Dialog, TextInput, CrossIcon, TickIcon } from "evergreen-ui";
 
 function Account() {
+    const [selectedTab, setSelectedTab] = React.useState(0);
+
     const inputFile = useRef(null);
     const onButtonClick = () => {
         inputFile.current.click();
     };
+
     const [isShown, setIsShown] = React.useState(false);
 
     return (
@@ -40,22 +43,78 @@ function Account() {
                         <img className="add" src={add_blue} alt="" />
                     </span>
                     <div className="account_con2">
-                        <p>
+                        <button onClick={() => setSelectedTab(0)} className="others">
                             <img src={toolbox} alt="" className="toolbox" />
                             Project Manager
-                        </p>
-                        <p>
+                        </button>
+                        {selectedTab === 0 ? (
+                            <div className="roles">
+                                <TextInput width={200} />
+                                <br></br>
+                                <div>
+                                    <button>
+                                        <TickIcon className="icon" />
+                                    </button>
+                                    <button>
+                                        <CrossIcon className="icon" />
+                                    </button>
+                                </div>
+                            </div>
+                        ) : null}
+                        <button onClick={() => setSelectedTab(1)} className="others">
                             <img src={department} alt="" className="toolbox" />
                             Your department
-                        </p>
-                        <p>
+                        </button>
+                        {selectedTab === 1 ? (
+                            <div className="roles">
+                                <TextInput width={200} />
+                                <br></br>
+                                <div>
+                                    <button>
+                                        <TickIcon className="icon" />
+                                    </button>
+                                    <button>
+                                        <CrossIcon className="icon" />
+                                    </button>
+                                </div>
+                            </div>
+                        ) : null}
+                        <button onClick={() => setSelectedTab(2)} className="others">
                             <img src={building} alt="" className="toolbox" />
                             Your organization
-                        </p>
-                        <p>
+                        </button>
+                        {selectedTab === 2 ? (
+                            <div className="roles">
+                                <TextInput width={200} />
+                                <br></br>
+                                <div>
+                                    <button>
+                                        <TickIcon className="icon" />
+                                    </button>
+                                    <button>
+                                        <CrossIcon className="icon" />
+                                    </button>
+                                </div>
+                            </div>
+                        ) : null}
+                        <button onClick={() => setSelectedTab(3)} className="others">
                             <img src={location} alt="" className="toolbox" />
                             Your location
-                        </p>
+                        </button>
+                        {selectedTab === 3 ? (
+                            <div className="roles">
+                                <TextInput width={200} />
+                                <br></br>
+                                <div>
+                                    <button>
+                                        <TickIcon className="icon" />
+                                    </button>
+                                    <button>
+                                        <CrossIcon className="icon" />
+                                    </button>
+                                </div>
+                            </div>
+                        ) : null}
                         <div className="account_con3">
                             <span className="span3">Places you work</span>
                         </div>
