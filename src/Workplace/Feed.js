@@ -31,10 +31,14 @@ function Feed() {
                         <p className="des">
                             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas imperdiet velit
                         </p>
-                        <div className="div">5</div>
-                        <p className="task">My tasks</p>
-                        <div className="div">24</div>
-                        <p className="task">Open Issues</p>
+                        <div className="tasks_con">
+                            <div className="div">5</div>
+                            <p className="task">My tasks</p>
+                        </div>
+                        <div className="issue_con">
+                            <div className="div">24</div>
+                            <p className="task">Open Issues</p>
+                        </div>
                         <div className="color_line"></div>
                     </Pane>
                     <Pane className="feed_card">
@@ -46,11 +50,15 @@ function Feed() {
                         <p className="des">
                             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas imperdiet velit
                         </p>
-                        <div className="div">5</div>
-                        <p className="task">My tasks</p>
+                        <div className="tasks_con">
+                            <div className="div">5</div>
+                            <p className="task">My tasks</p>
+                        </div>
                         <div className="div">24</div>
-                        <p className="task">Open Issues</p>
-                        <div className="color_line1"></div>
+                        <div className="issue_con">
+                            <p className="task">Open Issues</p>
+                            <div className="color_line1"></div>
+                        </div>
                     </Pane>
                     <Pane className="feed_card">
                         <DragHandleVerticalIcon className="moreicon" />
@@ -61,10 +69,14 @@ function Feed() {
                         <p className="des">
                             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas imperdiet velit
                         </p>
-                        <div className="div">5</div>
-                        <p className="task">My tasks</p>
-                        <div className="div">24</div>
-                        <p className="task">Open Issues</p>
+                        <div className="tasks_con">
+                            <div className="div">5</div>
+                            <p className="task">My tasks</p>
+                        </div>
+                        <div className="issue_con">
+                            <div className="div">24</div>
+                            <p className="task">Open Issues</p>
+                        </div>
                         <div className="color_line2"></div>
                     </Pane>
                     <Pane className="feed_card">
@@ -76,10 +88,14 @@ function Feed() {
                         <p className="des">
                             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas imperdiet velit
                         </p>
-                        <div className="div">5</div>
-                        <p className="task">My tasks</p>
-                        <div className="div">24</div>
-                        <p className="task">Open Issues</p>
+                        <div className="tasks_con">
+                            <div className="div">5</div>
+                            <p className="task">My tasks</p>
+                        </div>
+                        <div className="issue_con">
+                            <div className="div">24</div>
+                            <p className="task">Open Issues</p>
+                        </div>
                         <div className="color_line2"></div>
                     </Pane>
                 </div>
