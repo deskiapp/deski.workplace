@@ -69,15 +69,18 @@ header {
     border-bottom: 4px solid #3250fe;
 }
 .profile_menu p {
-    font-family: "GTEestiProDisplay-thin";
+    font-family: "GTEestiProDisplay-light";
     font-size: 13px;
     color: #171717;
 }
 .profile {
     cursor: pointer;
 }
+.profile_div {
+    height: 46px;
+}
 .disabled p {
-    font-family: "GTEestiProDisplay-Light";
+    font-family: "GTEestiProDisplay-Medium";
     color: #171717;
     font-size: 13px;
 }

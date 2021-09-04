@@ -6,11 +6,17 @@ import user from "../assets/user.svg";
 import send from "../assets/send.svg";
 import dropdown_circle from "../assets/dropdown-circle.svg";
 import { MoreIcon } from "evergreen-ui";
-import { TextInputField, Dialog, SelectMenu } from "evergreen-ui";
+import { TextInputField, Dialog, SelectMenu, Popover, Menu, Position } from "evergreen-ui";
 import arrow from "../assets/arrow.svg";
 import { Link } from "react-router-dom";
 
 function Collaborators() {
+    const menu = {
+        height: "25px",
+    };
+    const menus = {
+        height: "30px",
+    };
     const [selected, setSelected] = React.useState(null);
     const [isShown, setIsShown] = React.useState(false);
     const textinput = {
@@ -42,7 +48,30 @@ function Collaborators() {
                     <div className="grid_item">
                         <h5>
                             All workspace
-                            <img className="dropdwn_icon" src={dropdown_circle} alt="" height="10" width="10" />
+                            <Popover
+                                position={Position.BOTTOM_LEFT}
+                                minWidth={190}
+                                content={
+                                    <Menu>
+                                        <Menu.Group>
+                                            <Menu.Item style={menus}>
+                                                <p className="menucontent">All workspace</p>
+                                            </Menu.Item>
+                                            <Menu.Item style={menus}>
+                                                <p className="menucontent">My first workspace</p>
+                                            </Menu.Item>
+                                            <Menu.Item style={menus}>
+                                                <p className="menucontent">Digital ocean work</p>
+                                            </Menu.Item>
+                                            <Menu.Item style={menus}>
+                                                <p className="menucontent">Bug tracking</p>
+                                            </Menu.Item>
+                                        </Menu.Group>
+                                    </Menu>
+                                }
+                            >
+                                <img className="dropdwn_icon" src={dropdown_circle} alt="" height="10" width="10" />
+                            </Popover>
                         </h5>
                     </div>
                     <div className="grid_item">
@@ -63,7 +92,26 @@ function Collaborators() {
                     <div className="grid_item">
                         <p className="p">
                             Owner
-                            <MoreIcon className="more" />
+                            <Popover
+                                position={Position.BOTTOM_LEFT}
+                                minWidth={40}
+                                content={
+                                    <Menu>
+                                        <Menu.Group>
+                                            <Link to="/user_details" className="links">
+                                                <Menu.Item style={menu}>
+                                                    <p className="menucontent">Manage</p>
+                                                </Menu.Item>
+                                            </Link>
+                                            <Menu.Item style={menu}>
+                                                <p className="menucontent">Change roll</p>
+                                            </Menu.Item>
+                                        </Menu.Group>
+                                    </Menu>
+                                }
+                            >
+                                <MoreIcon className="more" />
+                            </Popover>
                         </p>
                     </div>
                     <div className="grid_item">
@@ -79,7 +127,26 @@ function Collaborators() {
                     <div className="grid_item">
                         <p className="p">
                             Member
-                            <MoreIcon className="more" />
+                            <Popover
+                                position={Position.BOTTOM_LEFT}
+                                minWidth={40}
+                                content={
+                                    <Menu>
+                                        <Menu.Group>
+                                            <Link to="/user_details" className="links">
+                                                <Menu.Item style={menu}>
+                                                    <p className="menucontent">Manage</p>
+                                                </Menu.Item>
+                                            </Link>
+                                            <Menu.Item style={menu}>
+                                                <p className="menucontent">Change roll</p>
+                                            </Menu.Item>
+                                        </Menu.Group>
+                                    </Menu>
+                                }
+                            >
+                                <MoreIcon className="more" />
+                            </Popover>
                         </p>
                     </div>
                     <div className="grid_item">
@@ -94,7 +161,27 @@ function Collaborators() {
                     </div>
                     <div className="grid_item">
                         <p className="p">
-                            Admin <MoreIcon className="more" />
+                            Admin
+                            <Popover
+                                position={Position.BOTTOM_LEFT}
+                                minWidth={40}
+                                content={
+                                    <Menu>
+                                        <Menu.Group>
+                                            <Link to="/user_details" className="links">
+                                                <Menu.Item style={menu}>
+                                                    <p className="menucontent">Manage</p>
+                                                </Menu.Item>
+                                            </Link>
+                                            <Menu.Item style={menu}>
+                                                <p className="menucontent">Change roll</p>
+                                            </Menu.Item>
+                                        </Menu.Group>
+                                    </Menu>
+                                }
+                            >
+                                <MoreIcon className="more" />
+                            </Popover>
                         </p>
                     </div>
                     <div className="grid_item">
@@ -110,7 +197,26 @@ function Collaborators() {
                     <div className="grid_item">
                         <p className="p">
                             Admin
-                            <MoreIcon className="more" />
+                            <Popover
+                                position={Position.BOTTOM_LEFT}
+                                minWidth={40}
+                                content={
+                                    <Menu>
+                                        <Menu.Group>
+                                            <Link to="/user_details" className="links">
+                                                <Menu.Item style={menu}>
+                                                    <p className="menucontent">Manage</p>
+                                                </Menu.Item>
+                                            </Link>
+                                            <Menu.Item style={menu}>
+                                                <p className="menucontent">Change roll</p>
+                                            </Menu.Item>
+                                        </Menu.Group>
+                                    </Menu>
+                                }
+                            >
+                                <MoreIcon className="more" />
+                            </Popover>
                         </p>
                     </div>
                 </div>

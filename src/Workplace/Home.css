@@ -186,6 +186,11 @@
     margin-left: 200px;
     margin-top: -50px;
 }
+.new_name::placeholder {
+    font-family: "GTEestiProDisplay-light";
+    color: #7b7b7b;
+    font-size: 13px;
+}
 .pop_row {
     margin-top: 20px;
 }

@@ -18,7 +18,7 @@ function Template() {
                     <h1>customizable templates</h1>
                 </div>
                 <div className="template_card">
-                    <Link to="/login">
+                    <Link to="/home">
                         <Pane className="template_panerow1frst" elevation={2}>
                             <p className="card_head">Use template</p>
                             <p className="card_title">Project Planning</p>
@@ -30,7 +30,7 @@ function Template() {
                         </Pane>
                     </Link>
 
-                    <Link to="/login">
+                    <Link to="/home">
                         <Pane className="template_panerow1" elevation={2}>
                             <p className="card_head">Use template</p>
                             <p className="card_title">Bug Tracking</p>

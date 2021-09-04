@@ -16,9 +16,11 @@
 .setting_up {
     margin-bottom: 100px;
 }
+ 
 
-.create_site_img {
+ 
+.business_team {
+    width: 480px;
+    height: 280px;
 
-    height:'280px';
-    width:'480px';
 }

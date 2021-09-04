@@ -27,8 +27,9 @@ function Setting_up() {
                     <img src={deski_ash} alt="" className="create_site_logo" height="80" width="120" />
                 </div>
                 <h1>One moment your, site is starting up</h1>
-                <div className="create_site">
-                    <img src={business_team}    className="create_site_img" alt=""  />
+                <div className="create_site"> 
+                    <img src={business_team} alt="" className="business_team" />
+ 
                 </div>
                 <div className="create_site">
                     <div style={containerStyles}>
