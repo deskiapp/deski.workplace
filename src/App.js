@@ -10,6 +10,7 @@ import "./fonts/segoeui.ttf";
 import "./fonts/seguisb.ttf";
 import "./fonts/segoeuisl.ttf";
 
+
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import business_team from "./assets/business_team.svg";
 import Login from "./Authentication/Login";

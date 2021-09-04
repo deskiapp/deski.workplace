@@ -128,7 +128,19 @@
     font-family: "SegoeUI";
     border-radius: 10px;
 }
-.feed_btns button {
+.feed_btns .btn {
+    font-family: "GTEestiProDisplay-regular";
+    color: #344563;
+    cursor: pointer;
+    font-size: 14px;
+    margin-top: 20px;
+    margin-right: 45px;
+    background-color: white;
+    border: none;
+    float: left;
+    padding: 0 0 8px 0;
+}
+.feed_btns .btn_selected {
     font-family: "GTEestiProDisplay-regular";
     color: #344563;
     cursor: pointer;

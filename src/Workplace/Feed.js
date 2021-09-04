@@ -87,18 +87,27 @@ function Feed() {
                     Show more <img src={arrow} alt="" className="feed_arrow" height="10" width="7" />
                 </div>
                 <div className="feed_btns">
-                    <button onClick={setSelectedTab(0)}>My tasks</button>
-                    <button onClick={setSelectedTab(1)}>
+                    <button onClick={() => setSelectedTab(0)} className={selectedTab === 0 ? "btn_selected" : "btn"}>
+                        My tasks
+                    </button>
+                    <button onClick={() => setSelectedTab(1)} className={selectedTab === 1 ? "btn_selected" : "btn"}>
                         Open Issues
                         <div className="alert_issues">
                             5 <img src={alert} alt="" height="9" width="12" />
                         </div>
                     </button>
-                    <button>Calendar</button>
-                    <button onClick={setSelectedTab(2)}>Overdue</button>
-                    <button onClick={setSelectedTab(3)}>Completed</button>
-                    <button onClick={setSelectedTab(4)}>Unsheduled</button>
+                    <button className="btn">Calendar</button>
+                    <button onClick={() => setSelectedTab(2)} className={selectedTab === 2 ? "btn_selected" : "btn"}>
+                        Overdue
+                    </button>
+                    <button onClick={() => setSelectedTab(3)} className={selectedTab === 3 ? "btn_selected" : "btn"}>
+                        Completed
+                    </button>
+                    <button onClick={() => setSelectedTab(4)} className={selectedTab === 4 ? "btn_selected" : "btn"}>
+                        Unsheduled
+                    </button>
                 </div>
+
                 {selectedTab === 0 ? (
                     <div className="feed_contents">
                         <button className="filter_btn">
@@ -113,7 +122,7 @@ function Feed() {
                             </button>
                             <img src={bug} alt="" height="35" width="35" />
                             <p>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas imperdiet velit,Lorem
+                                1 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas imperdiet velit,Lorem
                                 ipsum dolor sit amet, consectetur adipiscing elit. Maecenas imperdiet velit
                             </p>
                         </div>
@@ -140,9 +149,7 @@ function Feed() {
                             </p>
                         </div>
                     </div>
-                ) : null}
-
-                {selectedTab === 1 ? (
+                ) : selectedTab === 1 ? (
                     <div className="feed_contents">
                         <button className="filter_btn">
                             <img src={filter} className="filter" alt="" height="10" width="14" />
@@ -156,7 +163,7 @@ function Feed() {
                             </button>
                             <img src={bug} alt="" height="35" width="35" />
                             <p>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas imperdiet velit,Lorem
+                                2 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas imperdiet velit,Lorem
                                 ipsum dolor sit amet, consectetur adipiscing elit. Maecenas imperdiet velit
                             </p>
                         </div>
@@ -183,9 +190,7 @@ function Feed() {
                             </p>
                         </div>
                     </div>
-                ) : null}
-
-                {selectedTab === 2 ? (
+                ) : selectedTab === 2 ? (
                     <div className="feed_contents">
                         <button className="filter_btn">
                             <img src={filter} className="filter" alt="" height="10" width="14" />
@@ -199,7 +204,7 @@ function Feed() {
                             </button>
                             <img src={bug} alt="" height="35" width="35" />
                             <p>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas imperdiet velit,Lorem
+                                3 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas imperdiet velit,Lorem
                                 ipsum dolor sit amet, consectetur adipiscing elit. Maecenas imperdiet velit
                             </p>
                         </div>
@@ -226,9 +231,7 @@ function Feed() {
                             </p>
                         </div>
                     </div>
-                ) : null}
-
-                {selectedTab === 3 ? (
+                ) : selectedTab === 3 ? (
                     <div className="feed_contents">
                         <button className="filter_btn">
                             <img src={filter} className="filter" alt="" height="10" width="14" />
@@ -242,7 +245,7 @@ function Feed() {
                             </button>
                             <img src={app} alt="" height="35" width="35" />
                             <p>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas imperdiet velit,Lorem
+                                4 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas imperdiet velit,Lorem
                                 ipsum dolor sit amet, consectetur adipiscing elit. Maecenas imperdiet velit
                             </p>
                         </div>
@@ -269,9 +272,7 @@ function Feed() {
                             </p>
                         </div>
                     </div>
-                ) : null}
-
-                {selectedTab === 4 ? (
+                ) : selectedTab === 4 ? (
                     <div className="feed_contents">
                         <button className="filter_btn">
                             <img src={filter} className="filter" alt="" height="10" width="14" />
@@ -285,7 +286,7 @@ function Feed() {
                             </button>
                             <img src={app} alt="" height="35" width="35" />
                             <p>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas imperdiet velit,Lorem
+                                5Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas imperdiet velit,Lorem
                                 ipsum dolor sit amet, consectetur adipiscing elit. Maecenas imperdiet velit
                             </p>
                         </div>
