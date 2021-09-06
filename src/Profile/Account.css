@@ -14,6 +14,11 @@
     margin-top: 40px;
     cursor: pointer;
 }
+.account_con p {
+    font-family: "SegoeUI";
+    color: #858585;
+    font-size: 13px;
+}
 .account_con {
     margin-left: 140px;
     margin-top: -75px;
@@ -34,7 +39,6 @@
     color: #858585;
     font-size: 14px;
 }
-
 span .edit {
     margin-left: 15px;
     height: 10px;
@@ -125,17 +129,17 @@ span .add {
     margin-bottom: -28px;
 }
 .roles div {
-    margin-left: 140px;
+    margin-left: 147px;
 }
 .roles div button {
-    height: 18px;
-    width: 20px;
-    margin-right: 20px;
+    height: 21px;
+    width: 23px;
+    margin-right: 5px;
     margin-top: 10px;
     border: none;
     background-color: white;
     cursor: pointer;
-    box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.16);
+    box-shadow: 0 0 7px 0 rgba(0, 0, 0, 0.16);
 }
 .others {
     display: block;
@@ -145,8 +149,9 @@ span .add {
     color: #858585;
     font-size: 13px;
     margin-bottom: 10px;
+    cursor: pointer;
 }
 .roles div .icon {
-    margin-left: -4px;
+    margin-top: 2px;
     color: #858585;
 }

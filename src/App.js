@@ -27,6 +27,17 @@ import Referrals from "./Profile/Referrals";
 import User_details from "./Profile/User_details";
 import Workplace_trash from "./Workplace/Workplace_trash";
 import Profile_trash from "./Profile/Profile_trash";
+import Dashboard from "./Space/Dashboard";
+import People from "./Space/People";
+import Works from "./Space/Works";
+import Filters from "./Space/Filters";
+import Create from "./Space/Create";
+import Settings from "./Space/Settings";
+import Board from "./Space/Board";
+import View from "./Space/View";
+import Calendar from "./Space/Calendar";
+import Chart from "./Space/Chart";
+import Table from "./Space/Table";
 
 function App() {
     return (
@@ -48,6 +59,17 @@ function App() {
                 <Route path="/user_details" component={User_details} />
                 <Route path="/workplace_trash" component={Workplace_trash} />
                 <Route path="/profile_trash" component={Profile_trash} />
+                <Route path="/dashboard" component={Dashboard} />
+                <Route path="/people" component={People} />
+                <Route path="/works" component={Works} />
+                <Route path="/filters" component={Filters} />
+                <Route path="/create" component={Create} />
+                <Route path="/settings" component={Settings} />
+                <Route path="/board" component={Board} />
+                <Route path="/table" component={Table} />
+                <Route path="/gantt_chart" component={Chart} />
+                <Route path="/calendar" component={Calendar} />
+                <Route path="/create_view" component={View} />
             </Router>
         </div>
     );

@@ -1,5 +1,6 @@
 import React from "react";
 import "./Home.css";
+import { Link, useHistory } from "react-router-dom";
 import Workplace from "../Workplace/Workplace";
 import Header from "../Workplace/Header";
 import add from "../assets/add.svg";
@@ -27,6 +28,7 @@ import {
     Avatar,
     MoreIcon,
     Position,
+    Alert,
 } from "evergreen-ui";
 import avatar from "../assets/avatar.jpg";
 import avatar1 from "../assets/avatar1.jpeg";
@@ -34,6 +36,8 @@ import avatar2 from "../assets/avatar2.jpeg";
 import clock from "../assets/clock.png";
 
 function Home() {
+    let history = useHistory();
+
     const [selected, setSelected] = React.useState(null);
     const [selected1, setSelected1] = React.useState(null);
     const [isShown, setIsShown] = React.useState(false);
@@ -272,7 +276,12 @@ function Home() {
                         </Dialog>
                     </div>
                     <div>
-                        <Pane className="space">
+                        <Pane
+                            className="space"
+                            onClick={() => {
+                                history.push("/dashboard");
+                            }}
+                        >
                             <DragHandleVerticalIcon className="moreicon" />
                             <Popover
                                 position={Position.BOTTOM_LEFT}
@@ -299,7 +308,9 @@ function Home() {
                                     </Menu>
                                 }
                             >
-                                <MoreIcon className="more_home" />
+                                <button className="more_homebtn">
+                                    <MoreIcon className="more_home" />
+                                </button>
                             </Popover>
 
                             <img src={bug} alt="" height="35" width="35" />
@@ -334,60 +345,62 @@ function Home() {
                                 <p>7 days left</p>
                             </div>
                         </Pane>
-                        <Pane className="space">
-                            <DragHandleVerticalIcon className="moreicon" />
-                            <Popover
-                                position={Position.BOTTOM_LEFT}
-                                minWidth={50}
-                                content={
-                                    <Menu>
-                                        <Menu.Group>
-                                            <Menu.Item onSelect={() => setIsShown3(true)} style={menu}>
-                                                <p className="menucontent">Rename space</p>
-                                            </Menu.Item>
-                                            <Menu.Item onSelect={() => setIsShown(true)} style={menu}>
-                                                <p className="menucontent">Share</p>
-                                            </Menu.Item>
-                                            <Menu.Item onSelect={() => setIsShown2(true)} style={menu}>
-                                                <p className="menucontent">Move space</p>
-                                            </Menu.Item>
-                                            <Menu.Item style={menu}>
-                                                <p className="menucontent">Duplicate</p>
-                                            </Menu.Item>
-                                            <Menu.Item onSelect={() => setIsShown1(true)} intent="danger" style={menu}>
-                                                <p className="menucontentred">Delete</p>
-                                            </Menu.Item>
-                                        </Menu.Group>
-                                    </Menu>
-                                }
-                            >
-                                <MoreIcon className="more_home" />
-                            </Popover>
 
-                            <img src={app} alt="" height="35" width="35" />
-                            <h4>App Development</h4>
-                            <p className="deski">www.deskiapp.com</p>
-                            <p className="des">
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas imperdiet velit
-                            </p>
-                            <p className="progress">58%</p>
-                            <div className="create_site">
-                                <div style={containerStyles}>
-                                    <div style={fillerStyles}></div>
+                        <Link to="/dashboard">
+                            <Pane className="space">
+                                <DragHandleVerticalIcon className="moreicon" />
+                                <Popover
+                                    position={Position.BOTTOM_LEFT}
+                                    minWidth={50}
+                                    content={
+                                        <Menu>
+                                            <Menu.Group>
+                                                <Menu.Item onSelect={() => setIsShown3(true)} style={menu}>
+                                                    <p className="menucontent">Rename space</p>
+                                                </Menu.Item>
+                                                <Menu.Item onSelect={() => setIsShown(true)} style={menu}>
+                                                    <p className="menucontent">Share</p>
+                                                </Menu.Item>
+                                                <Menu.Item onSelect={() => setIsShown2(true)} style={menu}>
+                                                    <p className="menucontent">Move space</p>
+                                                </Menu.Item>
+                                                <Menu.Item style={menu}>
+                                                    <p className="menucontent">Duplicate</p>
+                                                </Menu.Item>
+                                                <Menu.Item onSelect={() => setIsShown1(true)} intent="danger" style={menu}>
+                                                    <p className="menucontentred">Delete</p>
+                                                </Menu.Item>
+                                            </Menu.Group>
+                                        </Menu>
+                                    }
+                                >
+                                    <MoreIcon className="more_home" />
+                                </Popover>
+
+                                <img src={app} alt="" height="35" width="35" />
+                                <h4>App Development</h4>
+                                <p className="deski">www.deskiapp.com</p>
+                                <p className="des">
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas imperdiet velit
+                                </p>
+                                <p className="progress">58%</p>
+                                <div className="create_site">
+                                    <div style={containerStyles}>
+                                        <div style={fillerStyles}></div>
+                                    </div>
                                 </div>
-                            </div>
-                            <div className="img_cnt2">
-                                <p>+6</p>
-                            </div>
-                            <img src={avatar} alt="" className="profiles" height="19" width="19" />
-                            <img src={avatar1} alt="" className="profiles" height="19" width="19" />
-                            <img src={avatar2} alt="" className="profiles" height="19" width="19" />
-                            <div className="clock">
-                                <img src={clock} alt="" height="11" width="11" />
-                                <p>3 days left</p>
-                            </div>
-                        </Pane>
-
+                                <div className="img_cnt2">
+                                    <p>+6</p>
+                                </div>
+                                <img src={avatar} alt="" className="profiles" height="19" width="19" />
+                                <img src={avatar1} alt="" className="profiles" height="19" width="19" />
+                                <img src={avatar2} alt="" className="profiles" height="19" width="19" />
+                                <div className="clock">
+                                    <img src={clock} alt="" height="11" width="11" />
+                                    <p>3 days left</p>
+                                </div>
+                            </Pane>
+                        </Link>
                         <Popover
                             bringFocusInside
                             content={
@@ -450,6 +463,7 @@ function Home() {
                         </Popover>
                     </div>
                 </Pane>
+
                 <Pane className="workspace_container">
                     <div>
                         <h2>My Second Workspace</h2>
@@ -491,121 +505,124 @@ function Home() {
                         </Popover>
                     </div>
                     <div>
-                        <Pane className="space">
-                            <DragHandleVerticalIcon className="moreicon" />
-                            <Popover
-                                minWidth={50}
-                                content={
-                                    <Menu>
-                                        <Menu.Group>
-                                            <Menu.Item onSelect={() => setIsShown3(true)} style={menu}>
-                                                <p className="menucontent">Rename space</p>
-                                            </Menu.Item>
-                                            <Menu.Item onSelect={() => setIsShown(true)} style={menu}>
-                                                <p className="menucontent">Share</p>
-                                            </Menu.Item>
-                                            <Menu.Item onSelect={() => setIsShown2(true)} style={menu}>
-                                                <p className="menucontent">Move space</p>
-                                            </Menu.Item>
-                                            <Menu.Item style={menu}>
-                                                <p className="menucontent">Duplicate</p>
-                                            </Menu.Item>
-                                            <Menu.Item onSelect={() => setIsShown1(true)} intent="danger" style={menu}>
-                                                <p className="menucontentred">Delete</p>
-                                            </Menu.Item>
-                                        </Menu.Group>
-                                    </Menu>
-                                }
-                            >
-                                <MoreIcon className="more_home" />
-                            </Popover>
+                        <Link to="/dashboard">
+                            <Pane className="space">
+                                <DragHandleVerticalIcon className="moreicon" />
+                                <Popover
+                                    minWidth={50}
+                                    content={
+                                        <Menu>
+                                            <Menu.Group>
+                                                <Menu.Item onSelect={() => setIsShown3(true)} style={menu}>
+                                                    <p className="menucontent">Rename space</p>
+                                                </Menu.Item>
+                                                <Menu.Item onSelect={() => setIsShown(true)} style={menu}>
+                                                    <p className="menucontent">Share</p>
+                                                </Menu.Item>
+                                                <Menu.Item onSelect={() => setIsShown2(true)} style={menu}>
+                                                    <p className="menucontent">Move space</p>
+                                                </Menu.Item>
+                                                <Menu.Item style={menu}>
+                                                    <p className="menucontent">Duplicate</p>
+                                                </Menu.Item>
+                                                <Menu.Item onSelect={() => setIsShown1(true)} intent="danger" style={menu}>
+                                                    <p className="menucontentred">Delete</p>
+                                                </Menu.Item>
+                                            </Menu.Group>
+                                        </Menu>
+                                    }
+                                >
+                                    <MoreIcon className="more_home" />
+                                </Popover>
 
-                            <img src={bug} alt="" height="35" width="35" />
-                            <h4>Bug Tracking</h4>
-                            <p className="deski">www.deskiapp.com</p>
-                            <p className="des">
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas imperdiet velit
-                            </p>
-                            <p className="progress">72%</p>
-                            <div className="create_site">
-                                <div style={containerStyles}>
-                                    <div style={fillerStyles}></div>
+                                <img src={bug} alt="" height="35" width="35" />
+                                <h4>Bug Tracking</h4>
+                                <p className="deski">www.deskiapp.com</p>
+                                <p className="des">
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas imperdiet velit
+                                </p>
+                                <p className="progress">72%</p>
+                                <div className="create_site">
+                                    <div style={containerStyles}>
+                                        <div style={fillerStyles}></div>
+                                    </div>
                                 </div>
-                            </div>
 
-                            <div>
-                                <div className="img_cnt">
-                                    <p>+8</p>
+                                <div>
+                                    <div className="img_cnt">
+                                        <p>+8</p>
+                                    </div>
+                                    <div className="card">
+                                        <img src={avatar} alt="" className="profiles" height="19" width="19" />
+                                    </div>
+                                    <div className="card">
+                                        <img src={avatar1} alt="" className="profiles" height="19" width="19" />
+                                    </div>
+                                    <div className="card">
+                                        <img src={avatar2} alt="" className="profiles" height="19" width="19" />
+                                    </div>
                                 </div>
-                                <div className="card">
-                                    <img src={avatar} alt="" className="profiles" height="19" width="19" />
+                                <div className="clock">
+                                    <img src={clock} alt="" height="11" width="11" />
+                                    <p>7 days left</p>
                                 </div>
-                                <div className="card">
-                                    <img src={avatar1} alt="" className="profiles" height="19" width="19" />
-                                </div>
-                                <div className="card">
-                                    <img src={avatar2} alt="" className="profiles" height="19" width="19" />
-                                </div>
-                            </div>
-                            <div className="clock">
-                                <img src={clock} alt="" height="11" width="11" />
-                                <p>7 days left</p>
-                            </div>
-                        </Pane>
-                        <Pane className="space">
-                            <DragHandleVerticalIcon className="moreicon" />
-                            <Popover
-                                position={Position.BOTTOM_LEFT}
-                                minWidth={50}
-                                content={
-                                    <Menu>
-                                        <Menu.Group>
-                                            <Menu.Item onSelect={() => setIsShown3(true)} style={menu}>
-                                                <p className="menucontent">Rename space</p>
-                                            </Menu.Item>
-                                            <Menu.Item onSelect={() => setIsShown(true)} style={menu}>
-                                                <p className="menucontent">Share</p>
-                                            </Menu.Item>
-                                            <Menu.Item onSelect={() => setIsShown2(true)} style={menu}>
-                                                <p className="menucontent">Move space</p>
-                                            </Menu.Item>
-                                            <Menu.Item style={menu}>
-                                                <p className="menucontent">Duplicate</p>
-                                            </Menu.Item>
-                                            <Menu.Item onSelect={() => setIsShown1(true)} intent="danger" style={menu}>
-                                                <p className="menucontentred">Delete</p>
-                                            </Menu.Item>
-                                        </Menu.Group>
-                                    </Menu>
-                                }
-                            >
-                                <MoreIcon className="more_home" />
-                            </Popover>
+                            </Pane>
+                        </Link>
+                        <Link to="/dashboard">
+                            <Pane className="space">
+                                <DragHandleVerticalIcon className="moreicon" />
+                                <Popover
+                                    position={Position.BOTTOM_LEFT}
+                                    minWidth={50}
+                                    content={
+                                        <Menu>
+                                            <Menu.Group>
+                                                <Menu.Item onSelect={() => setIsShown3(true)} style={menu}>
+                                                    <p className="menucontent">Rename space</p>
+                                                </Menu.Item>
+                                                <Menu.Item onSelect={() => setIsShown(true)} style={menu}>
+                                                    <p className="menucontent">Share</p>
+                                                </Menu.Item>
+                                                <Menu.Item onSelect={() => setIsShown2(true)} style={menu}>
+                                                    <p className="menucontent">Move space</p>
+                                                </Menu.Item>
+                                                <Menu.Item style={menu}>
+                                                    <p className="menucontent">Duplicate</p>
+                                                </Menu.Item>
+                                                <Menu.Item onSelect={() => setIsShown1(true)} intent="danger" style={menu}>
+                                                    <p className="menucontentred">Delete</p>
+                                                </Menu.Item>
+                                            </Menu.Group>
+                                        </Menu>
+                                    }
+                                >
+                                    <MoreIcon className="more_home" />
+                                </Popover>
 
-                            <img src={app} alt="" height="35" width="35" />
-                            <h4>App Development</h4>
-                            <p className="deski">www.deskiapp.com</p>
-                            <p className="des">
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas imperdiet velit
-                            </p>
-                            <p className="progress">58%</p>
-                            <div className="create_site">
-                                <div style={containerStyles}>
-                                    <div style={fillerStyles}></div>
+                                <img src={app} alt="" height="35" width="35" />
+                                <h4>App Development</h4>
+                                <p className="deski">www.deskiapp.com</p>
+                                <p className="des">
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas imperdiet velit
+                                </p>
+                                <p className="progress">58%</p>
+                                <div className="create_site">
+                                    <div style={containerStyles}>
+                                        <div style={fillerStyles}></div>
+                                    </div>
                                 </div>
-                            </div>
-                            <div className="img_cnt2">
-                                <p>+6</p>
-                            </div>
-                            <img src={avatar} alt="" className="profiles" height="19" width="19" />
-                            <img src={avatar1} alt="" className="profiles" height="19" width="19" />
-                            <img src={avatar2} alt="" className="profiles" height="19" width="19" />
-                            <div className="clock">
-                                <img src={clock} alt="" height="11" width="11" />
-                                <p>3 days left</p>
-                            </div>
-                        </Pane>
-
+                                <div className="img_cnt2">
+                                    <p>+6</p>
+                                </div>
+                                <img src={avatar} alt="" className="profiles" height="19" width="19" />
+                                <img src={avatar1} alt="" className="profiles" height="19" width="19" />
+                                <img src={avatar2} alt="" className="profiles" height="19" width="19" />
+                                <div className="clock">
+                                    <img src={clock} alt="" height="11" width="11" />
+                                    <p>3 days left</p>
+                                </div>
+                            </Pane>
+                        </Link>
                         <Popover
                             bringFocusInside
                             content={

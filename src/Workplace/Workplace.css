@@ -14,7 +14,7 @@
     width: 210px;
 }
 .searchinput::placeholder {
-    font-family: "SegoeUI";
+    font-family: "GTEestiProDisplay-Light";
     color: #6d6d6d;
     font-size: 12px;
 }

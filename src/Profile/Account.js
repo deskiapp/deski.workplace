@@ -53,10 +53,10 @@ function Account() {
                                 <br></br>
                                 <div>
                                     <button>
-                                        <TickIcon className="icon" />
+                                        <TickIcon className="icon" size={12} />
                                     </button>
                                     <button>
-                                        <CrossIcon className="icon" />
+                                        <CrossIcon className="icon" size={12} />
                                     </button>
                                 </div>
                             </div>
@@ -71,10 +71,10 @@ function Account() {
                                 <br></br>
                                 <div>
                                     <button>
-                                        <TickIcon className="icon" />
+                                        <TickIcon className="icon" size={12} />
                                     </button>
                                     <button>
-                                        <CrossIcon className="icon" />
+                                        <CrossIcon className="icon" size={12} />
                                     </button>
                                 </div>
                             </div>
@@ -89,10 +89,10 @@ function Account() {
                                 <br></br>
                                 <div>
                                     <button>
-                                        <TickIcon className="icon" />
+                                        <TickIcon className="icon" size={12} />
                                     </button>
                                     <button>
-                                        <CrossIcon className="icon" />
+                                        <CrossIcon className="icon" size={12} />
                                     </button>
                                 </div>
                             </div>
@@ -107,10 +107,10 @@ function Account() {
                                 <br></br>
                                 <div>
                                     <button>
-                                        <TickIcon className="icon" />
+                                        <TickIcon className="icon" size={12} />
                                     </button>
                                     <button>
-                                        <CrossIcon className="icon" />
+                                        <CrossIcon className="icon" size={12} />
                                     </button>
                                 </div>
                             </div>

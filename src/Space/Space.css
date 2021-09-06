@@ -1,0 +1,30 @@
+.space_sidebar {
+    margin-top: 60px;
+    width: 250px;
+    padding-left: 60px;
+    padding-top: 60px;
+    position: fixed;
+    /* overflow-y: scroll;
+    height: 80%; */
+}
+.space_sidebar .content {
+    display: inline;
+    font-family: "GTEestiProDisplay-Light";
+    letter-spacing: 0.5px;
+    font-size: 13px;
+    color: #858585;
+    margin-left: 10px;
+}
+.space_sidebar .title {
+    font-family: "GTEestiProDisplay-Light";
+    letter-spacing: 0.5px;
+    color: #858585;
+    font-size: 13px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+.search_input::placeholder {
+    font-family: "GTEestiProDisplay-Light";
+    color: #6d6d6d;
+    font-size: 13px;
+}

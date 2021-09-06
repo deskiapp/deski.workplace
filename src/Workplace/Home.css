@@ -306,6 +306,8 @@
     height: 13px;
     visibility: hidden;
 }
+.more_homebtn {
+}
 .space:hover .more_home {
     visibility: visible;
 }
