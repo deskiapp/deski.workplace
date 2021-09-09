@@ -1,6 +1,6 @@
 import React from "react";
 import "./Template.css";
-import Workplace from "../Workplace/Workplace";
+import Workspace_list from "./Workspace_list";
 import Header from "../Workplace/Header";
 import { Pane } from "evergreen-ui";
 import { Link } from "react-router-dom";
@@ -9,7 +9,7 @@ function Template() {
     return (
         <div>
             <Header />
-            <Workplace />
+            <Workspace_list />
             <div className="template">
                 <div className="template_main_title">
                     <h1>Standardize your work with</h1>
@@ -18,7 +18,7 @@ function Template() {
                     <h1>customizable templates</h1>
                 </div>
                 <div className="template_card">
-                    <Link to="/home">
+                    <Link to="/workplace">
                         <Pane className="template_panerow1frst" elevation={2}>
                             <p className="card_head">Use template</p>
                             <p className="card_title">Project Planning</p>
@@ -30,7 +30,7 @@ function Template() {
                         </Pane>
                     </Link>
 
-                    <Link to="/home">
+                    <Link to="/workplace">
                         <Pane className="template_panerow1" elevation={2}>
                             <p className="card_head">Use template</p>
                             <p className="card_title">Bug Tracking</p>

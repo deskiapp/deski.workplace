@@ -62,6 +62,7 @@
 .people1 {
     border: solid 0.3px rgba(112, 112, 112, 0.3);
     width: 125px;
+    cursor: pointer;
     height: 150px;
     border-radius: 5px;
     display: flex;

@@ -1,0 +1,65 @@
+.sidebar {
+    position: fixed;
+    margin-top: 60px;
+    padding-top: 65px;
+    padding-left: 60px;
+    /* background-color: blueviolet; */
+    width: 250px;
+    overflow-y: scroll;
+    height: 80%;
+}
+.sidepane {
+    /* background-color: blue; */
+    height: fit-content;
+    width: 210px;
+}
+.searchinput::placeholder {
+    font-family: "GTEestiProDisplay-Light";
+    color: #6d6d6d;
+    font-size: 12px;
+}
+.sidepane .wrk_title {
+    color: #858585;
+    font-family: "GTEestiProDisplay-light";
+    letter-spacing: 0.5px;
+    font-size: 13px;
+}
+.img_title {
+    color: #858585;
+    font-family: "GTEestiProDisplay-light";
+    font-size: 13px;
+    letter-spacing: 0.4px;
+    display: inline;
+    margin-left: 10px;
+}
+.img_titl {
+    color: #858585;
+    font-family: "GTEestiProDisplay-light";
+    font-size: 13px;
+    letter-spacing: 0.4px;
+    display: inline;
+    margin-left: 13px;
+}
+.links {
+    text-decoration: none;
+}
+.dash_links {
+    display: block;
+    text-decoration: none;
+    padding: 4px 19px 2px 0.7px;
+    margin-top: 10px;
+    border-radius: 3px;
+}
+.dash_links:hover {
+    background-color: #f5f5f5;
+    width: 190px;
+}
+.dash_links_selected {
+    display: block;
+    width: 190px;
+    margin-top: 10px;
+    padding: 4px 19px 2px 0.7px;
+    text-decoration: none;
+    border-radius: 3px;
+    background-color: #f5f5f5;
+}

@@ -10,8 +10,11 @@ import people5 from "../assets/people5.jpg";
 import people6 from "../assets/people6.jpg";
 import search from "../assets/search.svg";
 import arrow from "../assets/arrow.svg";
+import { useHistory } from "react-router-dom";
 
 function People() {
+    let history = useHistory();
+
     const textinput = {
         height: "40px",
         border: "solid 0.1px #cecece",
@@ -43,32 +46,62 @@ function People() {
                 </button>
                 <button className="button2">Start a team</button>
                 <div className="peoples">
-                    <Pane className="people1">
+                    <Pane
+                        className="people1"
+                        onClick={() => {
+                            history.push("/user_details");
+                        }}
+                    >
                         <Avatar src={people1} size={70} />
                         <span>Tommy Guzman</span>
                         <p>Web developer</p>
                     </Pane>
-                    <Pane className="people1">
+                    <Pane
+                        className="people1"
+                        onClick={() => {
+                            history.push("/user_details");
+                        }}
+                    >
                         <Avatar src={people2} size={70} />
                         <span>Tommy Guzman</span>
                         <p>Web developer</p>
                     </Pane>
-                    <Pane className="people1">
+                    <Pane
+                        className="people1"
+                        onClick={() => {
+                            history.push("/user_details");
+                        }}
+                    >
                         <Avatar src={people3} size={70} />
                         <span>Tommy Guzman</span>
                         <p>Web developer</p>
                     </Pane>
-                    <Pane className="people1">
+                    <Pane
+                        className="people1"
+                        onClick={() => {
+                            history.push("/user_details");
+                        }}
+                    >
                         <Avatar src={people4} size={70} />
                         <span>Tommy Guzman</span>
                         <p>Web developer</p>
                     </Pane>
-                    <Pane className="people1">
+                    <Pane
+                        className="people1"
+                        onClick={() => {
+                            history.push("/user_details");
+                        }}
+                    >
                         <Avatar src={people5} size={70} />
                         <span>Tommy Guzman</span>
                         <p>Web developer</p>
                     </Pane>
-                    <Pane className="people1">
+                    <Pane
+                        className="people1"
+                        onClick={() => {
+                            history.push("/user_details");
+                        }}
+                    >
                         <Avatar src={people6} size={70} />
                         <span>Tommy Guzman</span>
                         <p>Web developer</p>

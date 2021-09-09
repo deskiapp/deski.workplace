@@ -35,11 +35,11 @@ function Header() {
     return (
         <div>
             <header>
-                <Link to="/home">
+                <Link to="/workplace">
                     <img src={deski_ash} alt="" height="60" width="110" />
                 </Link>
                 <div className="wrk_nav">
-                    <Link to="/home" className={selectedtab === 0 ? "wrknav_links_selected" : "wrknav_links"}>
+                    <Link to="/workplace" className={selectedtab === 0 ? "wrknav_links_selected" : "wrknav_links"}>
                         Home
                     </Link>
                     <Link to="/feed" className={selectedtab === 1 ? "wrknav_links_selected" : "wrknav_links"}>

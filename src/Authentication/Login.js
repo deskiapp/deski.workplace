@@ -53,7 +53,7 @@ function Login() {
                             <button
                                 className="login_continue"
                                 onClick={() => {
-                                    history.push("/home");
+                                    history.push("/workplace");
                                 }}
                             >
                                 Continue
@@ -62,7 +62,7 @@ function Login() {
                             <button
                                 className="login_btn"
                                 onClick={() => {
-                                    history.push("/home");
+                                    history.push("/workplace");
                                 }}
                             >
                                 <img src={google_text} alt="" height="16" width="250" />

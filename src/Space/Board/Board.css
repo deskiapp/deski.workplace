@@ -1,0 +1,81 @@
+.board {
+    padding-top: 100px;
+    margin-left: 315px;
+}
+.board h2 {
+    font-family: "GTEestiProDisplay-light";
+    font-size: 21px;
+    letter-spacing: 0.7px;
+    color: #344563;
+}
+.board_profile {
+    float: left;
+    height: 17px;
+    width: 18px;
+    border-radius: 2px;
+    border: solid 1px #efefef;
+    margin-top: 15px;
+    margin-right: 8px;
+}
+.board_profile p {
+    color: #2079d2;
+    font-family: "SegoeUI";
+    font-size: 10px;
+    margin-top: 2px;
+    margin-left: 4px;
+}
+.bd_profiles {
+    border-radius: 2px;
+    float: left;
+    margin-top: 15px;
+}
+.bd_head {
+    margin-top: -52px;
+    margin-left: 260px;
+}
+.bd_head .epic {
+    font-family: "GTEestiProDisplay-Light";
+    float: left;
+    color: #344563;
+    font-size: 11px;
+    letter-spacing: 0.1px;
+    margin: 15px;
+    margin-top: 20px;
+}
+.boards {
+    display: grid;
+    grid-template-columns: 295px 295px 295px;
+    width: 83%;
+    margin-top: 100px;
+    margin-bottom: 100px;
+}
+.boards .status {
+    width: 270px;
+    border-radius: 5px;
+    height: fit-content;
+    border: solid 0.5px #cecece;
+    background-color: #efefef;
+    padding-bottom: 8px;
+}
+.boards .extra {
+    padding-bottom: 50px;
+}
+.boards .status .status_header {
+    background-color: white;
+    margin: 7px 12px 5px 10px;
+    padding: 1px 10px 0 8px;
+    height: 30px;
+    border-radius: 3px;
+}
+.boards .status .status_header p {
+    font-family: "GTEestiProDisplay-Light";
+    color: #344563;
+    font-size: 11px;
+    margin-top: 6px;
+}
+.bd_add {
+    float: right;
+    color: #cecece;
+    margin-top: 5px;
+    margin-left: 5px;
+}

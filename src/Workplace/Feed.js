@@ -1,6 +1,6 @@
 import React from "react";
 import "./Feed.css";
-import Workplace from "../Workplace/Workplace";
+import Workspace_list from "./Workspace_list";
 import Header from "../Workplace/Header";
 import { Pane, DragHandleVerticalIcon, SearchInput, Popover, Menu } from "evergreen-ui";
 import app from "../assets/app.svg";
@@ -21,7 +21,7 @@ function Feed() {
     return (
         <div>
             <Header />
-            <Workplace />
+            <Workspace_list />
             <div className="feed">
                 <h2>My works</h2>
                 <div>

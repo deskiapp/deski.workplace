@@ -18,7 +18,7 @@ import Setting_up from "./Authentication/Setting_up";
 import Email_verification from "./Authentication/Email_verification";
 import Forgot_password from "./Authentication/Forgot_password";
 import Template from "./Workplace/Template";
-import Home from "./Workplace/Home";
+import Workplace from "./Workplace/Workplace";
 import Feed from "./Workplace/Feed";
 import Account from "./Profile/Account";
 import Collaborators from "./Profile/Collaborators";
@@ -33,7 +33,7 @@ import Works from "./Space/Works";
 import Filters from "./Space/Filters";
 import Create from "./Space/Create";
 import Settings from "./Space/Settings";
-import Board from "./Space/Board";
+import Board from "./Space/Board/Board";
 import View from "./Space/View";
 import Calendar from "./Space/Calendar";
 import Chart from "./Space/Chart";
@@ -49,7 +49,7 @@ function App() {
                 <Route path="/setting_up" component={Setting_up} />
                 <Route path="/email_verification" component={Email_verification} />
                 <Route path="/forgot_password" component={Forgot_password} />
-                <Route path="/home" component={Home} />
+                <Route path="/workplace" component={Workplace} />
                 <Route path="/feed" component={Feed} />
                 <Route path="/template" component={Template} />
                 <Route path="/account" component={Account} />

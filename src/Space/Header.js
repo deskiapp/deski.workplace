@@ -41,7 +41,7 @@ function Header() {
     return (
         <div>
             <header>
-                <Link to="/home">
+                <Link to="/workplace">
                     <img src={deski_ash} alt="" height="60" width="110" />
                 </Link>
                 <div className="wrk_nav">

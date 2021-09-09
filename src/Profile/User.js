@@ -2,9 +2,11 @@ import React from "react";
 import ash_user from "../assets/ash_user.svg";
 import activity from "../assets/activity.svg";
 import arrow_back from "../assets/arrow_back.svg";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useHistory } from "react-router-dom";
 
 function User() {
+    let history = useHistory();
+
     const location = useLocation();
     const [selectedtab1, setSelectedTab1] = React.useState(0);
 
@@ -26,10 +28,15 @@ function User() {
                     <img src={activity} alt="" height="14" width="14" />
                     <p className="content1">Activity</p>
                 </Link>
-                <Link to="/collaborators" className="profile_links left_">
+                <div
+                    className="profile_links"
+                    onClick={() => {
+                        history.goBack();
+                    }}
+                >
                     <img src={arrow_back} alt="" height="11" width="11" />
                     <p className="content1">Back</p>
-                </Link>
+                </div>
             </div>
         </div>
     );
