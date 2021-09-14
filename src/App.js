@@ -38,6 +38,7 @@ import View from "./Space/View";
 import Calendar from "./Space/Calendar";
 import Chart from "./Space/Chart";
 import Table from "./Space/Table";
+import Upgrad from "./Profile/Upgrad";
 
 function App() {
     return (
@@ -70,6 +71,7 @@ function App() {
                 <Route path="/gantt_chart" component={Chart} />
                 <Route path="/calendar" component={Calendar} />
                 <Route path="/create_view" component={View} />
+                <Route path="/upgrade" component={Upgrad} />
             </Router>
         </div>
     );

@@ -6,6 +6,7 @@ body {
 /* width */
 ::-webkit-scrollbar {
     width: 5px;
+    height: 10px;
 }
 
 /* Track */
@@ -86,4 +87,42 @@ header {
 }
 .link {
     text-decoration: none;
+}
+.conncted_acnts h4 {
+    font-size: 15px;
+    color: #344563;
+    font-family: "SegoeUISemibold";
+    margin-top: 15px;
+}
+.conncted_acnts p {
+    font-size: 15px;
+    color: #344563;
+    font-family: "SegoeUI";
+    margin-top: 55px;
+}
+.drops {
+    margin-left: 10px;
+    display: grid;
+    grid-template-columns: 140px 140px 140px 100px;
+    margin-bottom: 20px;
+}
+.drops h3 {
+    font-family: "SegoeUISemibold";
+    font-size: #344563;
+    font-size: 13px;
+    margin-top: 2px;
+}
+.dropbox {
+    margin-top: 20px;
+    margin-left: 5px;
+}
+.dropbox_ p {
+    font-family: "SegoeUI";
+    color: #a0a2a7;
+    font-size: 10px;
+    margin-top: -20px;
+}
+.dropbox_ {
+    margin-left: 55px;
+    margin-top: -55px;
 }

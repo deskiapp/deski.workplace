@@ -18,7 +18,22 @@
     font-size: 21px;
     letter-spacing: 0.7px;
 }
+.more_home {
+    /* background-color: brown; */
+    color: #cecece;
+    cursor: pointer;
+    float: right;
+    margin-top: 50px;
+    margin-left: 50px;
+    margin-top: 1px;
+    margin-right: 5px;
+    width: 13px;
+    height: 13px;
+    visibility: hidden;
+}
 .space {
+    /* background-color: blue; */
+
     padding: 12px;
     margin-top: 40px;
     float: left;
@@ -296,16 +311,7 @@
 .add_btn:hover {
     background-color: #086bff;
 }
-.more_home {
-    color: #cecece;
-    cursor: pointer;
-    float: right;
-    margin-top: 1px;
-    margin-right: 5px;
-    width: 13px;
-    height: 13px;
-    visibility: hidden;
-}
+
 .space:hover .more_home {
     visibility: visible;
 }

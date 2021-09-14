@@ -15,7 +15,10 @@ import add_blue from "../assets/add_blue.svg";
 import { Pane, Dialog, TextInput, CrossIcon, TickIcon } from "evergreen-ui";
 
 function Account() {
-    const [selectedTab, setSelectedTab] = React.useState(0);
+    const [selectedTab, setSelectedTab] = React.useState(false);
+    const [selectedTab1, setSelectedTab1] = React.useState(false);
+    const [selectedTab2, setSelectedTab2] = React.useState(false);
+    const [selectedTab3, setSelectedTab3] = React.useState(false);
 
     const inputFile = useRef(null);
     const onButtonClick = () => {
@@ -43,11 +46,19 @@ function Account() {
                         <img className="add" src={add_blue} alt="" />
                     </span>
                     <div className="account_con2">
-                        <button onClick={() => setSelectedTab(0)} className="others">
+                        <button
+                            onClick={() => {
+                                setSelectedTab(true);
+                                setSelectedTab1(false);
+                                setSelectedTab2(false);
+                                setSelectedTab3(false);
+                            }}
+                            className="others"
+                        >
                             <img src={toolbox} alt="" className="toolbox" />
                             Project Manager
                         </button>
-                        {selectedTab === 0 ? (
+                        {selectedTab ? (
                             <div className="roles">
                                 <TextInput width={200} />
                                 <br></br>
@@ -55,17 +66,25 @@ function Account() {
                                     <button>
                                         <TickIcon className="icon" size={12} />
                                     </button>
-                                    <button>
+                                    <button onClick={() => setSelectedTab(false)}>
                                         <CrossIcon className="icon" size={12} />
                                     </button>
                                 </div>
                             </div>
                         ) : null}
-                        <button onClick={() => setSelectedTab(1)} className="others">
+                        <button
+                            onClick={() => {
+                                setSelectedTab1(true);
+                                setSelectedTab(false);
+                                setSelectedTab2(false);
+                                setSelectedTab3(false);
+                            }}
+                            className="others"
+                        >
                             <img src={department} alt="" className="toolbox" />
                             Your department
                         </button>
-                        {selectedTab === 1 ? (
+                        {selectedTab1 ? (
                             <div className="roles">
                                 <TextInput width={200} />
                                 <br></br>
@@ -73,17 +92,25 @@ function Account() {
                                     <button>
                                         <TickIcon className="icon" size={12} />
                                     </button>
-                                    <button>
+                                    <button onClick={() => setSelectedTab1(false)}>
                                         <CrossIcon className="icon" size={12} />
                                     </button>
                                 </div>
                             </div>
                         ) : null}
-                        <button onClick={() => setSelectedTab(2)} className="others">
+                        <button
+                            onClick={() => {
+                                setSelectedTab2(true);
+                                setSelectedTab1(false);
+                                setSelectedTab(false);
+                                setSelectedTab3(false);
+                            }}
+                            className="others"
+                        >
                             <img src={building} alt="" className="toolbox" />
                             Your organization
                         </button>
-                        {selectedTab === 2 ? (
+                        {selectedTab2 ? (
                             <div className="roles">
                                 <TextInput width={200} />
                                 <br></br>
@@ -91,17 +118,25 @@ function Account() {
                                     <button>
                                         <TickIcon className="icon" size={12} />
                                     </button>
-                                    <button>
+                                    <button onClick={() => setSelectedTab2(false)}>
                                         <CrossIcon className="icon" size={12} />
                                     </button>
                                 </div>
                             </div>
                         ) : null}
-                        <button onClick={() => setSelectedTab(3)} className="others">
+                        <button
+                            onClick={() => {
+                                setSelectedTab3(true);
+                                setSelectedTab1(false);
+                                setSelectedTab2(false);
+                                setSelectedTab(false);
+                            }}
+                            className="others"
+                        >
                             <img src={location} alt="" className="toolbox" />
                             Your location
                         </button>
-                        {selectedTab === 3 ? (
+                        {selectedTab3 ? (
                             <div className="roles">
                                 <TextInput width={200} />
                                 <br></br>
@@ -109,7 +144,7 @@ function Account() {
                                     <button>
                                         <TickIcon className="icon" size={12} />
                                     </button>
-                                    <button>
+                                    <button onClick={() => setSelectedTab3(false)}>
                                         <CrossIcon className="icon" size={12} />
                                     </button>
                                 </div>

@@ -1,6 +1,9 @@
 .board {
     padding-top: 100px;
     margin-left: 315px;
+    overflow-x: scroll;
+    height: 555px;
+    overflow-y: scroll;
 }
 .board h2 {
     font-family: "GTEestiProDisplay-light";
@@ -39,15 +42,52 @@
     color: #344563;
     font-size: 11px;
     letter-spacing: 0.1px;
-    margin: 15px;
-    margin-top: 20px;
+    margin: 13px;
+}
+.bd_head .epic_label {
+    margin-top: -30px;
+    margin-left: 60px;
+}
+.coll_drpdwn p {
+    font-family: "GTEestiProDisplay-Light";
+    font-size: 10px;
+    margin-bottom: -10px;
+    color: #344563;
+    margin-top: 15px;
+    letter-spacing: 0.2px;
+}
+.disabled_ {
+    font-family: "GTEestiProDisplay-Light";
+    font-size: 10px;
+    color: #344563;
+    letter-spacing: 0.2px;
+}
+.invite_ {
+    font-family: "GTEestiProDisplay-Regular";
+    font-size: 13px;
+    color: #344563;
+    letter-spacing: 0.2px;
+}
+.coll_drpdwn span {
+    font-family: "GTEestiProDisplay-Thin ";
+    font-size: 7px;
+    color: #344563;
+}
+.bd_head .epic_drpdwn {
+    margin-left: 6px;
+}
+.board_collaborators {
+    cursor: pointer;
+    height: 35px;
 }
 .boards {
     display: grid;
-    grid-template-columns: 295px 295px 295px;
-    width: 83%;
+    grid-template-columns: 295px 295px 295px 295px 295px 295px 295px;
     margin-top: 100px;
-    margin-bottom: 100px;
+    margin-bottom: 20px;
+}
+.end_col {
+    width: 160px;
 }
 .boards .status {
     width: 270px;
@@ -78,4 +118,12 @@
     color: #cecece;
     margin-top: 5px;
     margin-left: 5px;
+}
+.board_add {
+    width: 55px;
+    height: 23px;
+    padding-top: 8px;
+    display: flex;
+    justify-content: center;
+    background-color: #efefef;
 }

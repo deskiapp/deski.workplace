@@ -15,16 +15,22 @@ import { useHistory } from "react-router-dom";
 function People() {
     let history = useHistory();
 
+    const team_textinput = {
+        height: "33px",
+        border: "solid 0.1px rgba(112, 112, 112, .1)",
+        color: "#9a9a9a",
+    };
     const textinput = {
         height: "40px",
         border: "solid 0.1px #cecece",
         color: "#9a9a9a",
     };
     const [isShown, setIsShown] = React.useState(false);
+    const [isShown1, setIsShown1] = React.useState(false);
     const [selected, setSelected] = React.useState(null);
 
     const searchbox = {
-        border: "solid 2px rgba(112, 112, 112, .3)",
+        border: "solid 2px rgba(112, 112, 112, .1)",
         borderRadius: "5px",
         paddingLeft: "35px",
     };
@@ -44,7 +50,9 @@ function People() {
                 <button className="button1" onClick={() => setIsShown(true)}>
                     Add people
                 </button>
-                <button className="button2">Start a team</button>
+                <button className="button2" onClick={() => setIsShown1(true)}>
+                    Start a team
+                </button>
                 <div className="peoples">
                     <Pane
                         className="people1"
@@ -156,6 +164,47 @@ function People() {
                                 </button>
                                 <button className="add_btn" onClick={() => setIsShown(false)} s>
                                     Add
+                                </button>
+                            </div>
+                        </div>
+                    </Dialog>
+                    <Dialog
+                        margin="none"
+                        padding="none"
+                        topOffset={140}
+                        width={475}
+                        minHeightContent={360}
+                        onCloseComplete={() => setIsShown1(false)}
+                        preventBodyScrolling
+                        hasHeader={false}
+                        isShown={isShown1}
+                        hasFooter={false}
+                    >
+                        <div className="start_team">
+                            <h4>Start a new team</h4>
+                            <p className="team_des">
+                                Get everyone working in one place by adding them to a team. Stay connected with @mentions,
+                                collaborate on work together, and efficiently manage everything from the team profile page.
+                            </p>
+                            <div className="texts">
+                                <p className="team_label">Team name</p>
+                                <TextInputField width={400} style={team_textinput} className="share_input" />
+                                <p className="team_label1">What’s your team called?</p>
+                                <p className="team_label">Invite people to your team</p>
+                                <TextInputField
+                                    width={400}
+                                    style={team_textinput}
+                                    className="share_input"
+                                    placeholder="Their name or @mention"
+                                />
+                                <p className="team_label1">You can invite up to 10 people at a time.</p>
+                            </div>
+                            <div>
+                                <button className="team_cancel_btn" onClick={() => setIsShown1(false)}>
+                                    Cancel
+                                </button>
+                                <button className="team_add_btn" onClick={() => setIsShown1(false)} s>
+                                    Start team
                                 </button>
                             </div>
                         </div>

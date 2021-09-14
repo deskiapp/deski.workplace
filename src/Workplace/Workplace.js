@@ -68,6 +68,12 @@ function Workplace() {
         border: "solid 0.1px #cecece",
         color: "#9a9a9a",
     };
+    const ele = {
+        elevation: -10,
+    };
+    const elem = {
+        elevation: 10,
+    };
     return (
         <div>
             <Header />
@@ -276,6 +282,7 @@ function Workplace() {
                     </div>
                     <div>
                         <Pane
+                            style={elem}
                             className="space"
                             onClick={() => {
                                 history.push("/dashboard");
@@ -307,9 +314,8 @@ function Workplace() {
                                     </Menu>
                                 }
                             >
-                                <MoreIcon className="more_home" />
+                                <MoreIcon className="more_home" style={ele} />
                             </Popover>
-
                             <img src={bug} alt="" height="35" width="35" />
                             <h4>Bug Tracking</h4>
                             <p className="deski">www.deskiapp.com</p>

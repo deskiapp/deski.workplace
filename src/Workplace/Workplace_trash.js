@@ -1,5 +1,5 @@
 import React from "react";
-import Workplace from "./Workplace";
+import Workspace_list from "./Workspace_list";
 import Header from "./Header";
 import trash from "../assets/trash.svg";
 import arrow from "../assets/arrow.svg";
@@ -34,7 +34,7 @@ function Workplace_trash() {
     return (
         <div>
             <Header />
-            <Workplace />
+            <Workspace_list />
             <div className="trash">
                 <h2>Recently Deleted</h2>
                 <p className="trash_p">

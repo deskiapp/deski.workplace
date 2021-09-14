@@ -1,11 +1,13 @@
 .space_sidebar {
     margin-top: 60px;
-    width: 250px;
+    width: 240px;
+    height: 100vh;
     padding-left: 60px;
     padding-top: 60px;
     position: fixed;
     /* overflow-y: scroll;
     height: 80%; */
+    /* background-color: white; */
 }
 .space_sidebar .content {
     display: inline;

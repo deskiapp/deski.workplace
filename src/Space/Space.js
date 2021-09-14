@@ -59,27 +59,27 @@ function Space() {
                     <p className="content">Epic Roadmap</p>
                 </Link>
                 <Link to="/board" className={selectedtabs === 1 ? "profile_links_selected" : "profile_links"}>
-                    <img src={board} alt="" height="15" width="15" />
+                    <img src={board} alt="" height="14" width="15" />
                     <p className="content">Board</p>
                 </Link>
                 <Link to="/table" className={selectedtabs === 2 ? "profile_links_selected" : "profile_links"}>
-                    <img src={table} alt="" height="13" width="16" />
+                    <img src={table} alt="" height="11" width="16" />
                     <p className="content">Table</p>
                 </Link>
                 <Link to="/gantt_chart" className={selectedtabs === 3 ? "profile_links_selected" : "profile_links"}>
-                    <img src={chart} alt="" height="15" width="16" />
-                    <p className="content">Gantt Chart</p>
+                    <img src={chart} alt="" height="13" width="16" />
+                    <p className="content abc">Gantt Chart</p>
                 </Link>
                 <Link to="/calendar" className={selectedtabs === 4 ? "profile_links_selected" : "profile_links"}>
-                    <img src={calendar} alt="" height="13" width="16" />
+                    <img src={calendar} alt="" height="12" width="16" />
                     <p className="content">Calendar</p>
                 </Link>
                 <Link to="/create_view" className={selectedtabs === 5 ? "profile_links_selected" : "profile_links"}>
-                    <img src={add} alt="" height="12" width="16" />
+                    <img src={add} alt="" height="11" width="16" />
                     <p className="content">Create View</p>
                 </Link>
                 <Link to="/settings" className={selectedtabs === 6 ? "profile_links_selected" : "profile_links"}>
-                    <img src={settings} alt="" height="12" width="16" />
+                    <img src={settings} alt="" height="11" width="16" />
                     <p className="content">Settings</p>
                 </Link>
             </div>
