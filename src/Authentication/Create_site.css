@@ -17,6 +17,24 @@
     box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.16);
     background-color: #fff;
 }
+.create_site_pane .invalid {
+    margin-left: 34px;
+    margin-top: 6px;
+    margin-bottom: -21px;
+    font-family: "GTEestiProDisplay-light";
+    letter-spacing: 0.5px;
+    color: #ff2442;
+    font-size: 13px;
+}
+.create_site_pane .invalid_ {
+    margin-left: 34px;
+    margin-top: 6px;
+    margin-bottom: -21px;
+    font-family: "GTEestiProDisplay-light";
+    letter-spacing: 0.5px;
+    color: #47cb66;
+    font-size: 13px;
+}
 .create_site_pane h1 {
     font-family: "SegoeUISemibold";
     font-size: 28px;
@@ -28,7 +46,7 @@
     margin-top: 30px;
     margin-left: 34px;
 }
-.create_site_pane p {
+.create_site_pane .choose {
     font-family: "SegoeUI";
     margin-top: -15px;
     text-align: center;
@@ -55,11 +73,21 @@
     font-family: "SegoeUI";
     color: #8690a3;
     font-size: 12px;
-}
-.create_site_button:hover {
     cursor: pointer;
 }
-
+.create_site_button_active {
+    margin-left: 34px;
+    margin-top: 30px;
+    width: 322px;
+    background-color: #3250fe;
+    border: none;
+    height: 30px;
+    border-radius: 4px;
+    font-family: "SegoeUI";
+    color: white;
+    font-size: 12px;
+    cursor: pointer;
+}
 /* Mobile */
 
 .mob_create_site_pane {
@@ -83,12 +111,30 @@
     margin-top: 30px;
     margin-left: 20px;
 }
-.mob_create_site_pane p {
+.mob_create_site_pane .choose {
     font-family: "SegoeUI";
     margin-top: -15px;
     margin-left: 20px;
     font-size: 12px;
     text-align: left;
+}
+.mob_create_site_pane .invalid {
+    margin-left: 20px;
+    margin-top: 6px;
+    margin-bottom: -21px;
+    font-family: "GTEestiProDisplay-light";
+    letter-spacing: 0.5px;
+    color: #ff2442;
+    font-size: 13px;
+}
+.mob_create_site_pane .invalid_ {
+    margin-left: 20px;
+    margin-top: 6px;
+    margin-bottom: -21px;
+    font-family: "GTEestiProDisplay-light";
+    letter-spacing: 0.5px;
+    color: #47cb66;
+    font-size: 13px;
 }
 .mob_create_site_inputfield {
     margin-left: 20px;
@@ -100,6 +146,19 @@
     margin-right: -5px;
     color: #8690a3;
 }
+.mob_create_site_button_active {
+    margin-left: 20px;
+    margin-top: 30px;
+    width: 220px;
+    background-color: #3250fe;
+    border: none;
+    height: 30px;
+    border-radius: 4px;
+    font-family: "SegoeUI";
+    color: white;
+    font-size: 12px;
+}
+
 .mob_create_site_button {
     margin-left: 20px;
     margin-top: 30px;

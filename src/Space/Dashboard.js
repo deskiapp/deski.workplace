@@ -13,11 +13,12 @@ import { Table, Pane, Popover, Menu, TextInput } from "evergreen-ui";
 
 function Dashboard() {
     const containerStyles = {
+        // position: "absolute",
         height: 15,
         width: "370px",
         backgroundColor: "rgba(19,218,181,0.2)",
         borderRadius: 50,
-        marginTop: "-445px",
+        // marginTop: "100px",
         marginLeft: "240px",
     };
     const containerStyles1 = {
@@ -92,13 +93,13 @@ function Dashboard() {
                 <div className="map_head">
                     <div className="map_collaborators">
                         <div>
-                            <img src={avatar} alt="" className="map_profiles" height="29" width="27" />
+                            <img src={avatar} alt="" className="map_profiles" height="25" width="22" />
                         </div>
                         <div>
-                            <img src={avatar1} alt="" className="map_profiles" height="29" width="27" />
+                            <img src={avatar1} alt="" className="map_profiles" height="25" width="22" />
                         </div>
                         <div>
-                            <img src={avatar2} alt="" className="map_profiles" height="29" width="27" />
+                            <img src={avatar2} alt="" className="map_profiles" height="25" width="22" />
                         </div>
                         <div className="map_profile">
                             <p>+6</p>
@@ -155,159 +156,257 @@ function Dashboard() {
                         >
                             <div className="epic">
                                 Status category
-                                <img src={arrow_down} alt="" className="epic_drpdwn" height="7" width="10" />
+                                <img src={arrow_down} alt="" className="epic_drpdwn" height="7" width="8" />
                             </div>
                         </Popover>
                     </div>
                 </div>
+                <div className="map_table_">
+                    <Pane className="map_table">
+                        <div className="map_progress">
+                            <div style={containerStyles}>
+                                <div style={fillerStyles}>
+                                    <div style={labelStyles}>70%</div>
+                                </div>
+                            </div>
 
-                <Pane marginTop={80} className="map_table">
-                    <div>
-                        <Table.Row height={32}>
-                            <Table.Cell className="map_column vertical"></Table.Cell>
-                            <Table.Cell className="map_column main" flexBasis={110}>
-                                Epic
-                            </Table.Cell>
-                            <Table.Cell className="map_column sub">Mon, 7/1</Table.Cell>
-                            <Table.Cell className="map_column sub">Tue, 7/2</Table.Cell>
-                            <Table.Cell className="map_column sub">Wed, 7/3</Table.Cell>
-                            <Table.Cell className="map_column sub">Thu, 7/4</Table.Cell>
-                            <Table.Cell className="map_column sub">Fri, 7/5</Table.Cell>
-                            <Table.Cell className="map_column sub">Sat, 7/6</Table.Cell>
-                            <Table.Cell className="map_column sub">Sun, 7/7</Table.Cell>
-                            <Table.Cell className="map_column sub">Mon, 7/8</Table.Cell>
-                            <Table.Cell className="map_column sub">Tue, 7/9</Table.Cell>
-                            <Table.Cell className="sub">Wed, 7/10</Table.Cell>
-                        </Table.Row>
-                        <Table.Row height={130}>
-                            <Table.Cell className="map_column vertical">
-                                Nursing
-                                <br /> Fundamentals of
-                            </Table.Cell>
-                            <Table.Cell className="map_column sub" flexBasis={110}>
-                                Pharmacology 1 <br />
-                                <br />
-                                Pharmacology 2 <br />
-                                <br />
-                                Parenteral Therapies <br />
-                                <br />
-                                Peri-Operative Nursing
-                            </Table.Cell>
-                            <Table.Cell className="map_column ab"></Table.Cell>
-                            <Table.Cell className="map_column"></Table.Cell>
-                            <Table.Cell className="map_column"></Table.Cell>
-                            <Table.Cell className="map_column"></Table.Cell>
-                            <Table.Cell className="map_column"></Table.Cell>
-                            <Table.Cell className="map_column"></Table.Cell>
-                            <Table.Cell className="map_column"></Table.Cell>
-                            <Table.Cell className="map_column"></Table.Cell>
-                            <Table.Cell className="map_column"></Table.Cell>
-                            <Table.Cell></Table.Cell>
-                        </Table.Row>
-                        <Table.Row height={100}>
-                            <Table.Cell className="map_column vertical">
-                                Nursing
-                                <br />
-                                Neurologic
-                            </Table.Cell>
-                            <Table.Cell className="map_column sub" flexBasis={110}>
-                                Neuro 1 <br />
-                                <br />
-                                Neuro 2 <br />
-                                <br />
-                                Neuro 3 + Workbook
-                            </Table.Cell>
-                            <Table.Cell className="map_column ab"></Table.Cell>
-                            <Table.Cell className="map_column"></Table.Cell>
-                            <Table.Cell className="map_column"></Table.Cell>
-                            <Table.Cell className="map_column"></Table.Cell>
-                            <Table.Cell className="map_column"></Table.Cell>
-                            <Table.Cell className="map_column"></Table.Cell>
-                            <Table.Cell className="map_column"></Table.Cell>
-                            <Table.Cell className="map_column"></Table.Cell>
-                            <Table.Cell className="map_column"></Table.Cell>
-                            <Table.Cell></Table.Cell>
-                        </Table.Row>
-                        <Table.Row height={100}>
-                            <Table.Cell className="map_column vertical">
-                                Disorders
-                                <br /> Endocrine
-                            </Table.Cell>
-                            <Table.Cell className="map_column sub" flexBasis={110}>
-                                GIT 1 <br />
-                                <br />
-                                GIT 2<br />
-                                <br /> GIT 3 + Workbook
-                            </Table.Cell>
-                            <Table.Cell className="map_column ab"></Table.Cell>
-                            <Table.Cell className="map_column"></Table.Cell>
-                            <Table.Cell className="map_column"></Table.Cell>
-                            <Table.Cell className="map_column"></Table.Cell>
-                            <Table.Cell className="map_column"></Table.Cell>
-                            <Table.Cell className="map_column"></Table.Cell>
-                            <Table.Cell className="map_column"></Table.Cell>
-                            <Table.Cell className="map_column"></Table.Cell>
-                            <Table.Cell className="map_column"></Table.Cell>
-                            <Table.Cell></Table.Cell>
-                        </Table.Row>
-                        <Table.Row height={130}>
-                            <Table.Cell className="map_column vertical">
-                                Tract
-                                <br /> Gastrointestinal
-                            </Table.Cell>
-                            <Table.Cell className="map_column sub" flexBasis={110}>
-                                Endo 1<br />
-                                <br /> Endo 2 <br />
-                                <br />
-                                Endo 3 + Workbook <br />
-                                <br />
-                                Renal 1
-                            </Table.Cell>
-                            <Table.Cell className="map_column ab"></Table.Cell>
-                            <Table.Cell className="map_column"></Table.Cell>
-                            <Table.Cell className="map_column"></Table.Cell>
-                            <Table.Cell className="map_column"></Table.Cell>
-                            <Table.Cell className="map_column"></Table.Cell>
-                            <Table.Cell className="map_column"></Table.Cell>
-                            <Table.Cell className="map_column"></Table.Cell>
-                            <Table.Cell className="map_column"></Table.Cell>
-                            <Table.Cell className="map_column"></Table.Cell>
-                            <Table.Cell></Table.Cell>
-                        </Table.Row>
-                    </div>
-                    <div style={containerStyles}>
-                        <div style={fillerStyles}>
-                            <div style={labelStyles}>70%</div>
-                        </div>
-                    </div>
+                            <div style={containerStyles1}>
+                                <div style={fillerStyles}>
+                                    <div style={labelStyles}>70%</div>
+                                </div>
+                            </div>
 
-                    <div style={containerStyles1}>
-                        <div style={fillerStyles}>
-                            <div style={labelStyles}>70%</div>
+                            <div style={containerStyles2}>
+                                <div style={fillerStyles2}>
+                                    <div style={labelStyles}>40%</div>
+                                </div>
+                            </div>
+                            <div style={containerStyles4}>
+                                <div style={fillerStyles4}>
+                                    <div style={labelStyles}>70%</div>
+                                </div>
+                            </div>
+                            <div style={containerStyles3}>
+                                <div style={fillerStyles2}>
+                                    <div style={labelStyles}>40%</div>
+                                </div>
+                            </div>
+                            <Pane className="map_fixed">
+                                <div>Weeks</div>
+                                <div>Months</div>
+                                <div>Quarter</div>
+                            </Pane>
                         </div>
-                    </div>
-
-                    <div style={containerStyles2}>
-                        <div style={fillerStyles2}>
-                            <div style={labelStyles}>40%</div>
+                        <div>
+                            <Table.Row height={32} marginTop={-310}>
+                                <Table.Cell className="map_column vertical"></Table.Cell>
+                                <Table.Cell className="map_column main" flexBasis={110}>
+                                    Epic
+                                </Table.Cell>
+                                <Table.Cell className="map_column sub">Mon, 7/1</Table.Cell>
+                                <Table.Cell className="map_column sub">Tue, 7/2</Table.Cell>
+                                <Table.Cell className="map_column sub">Wed, 7/3</Table.Cell>
+                                <Table.Cell className="map_column sub">Thu, 7/4</Table.Cell>
+                                <Table.Cell className="map_column sub">Fri, 7/5</Table.Cell>
+                                <Table.Cell className="map_column sub">Sat, 7/6</Table.Cell>
+                                <Table.Cell className="map_column sub">Sun, 7/7</Table.Cell>
+                                <Table.Cell className="map_column sub">Mon, 7/8</Table.Cell>
+                                <Table.Cell className="map_column sub">Tue, 7/9</Table.Cell>
+                                <Table.Cell className="sub">Wed, 7/10</Table.Cell>
+                            </Table.Row>
+                            <Table.Row height={130}>
+                                <Table.Cell className="map_column vertical">
+                                    Nursing
+                                    <br /> Fundamentals of
+                                </Table.Cell>
+                                <Table.Cell className="map_column sub" flexBasis={110}>
+                                    Pharmacology 1 <br />
+                                    <br />
+                                    Pharmacology 2 <br />
+                                    <br />
+                                    Parenteral Therapies <br />
+                                    <br />
+                                    Peri-Operative Nursing
+                                </Table.Cell>
+                                <Table.Cell className="map_column"></Table.Cell>
+                                <Table.Cell className="map_column"></Table.Cell>
+                                <Table.Cell className="map_column"></Table.Cell>
+                                <Table.Cell className="map_column"></Table.Cell>
+                                <Table.Cell className="map_column"></Table.Cell>
+                                <Table.Cell className="map_column"></Table.Cell>
+                                <Table.Cell className="map_column"></Table.Cell>
+                                <Table.Cell className="map_column"></Table.Cell>
+                                <Table.Cell className="map_column"></Table.Cell>
+                                <Table.Cell></Table.Cell>
+                            </Table.Row>
+                            <Table.Row height={100}>
+                                <Table.Cell className="map_column vertical">
+                                    Nursing
+                                    <br />
+                                    Neurologic
+                                </Table.Cell>
+                                <Table.Cell className="map_column sub" flexBasis={110}>
+                                    Neuro 1 <br />
+                                    <br />
+                                    Neuro 2 <br />
+                                    <br />
+                                    Neuro 3 + Workbook
+                                </Table.Cell>
+                                <Table.Cell className="map_column"></Table.Cell>
+                                <Table.Cell className="map_column"></Table.Cell>
+                                <Table.Cell className="map_column"></Table.Cell>
+                                <Table.Cell className="map_column"></Table.Cell>
+                                <Table.Cell className="map_column"></Table.Cell>
+                                <Table.Cell className="map_column"></Table.Cell>
+                                <Table.Cell className="map_column"></Table.Cell>
+                                <Table.Cell className="map_column"></Table.Cell>
+                                <Table.Cell className="map_column"></Table.Cell>
+                                <Table.Cell></Table.Cell>
+                            </Table.Row>
+                            <Table.Row height={100}>
+                                <Table.Cell className="map_column vertical">
+                                    Disorders
+                                    <br /> Endocrine
+                                </Table.Cell>
+                                <Table.Cell className="map_column sub" flexBasis={110}>
+                                    GIT 1 <br />
+                                    <br />
+                                    GIT 2<br />
+                                    <br /> GIT 3 + Workbook
+                                </Table.Cell>
+                                <Table.Cell className="map_column"></Table.Cell>
+                                <Table.Cell className="map_column"></Table.Cell>
+                                <Table.Cell className="map_column"></Table.Cell>
+                                <Table.Cell className="map_column"></Table.Cell>
+                                <Table.Cell className="map_column"></Table.Cell>
+                                <Table.Cell className="map_column"></Table.Cell>
+                                <Table.Cell className="map_column"></Table.Cell>
+                                <Table.Cell className="map_column"></Table.Cell>
+                                <Table.Cell className="map_column"></Table.Cell>
+                                <Table.Cell></Table.Cell>
+                            </Table.Row>
+                            <Table.Row height={130}>
+                                <Table.Cell className="map_column vertical">
+                                    Tract
+                                    <br /> Gastrointestinal
+                                </Table.Cell>
+                                <Table.Cell className="map_column sub" flexBasis={110}>
+                                    Endo 1<br />
+                                    <br /> Endo 2 <br />
+                                    <br />
+                                    Endo 3 + Workbook <br />
+                                    <br />
+                                    Renal 1
+                                </Table.Cell>
+                                <Table.Cell className="map_column"></Table.Cell>
+                                <Table.Cell className="map_column"></Table.Cell>
+                                <Table.Cell className="map_column"></Table.Cell>
+                                <Table.Cell className="map_column"></Table.Cell>
+                                <Table.Cell className="map_column"></Table.Cell>
+                                <Table.Cell className="map_column"></Table.Cell>
+                                <Table.Cell className="map_column"></Table.Cell>
+                                <Table.Cell className="map_column"></Table.Cell>
+                                <Table.Cell className="map_column"></Table.Cell>
+                                <Table.Cell></Table.Cell>
+                            </Table.Row>
+                            <Table.Row height={130}>
+                                <Table.Cell className="map_column vertical">
+                                    Nursing
+                                    <br /> Fundamentals of
+                                </Table.Cell>
+                                <Table.Cell className="map_column sub" flexBasis={110}>
+                                    Pharmacology 1 <br />
+                                    <br />
+                                    Pharmacology 2 <br />
+                                    <br />
+                                    Parenteral Therapies <br />
+                                    <br />
+                                    Peri-Operative Nursing
+                                </Table.Cell>
+                                <Table.Cell className="map_column"></Table.Cell>
+                                <Table.Cell className="map_column"></Table.Cell>
+                                <Table.Cell className="map_column"></Table.Cell>
+                                <Table.Cell className="map_column"></Table.Cell>
+                                <Table.Cell className="map_column"></Table.Cell>
+                                <Table.Cell className="map_column"></Table.Cell>
+                                <Table.Cell className="map_column"></Table.Cell>
+                                <Table.Cell className="map_column"></Table.Cell>
+                                <Table.Cell className="map_column"></Table.Cell>
+                                <Table.Cell></Table.Cell>
+                            </Table.Row>
+                            <Table.Row height={100}>
+                                <Table.Cell className="map_column vertical">
+                                    Nursing
+                                    <br />
+                                    Neurologic
+                                </Table.Cell>
+                                <Table.Cell className="map_column sub" flexBasis={110}>
+                                    Neuro 1 <br />
+                                    <br />
+                                    Neuro 2 <br />
+                                    <br />
+                                    Neuro 3 + Workbook
+                                </Table.Cell>
+                                <Table.Cell className="map_column"></Table.Cell>
+                                <Table.Cell className="map_column"></Table.Cell>
+                                <Table.Cell className="map_column"></Table.Cell>
+                                <Table.Cell className="map_column"></Table.Cell>
+                                <Table.Cell className="map_column"></Table.Cell>
+                                <Table.Cell className="map_column"></Table.Cell>
+                                <Table.Cell className="map_column"></Table.Cell>
+                                <Table.Cell className="map_column"></Table.Cell>
+                                <Table.Cell className="map_column"></Table.Cell>
+                                <Table.Cell></Table.Cell>
+                            </Table.Row>
+                            <Table.Row height={100}>
+                                <Table.Cell className="map_column vertical">
+                                    Disorders
+                                    <br /> Endocrine
+                                </Table.Cell>
+                                <Table.Cell className="map_column sub" flexBasis={110}>
+                                    GIT 1 <br />
+                                    <br />
+                                    GIT 2<br />
+                                    <br /> GIT 3 + Workbook
+                                </Table.Cell>
+                                <Table.Cell className="map_column"></Table.Cell>
+                                <Table.Cell className="map_column"></Table.Cell>
+                                <Table.Cell className="map_column"></Table.Cell>
+                                <Table.Cell className="map_column"></Table.Cell>
+                                <Table.Cell className="map_column"></Table.Cell>
+                                <Table.Cell className="map_column"></Table.Cell>
+                                <Table.Cell className="map_column"></Table.Cell>
+                                <Table.Cell className="map_column"></Table.Cell>
+                                <Table.Cell className="map_column"></Table.Cell>
+                                <Table.Cell></Table.Cell>
+                            </Table.Row>
+                            <Table.Row height={130}>
+                                <Table.Cell className="map_column vertical">
+                                    Tract
+                                    <br /> Gastrointestinal
+                                </Table.Cell>
+                                <Table.Cell className="map_column sub" flexBasis={110}>
+                                    Endo 1<br />
+                                    <br /> Endo 2 <br />
+                                    <br />
+                                    Endo 3 + Workbook <br />
+                                    <br />
+                                    Renal 1
+                                </Table.Cell>
+                                <Table.Cell className="map_column"></Table.Cell>
+                                <Table.Cell className="map_column"></Table.Cell>
+                                <Table.Cell className="map_column"></Table.Cell>
+                                <Table.Cell className="map_column"></Table.Cell>
+                                <Table.Cell className="map_column"></Table.Cell>
+                                <Table.Cell className="map_column"></Table.Cell>
+                                <Table.Cell className="map_column"></Table.Cell>
+                                <Table.Cell className="map_column"></Table.Cell>
+                                <Table.Cell className="map_column"></Table.Cell>
+                                <Table.Cell></Table.Cell>
+                            </Table.Row>
                         </div>
-                    </div>
-                    <div style={containerStyles4}>
-                        <div style={fillerStyles4}>
-                            <div style={labelStyles}>70%</div>
-                        </div>
-                    </div>
-                    <div style={containerStyles3}>
-                        <div style={fillerStyles2}>
-                            <div style={labelStyles}>40%</div>
-                        </div>
-                    </div>
-                    <Pane className="map_fixed">
-                        <div>Weeks</div>
-                        <div>Months</div>
-                        <div>Quarter</div>
                     </Pane>
-                </Pane>
+                </div>
             </div>
         </div>
     );

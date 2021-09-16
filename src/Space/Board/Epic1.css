@@ -1,6 +1,6 @@
 .epics {
     background-color: white;
-    margin: 7px 12px 0 10px;
+    margin: 7px 5px 7px 5px;
     padding: 9px 15px 12px 8px;
     border-radius: 3px;
 }
@@ -9,24 +9,22 @@
 }
 .epics .des {
     font-family: "SegoeUI";
-    color: #7b7b7b;
-    font-size: 10px;
-}
-.epics .des_ {
-    width: 240px;
+    color: #171010;
+    font-size: 14px;
+    width: 250px;
 }
 .epics .name {
     text-align: center;
-    font-family: "GTEestiProDisplay-thin";
+    font-family: "GTEestiProDisplay-Regular";
     color: #344563;
-    font-size: 8px;
+    font-size: 11px;
     margin-top: 0;
     background-color: #fcf0dd;
     width: 55px;
     border-radius: 5px;
     padding: 3px;
 }
-.epics .name_ {
+/* .epics .name_ {
     text-align: center;
     font-family: "GTEestiProDisplay-thin";
     color: #344563;
@@ -47,32 +45,27 @@
     width: 55px;
     border-radius: 5px;
     padding: 3px;
-}
-.more_epic {
-    float: right;
-    color: #cecece;
-    height: 12px;
-    width: 12px;
-    margin-right: 5px;
-}
+} */
+
 .epics .footer .kb {
     display: inline;
-    font-family: "GTEestiProDisplay-thin";
-    font-size: 8px;
+    font-family: "GTEestiProDisplay-light";
+    font-size: 10px;
     margin-right: 15px;
     margin-left: 5px;
+    color: #344563;
 }
 .epics .footer {
     margin-top: 22px;
 }
-.epics .footer .epic_label {
+/* .epics .footer .epic_label {
     display: inline;
     font-family: "GTEestiProDisplay-thin";
     font-size: 8px;
     background-color: #e2fff6;
     border-radius: 5px;
     padding: 2px 12px 2px 12px;
-}
+} */
 .epics .footer .right {
     display: inline;
     float: right;
@@ -80,5 +73,5 @@
 .right .profile {
     border-radius: 3px;
     margin-right: -4px;
-    margin-left: 20px;
+    margin-left: 35px;
 }

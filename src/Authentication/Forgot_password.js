@@ -20,6 +20,8 @@ const Mobile = ({ children }) => {
 };
 
 function Forgot_password() {
+    const [incorrect, SetIncorrect] = React.useState(false);
+
     return (
         <div>
             <Desktop>
@@ -31,12 +33,16 @@ function Forgot_password() {
                     <div className="forgot_password">
                         <Pane className="forgt_pw_pane">
                             <p className="pane_title">Can't login</p>
+                            {incorrect && (
+                                <p className="invalid">*The email address is not enrolled with an organization</p>
+                            )}
                             <p className="text_name">We'll send recovery link to</p>
                             <TextInput
                                 width={322}
                                 borderColor="#c5c5c5"
                                 className="forgt_pw_inputfield"
                                 placeholder="Enter email"
+                                onInput={(e) => SetIncorrect(true)}
                             />
                             <button className="forgt_pw_button">Continue</button>
                             <Link to="/" className="fp_link">
@@ -55,9 +61,13 @@ function Forgot_password() {
                     <div className="forgot_password">
                         <Pane className="mob_forgt_pw_pane">
                             <p className="mob_pane_title">Can't login</p>
+                            {incorrect && (
+                                <p className="invalid">*The email address is not enrolled with an organization</p>
+                            )}
                             <p className="mob_text_name">We'll send recovery link to</p>
                             <TextInput
                                 width={220}
+                                onInput={(e) => SetIncorrect(true)}
                                 borderColor="#c5c5c5"
                                 className="mob_forgt_pw_inputfield"
                                 placeholder="Enter email"
@@ -79,9 +89,13 @@ function Forgot_password() {
                     <div className="forgot_password">
                         <Pane className="forgt_pw_pane">
                             <p className="pane_title">Can't login</p>
+                            {incorrect && (
+                                <p className="invalid">*The email address is not enrolled with an organization</p>
+                            )}
                             <p className="text_name">We'll send recovery link to</p>
                             <TextInput
                                 width={322}
+                                onInput={(e) => SetIncorrect(true)}
                                 borderColor="#c5c5c5"
                                 className="forgt_pw_inputfield"
                                 placeholder="Enter email"

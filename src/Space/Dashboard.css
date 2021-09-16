@@ -1,9 +1,6 @@
 .map {
     padding-top: 100px;
     margin-left: 315px;
-    overflow-x: scroll;
-    height: 555px;
-    overflow-y: scroll;
 }
 .map h2 {
     font-family: "GTEestiProDisplay-regular";
@@ -13,8 +10,8 @@
 }
 .map_profile {
     float: left;
-    height: 28px;
-    width: 27px;
+    height: 23px;
+    width: 22px;
     border-radius: 2px;
     border: solid 1px #efefef;
     margin-top: 10px;
@@ -25,7 +22,7 @@
     font-family: "SegoeUISemibold";
     font-size: 11px;
     text-align: center;
-    margin-top: 6px;
+    margin-top: 3px;
 }
 .map_profiles {
     border-radius: 2px;
@@ -35,6 +32,7 @@
 .map_head {
     margin-top: -52px;
     margin-left: 260px;
+    width: 100%;
 }
 .map_head .epic {
     font-family: "GTEestiProDisplay-Light";
@@ -43,7 +41,7 @@
     padding: 5px;
     font-size: 13px;
     letter-spacing: 0.1px;
-    margin-top: 8px;
+    margin-top: 5px;
     margin-left: 3px;
 }
 .create_epic {
@@ -84,13 +82,24 @@
     border-radius: 4px;
     margin-right: 8px;
 }
+
 .map_table {
-    border-radius: 12px;
+    border-radius: 5px;
     box-shadow: 0 9px 26px 0 rgba(0, 0, 0, 0.03);
     background-color: #fff;
+    height: fit-content;
+    margin-bottom: 50px;
+}
+.map_progress {
+    position: relative;
+    top: 40px;
+    padding: 0;
+}
+.map_table_ {
+    width: 1052px;
+    margin-top: 80px;
+    z-index: -5;
     position: absolute;
-    width: 1053px;
-    margin-bottom: 200px;
 }
 .create_popover_ {
     height: 100px;
@@ -166,11 +175,12 @@
     background-color: #fff;
     width: 150px;
     position: fixed;
-    margin-left: 790px;
-    margin-top: 40px;
+    margin-left: 850px;
+    margin-top: 50px;
     height: 28px;
     text-align: center;
     padding-top: 3px;
+    border-radius: 4px;
 }
 
 .map_fixed div {
@@ -184,4 +194,6 @@
     padding: 8px 10px 8px 10px;
     background-color: #152d35;
     color: white;
+    border-bottom-left-radius: 4px;
+    border-top-left-radius: 4px;
 }

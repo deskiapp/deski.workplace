@@ -4,24 +4,37 @@ import Space from "../Space";
 import Epic1 from "./Epic1";
 import Epic2 from "./Epic2";
 import Epic3 from "./Epic3";
-import Epic4 from "./Epic4";
-import Epic5 from "./Epic5";
-import Epic6 from "./Epic6";
-import Epic7 from "./Epic7";
-import Epic8 from "./Epic8";
+
 import "./Board.css";
-import { DragHandleVerticalIcon, Menu, Popover, Position, TextInputField, Dialog, SelectMenu } from "evergreen-ui";
+import {
+    Menu,
+    Popover,
+    Position,
+    TextInputField,
+    TextareaField,
+    Dialog,
+    SelectMenu,
+    TextInput,
+    TickIcon,
+    CrossIcon,
+} from "evergreen-ui";
 
 import avatar from "../../assets/avatar.jpg";
 import avatar1 from "../../assets/avatar1.jpeg";
 import avatar2 from "../../assets/avatar2.jpeg";
-import add from "../../assets/add.svg";
+
 import arrow_down from "../../assets/arrow_down.svg";
+import add from "../../assets/add.svg";
+import add_ from "../../assets/add_.svg";
 import { MoreIcon } from "evergreen-ui";
 import arrow from "../../assets/arrow.svg";
+import send_ from "../../assets/send_.svg";
 
 function Board() {
     const [isShown, setIsShown] = React.useState(false);
+    const [createIssue, setCreateIssue] = React.useState(false);
+    const [createIssue1, setCreateIssue1] = React.useState(false);
+    const [createIssue2, setCreateIssue2] = React.useState(false);
     const [selected, setSelected] = React.useState(null);
 
     const coll_drpdwn = {
@@ -29,13 +42,16 @@ function Board() {
         paddingBottom: "15px",
     };
     const invite = {
-        height: "30px",
+        height: "20px",
     };
     const textinput = {
         height: "40px",
         border: "solid 0.1px #cecece",
         color: "#9a9a9a",
     };
+    const [selectedTab, setSelectedTab] = React.useState(false);
+    const [selectedTab1, setSelectedTab1] = React.useState(false);
+    const [selectedTab2, setSelectedTab2] = React.useState(false);
 
     return (
         <div>
@@ -114,8 +130,6 @@ function Board() {
                                         icon={<img src={avatar} alt="" className="bd_profiles" height="25" width="23" />}
                                     >
                                         <p>Abdu Rahiman</p>
-                                        <span>Software Engineer</span>
-                                        {/* <MoreIcon className="more_col" /> */}
                                     </Menu.Item>
                                     <Menu.Item
                                         style={coll_drpdwn}
@@ -123,8 +137,6 @@ function Board() {
                                         icon={<img src={avatar1} alt="" className="bd_profiles" height="25" width="23" />}
                                     >
                                         <p>Abdu Rahiman</p>
-                                        <span>Software Engineer</span>
-                                        {/* <MoreIcon className="more_col" /> */}
                                     </Menu.Item>
                                     <Menu.Item
                                         style={coll_drpdwn}
@@ -132,8 +144,6 @@ function Board() {
                                         icon={<img src={avatar} alt="" className="bd_profiles" height="25" width="23" />}
                                     >
                                         <p>Abdu Rahiman</p>
-                                        <span>Software Engineer</span>
-                                        {/* <MoreIcon className="more_col" /> */}
                                     </Menu.Item>
                                     <Menu.Item
                                         style={coll_drpdwn}
@@ -141,8 +151,6 @@ function Board() {
                                         icon={<img src={avatar1} alt="" className="bd_profiles" height="25" width="23" />}
                                     >
                                         <p>Abdu Rahiman</p>
-                                        <span>Software Engineer</span>
-                                        {/* <MoreIcon className="more_col" /> */}
                                     </Menu.Item>
                                     <Menu.Item
                                         style={coll_drpdwn}
@@ -150,8 +158,6 @@ function Board() {
                                         icon={<img src={avatar} alt="" className="bd_profiles" height="25" width="23" />}
                                     >
                                         <p>Abdu Rahiman</p>
-                                        <span>Software Engineer</span>
-                                        {/* <MoreIcon className="more_col" /> */}
                                     </Menu.Item>
                                 </Menu.Group>
                                 <Menu.Divider />
@@ -159,9 +165,9 @@ function Board() {
                                     <Menu.Item
                                         onClick={() => setIsShown(true)}
                                         style={invite}
-                                        icon={<img src={add} alt="" height="10" width="10" />}
+                                        icon={<img src={add_} alt="" height="10" width="10" />}
                                     >
-                                        <p className="invite_">Invite teammates</p>
+                                        <p className="invite_">Invite collaborator</p>
                                     </Menu.Item>
                                 </Menu.Group>
                             </Menu>
@@ -169,60 +175,178 @@ function Board() {
                     >
                         <div className="board_collaborators">
                             <div>
-                                <img src={avatar} alt="" className="bd_profiles" height="19" width="19" />
+                                <img src={avatar} alt="" className="map_profiles" height="25" width="22" />
                             </div>
                             <div>
-                                <img src={avatar1} alt="" className="bd_profiles" height="19" width="19" />
+                                <img src={avatar1} alt="" className="map_profiles" height="25" width="22" />
                             </div>
                             <div>
-                                <img src={avatar2} alt="" className="bd_profiles" height="19" width="19" />
+                                <img src={avatar2} alt="" className="map_profiles" height="25" width="22" />
                             </div>
-                            <div className="board_profile">
-                                <p>+8</p>
+                            <div className="map_profile">
+                                <p>+6</p>
                             </div>
                         </div>
                     </Popover>
                     <div className="epic_label">
                         <div className="epic">
                             Epic
-                            <img src={arrow_down} alt="" className="epic_drpdwn" height="6" width="7" />
+                            <img src={arrow_down} alt="" className="epic_drpdwn" height="7" width="8" />
                         </div>
                         <div className="epic">
                             Label
-                            <img src={arrow_down} alt="" className="epic_drpdwn" height="6" width="7" />
+                            <img src={arrow_down} alt="" className="epic_drpdwn" height="7" width="8" />
                         </div>
+                        <div className="epic_">Clear filter</div>
                     </div>
                 </div>
                 <div className="boards">
                     <div className="status">
-                        <div className="status_header">
-                            <DragHandleVerticalIcon className="bd_add" />
-                            <img src={add} alt="" className="bd_add" height="14" width="10" />
+                        <div className="status_header" onDoubleClick={() => setSelectedTab(true)}>
+                            <Popover
+                                minWidth={50}
+                                position={Position.BOTTOM_RIGHT}
+                                content={
+                                    <Menu>
+                                        <Menu.Group>
+                                            <Menu.Item>
+                                                <p className="menucontent">Set column limit</p>
+                                            </Menu.Item>
+                                            <Menu.Item>
+                                                <p className="menucontent">Delete</p>
+                                            </Menu.Item>
+                                        </Menu.Group>
+                                    </Menu>
+                                }
+                            >
+                                <MoreIcon className="more_epic" />
+                            </Popover>
                             <p>To-do-list</p>
                         </div>
+                        {selectedTab ? (
+                            <div className="board_name">
+                                <TextInput width={260} />
+                                <br></br>
+                                <div>
+                                    <button>
+                                        <TickIcon className="icon" size={12} />
+                                    </button>
+                                    <button onClick={() => setSelectedTab(false)}>
+                                        <CrossIcon className="icon" size={12} />
+                                    </button>
+                                </div>
+                            </div>
+                        ) : null}
                         <Epic1 />
                         <Epic2 />
                         <Epic3 />
-                        <Epic4 />
+                        <div className="create_issue" onClick={() => setCreateIssue(true)}>
+                            <img src={add_} alt="" />
+                            <p>Create issue</p>
+                        </div>
+                        {createIssue && (
+                            <div>
+                                <TextareaField height={80} marginLeft={5} width={260} marginTop={-29} />
+                                <img src={send_} alt="" className="issue_send" />
+                            </div>
+                        )}
                     </div>
-                    <div className="status extra">
-                        <div className="status_header">
-                            <DragHandleVerticalIcon className="bd_add" />
-                            <img src={add} alt="" className="bd_add" height="14" width="10" />
+                    <div className="status">
+                        <div className="status_header" onDoubleClick={() => setSelectedTab1(true)}>
+                            <Popover
+                                minWidth={50}
+                                position={Position.BOTTOM_RIGHT}
+                                content={
+                                    <Menu>
+                                        <Menu.Group>
+                                            <Menu.Item>
+                                                <p className="menucontent">Set column limit</p>
+                                            </Menu.Item>
+                                            <Menu.Item>
+                                                <p className="menucontent">Delete</p>
+                                            </Menu.Item>
+                                        </Menu.Group>
+                                    </Menu>
+                                }
+                            >
+                                <MoreIcon className="more_epic" />
+                            </Popover>
                             <p>Processing</p>
                         </div>
-                        <Epic5 />
-                        <Epic6 />
-                        <Epic7 />
+                        {selectedTab1 ? (
+                            <div className="board_name">
+                                <TextInput width={260} />
+                                <br></br>
+                                <div>
+                                    <button>
+                                        <TickIcon className="icon" size={12} />
+                                    </button>
+                                    <button onClick={() => setSelectedTab1(false)}>
+                                        <CrossIcon className="icon" size={12} />
+                                    </button>
+                                </div>
+                            </div>
+                        ) : null}
+                        <Epic2 />
+                        <Epic3 />
+                        <div className="create_issue" onClick={() => setCreateIssue1(true)}>
+                            <img src={add_} alt="" />
+                            <p>Create issue</p>
+                        </div>
+                        {createIssue1 && (
+                            <div>
+                                <TextareaField height={80} marginLeft={5} width={260} marginTop={-29} />
+                                <img src={send_} alt="" className="issue_send" />
+                            </div>
+                        )}
                     </div>
-                    <div className="status extra">
-                        <div className="status_header">
-                            <DragHandleVerticalIcon className="bd_add" />
-                            <img src={add} alt="" className="bd_add" height="14" width="10" />
+                    <div className="status">
+                        <div className="status_header" onDoubleClick={() => setSelectedTab2(true)}>
+                            <Popover
+                                minWidth={50}
+                                position={Position.BOTTOM_RIGHT}
+                                content={
+                                    <Menu>
+                                        <Menu.Group>
+                                            <Menu.Item>
+                                                <p className="menucontent">Set column limit</p>
+                                            </Menu.Item>
+                                            <Menu.Item>
+                                                <p className="menucontent">Delete</p>
+                                            </Menu.Item>
+                                        </Menu.Group>
+                                    </Menu>
+                                }
+                            >
+                                <MoreIcon className="more_epic" />
+                            </Popover>
                             <p>Done</p>
                         </div>
+                        {selectedTab2 ? (
+                            <div className="board_name">
+                                <TextInput width={260} />
+                                <br></br>
+                                <div>
+                                    <button>
+                                        <TickIcon className="icon" size={12} />
+                                    </button>
+                                    <button onClick={() => setSelectedTab2(false)}>
+                                        <CrossIcon className="icon" size={12} />
+                                    </button>
+                                </div>
+                            </div>
+                        ) : null}
                         <Epic1 />
-                        <Epic8 />
+                        <div className="create_issue" onClick={() => setCreateIssue2(true)}>
+                            <img src={add_} alt="" />
+                            <p>Create issue</p>
+                        </div>
+                        {createIssue2 && (
+                            <div>
+                                <TextareaField height={80} marginLeft={5} width={260} marginTop={-29} />
+                                <img src={send_} alt="" className="issue_send" />
+                            </div>
+                        )}
                     </div>
                     <div className="end_col">
                         <div className="board_add">

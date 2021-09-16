@@ -23,6 +23,7 @@ const Mobile = ({ children }) => {
 
 function Signup() {
     let history = useHistory();
+    const [incorrect, SetIncorrect] = React.useState(false);
 
     const [passwordShown, setPasswordShown] = useState(false);
     const togglePasswordVisiblity = () => {
@@ -41,9 +42,17 @@ function Signup() {
                         <Pane className="signup_pane">
                             <h1>Get Started</h1>
                             <p className="title">Start your free account</p>
+                            {incorrect && (
+                                <p className="invalid">*Already exists an account registered with this email address</p>
+                            )}
                             <div className="get_started">
                                 <p className="required">Work Email</p>
-                                <TextInput width={300} borderRadius={2} borderColor="#c5c5c5" />
+                                <TextInput
+                                    onInput={(e) => SetIncorrect(true)}
+                                    width={300}
+                                    borderRadius={2}
+                                    borderColor="#c5c5c5"
+                                />
                                 <p className="required">Password</p>
                                 <TextInput
                                     width={300}
@@ -119,9 +128,17 @@ function Signup() {
                         <Pane className="mob_signup_pane">
                             <h1>Get Started</h1>
                             <p className="title">Start your free account</p>
+                            {incorrect && (
+                                <p className="invalid">*Already exists an account registered with this email address</p>
+                            )}
                             <div className="get_started">
                                 <p className="required">Work Email</p>
-                                <TextInput width={200} borderRadius={2} borderColor="#c5c5c5" />
+                                <TextInput
+                                    width={200}
+                                    onInput={(e) => SetIncorrect(true)}
+                                    borderRadius={2}
+                                    borderColor="#c5c5c5"
+                                />
                                 <p className="required">Password</p>
                                 <TextInput
                                     width={200}
@@ -194,9 +211,17 @@ function Signup() {
                         <Pane className="signup_pane">
                             <h1>Get Started</h1>
                             <p className="title">Start your free account</p>
+                            {incorrect && (
+                                <p className="invalid">*Already exists an account registered with this email address</p>
+                            )}
                             <div className="get_started">
                                 <p className="required">Work Email</p>
-                                <TextInput width={300} borderRadius={2} borderColor="#c5c5c5" />
+                                <TextInput
+                                    width={300}
+                                    onInput={(e) => SetIncorrect(true)}
+                                    borderRadius={2}
+                                    borderColor="#c5c5c5"
+                                />
                                 <p className="required">Password</p>
                                 <TextInput
                                     width={300}

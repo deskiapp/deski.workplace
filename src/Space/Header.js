@@ -39,9 +39,9 @@ function Header() {
             setSelectedTab(3);
         }
 
-        if (location.pathname === "/create") {
-            setSelectedTab(4);
-        }
+        // if (location.pathname === "/create") {
+        //     setSelectedTab(4);
+        // }
     });
 
     return (
@@ -63,7 +63,7 @@ function Header() {
                     <Link to="/people" className={selectedtab === 3 ? "wrknav_links_selected" : "wrknav_links"}>
                         People
                     </Link>
-                    <Link to="/create" className={selectedtab === 4 ? "wrknav_links_selected" : "wrknav_links"}>
+                    <Link to="/create" className="wrknav_links_">
                         Create
                     </Link>
 

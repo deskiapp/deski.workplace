@@ -4,6 +4,7 @@ import deski_ash from "../assets/deski_ash.svg";
 import { Pane, TextInput } from "evergreen-ui";
 import { useMediaQuery } from "react-responsive";
 import { useHistory } from "react-router-dom";
+import checkmark from "../assets/checkmark.svg";
 
 const Desktop = ({ children }) => {
     const isDesktop = useMediaQuery({ minWidth: 951 });
@@ -19,7 +20,11 @@ const Mobile = ({ children }) => {
 };
 
 function Create_site() {
+    const [value, setValue] = React.useState("");
+
     let history = useHistory();
+    const [incorrect, SetIncorrect] = React.useState(false);
+    const [correct, SetCorrect] = React.useState(false);
 
     return (
         <div>
@@ -31,16 +36,35 @@ function Create_site() {
                     <Pane className="create_site_pane">
                         <h1>Let's get started</h1>
                         <h4>Give your site a name</h4>
-                        <p>Choose something familiar like your team and company</p>
+                        <p className="choose">Choose something familiar like your team and company</p>
                         <TextInput
                             width={322}
+                            onInput={(e) => {
+                                setValue(e.target.value);
+                                if (value.length > 0) {
+                                    SetIncorrect(true);
+                                } else {
+                                    SetIncorrect(false);
+                                }
+                                if (value.length == 0) {
+                                    SetCorrect(true);
+                                } else {
+                                    SetCorrect(false);
+                                }
+                            }}
                             borderColor="#c5c5c5"
                             backgroundColor="#fafbfc"
                             className="create_site_inputfield"
                             placeholder="Your-site-name                                                                   .deski.app"
                         />
+                        {incorrect && <p className="invalid">*The username already exists</p>}
+                        {correct && (
+                            <p className="invalid_">
+                                * Username available <img src={checkmark} alt="" height={9} />
+                            </p>
+                        )}
                         <button
-                            className="create_site_button"
+                            className={correct ? "create_site_button_active" : "create_site_button"}
                             onClick={() => {
                                 history.push("/email_verification");
                             }}
@@ -58,16 +82,35 @@ function Create_site() {
                     <Pane className="mob_create_site_pane">
                         <h1>Let's get started</h1>
                         <h4>Give your site a name</h4>
-                        <p>Choose something familiar like your team and company</p>
+                        <p className="choose">Choose something familiar like your team and company</p>
                         <TextInput
+                            onInput={(e) => {
+                                setValue(e.target.value);
+                                if (value.length > 0) {
+                                    SetIncorrect(true);
+                                } else {
+                                    SetIncorrect(false);
+                                }
+                                if (value.length == 0) {
+                                    SetCorrect(true);
+                                } else {
+                                    SetCorrect(false);
+                                }
+                            }}
                             width={220}
                             borderColor="#c5c5c5"
                             backgroundColor="#fafbfc"
                             className="mob_create_site_inputfield"
                             placeholder="Your-site-name                               .deski.app"
                         />
+                        {incorrect && <p className="invalid">*The username already exists</p>}
+                        {correct && (
+                            <p className="invalid_">
+                                * Username available <img src={checkmark} alt="" height={9} />
+                            </p>
+                        )}
                         <button
-                            className="mob_create_site_button"
+                            className={correct ? "mob_create_site_button_active" : "mob_create_site_button"}
                             onClick={() => {
                                 history.push("/email_verification");
                             }}
@@ -85,16 +128,35 @@ function Create_site() {
                     <Pane className="create_site_pane">
                         <h1>Let's get started</h1>
                         <h4>Give your site a name</h4>
-                        <p>Choose something familiar like your team and company</p>
+                        <p className="choose">Choose something familiar like your team and company</p>
                         <TextInput
+                            onInput={(e) => {
+                                setValue(e.target.value);
+                                if (value.length > 0) {
+                                    SetIncorrect(true);
+                                } else {
+                                    SetIncorrect(false);
+                                }
+                                if (value.length == 0) {
+                                    SetCorrect(true);
+                                } else {
+                                    SetCorrect(false);
+                                }
+                            }}
                             width={322}
                             borderColor="#c5c5c5"
                             backgroundColor="#fafbfc"
                             className="create_site_inputfield"
                             placeholder="Your-site-name                                                                   .deski.app"
                         />
+                        {incorrect && <p className="invalid">*The username already exists</p>}
+                        {correct && (
+                            <p className="invalid_">
+                                * Username available <img src={checkmark} alt="" height={9} />
+                            </p>
+                        )}
                         <button
-                            className="create_site_button"
+                            className={correct ? "create_site_button_active" : "create_site_button"}
                             onClick={() => {
                                 history.push("/email_verification");
                             }}

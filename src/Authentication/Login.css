@@ -47,6 +47,15 @@ body {
     text-align: center;
     margin-bottom: 14px;
 }
+.login_pane .invalid {
+    text-align: center;
+    margin-top: -10px;
+    margin-bottom: -5px;
+    font-family: "GTEestiProDisplay-light";
+    letter-spacing: 0.5px;
+    color: #ff2442;
+    font-size: 13px;
+}
 .login_inputfield {
     margin-left: 55px;
     margin-top: 15px;
@@ -174,6 +183,15 @@ li {
     font-size: 14px;
     text-align: center;
     margin-bottom: 14px;
+}
+.mob_login_pane .invalid {
+    text-align: center;
+    margin-top: -10px;
+    margin-bottom: -5px;
+    font-family: "GTEestiProDisplay-light";
+    letter-spacing: 0.5px;
+    color: #ff2442;
+    font-size: 12px;
 }
 .mob_logo {
     margin-top: -65px;

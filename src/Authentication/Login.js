@@ -21,7 +21,16 @@ const Mobile = ({ children }) => {
 };
 
 function Login() {
+    // const [value, setValue] = React.useState("");
+    const [incorrect, SetIncorrect] = React.useState(false);
     let history = useHistory();
+
+    // function abc(e) {
+    //     setValue(e.target.value);
+    //     if (value > 0) {
+    //         SetIncorrect(true);
+    //     }
+    // }
 
     return (
         <div>
@@ -35,12 +44,15 @@ function Login() {
                         <Pane className="login_pane">
                             <p className="p1">Login to continue</p>
                             <h5>Your teams site</h5>
+                            {incorrect && <p className="invalid">*The username or password is incorrect</p>}
                             <TextInput
+                                // onChange={(e) => setValue(e.target.value)}
                                 width={265}
                                 className="login_inputfield"
                                 borderRadius={2}
                                 borderColor="#dfe1e6"
                                 placeholder="Enter email"
+                                onInput={(e) => SetIncorrect(true)}
                             />
                             <TextInput
                                 width={265}
@@ -114,11 +126,14 @@ function Login() {
                         <Pane className="mob_login_pane">
                             <p className="p1">Login to continue</p>
                             <h5>Your teams site</h5>
+                            {incorrect && <p className="invalid">*The username or password is incorrect</p>}
+
                             <TextInput
                                 width={210}
                                 className="mob_login_inputfield"
                                 borderRadius={2}
                                 borderColor="#dfe1e6"
+                                onInput={(e) => SetIncorrect(true)}
                                 placeholder="Enter email"
                             />
                             <TextInput
@@ -193,12 +208,15 @@ function Login() {
                         <Pane className="login_pane">
                             <p className="p1">Login to continue</p>
                             <h5>Your teams site</h5>
+                            {incorrect && <p className="invalid">*The username or password is incorrect</p>}
+
                             <TextInput
                                 width={265}
                                 className="login_inputfield"
                                 borderRadius={2}
                                 borderColor="#dfe1e6"
                                 placeholder="Enter email"
+                                onInput={(e) => SetIncorrect(true)}
                             />
                             <TextInput
                                 width={265}

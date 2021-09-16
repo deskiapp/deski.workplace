@@ -53,6 +53,21 @@ header {
     position: relative;
     padding: 0 10px;
 }
+.wrknav_links_ {
+    text-decoration: none;
+    font-family: "GTEestiProDisplay-light";
+    color: #344563;
+    margin-left: 25px;
+    letter-spacing: 0.2px;
+    font-size: 14px;
+    position: relative;
+    padding: 5px 15px;
+}
+.wrknav_links_:hover {
+    border-radius: 4px;
+    background-color: #3250fe;
+    color: white;
+}
 .wrk_nav {
     margin-top: -47px;
     margin-left: 220px;
