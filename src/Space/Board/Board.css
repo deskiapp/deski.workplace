@@ -2,9 +2,10 @@
     padding-top: 100px;
     margin-left: 315px;
     overflow-x: scroll;
-    height: 555px;
+    height: 84.5vh;
     overflow-y: scroll;
 }
+
 .board h2 {
     font-family: "GTEestiProDisplay-regular";
     font-size: 21px;
@@ -35,6 +36,7 @@
 .bd_head {
     margin-top: -52px;
     margin-left: 260px;
+    width: 100%;
 }
 .bd_head .epic {
     font-family: "GTEestiProDisplay-Light";
@@ -52,9 +54,14 @@
     color: #344563;
     font-size: 11px;
     letter-spacing: 0.1px;
-    margin-top: 2px;
+    margin-top: -3px;
     margin-left: 10px;
-    /* padding: 5px 10px 5px 10px; */
+    padding: 5px;
+}
+.bd_head .epic_:hover {
+    background-color: #efefef;
+    cursor: pointer;
+    border-radius: 4px;
 }
 .bd_head .epic:hover {
     background-color: #efefef;
@@ -91,7 +98,8 @@
 }
 .boards {
     display: grid;
-    grid-template-columns: 283px 283px 283px 283px 283px 283px 283px;
+    grid-auto-columns: 283px;
+    grid-auto-flow: column;
     margin-top: 50px;
     margin-bottom: 50px;
 }
@@ -141,6 +149,10 @@
     display: flex;
     justify-content: center;
     background-color: #efefef;
+    cursor: pointer;
+}
+.board_add:hover {
+    background-color: #d4d4d4;
 }
 .board_name {
     margin-left: 5px;
@@ -188,6 +200,21 @@
     width: 15px;
     float: right;
     margin-right: 20px;
-    margin-top: -37px;
+    margin-top: -45px;
     position: relative;
+    cursor: pointer;
+    padding: 5px;
+    border-radius: 4px;
+}
+.issue_send:hover {
+    background-color: #efefef;
+}
+@media (min-width: 2000px) {
+    .board {
+        padding-top: 100px;
+        margin-left: 315px;
+        overflow-x: scroll;
+        height: 100vh;
+        overflow-y: scroll;
+    }
 }

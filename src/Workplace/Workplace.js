@@ -28,6 +28,8 @@ import {
     Avatar,
     MoreIcon,
     Position,
+    CrossIcon,
+    TickIcon,
 } from "evergreen-ui";
 import avatar from "../assets/avatar.jpg";
 import avatar1 from "../assets/avatar1.jpeg";
@@ -43,6 +45,7 @@ function Workplace() {
     const [isShown1, setIsShown1] = React.useState(false);
     const [isShown2, setIsShown2] = React.useState(false);
     const [isShown3, setIsShown3] = React.useState(false);
+    const [selectedTab, setSelectedTab] = React.useState(false);
 
     const menu = {
         height: "30px",
@@ -68,12 +71,7 @@ function Workplace() {
         border: "solid 0.1px #cecece",
         color: "#9a9a9a",
     };
-    const ele = {
-        elevation: -10,
-    };
-    const elem = {
-        elevation: 10,
-    };
+
     return (
         <div>
             <Header />
@@ -282,10 +280,9 @@ function Workplace() {
                     </div>
                     <div>
                         <Pane
-                            style={elem}
                             className="space"
                             onClick={() => {
-                                history.push("/dashboard");
+                                history.push("/board");
                             }}
                         >
                             <DragHandleVerticalIcon className="moreicon" />
@@ -314,7 +311,7 @@ function Workplace() {
                                     </Menu>
                                 }
                             >
-                                <MoreIcon className="more_home" style={ele} />
+                                <MoreIcon className="more_home" />
                             </Popover>
                             <img src={bug} alt="" height="35" width="35" />
                             <h4>Bug Tracking</h4>
@@ -328,11 +325,11 @@ function Workplace() {
                                     <div style={fillerStyles}></div>
                                 </div>
                             </div>
-
-                            <div>
-                                <div className="img_cnt">
-                                    <p>+8</p>
-                                </div>
+                            <div className="clock">
+                                <img src={clock} alt="" height="11" width="11" />
+                                <p>7 days left</p>
+                            </div>
+                            <div className="overlap">
                                 <div>
                                     <img src={avatar} alt="" className="profiles" height="19" width="19" />
                                 </div>
@@ -342,14 +339,13 @@ function Workplace() {
                                 <div>
                                     <img src={avatar2} alt="" className="profiles" height="19" width="19" />
                                 </div>
-                            </div>
-                            <div className="clock">
-                                <img src={clock} alt="" height="11" width="11" />
-                                <p>7 days left</p>
+                                <div className="img_cnt">
+                                    <p>+8</p>
+                                </div>
                             </div>
                         </Pane>
 
-                        <Link to="/dashboard">
+                        <Link to="/board">
                             <Pane className="space">
                                 <DragHandleVerticalIcon className="moreicon" />
                                 <Popover
@@ -392,15 +388,23 @@ function Workplace() {
                                         <div style={fillerStyles}></div>
                                     </div>
                                 </div>
-                                <div className="img_cnt2">
-                                    <p>+6</p>
-                                </div>
-                                <img src={avatar} alt="" className="profiles" height="19" width="19" />
-                                <img src={avatar1} alt="" className="profiles" height="19" width="19" />
-                                <img src={avatar2} alt="" className="profiles" height="19" width="19" />
                                 <div className="clock">
                                     <img src={clock} alt="" height="11" width="11" />
                                     <p>3 days left</p>
+                                </div>
+                                <div className="overlap">
+                                    <div>
+                                        <img src={avatar} alt="" className="profiles" height="19" width="19" />
+                                    </div>
+                                    <div>
+                                        <img src={avatar1} alt="" className="profiles" height="19" width="19" />
+                                    </div>
+                                    <div>
+                                        <img src={avatar2} alt="" className="profiles" height="19" width="19" />
+                                    </div>
+                                    <div className="img_cnt2">
+                                        <p>+6</p>
+                                    </div>
                                 </div>
                             </Pane>
                         </Link>
@@ -508,7 +512,7 @@ function Workplace() {
                         </Popover>
                     </div>
                     <div>
-                        <Link to="/dashboard">
+                        <Link to="/board">
                             <Pane className="space">
                                 <DragHandleVerticalIcon className="moreicon" />
                                 <Popover
@@ -550,11 +554,11 @@ function Workplace() {
                                         <div style={fillerStyles}></div>
                                     </div>
                                 </div>
-
-                                <div>
-                                    <div className="img_cnt">
-                                        <p>+8</p>
-                                    </div>
+                                <div className="clock">
+                                    <img src={clock} alt="" height="11" width="11" />
+                                    <p>7 days left</p>
+                                </div>
+                                <div className="overlap">
                                     <div>
                                         <img src={avatar} alt="" className="profiles" height="19" width="19" />
                                     </div>
@@ -564,14 +568,13 @@ function Workplace() {
                                     <div>
                                         <img src={avatar2} alt="" className="profiles" height="19" width="19" />
                                     </div>
-                                </div>
-                                <div className="clock">
-                                    <img src={clock} alt="" height="11" width="11" />
-                                    <p>7 days left</p>
+                                    <div className="img_cnt">
+                                        <p>+8</p>
+                                    </div>
                                 </div>
                             </Pane>
                         </Link>
-                        <Link to="/dashboard">
+                        <Link to="/board">
                             <Pane className="space">
                                 <DragHandleVerticalIcon className="moreicon" />
                                 <Popover
@@ -614,15 +617,23 @@ function Workplace() {
                                         <div style={fillerStyles}></div>
                                     </div>
                                 </div>
-                                <div className="img_cnt2">
-                                    <p>+6</p>
-                                </div>
-                                <img src={avatar} alt="" className="profiles" height="19" width="19" />
-                                <img src={avatar1} alt="" className="profiles" height="19" width="19" />
-                                <img src={avatar2} alt="" className="profiles" height="19" width="19" />
                                 <div className="clock">
                                     <img src={clock} alt="" height="11" width="11" />
                                     <p>3 days left</p>
+                                </div>
+                                <div className="overlap">
+                                    <div>
+                                        <img src={avatar} alt="" className="profiles" height="19" width="19" />
+                                    </div>
+                                    <div>
+                                        <img src={avatar1} alt="" className="profiles" height="19" width="19" />
+                                    </div>
+                                    <div>
+                                        <img src={avatar2} alt="" className="profiles" height="19" width="19" />
+                                    </div>
+                                    <div className="img_cnt2">
+                                        <p>+6</p>
+                                    </div>
                                 </div>
                             </Pane>
                         </Link>
@@ -688,10 +699,24 @@ function Workplace() {
                         </Popover>
                     </div>
                 </Pane>
-                <Pane className="add_workspace">
+                <Pane className="add_workspace" onClick={() => setSelectedTab(true)}>
                     <img src={add} alt="" height="15" width="15" />
                     <p>Add Workspace</p>
                 </Pane>
+                {selectedTab && (
+                    <div className="addworkspace_field">
+                        <TextInput width={220} height={40} autoFocus className="addworkspace_field_" />
+                        <br></br>
+                        <div>
+                            <button>
+                                <TickIcon className="icon" size={12} />
+                            </button>
+                            <button onClick={() => setSelectedTab(false)}>
+                                <CrossIcon className="icon" size={12} />
+                            </button>
+                        </div>
+                    </div>
+                )}
             </div>
         </div>
     );

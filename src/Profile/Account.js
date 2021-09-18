@@ -19,6 +19,7 @@ function Account() {
     const [selectedTab1, setSelectedTab1] = React.useState(false);
     const [selectedTab2, setSelectedTab2] = React.useState(false);
     const [selectedTab3, setSelectedTab3] = React.useState(false);
+    const [selectedTab4, setSelectedTab4] = React.useState(false);
 
     const inputFile = useRef(null);
     const onButtonClick = () => {
@@ -41,10 +42,24 @@ function Account() {
                         <img className="edit" src={pen} alt="" />
                     </span>
                     <p>hey@deski.app</p>
-                    <span className="span2">
+                    <span className="span2" onClick={() => setSelectedTab4(true)}>
                         Add password
                         <img className="add" src={add_blue} alt="" />
                     </span>
+                    {selectedTab4 ? (
+                        <div className="roles_">
+                            <TextInput width={200} autoFocus />
+                            <br></br>
+                            <div>
+                                <button>
+                                    <TickIcon className="icon" size={12} />
+                                </button>
+                                <button onClick={() => setSelectedTab4(false)}>
+                                    <CrossIcon className="icon" size={12} />
+                                </button>
+                            </div>
+                        </div>
+                    ) : null}
                     <div className="account_con2">
                         <button
                             onClick={() => {
@@ -60,7 +75,7 @@ function Account() {
                         </button>
                         {selectedTab ? (
                             <div className="roles">
-                                <TextInput width={200} />
+                                <TextInput width={200} autoFocus />
                                 <br></br>
                                 <div>
                                     <button>
@@ -86,7 +101,7 @@ function Account() {
                         </button>
                         {selectedTab1 ? (
                             <div className="roles">
-                                <TextInput width={200} />
+                                <TextInput width={200} autoFocus />
                                 <br></br>
                                 <div>
                                     <button>
@@ -112,7 +127,7 @@ function Account() {
                         </button>
                         {selectedTab2 ? (
                             <div className="roles">
-                                <TextInput width={200} />
+                                <TextInput width={200} autoFocus />
                                 <br></br>
                                 <div>
                                     <button>
@@ -138,7 +153,7 @@ function Account() {
                         </button>
                         {selectedTab3 ? (
                             <div className="roles">
-                                <TextInput width={200} />
+                                <TextInput width={200} autoFocus />
                                 <br></br>
                                 <div>
                                     <button>

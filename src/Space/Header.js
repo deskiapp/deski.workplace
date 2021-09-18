@@ -24,11 +24,11 @@ function Header() {
 
     React.useEffect(() => {
         if (location.pathname === "/dashboard") {
-            setSelectedTab(0);
+            setSelectedTab(1);
         }
 
         if (location.pathname === "/works") {
-            setSelectedTab(1);
+            setSelectedTab(0);
         }
 
         if (location.pathname === "/filters") {
@@ -39,9 +39,9 @@ function Header() {
             setSelectedTab(3);
         }
 
-        // if (location.pathname === "/create") {
-        //     setSelectedTab(4);
-        // }
+        if (location.pathname === "/create") {
+            setSelectedTab(4);
+        }
     });
 
     return (
@@ -51,19 +51,20 @@ function Header() {
                     <img src={deski_ash} alt="" height="60" width="110" />
                 </Link>
                 <div className="wrk_nav">
-                    <Link to="/dashboard" className={selectedtab === 0 ? "wrknav_links_selected" : "wrknav_links"}>
+                    <Link to="/works" className={selectedtab === 0 ? "wrknav_links_selected" : "wrknav_links"}>
+                        Works
+                    </Link>
+                    <Link to="/dashboard" className={selectedtab === 1 ? "wrknav_links_selected" : "wrknav_links"}>
                         Dashboard
                     </Link>
-                    <Link to="/works" className={selectedtab === 1 ? "wrknav_links_selected" : "wrknav_links"}>
-                        works
-                    </Link>
+
                     <Link to="/filters" className={selectedtab === 2 ? "wrknav_links_selected" : "wrknav_links"}>
                         Filters
                     </Link>
                     <Link to="/people" className={selectedtab === 3 ? "wrknav_links_selected" : "wrknav_links"}>
                         People
                     </Link>
-                    <Link to="/create" className="wrknav_links_">
+                    <Link to="/create" className={selectedtab === 4 ? "wrknav_links_selected" : "wrknav_links_"}>
                         Create
                     </Link>
 
@@ -167,7 +168,7 @@ function Header() {
                             />
                         </Popover>
 
-                        <img src={dropbox} at="" height="34" width="40" className="dropbox" />
+                        <img src={dropbox} alt="" height="34" width="40" className="dropbox" />
                         <div className="dropbox_">
                             <h4>Dropbox </h4>
                             <p>User : hexcode</p>
@@ -175,27 +176,27 @@ function Header() {
                         <p>Add accounts</p>
                         <div className="drops">
                             <div>
-                                <img src={dropbox} at="" height="34" width="40" className="dropbox" />
+                                <img src={dropbox} alt="" height="34" width="40" className="dropbox" />
                                 <h3>Dropbox</h3>
-                                <img src={dropbox} at="" height="34" width="40" className="dropbox" />
-                                <h3>Dropbox</h3>
-                            </div>
-                            <div>
-                                <img src={dropbox} at="" height="34" width="40" className="dropbox" />
-                                <h3>Dropbox</h3>
-                                <img src={dropbox} at="" height="34" width="40" className="dropbox" />
+                                <img src={dropbox} alt="" height="34" width="40" className="dropbox" />
                                 <h3>Dropbox</h3>
                             </div>
                             <div>
-                                <img src={dropbox} at="" height="34" width="40" className="dropbox" />
+                                <img src={dropbox} alt="" height="34" width="40" className="dropbox" />
                                 <h3>Dropbox</h3>
-                                <img src={dropbox} at="" height="34" width="40" className="dropbox" />
+                                <img src={dropbox} alt="" height="34" width="40" className="dropbox" />
                                 <h3>Dropbox</h3>
                             </div>
                             <div>
-                                <img src={dropbox} at="" height="34" width="40" className="dropbox" />
+                                <img src={dropbox} alt="" height="34" width="40" className="dropbox" />
                                 <h3>Dropbox</h3>
-                                <img src={dropbox} at="" height="34" width="40" className="dropbox" />
+                                <img src={dropbox} alt="" height="34" width="40" className="dropbox" />
+                                <h3>Dropbox</h3>
+                            </div>
+                            <div>
+                                <img src={dropbox} alt="" height="34" width="40" className="dropbox" />
+                                <h3>Dropbox</h3>
+                                <img src={dropbox} alt="" height="34" width="40" className="dropbox" />
                                 <h3>Dropbox</h3>
                             </div>
                         </div>

@@ -3,7 +3,7 @@
     margin-left: 360px;
 }
 .account h2 {
-    font-family: "GTEestiProDisplay-light";
+    font-family: "GTEestiProDisplay-regular";
     font-size: 21px;
     letter-spacing: 0.7px;
     color: #344563;
@@ -31,7 +31,7 @@
 .account_con .span2 {
     color: #1b55db;
     font-family: "SegoeUISemibold";
-
+    cursor: pointer;
     font-size: 13px;
 }
 .account_con .span3 {
@@ -141,6 +141,23 @@ span .add {
     cursor: pointer;
     box-shadow: 0 0 7px 0 rgba(0, 0, 0, 0.16);
 }
+.roles_ {
+    margin-top: -25px;
+    margin-bottom: -38px;
+}
+.roles_ div {
+    margin-left: 147px;
+}
+.roles_ div button {
+    height: 21px;
+    width: 23px;
+    margin-right: 5px;
+    margin-top: 10px;
+    border: none;
+    background-color: white;
+    cursor: pointer;
+    box-shadow: 0 0 7px 0 rgba(0, 0, 0, 0.16);
+}
 .others {
     display: block;
     border: none;
@@ -152,6 +169,10 @@ span .add {
     cursor: pointer;
 }
 .roles div .icon {
+    margin-top: 2px;
+    color: #858585;
+}
+.roles_ div .icon {
     margin-top: 2px;
     color: #858585;
 }

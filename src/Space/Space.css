@@ -14,13 +14,13 @@
     font-family: "GTEestiProDisplay-Light";
     letter-spacing: 0.5px;
     font-size: 13px;
-    color: #858585;
+    color: #444444;
     margin-left: 10px;
 }
 .space_sidebar .title {
     font-family: "GTEestiProDisplay-Light";
     letter-spacing: 0.5px;
-    color: #858585;
+    color: #444444;
     font-size: 13px;
     margin-bottom: 20px;
     margin-top: 20px;
@@ -29,4 +29,5 @@
     font-family: "GTEestiProDisplay-Light";
     color: #6d6d6d;
     font-size: 13px;
+    letter-spacing: 0.5px;
 }

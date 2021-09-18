@@ -1,0 +1,195 @@
+.map {
+    padding-top: 100px;
+    margin-left: 315px;
+}
+.map h2 {
+    font-family: "GTEestiProDisplay-regular";
+    font-size: 21px;
+    letter-spacing: 0.7px;
+    color: #344563;
+}
+.map_profile {
+    float: left;
+    height: 23px;
+    width: 22px;
+    border-radius: 3px;
+    border: solid 1px #efefef;
+    margin-top: 10px;
+    margin-right: 8px;
+    margin-left: -8px;
+    background-color: white;
+}
+.map_profile p {
+    color: #2079d2;
+    font-family: "SegoeUISemibold";
+    font-size: 11px;
+    text-align: center;
+    margin-top: 3px;
+}
+.map_profiles {
+    border-radius: 3px;
+    float: left;
+    margin-top: 10px;
+    margin-left: -8px;
+}
+.map_head {
+    margin-top: -52px;
+    margin-left: 260px;
+    width: 100%;
+}
+.map_head .epic {
+    font-family: "GTEestiProDisplay-Light";
+    float: left;
+    color: #344563;
+    padding: 5px;
+    font-size: 13px;
+    letter-spacing: 0.1px;
+    margin-top: 5px;
+    margin-left: 3px;
+    margin-right: 10px;
+}
+
+.create_epic h4 {
+    font-family: "GTEestiProDisplay-Light";
+    color: #344563;
+    font-size: 15px;
+}
+.create_epic h5 {
+    font-family: "SegoeUISemibold";
+    color: #444941;
+    font-size: 10px;
+    margin-bottom: 4px;
+}
+.create_epic h6 {
+    font-family: "SegoeUISemibold";
+    color: #60665c;
+    font-size: 8px;
+    margin-bottom: 4px;
+    margin-top: 2px;
+    margin-bottom: -5px;
+}
+.create_epic .text_col {
+    margin-left: 193px;
+    margin-top: -66px;
+}
+.create_epic button {
+    float: right;
+    font-family: "SegoeUISemibold";
+    font-size: 11px;
+    margin-top: 30px;
+    border: none;
+    width: 87px;
+    height: 24px;
+    cursor: pointer;
+    border-radius: 4px;
+    margin-right: 8px;
+}
+
+.map_table {
+    border-radius: 5px;
+    box-shadow: 0 9px 26px 0 rgba(0, 0, 0, 0.03);
+    background-color: #fff;
+    height: fit-content;
+    margin-bottom: 50px;
+}
+.map_progress {
+    position: relative;
+    top: 40px;
+    padding: 0;
+}
+.map_table_ {
+    width: 1052px;
+    margin-top: 80px;
+    z-index: -5;
+    position: absolute;
+}
+.create_epic .btn2 {
+    background-color: white;
+    color: #7f7c82;
+    border-color: #efefef;
+}
+.create_epic .btn1 {
+    background-color: #0052cc;
+    color: #fff;
+    border-color: #0052cc;
+}
+.create_epic .btn2:hover {
+    background-color: #f3f1f5;
+}
+.create_epic .btn1:hover {
+    background-color: #086bff;
+}
+.create_epic p {
+    font-family: "SegoeUI";
+    color: #7f7c82;
+    font-size: 12px;
+}
+.map_head .epic:hover {
+    background-color: #efefef;
+    cursor: pointer;
+    border-radius: 4px;
+}
+.map_head .epic_label {
+    margin-top: -30px;
+    margin-left: 60px;
+}
+.map_head .epic_drpdwn {
+    margin-left: 7px;
+    margin-right: 7px;
+}
+.map_collaborators {
+    cursor: pointer;
+    height: 35px;
+}
+.map_column {
+    border-right: solid 1px rgba(112, 112, 112, 0.1);
+}
+.map .main {
+    font-family: "GTEestiProDisplay-Regular";
+    color: #464242;
+    font-size: 14px;
+    padding-left: 60px;
+}
+.map .sub {
+    font-family: "GTEestiProDisplay-Light";
+    color: #464242;
+    font-size: 13px;
+}
+.map .vertical {
+    padding-left: 0;
+    padding-right: 0px;
+    color: #0e398e;
+    font-size: 13px;
+    text-align: center;
+    font-family: "GTEestiProDisplay-Light";
+    padding-top: 20px;
+    writing-mode: vertical-lr;
+    text-orientation: sideways-right;
+}
+.map_fixed {
+    box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
+    background-color: #fff;
+    width: 150px;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    height: 28px;
+    text-align: center;
+    padding-top: 3px;
+    border-radius: 4px;
+}
+
+.map_fixed div {
+    display: inline;
+    color: #344563;
+    margin-right: 14px;
+    font-family: "GTEestiProDisplay-Regular";
+    font-size: 10px;
+}
+.map_fixed :nth-child(1) {
+    padding: 8px 10px 8px 10px;
+    background-color: #152d35;
+    color: white;
+    border-bottom-left-radius: 4px;
+    border-top-left-radius: 4px;
+}

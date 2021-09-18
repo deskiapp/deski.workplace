@@ -17,7 +17,7 @@ function People() {
 
     const team_textinput = {
         height: "33px",
-        border: "solid 0.1px rgba(112, 112, 112, .1)",
+        border: "solid 0.3px rgba(112, 112, 112, .3)",
         color: "#9a9a9a",
     };
     const textinput = {
@@ -30,7 +30,7 @@ function People() {
     const [selected, setSelected] = React.useState(null);
 
     const searchbox = {
-        border: "solid 2px rgba(112, 112, 112, .1)",
+        border: "solid 0.3px rgba(112, 112, 112, .3)",
         borderRadius: "5px",
         paddingLeft: "35px",
     };

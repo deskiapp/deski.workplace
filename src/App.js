@@ -39,6 +39,7 @@ import Calendar from "./Space/Calendar";
 import Chart from "./Space/Chart";
 import Table from "./Space/Table";
 import Upgrad from "./Profile/Upgrad";
+import List from "./Space/List";
 
 function App() {
     return (
@@ -72,6 +73,7 @@ function App() {
                 <Route path="/calendar" component={Calendar} />
                 <Route path="/create_view" component={View} />
                 <Route path="/upgrade" component={Upgrad} />
+                <Route path="/list" component={List} />
             </Router>
         </div>
     );

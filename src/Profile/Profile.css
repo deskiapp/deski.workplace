@@ -41,7 +41,7 @@
     display: block;
     text-decoration: none;
     padding: 4px 19px 2px 0.7px;
-    margin-top: 10px;
+    margin-top: 8px;
     border-radius: 3px;
     cursor: pointer;
 }
@@ -52,7 +52,7 @@
 .profile_links_selected {
     display: block;
     width: 145px;
-    margin-top: 10px;
+    margin-top: 8px;
     padding: 4px 19px 2px 0.7px;
     text-decoration: none;
     border-radius: 3px;

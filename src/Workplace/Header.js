@@ -155,7 +155,7 @@ function Header() {
                             />
                         </Popover>
 
-                        <img src={dropbox} at="" height="34" width="40" className="dropbox" />
+                        <img src={dropbox} alt="" height="34" width="40" className="dropbox" />
                         <div className="dropbox_">
                             <h4>Dropbox </h4>
                             <p>User : hexcode</p>
@@ -163,27 +163,27 @@ function Header() {
                         <p>Add accounts</p>
                         <div className="drops">
                             <div>
-                                <img src={dropbox} at="" height="34" width="40" className="dropbox" />
+                                <img src={dropbox} alt="" height="34" width="40" className="dropbox" />
                                 <h3>Dropbox</h3>
-                                <img src={dropbox} at="" height="34" width="40" className="dropbox" />
-                                <h3>Dropbox</h3>
-                            </div>
-                            <div>
-                                <img src={dropbox} at="" height="34" width="40" className="dropbox" />
-                                <h3>Dropbox</h3>
-                                <img src={dropbox} at="" height="34" width="40" className="dropbox" />
+                                <img src={dropbox} alt="" height="34" width="40" className="dropbox" />
                                 <h3>Dropbox</h3>
                             </div>
                             <div>
-                                <img src={dropbox} at="" height="34" width="40" className="dropbox" />
+                                <img src={dropbox} alt="" height="34" width="40" className="dropbox" />
                                 <h3>Dropbox</h3>
-                                <img src={dropbox} at="" height="34" width="40" className="dropbox" />
+                                <img src={dropbox} alt="" height="34" width="40" className="dropbox" />
                                 <h3>Dropbox</h3>
                             </div>
                             <div>
-                                <img src={dropbox} at="" height="34" width="40" className="dropbox" />
+                                <img src={dropbox} alt="" height="34" width="40" className="dropbox" />
                                 <h3>Dropbox</h3>
-                                <img src={dropbox} at="" height="34" width="40" className="dropbox" />
+                                <img src={dropbox} alt="" height="34" width="40" className="dropbox" />
+                                <h3>Dropbox</h3>
+                            </div>
+                            <div>
+                                <img src={dropbox} alt="" height="34" width="40" className="dropbox" />
+                                <h3>Dropbox</h3>
+                                <img src={dropbox} alt="" height="34" width="40" className="dropbox" />
                                 <h3>Dropbox</h3>
                             </div>
                         </div>

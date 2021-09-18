@@ -35,6 +35,8 @@ function Board() {
     const [createIssue, setCreateIssue] = React.useState(false);
     const [createIssue1, setCreateIssue1] = React.useState(false);
     const [createIssue2, setCreateIssue2] = React.useState(false);
+    const [createIssue3, setCreateIssue3] = React.useState(false);
+    const [addBoard, setAddBoard] = React.useState(false);
     const [selected, setSelected] = React.useState(null);
 
     const coll_drpdwn = {
@@ -52,6 +54,7 @@ function Board() {
     const [selectedTab, setSelectedTab] = React.useState(false);
     const [selectedTab1, setSelectedTab1] = React.useState(false);
     const [selectedTab2, setSelectedTab2] = React.useState(false);
+    const [selectedTab3, setSelectedTab3] = React.useState(false);
 
     return (
         <div>
@@ -225,7 +228,7 @@ function Board() {
                         </div>
                         {selectedTab ? (
                             <div className="board_name">
-                                <TextInput width={260} />
+                                <TextInput width={260} autoFocus />
                                 <br></br>
                                 <div>
                                     <button>
@@ -247,7 +250,7 @@ function Board() {
                         {createIssue && (
                             <div>
                                 <TextareaField height={80} marginLeft={5} width={260} marginTop={-29} />
-                                <img src={send_} alt="" className="issue_send" />
+                                <img src={send_} alt="" className="issue_send" onClick={() => setCreateIssue(false)} />
                             </div>
                         )}
                     </div>
@@ -275,7 +278,7 @@ function Board() {
                         </div>
                         {selectedTab1 ? (
                             <div className="board_name">
-                                <TextInput width={260} />
+                                <TextInput width={260} autoFocus />
                                 <br></br>
                                 <div>
                                     <button>
@@ -296,7 +299,7 @@ function Board() {
                         {createIssue1 && (
                             <div>
                                 <TextareaField height={80} marginLeft={5} width={260} marginTop={-29} />
-                                <img src={send_} alt="" className="issue_send" />
+                                <img src={send_} alt="" className="issue_send" onClick={() => setCreateIssue1(false)} />
                             </div>
                         )}
                     </div>
@@ -324,7 +327,7 @@ function Board() {
                         </div>
                         {selectedTab2 ? (
                             <div className="board_name">
-                                <TextInput width={260} />
+                                <TextInput width={260} autoFocus />
                                 <br></br>
                                 <div>
                                     <button>
@@ -344,11 +347,67 @@ function Board() {
                         {createIssue2 && (
                             <div>
                                 <TextareaField height={80} marginLeft={5} width={260} marginTop={-29} />
-                                <img src={send_} alt="" className="issue_send" />
+                                <img src={send_} alt="" className="issue_send" onClick={() => setCreateIssue2(false)} />
                             </div>
                         )}
                     </div>
-                    <div className="end_col">
+                    {addBoard && (
+                        <div className="status">
+                            <div className="status_header" onDoubleClick={() => setSelectedTab3(true)}>
+                                <Popover
+                                    minWidth={50}
+                                    position={Position.BOTTOM_RIGHT}
+                                    content={
+                                        <Menu>
+                                            <Menu.Group>
+                                                <Menu.Item>
+                                                    <p className="menucontent">Set column limit</p>
+                                                </Menu.Item>
+                                                <Menu.Item onClick={() => setAddBoard(false)}>
+                                                    <p className="menucontent">Delete</p>
+                                                </Menu.Item>
+                                            </Menu.Group>
+                                        </Menu>
+                                    }
+                                >
+                                    <MoreIcon className="more_epic" />
+                                </Popover>
+                                {/* <p>Done</p> */}
+                            </div>
+                            {selectedTab3 && (
+                                <div className="board_name">
+                                    <TextInput width={260} autoFocus />
+                                    <br></br>
+                                    <div>
+                                        <button>
+                                            <TickIcon className="icon" size={12} />
+                                        </button>
+                                        <button onClick={() => setSelectedTab3(false)}>
+                                            <CrossIcon className="icon" size={12} />
+                                        </button>
+                                    </div>
+                                </div>
+                            )}
+
+                            <div className="create_issue" onClick={() => setCreateIssue3(true)}>
+                                <img src={add_} alt="" />
+                                <p>Create issue</p>
+                            </div>
+                            {createIssue3 && (
+                                <div>
+                                    <TextareaField height={80} marginLeft={5} width={260} marginTop={-29} />
+                                    <img src={send_} alt="" className="issue_send" onClick={() => setCreateIssue3(false)} />
+                                </div>
+                            )}
+                        </div>
+                    )}
+                    <div
+                        className="end_col"
+                        onClick={() => {
+                            setAddBoard(true);
+                            setSelectedTab3(true);
+                        }}
+                    >
                         <div className="board_add">
                             <img src={add} alt="" height="14" width="10" />
                         </div>

@@ -67,7 +67,7 @@ function Signup() {
                                     <p className="required">First Name:</p>
                                     <TextInput width={140} borderRadius={2} borderColor="#c5c5c5" />
                                     <div className="inline_text">
-                                        <p className="required">First Name:</p>
+                                        <p className="required">Last Name:</p>
                                         <TextInput width={140} borderRadius={2} borderColor="#c5c5c5" />
                                     </div>
                                 </div>
@@ -153,7 +153,7 @@ function Signup() {
                                     <p className="required">First Name:</p>
                                     <TextInput width={200} borderRadius={2} borderColor="#c5c5c5" />
 
-                                    <p className="required">First Name:</p>
+                                    <p className="required">Last Name:</p>
                                     <TextInput width={200} borderRadius={2} borderColor="#c5c5c5" />
                                 </div>
                                 <p className="content">
@@ -236,7 +236,7 @@ function Signup() {
                                     <p className="required">First Name:</p>
                                     <TextInput width={140} borderRadius={2} borderColor="#c5c5c5" />
                                     <div className="inline_text">
-                                        <p className="required">First Name:</p>
+                                        <p className="required">Last Name:</p>
                                         <TextInput width={140} borderRadius={2} borderColor="#c5c5c5" />
                                     </div>
                                 </div>

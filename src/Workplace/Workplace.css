@@ -13,7 +13,7 @@
 }
 .workspace_container h2 {
     display: inline;
-    font-family: "GTEestiProDisplay-light";
+    font-family: "GTEestiProDisplay-Regular";
     color: #344563;
     font-size: 21px;
     letter-spacing: 0.7px;
@@ -69,6 +69,10 @@
     float: right;
     color: #cecece;
 }
+.overlap {
+    margin-left: 130px;
+    margin-top: -35px;
+}
 .arrow {
     display: inline;
     cursor: pointer;
@@ -96,42 +100,49 @@
     margin-top: 15px;
 }
 .img_cnt {
-    float: right;
+    float: left;
     height: 17px;
     width: 18px;
     border-radius: 3px;
     border: solid 1px #efefef;
+    background-color: white;
     margin-top: 15px;
-    margin-right: 8px;
+    margin-left: -8px;
 }
+
 .img_cnt p {
     color: #fcb400;
-    font-family: "SegoeUI";
+    font-family: "SegoeUISemibold";
     font-size: 10px;
-    margin-top: 2px;
-    margin-left: 4px;
+    margin-top: 1px;
+    margin-left: 2px;
 }
 .img_cnt2 {
-    float: right;
+    float: left;
     height: 17px;
     width: 18px;
     border-radius: 3px;
     border: solid 1px #efefef;
     margin-top: 15px;
-    margin-right: 8px;
+    background-color: white;
+    margin-left: -8px;
 }
 .img_cnt2 p {
     color: #2079d2;
-    font-family: "SegoeUI";
+    font-family: "SegoeUISemibold";
     font-size: 10px;
-    margin-top: 2px;
-    margin-left: 4px;
+    margin-top: 1px;
+    margin-left: 2px;
 }
 
 .profiles {
+    float: left;
     margin-top: 15px;
-    float: right;
+    margin-left: -8px;
+    /* border: solid 1px #efefef; */
+    border-radius: 3px;
 }
+
 .clock p {
     color: #858585;
     font-family: "GTEestiProDisplay-light";
@@ -151,7 +162,7 @@
     height: 14px;
 }
 .add_workspace {
-    /* background-color: burlywood; */
+    cursor: pointer;
     margin-top: 50px;
     margin-left: 360px;
     height: fit-content;
@@ -314,4 +325,32 @@
 
 .space:hover .more_home {
     visibility: visible;
+}
+
+.addworkspace_field {
+    margin-top: -125px;
+    margin-left: 362px;
+}
+.addworkspace_field .addworkspace_field_ {
+    font-family: "GTEestiProDisplay-regular";
+    color: #344563;
+    font-size: 21px;
+}
+.addworkspace_field div {
+    margin-left: 170px;
+}
+.addworkspace_field div button {
+    height: 21px;
+    width: 23px;
+    margin-right: 5px;
+    margin-top: 10px;
+    border: none;
+    background-color: white;
+    cursor: pointer;
+    box-shadow: 0 0 7px 0 rgba(0, 0, 0, 0.16);
+}
+
+.addworkspace_field div .icon {
+    margin-top: 2px;
+    color: #858585;
 }
