@@ -4,6 +4,13 @@ import Header from "./Header";
 import Space from "./Space";
 import arrow from "../assets/arrow.svg";
 
+import arrow_down from "../assets/arrow_down.svg";
+import userplus from "../assets/userplus.svg";
+import arrow_right from "../assets/arrow_right.svg";
+import done from "../assets/done.svg";
+import listadd from "../assets/listadd.svg";
+import details_arrow from "../assets/details_arrow.svg";
+import compare from "../assets/compare.svg";
 import add_ from "../assets/add_.svg";
 import checkmark_circle from "../assets/checkmark_circle.svg";
 import arrow_dropdown from "../assets/arrow_dropdown.svg";
@@ -12,9 +19,11 @@ import {
     Menu,
     Dialog,
     TextInputField,
+    TextInput,
     SelectMenu,
     Position,
     Table,
+    MoreIcon,
     Pane,
     DragHandleVerticalIcon,
 } from "evergreen-ui";
@@ -25,9 +34,32 @@ import avatar2 from "../assets/avatar2.jpeg";
 function List() {
     const [selected, setSelected] = React.useState(null);
     const [isShown, setIsShown] = React.useState(false);
+    const [writeTask, setWriteTask] = React.useState(false);
+    const [writeTask1, setWriteTask1] = React.useState(false);
+    const [writeTask2, setWriteTask2] = React.useState(false);
+    const [contentOpen, setContentOpen] = React.useState(true);
+    const [editableField, setEditableField] = React.useState(false);
+    const [editableField1, setEditableField1] = React.useState(false);
+    const [editableField2, setEditableField2] = React.useState(false);
+    const [contentOpen1, setContentOpen1] = React.useState(true);
+    const [contentOpen2, setContentOpen2] = React.useState(true);
+
+    const editable_body = {
+        fontFamily: "GTEestiProDisplay-light",
+        fontSize: "12px",
+        color: "#444444",
+    };
     const coll_drpdwn = {
         height: "35px",
         paddingBottom: "15px",
+    };
+    const editable = {
+        // paddingLeft: "-20px",
+    };
+    const disabled = {
+        marginTop: "-10px",
+        marginLeft: "-18px",
+        marginRight: "-10px",
     };
     const textinput = {
         height: "40px",
@@ -44,6 +76,25 @@ function List() {
     const table_padding_ = {
         padding: "3px",
     };
+    const menu = {
+        height: "23px",
+        marginLeft: "-18px",
+    };
+    function handleKeyDown(e) {
+        if (e.key === "Enter") {
+            setEditableField(false);
+        }
+    }
+    function handleKeyDown1(e) {
+        if (e.key === "Enter") {
+            setEditableField1(false);
+        }
+    }
+    function handleKeyDown2(e) {
+        if (e.key === "Enter") {
+            setEditableField2(false);
+        }
+    }
     return (
         <div>
             <Header />
@@ -181,201 +232,4528 @@ function List() {
                         </div>
                     </Popover>
                 </div>
+
                 <Pane className="list" width={1052}>
-                    <Table.Row height={32} className="border_">
-                        <Table.Cell className="map_column list_head" style={table_padding} flexBasis={615}>
+                    <Table.Row height={28} className="border_">
+                        <Table.Cell className="map_column list_head" style={table_padding} flexBasis={550}>
                             Task name
+                            <img src={arrow_down} alt="" className="arrow_down" />
                         </Table.Cell>
-                        <Table.Cell className="map_column list_head" style={table_padding}>
-                            Assignee
-                        </Table.Cell>
+                        <Popover
+                            minWidth={210}
+                            marginTop={400}
+                            position={Position.BOTTOM_LEFT}
+                            content={
+                                <Menu>
+                                    <Menu.Group>
+                                        <Menu.Item className="disabled_" disabled>
+                                            <p className="disabled_">Your collaborator</p>
+                                        </Menu.Item>
+                                        <Menu.Item
+                                            style={coll_drpdwn}
+                                            className="coll_drpdwn"
+                                            icon={
+                                                <img src={avatar} alt="" className="bd_profiles" height="25" width="23" />
+                                            }
+                                        >
+                                            <p>Abdu Rahiman</p>
+                                        </Menu.Item>
+                                        <Menu.Item
+                                            style={coll_drpdwn}
+                                            className="coll_drpdwn"
+                                            icon={
+                                                <img src={avatar1} alt="" className="bd_profiles" height="25" width="23" />
+                                            }
+                                        >
+                                            <p>Abdu Rahiman</p>
+                                        </Menu.Item>
+                                        <Menu.Item
+                                            style={coll_drpdwn}
+                                            className="coll_drpdwn"
+                                            icon={
+                                                <img src={avatar} alt="" className="bd_profiles" height="25" width="23" />
+                                            }
+                                        >
+                                            <p>Abdu Rahiman</p>
+                                        </Menu.Item>
+                                        <Menu.Item
+                                            style={coll_drpdwn}
+                                            className="coll_drpdwn"
+                                            icon={
+                                                <img src={avatar1} alt="" className="bd_profiles" height="25" width="23" />
+                                            }
+                                        >
+                                            <p>Abdu Rahiman</p>
+                                        </Menu.Item>
+                                        <Menu.Item
+                                            style={coll_drpdwn}
+                                            className="coll_drpdwn"
+                                            icon={
+                                                <img src={avatar} alt="" className="bd_profiles" height="25" width="23" />
+                                            }
+                                        >
+                                            <p>Abdu Rahiman</p>
+                                        </Menu.Item>
+                                    </Menu.Group>
+                                    <Menu.Divider />
+                                    <Menu.Group>
+                                        <Menu.Item
+                                            onClick={() => setIsShown(true)}
+                                            style={invite}
+                                            icon={<img src={add_} alt="" height="10" width="10" />}
+                                        >
+                                            <p className="invite_">Invite collaborator</p>
+                                        </Menu.Item>
+                                    </Menu.Group>
+                                </Menu>
+                            }
+                        >
+                            <Table.Cell className="map_column list_head" style={table_padding}>
+                                Assignee
+                                <img src={arrow_down} alt="" className="arrow_down1" />
+                            </Table.Cell>
+                        </Popover>
+
                         <Table.Cell className="map_column list_head" style={table_padding}>
                             Due date
+                            <img src={arrow_down} alt="" className="arrow_down1" />
                         </Table.Cell>
                         <Table.Cell className="map_column list_head" style={table_padding}>
                             Label
+                            <img src={arrow_down} alt="" className="arrow_down2" />
                         </Table.Cell>
                         <Table.Cell className="list_head" style={table_padding}>
                             Status
+                            <img src={arrow_down} alt="" className="arrow_down3" />
                         </Table.Cell>
                     </Table.Row>
                 </Pane>
                 <div className="todo_div">
                     <DragHandleVerticalIcon className="drag" />
                     <div>
-                        <img src={arrow_dropdown} alt="" height="7" width="10" />
+                        <img
+                            src={arrow_dropdown}
+                            alt=""
+                            className={contentOpen ? "visible arrow_right" : "hidden arrow_right"}
+                            height="10"
+                            width="10"
+                            onClick={() => setContentOpen(false)}
+                        />
+                        <img
+                            src={arrow_right}
+                            className={contentOpen ? "hidden arrow_right" : "visible arrow_right"}
+                            alt=""
+                            height="10"
+                            width="10"
+                            onClick={() => setContentOpen(true)}
+                        />
+
                         <p className="todo">To do</p>
+                        <img src={listadd} alt="" height="11" width="11" onClick={() => setWriteTask(true)} />
+                        <div>
+                            <Popover
+                                minWidth={30}
+                                position={Position.BOTTOM_LEFT}
+                                content={
+                                    <Menu>
+                                        <Menu.Group>
+                                            <Menu.Item style={menu}>
+                                                <p className="menucontent_">Set column limit</p>
+                                            </Menu.Item>
+                                            <Menu.Item style={menu}>
+                                                <p className="menucontent_">Delete</p>
+                                            </Menu.Item>
+                                        </Menu.Group>
+                                    </Menu>
+                                }
+                            >
+                                <MoreIcon className="list_more" />
+                            </Popover>
+                        </div>
                     </div>
                 </div>
-                <Pane className="list" width={1052}>
-                    <Table.Row height={32} className="border_">
-                        <Table.Cell className="map_column list_body" style={table_padding} flexBasis={615}>
-                            <img src={checkmark_circle} alt="" height="10" width="10" />
-                            <p>Develop prototype</p>
-                        </Table.Cell>
-                        <Table.Cell className="map_column list_body" style={table_padding}>
-                            <img src={avatar} alt="" height="16" width="14" className="assignee" />
-                            Ashly
-                        </Table.Cell>
-                        <Table.Cell className="map_column list_body" style={table_padding_}>
-                            Today - sep 20
-                        </Table.Cell>
-                        <Table.Cell className="map_column list_body">
-                            <p className="low">Low</p>
-                        </Table.Cell>
-                        <Table.Cell className="list_body">
-                            <p className="track">On track</p>
-                        </Table.Cell>
-                    </Table.Row>
-                    <Table.Row height={32}>
-                        <Table.Cell className="map_column list_body" flexBasis={615} style={table_padding}>
-                            <img src={checkmark_circle} alt="" height="10" width="10" />
-                            <p>Collect assets and implement too</p>
-                        </Table.Cell>
-                        <Table.Cell className="map_column list_body" style={table_padding}>
-                            <img src={avatar} alt="" height="16" width="14" className="assignee" />
-                            Ashly
-                        </Table.Cell>
-                        <Table.Cell className="map_column list_body" style={table_padding_}>
-                            Today - sep 20
-                        </Table.Cell>
-                        <Table.Cell className="map_column list_body">
-                            <p className="low">Low</p>
-                        </Table.Cell>
-                        <Table.Cell className=" list_body">
-                            <p className="risk">At risk</p>
-                        </Table.Cell>
-                    </Table.Row>
-                    <Table.Row height={32}>
-                        <Table.Cell className="map_column list_body" flexBasis={615} style={table_padding}>
-                            <img src={checkmark_circle} alt="" height="10" width="10" />
-                            <p>Acquire customer feedback</p>
-                        </Table.Cell>
-                        <Table.Cell className="map_column list_body" style={table_padding}>
-                            <img src={avatar} alt="" height="16" width="14" className="assignee" />
-                            Ashly
-                        </Table.Cell>
-                        <Table.Cell className="map_column list_body" style={table_padding_}>
-                            Sep 20 - sep 25
-                        </Table.Cell>
-                        <Table.Cell className="map_column list_body">
-                            <p className="medium">Medium</p>
-                        </Table.Cell>
-                        <Table.Cell className=" list_body">
-                            <p className="medium">Medium</p>
-                        </Table.Cell>
-                    </Table.Row>
-                    <Table.Row height={32}>
-                        <Table.Cell className="map_column list_body" flexBasis={615} style={table_padding}>
-                            <img src={checkmark_circle} alt="" height="10" width="10" />
-                            <p>A/B test report submission </p>
-                        </Table.Cell>
-                        <Table.Cell className="map_column list_body" style={table_padding}>
-                            <img src={avatar} alt="" height="16" width="14" className="assignee" />
-                            Ashly
-                        </Table.Cell>
-                        <Table.Cell className="map_column list_body" style={table_padding_}>
-                            Sep 20 - sep 25
-                        </Table.Cell>
-                        <Table.Cell className="map_column list_body">
-                            <p className="high">High</p>
-                        </Table.Cell>
-                        <Table.Cell className=" list_body">
-                            <p className="normal">Normal</p>
-                        </Table.Cell>
-                    </Table.Row>
-                    <Table.Row height={32}>
-                        <Table.Cell className="map_column list_body" flexBasis={615} style={table_padding}>
-                            <img src={checkmark_circle} alt="" height="10" width="10" />
-                            <p>Server implementation - technology paper brief </p>
-                        </Table.Cell>
-                        <Table.Cell className="map_column list_body" style={table_padding}>
-                            <img src={avatar} alt="" height="16" width="14" className="assignee" />
-                            Ashly
-                        </Table.Cell>
-                        <Table.Cell className="map_column list_body" style={table_padding_}>
-                            Sep 20 - sep 25
-                        </Table.Cell>
-                        <Table.Cell className="map_column list_body">
-                            <p className="high">High</p>
-                        </Table.Cell>
-                        <Table.Cell className="list_body">
-                            <p className="high_">High</p>
-                        </Table.Cell>
-                    </Table.Row>
-                    <Table.Row height={32}>
-                        <Table.Cell className="map_column list_body" flexBasis={615} style={table_padding}>
-                            <img src={checkmark_circle} alt="" height="10" width="10" />
-                            <p>Firebase</p>
-                        </Table.Cell>
-                        <Table.Cell className="map_column list_body" style={table_padding}>
-                            <img src={avatar} alt="" height="16" width="14" className="assignee" />
-                            Ashly
-                        </Table.Cell>
-                        <Table.Cell className="map_column list_body" style={table_padding_}>
-                            Sep 20 - sep 25
-                        </Table.Cell>
-                        <Table.Cell className="map_column list_body">
-                            <p className="medium">Medium</p>
-                        </Table.Cell>
-                        <Table.Cell className="list_body"></Table.Cell>
-                    </Table.Row>
-                    <Table.Row height={32}>
-                        <Table.Cell className="map_column list_body" flexBasis={615} style={table_padding}>
-                            <img src={checkmark_circle} alt="" height="10" width="10" />
-                            <p>Product board data export file </p>
-                        </Table.Cell>
-                        <Table.Cell className="map_column list_body" style={table_padding}>
-                            <img src={avatar} alt="" height="16" width="14" className="assignee" />
-                            Ashly
-                        </Table.Cell>
-                        <Table.Cell className="map_column list_body" style={table_padding_}>
-                            Sep 20 - sep 25
-                        </Table.Cell>
-                        <Table.Cell className="map_column list_body">
-                            <p className="medium">Medium</p>
-                        </Table.Cell>
-                        <Table.Cell className="list_body"></Table.Cell>
-                    </Table.Row>
-                    <Table.Row height={32}>
-                        <Table.Cell className="map_column list_body" flexBasis={615} style={table_padding}>
-                            <img src={checkmark_circle} alt="" height="10" width="10" />
-                            <p>Payment remainder </p>
-                        </Table.Cell>
-                        <Table.Cell className="map_column list_body" style={table_padding}>
-                            <img src={avatar} alt="" height="16" width="14" className="assignee" />
-                            Ash
-                        </Table.Cell>
-                        <Table.Cell className="map_column list_body" style={table_padding_}>
-                            Sep 20 - sep 25
-                        </Table.Cell>
-                        <Table.Cell className="map_column list_body">
-                            <p className="high">High</p>
-                        </Table.Cell>
-                        <Table.Cell className="list_body"></Table.Cell>
-                    </Table.Row>
-                    <Table.Row height={32}>
-                        <Table.Cell className="map_column list_body" flexBasis={615} style={table_padding}>
-                            <img src={checkmark_circle} alt="" height="10" width="10" />
-                            <p>User data packet </p>
-                        </Table.Cell>
-                        <Table.Cell className="map_column list_body" style={table_padding}>
-                            <img src={avatar} alt="" height="16" width="14" className="assignee" />
-                            Ash
-                        </Table.Cell>
-                        <Table.Cell className="map_column list_body" style={table_padding_}>
-                            Sep 20 - sep 25
-                        </Table.Cell>
-                        <Table.Cell className="map_column list_body">
-                            <p className="low">Low</p>
-                        </Table.Cell>
-                        <Table.Cell className=" list_body"></Table.Cell>
-                    </Table.Row>
-                </Pane>
-                <div className="pro_div">
-                    <img src={arrow_dropdown} alt="" height="7" width="10" />
-                    <p className="pro">Processing</p>
+                {contentOpen && (
+                    <Pane className="list" width={1052}>
+                        {writeTask && (
+                            <Table.Row height={28} className="border_">
+                                <Table.Cell className="map_column editable_body" style={table_padding} flexBasis={550}>
+                                    <img src={checkmark_circle} alt="" height="10" width="10" />
+                                    <p onClick={() => setEditableField(true)}>Write a task name</p>
+
+                                    {editableField && (
+                                        <TextInput
+                                            onKeyDown={handleKeyDown}
+                                            style={editable_body}
+                                            fontSize="10px"
+                                            marginLeft="-125px"
+                                            borderRadius="none"
+                                            width="700px"
+                                            height="26px"
+                                            borderLeft="none"
+                                            paddingLeft="33px"
+                                            autoFocus
+                                        />
+                                    )}
+                                </Table.Cell>
+                                <Table.Cell className="map_column list_body" style={table_padding}></Table.Cell>
+                                <Table.Cell className="map_column list_body" style={table_padding_}></Table.Cell>
+                                <Table.Cell className="map_column list_body">
+                                    <p className="low"></p>
+                                </Table.Cell>
+                                <Table.Cell className="list_body">
+                                    <p></p>
+                                </Table.Cell>
+                            </Table.Row>
+                        )}
+                        <Table.Row height={28} className="border_">
+                            <Table.Cell className="map_column list_body" style={table_padding} flexBasis={550}>
+                                <img src={checkmark_circle} alt="" height="10" width="10" />
+                                <p>Develop prototype</p>
+                                <div>
+                                    <Popover
+                                        minWidth={30}
+                                        position={Position.BOTTOM_LEFT}
+                                        content={
+                                            <Menu>
+                                                <Menu.Group>
+                                                    <Menu.Item className="disabled_" style={disabled} disabled>
+                                                        <p>Move between selections</p>
+                                                    </Menu.Item>
+                                                    <Menu.Item
+                                                        icon={<img src={done} alt="" height="8" width="8" />}
+                                                        style={menu}
+                                                    >
+                                                        <p className="menucontent_">To do</p>
+                                                    </Menu.Item>
+                                                    <Menu.Item
+                                                        style={menu}
+                                                        icon={<img src={done} alt="" height="8" width="8" />}
+                                                    >
+                                                        <p className="menucontent_">Processing</p>
+                                                    </Menu.Item>
+                                                    <Menu.Item
+                                                        style={menu}
+                                                        icon={<img src={done} alt="" height="8" width="8" />}
+                                                    >
+                                                        <p className="menucontent_">Done</p>
+                                                    </Menu.Item>
+                                                </Menu.Group>
+                                            </Menu>
+                                        }
+                                    >
+                                        <img src={compare} alt="" height="8" width="14" />
+                                    </Popover>
+                                    <span>Details</span>
+                                    <img src={details_arrow} alt="" height="6" width="8" />
+                                </div>
+                            </Table.Cell>
+                            <Popover
+                                minWidth={210}
+                                marginTop={400}
+                                position={Position.BOTTOM_LEFT}
+                                content={
+                                    <Menu>
+                                        <Menu.Group>
+                                            <Menu.Item className="disabled_" disabled>
+                                                <p className="disabled_">Your collaborator</p>
+                                            </Menu.Item>
+                                            <Menu.Item
+                                                style={coll_drpdwn}
+                                                className="coll_drpdwn"
+                                                icon={
+                                                    <img
+                                                        src={avatar}
+                                                        alt=""
+                                                        className="bd_profiles"
+                                                        height="25"
+                                                        width="23"
+                                                    />
+                                                }
+                                            >
+                                                <p>Abdu Rahiman</p>
+                                            </Menu.Item>
+                                            <Menu.Item
+                                                style={coll_drpdwn}
+                                                className="coll_drpdwn"
+                                                icon={
+                                                    <img
+                                                        src={avatar1}
+                                                        alt=""
+                                                        className="bd_profiles"
+                                                        height="25"
+                                                        width="23"
+                                                    />
+                                                }
+                                            >
+                                                <p>Abdu Rahiman</p>
+                                            </Menu.Item>
+                                            <Menu.Item
+                                                style={coll_drpdwn}
+                                                className="coll_drpdwn"
+                                                icon={
+                                                    <img
+                                                        src={avatar}
+                                                        alt=""
+                                                        className="bd_profiles"
+                                                        height="25"
+                                                        width="23"
+                                                    />
+                                                }
+                                            >
+                                                <p>Abdu Rahiman</p>
+                                            </Menu.Item>
+                                            <Menu.Item
+                                                style={coll_drpdwn}
+                                                className="coll_drpdwn"
+                                                icon={
+                                                    <img
+                                                        src={avatar1}
+                                                        alt=""
+                                                        className="bd_profiles"
+                                                        height="25"
+                                                        width="23"
+                                                    />
+                                                }
+                                            >
+                                                <p>Abdu Rahiman</p>
+                                            </Menu.Item>
+                                            <Menu.Item
+                                                style={coll_drpdwn}
+                                                className="coll_drpdwn"
+                                                icon={
+                                                    <img
+                                                        src={avatar}
+                                                        alt=""
+                                                        className="bd_profiles"
+                                                        height="25"
+                                                        width="23"
+                                                    />
+                                                }
+                                            >
+                                                <p>Abdu Rahiman</p>
+                                            </Menu.Item>
+                                        </Menu.Group>
+                                        <Menu.Divider />
+                                        <Menu.Group>
+                                            <Menu.Item
+                                                onClick={() => setIsShown(true)}
+                                                style={invite}
+                                                icon={<img src={add_} alt="" height="10" width="10" />}
+                                            >
+                                                <p className="invite_">Invite collaborator</p>
+                                            </Menu.Item>
+                                        </Menu.Group>
+                                    </Menu>
+                                }
+                            >
+                                <Table.Cell className="map_column list_body" style={table_padding}>
+                                    <img src={avatar} alt="" height="16" width="14" className="assignee" />
+                                    Ashly
+                                </Table.Cell>
+                            </Popover>
+                            <Table.Cell className="map_column list_body" style={table_padding_}>
+                                Today - sep 20
+                            </Table.Cell>
+                            <Table.Cell className="map_column list_body">
+                                <p className="low">Low</p>
+                            </Table.Cell>
+                            <Table.Cell className="list_body">
+                                <p className="track">On track</p>
+                            </Table.Cell>
+                        </Table.Row>
+                        <Table.Row height={28}>
+                            <Table.Cell className="map_column list_body" flexBasis={550} style={table_padding}>
+                                <img src={checkmark_circle} alt="" height="10" width="10" />
+                                <p>Collect assets and implement too</p>
+                                <div>
+                                    <Popover
+                                        minWidth={30}
+                                        position={Position.BOTTOM_LEFT}
+                                        content={
+                                            <Menu>
+                                                <Menu.Group>
+                                                    <Menu.Item className="disabled_" style={disabled} disabled>
+                                                        <p>Move between selections</p>
+                                                    </Menu.Item>
+                                                    <Menu.Item
+                                                        icon={<img src={done} alt="" height="8" width="8" />}
+                                                        style={menu}
+                                                    >
+                                                        <p className="menucontent_">To do</p>
+                                                    </Menu.Item>
+                                                    <Menu.Item
+                                                        style={menu}
+                                                        icon={<img src={done} alt="" height="8" width="8" />}
+                                                    >
+                                                        <p className="menucontent_">Processing</p>
+                                                    </Menu.Item>
+                                                    <Menu.Item
+                                                        style={menu}
+                                                        icon={<img src={done} alt="" height="8" width="8" />}
+                                                    >
+                                                        <p className="menucontent_">Done</p>
+                                                    </Menu.Item>
+                                                </Menu.Group>
+                                            </Menu>
+                                        }
+                                    >
+                                        <img src={compare} alt="" height="8" width="14" />
+                                    </Popover>
+                                    <span>Details</span>
+                                    <img src={details_arrow} alt="" height="6" width="8" />
+                                </div>
+                            </Table.Cell>
+                            <Popover
+                                minWidth={210}
+                                marginTop={400}
+                                position={Position.BOTTOM_LEFT}
+                                content={
+                                    <Menu>
+                                        <Menu.Group>
+                                            <Menu.Item className="disabled_" disabled>
+                                                <p className="disabled_">Your collaborator</p>
+                                            </Menu.Item>
+                                            <Menu.Item
+                                                style={coll_drpdwn}
+                                                className="coll_drpdwn"
+                                                icon={
+                                                    <img
+                                                        src={avatar}
+                                                        alt=""
+                                                        className="bd_profiles"
+                                                        height="25"
+                                                        width="23"
+                                                    />
+                                                }
+                                            >
+                                                <p>Abdu Rahiman</p>
+                                            </Menu.Item>
+                                            <Menu.Item
+                                                style={coll_drpdwn}
+                                                className="coll_drpdwn"
+                                                icon={
+                                                    <img
+                                                        src={avatar1}
+                                                        alt=""
+                                                        className="bd_profiles"
+                                                        height="25"
+                                                        width="23"
+                                                    />
+                                                }
+                                            >
+                                                <p>Abdu Rahiman</p>
+                                            </Menu.Item>
+                                            <Menu.Item
+                                                style={coll_drpdwn}
+                                                className="coll_drpdwn"
+                                                icon={
+                                                    <img
+                                                        src={avatar}
+                                                        alt=""
+                                                        className="bd_profiles"
+                                                        height="25"
+                                                        width="23"
+                                                    />
+                                                }
+                                            >
+                                                <p>Abdu Rahiman</p>
+                                            </Menu.Item>
+                                            <Menu.Item
+                                                style={coll_drpdwn}
+                                                className="coll_drpdwn"
+                                                icon={
+                                                    <img
+                                                        src={avatar1}
+                                                        alt=""
+                                                        className="bd_profiles"
+                                                        height="25"
+                                                        width="23"
+                                                    />
+                                                }
+                                            >
+                                                <p>Abdu Rahiman</p>
+                                            </Menu.Item>
+                                            <Menu.Item
+                                                style={coll_drpdwn}
+                                                className="coll_drpdwn"
+                                                icon={
+                                                    <img
+                                                        src={avatar}
+                                                        alt=""
+                                                        className="bd_profiles"
+                                                        height="25"
+                                                        width="23"
+                                                    />
+                                                }
+                                            >
+                                                <p>Abdu Rahiman</p>
+                                            </Menu.Item>
+                                        </Menu.Group>
+                                        <Menu.Divider />
+                                        <Menu.Group>
+                                            <Menu.Item
+                                                onClick={() => setIsShown(true)}
+                                                style={invite}
+                                                icon={<img src={add_} alt="" height="10" width="10" />}
+                                            >
+                                                <p className="invite_">Invite collaborator</p>
+                                            </Menu.Item>
+                                        </Menu.Group>
+                                    </Menu>
+                                }
+                            >
+                                <Table.Cell className="map_column list_body" style={table_padding}>
+                                    <img src={avatar} alt="" height="16" width="14" className="assignee" />
+                                    Ashly
+                                </Table.Cell>
+                            </Popover>
+                            <Table.Cell className="map_column list_body" style={table_padding_}>
+                                Today - sep 20
+                            </Table.Cell>
+                            <Table.Cell className="map_column list_body">
+                                <p className="low">Low</p>
+                            </Table.Cell>
+                            <Table.Cell className=" list_body">
+                                <p className="risk">At risk</p>
+                            </Table.Cell>
+                        </Table.Row>
+                        <Table.Row height={28}>
+                            <Table.Cell className="map_column list_body" flexBasis={550} style={table_padding}>
+                                <img src={checkmark_circle} alt="" height="10" width="10" />
+                                <p>Acquire customer feedback</p>
+                                <div>
+                                    <Popover
+                                        minWidth={30}
+                                        position={Position.BOTTOM_LEFT}
+                                        content={
+                                            <Menu>
+                                                <Menu.Group>
+                                                    <Menu.Item className="disabled_" style={disabled} disabled>
+                                                        <p>Move between selections</p>
+                                                    </Menu.Item>
+                                                    <Menu.Item
+                                                        icon={<img src={done} alt="" height="8" width="8" />}
+                                                        style={menu}
+                                                    >
+                                                        <p className="menucontent_">To do</p>
+                                                    </Menu.Item>
+                                                    <Menu.Item
+                                                        style={menu}
+                                                        icon={<img src={done} alt="" height="8" width="8" />}
+                                                    >
+                                                        <p className="menucontent_">Processing</p>
+                                                    </Menu.Item>
+                                                    <Menu.Item
+                                                        style={menu}
+                                                        icon={<img src={done} alt="" height="8" width="8" />}
+                                                    >
+                                                        <p className="menucontent_">Done</p>
+                                                    </Menu.Item>
+                                                </Menu.Group>
+                                            </Menu>
+                                        }
+                                    >
+                                        <img src={compare} alt="" height="8" width="14" />
+                                    </Popover>
+                                    <span>Details</span>
+                                    <img src={details_arrow} alt="" height="6" width="8" />
+                                </div>
+                            </Table.Cell>
+                            <Popover
+                                minWidth={210}
+                                marginTop={400}
+                                position={Position.BOTTOM_LEFT}
+                                content={
+                                    <Menu>
+                                        <Menu.Group>
+                                            <Menu.Item className="disabled_" disabled>
+                                                <p className="disabled_">Your collaborator</p>
+                                            </Menu.Item>
+                                            <Menu.Item
+                                                style={coll_drpdwn}
+                                                className="coll_drpdwn"
+                                                icon={
+                                                    <img
+                                                        src={avatar}
+                                                        alt=""
+                                                        className="bd_profiles"
+                                                        height="25"
+                                                        width="23"
+                                                    />
+                                                }
+                                            >
+                                                <p>Abdu Rahiman</p>
+                                            </Menu.Item>
+                                            <Menu.Item
+                                                style={coll_drpdwn}
+                                                className="coll_drpdwn"
+                                                icon={
+                                                    <img
+                                                        src={avatar1}
+                                                        alt=""
+                                                        className="bd_profiles"
+                                                        height="25"
+                                                        width="23"
+                                                    />
+                                                }
+                                            >
+                                                <p>Abdu Rahiman</p>
+                                            </Menu.Item>
+                                            <Menu.Item
+                                                style={coll_drpdwn}
+                                                className="coll_drpdwn"
+                                                icon={
+                                                    <img
+                                                        src={avatar}
+                                                        alt=""
+                                                        className="bd_profiles"
+                                                        height="25"
+                                                        width="23"
+                                                    />
+                                                }
+                                            >
+                                                <p>Abdu Rahiman</p>
+                                            </Menu.Item>
+                                            <Menu.Item
+                                                style={coll_drpdwn}
+                                                className="coll_drpdwn"
+                                                icon={
+                                                    <img
+                                                        src={avatar1}
+                                                        alt=""
+                                                        className="bd_profiles"
+                                                        height="25"
+                                                        width="23"
+                                                    />
+                                                }
+                                            >
+                                                <p>Abdu Rahiman</p>
+                                            </Menu.Item>
+                                            <Menu.Item
+                                                style={coll_drpdwn}
+                                                className="coll_drpdwn"
+                                                icon={
+                                                    <img
+                                                        src={avatar}
+                                                        alt=""
+                                                        className="bd_profiles"
+                                                        height="25"
+                                                        width="23"
+                                                    />
+                                                }
+                                            >
+                                                <p>Abdu Rahiman</p>
+                                            </Menu.Item>
+                                        </Menu.Group>
+                                        <Menu.Divider />
+                                        <Menu.Group>
+                                            <Menu.Item
+                                                onClick={() => setIsShown(true)}
+                                                style={invite}
+                                                icon={<img src={add_} alt="" height="10" width="10" />}
+                                            >
+                                                <p className="invite_">Invite collaborator</p>
+                                            </Menu.Item>
+                                        </Menu.Group>
+                                    </Menu>
+                                }
+                            >
+                                <Table.Cell className="map_column list_body" style={table_padding}>
+                                    <img src={avatar} alt="" height="16" width="14" className="assignee" />
+                                    Ashly
+                                </Table.Cell>
+                            </Popover>
+                            <Table.Cell className="map_column list_body" style={table_padding_}>
+                                Sep 20 - sep 25
+                            </Table.Cell>
+                            <Table.Cell className="map_column list_body">
+                                <p className="medium">Medium</p>
+                            </Table.Cell>
+                            <Table.Cell className=" list_body">
+                                <p className="medium">Medium</p>
+                            </Table.Cell>
+                        </Table.Row>
+                        <Table.Row height={28}>
+                            <Table.Cell className="map_column list_body" flexBasis={550} style={table_padding}>
+                                <img src={checkmark_circle} alt="" height="10" width="10" />
+                                <p>A/B test report submission </p>
+                                <div>
+                                    <Popover
+                                        minWidth={30}
+                                        position={Position.BOTTOM_LEFT}
+                                        content={
+                                            <Menu>
+                                                <Menu.Group>
+                                                    <Menu.Item className="disabled_" style={disabled} disabled>
+                                                        <p>Move between selections</p>
+                                                    </Menu.Item>
+                                                    <Menu.Item
+                                                        icon={<img src={done} alt="" height="8" width="8" />}
+                                                        style={menu}
+                                                    >
+                                                        <p className="menucontent_">To do</p>
+                                                    </Menu.Item>
+                                                    <Menu.Item
+                                                        style={menu}
+                                                        icon={<img src={done} alt="" height="8" width="8" />}
+                                                    >
+                                                        <p className="menucontent_">Processing</p>
+                                                    </Menu.Item>
+                                                    <Menu.Item
+                                                        style={menu}
+                                                        icon={<img src={done} alt="" height="8" width="8" />}
+                                                    >
+                                                        <p className="menucontent_">Done</p>
+                                                    </Menu.Item>
+                                                </Menu.Group>
+                                            </Menu>
+                                        }
+                                    >
+                                        <img src={compare} alt="" height="8" width="14" />
+                                    </Popover>
+                                    <span>Details</span>
+                                    <img src={details_arrow} alt="" height="6" width="8" />
+                                </div>
+                            </Table.Cell>
+                            <Popover
+                                minWidth={210}
+                                marginTop={400}
+                                position={Position.BOTTOM_LEFT}
+                                content={
+                                    <Menu>
+                                        <Menu.Group>
+                                            <Menu.Item className="disabled_" disabled>
+                                                <p className="disabled_">Your collaborator</p>
+                                            </Menu.Item>
+                                            <Menu.Item
+                                                style={coll_drpdwn}
+                                                className="coll_drpdwn"
+                                                icon={
+                                                    <img
+                                                        src={avatar}
+                                                        alt=""
+                                                        className="bd_profiles"
+                                                        height="25"
+                                                        width="23"
+                                                    />
+                                                }
+                                            >
+                                                <p>Abdu Rahiman</p>
+                                            </Menu.Item>
+                                            <Menu.Item
+                                                style={coll_drpdwn}
+                                                className="coll_drpdwn"
+                                                icon={
+                                                    <img
+                                                        src={avatar1}
+                                                        alt=""
+                                                        className="bd_profiles"
+                                                        height="25"
+                                                        width="23"
+                                                    />
+                                                }
+                                            >
+                                                <p>Abdu Rahiman</p>
+                                            </Menu.Item>
+                                            <Menu.Item
+                                                style={coll_drpdwn}
+                                                className="coll_drpdwn"
+                                                icon={
+                                                    <img
+                                                        src={avatar}
+                                                        alt=""
+                                                        className="bd_profiles"
+                                                        height="25"
+                                                        width="23"
+                                                    />
+                                                }
+                                            >
+                                                <p>Abdu Rahiman</p>
+                                            </Menu.Item>
+                                            <Menu.Item
+                                                style={coll_drpdwn}
+                                                className="coll_drpdwn"
+                                                icon={
+                                                    <img
+                                                        src={avatar1}
+                                                        alt=""
+                                                        className="bd_profiles"
+                                                        height="25"
+                                                        width="23"
+                                                    />
+                                                }
+                                            >
+                                                <p>Abdu Rahiman</p>
+                                            </Menu.Item>
+                                            <Menu.Item
+                                                style={coll_drpdwn}
+                                                className="coll_drpdwn"
+                                                icon={
+                                                    <img
+                                                        src={avatar}
+                                                        alt=""
+                                                        className="bd_profiles"
+                                                        height="25"
+                                                        width="23"
+                                                    />
+                                                }
+                                            >
+                                                <p>Abdu Rahiman</p>
+                                            </Menu.Item>
+                                        </Menu.Group>
+                                        <Menu.Divider />
+                                        <Menu.Group>
+                                            <Menu.Item
+                                                onClick={() => setIsShown(true)}
+                                                style={invite}
+                                                icon={<img src={add_} alt="" height="10" width="10" />}
+                                            >
+                                                <p className="invite_">Invite collaborator</p>
+                                            </Menu.Item>
+                                        </Menu.Group>
+                                    </Menu>
+                                }
+                            >
+                                <Table.Cell className="map_column list_body" style={table_padding}>
+                                    <img src={avatar} alt="" height="16" width="14" className="assignee" />
+                                    Ashly
+                                </Table.Cell>
+                            </Popover>
+                            <Table.Cell className="map_column list_body" style={table_padding_}>
+                                Sep 20 - sep 25
+                            </Table.Cell>
+                            <Table.Cell className="map_column list_body">
+                                <p className="high">High</p>
+                            </Table.Cell>
+                            <Table.Cell className=" list_body">
+                                <p className="normal">Normal</p>
+                            </Table.Cell>
+                        </Table.Row>
+                        <Table.Row height={28}>
+                            <Table.Cell className="map_column list_body" flexBasis={550} style={table_padding}>
+                                <img src={checkmark_circle} alt="" height="10" width="10" />
+                                <p>Server implementation - technology paper brief </p>
+                                <div>
+                                    <Popover
+                                        minWidth={30}
+                                        position={Position.BOTTOM_LEFT}
+                                        content={
+                                            <Menu>
+                                                <Menu.Group>
+                                                    <Menu.Item className="disabled_" style={disabled} disabled>
+                                                        <p>Move between selections</p>
+                                                    </Menu.Item>
+                                                    <Menu.Item
+                                                        icon={<img src={done} alt="" height="8" width="8" />}
+                                                        style={menu}
+                                                    >
+                                                        <p className="menucontent_">To do</p>
+                                                    </Menu.Item>
+                                                    <Menu.Item
+                                                        style={menu}
+                                                        icon={<img src={done} alt="" height="8" width="8" />}
+                                                    >
+                                                        <p className="menucontent_">Processing</p>
+                                                    </Menu.Item>
+                                                    <Menu.Item
+                                                        style={menu}
+                                                        icon={<img src={done} alt="" height="8" width="8" />}
+                                                    >
+                                                        <p className="menucontent_">Done</p>
+                                                    </Menu.Item>
+                                                </Menu.Group>
+                                            </Menu>
+                                        }
+                                    >
+                                        <img src={compare} alt="" height="8" width="14" />
+                                    </Popover>
+                                    <span>Details</span>
+                                    <img src={details_arrow} alt="" height="6" width="8" />
+                                </div>
+                            </Table.Cell>
+                            <Popover
+                                minWidth={210}
+                                marginTop={400}
+                                position={Position.BOTTOM_LEFT}
+                                content={
+                                    <Menu>
+                                        <Menu.Group>
+                                            <Menu.Item className="disabled_" disabled>
+                                                <p className="disabled_">Your collaborator</p>
+                                            </Menu.Item>
+                                            <Menu.Item
+                                                style={coll_drpdwn}
+                                                className="coll_drpdwn"
+                                                icon={
+                                                    <img
+                                                        src={avatar}
+                                                        alt=""
+                                                        className="bd_profiles"
+                                                        height="25"
+                                                        width="23"
+                                                    />
+                                                }
+                                            >
+                                                <p>Abdu Rahiman</p>
+                                            </Menu.Item>
+                                            <Menu.Item
+                                                style={coll_drpdwn}
+                                                className="coll_drpdwn"
+                                                icon={
+                                                    <img
+                                                        src={avatar1}
+                                                        alt=""
+                                                        className="bd_profiles"
+                                                        height="25"
+                                                        width="23"
+                                                    />
+                                                }
+                                            >
+                                                <p>Abdu Rahiman</p>
+                                            </Menu.Item>
+                                            <Menu.Item
+                                                style={coll_drpdwn}
+                                                className="coll_drpdwn"
+                                                icon={
+                                                    <img
+                                                        src={avatar}
+                                                        alt=""
+                                                        className="bd_profiles"
+                                                        height="25"
+                                                        width="23"
+                                                    />
+                                                }
+                                            >
+                                                <p>Abdu Rahiman</p>
+                                            </Menu.Item>
+                                            <Menu.Item
+                                                style={coll_drpdwn}
+                                                className="coll_drpdwn"
+                                                icon={
+                                                    <img
+                                                        src={avatar1}
+                                                        alt=""
+                                                        className="bd_profiles"
+                                                        height="25"
+                                                        width="23"
+                                                    />
+                                                }
+                                            >
+                                                <p>Abdu Rahiman</p>
+                                            </Menu.Item>
+                                            <Menu.Item
+                                                style={coll_drpdwn}
+                                                className="coll_drpdwn"
+                                                icon={
+                                                    <img
+                                                        src={avatar}
+                                                        alt=""
+                                                        className="bd_profiles"
+                                                        height="25"
+                                                        width="23"
+                                                    />
+                                                }
+                                            >
+                                                <p>Abdu Rahiman</p>
+                                            </Menu.Item>
+                                        </Menu.Group>
+                                        <Menu.Divider />
+                                        <Menu.Group>
+                                            <Menu.Item
+                                                onClick={() => setIsShown(true)}
+                                                style={invite}
+                                                icon={<img src={add_} alt="" height="10" width="10" />}
+                                            >
+                                                <p className="invite_">Invite collaborator</p>
+                                            </Menu.Item>
+                                        </Menu.Group>
+                                    </Menu>
+                                }
+                            >
+                                <Table.Cell className="map_column list_body" style={table_padding}>
+                                    <img src={avatar} alt="" height="16" width="14" className="assignee" />
+                                    Ashly
+                                </Table.Cell>
+                            </Popover>
+                            <Table.Cell className="map_column list_body" style={table_padding_}>
+                                Sep 20 - sep 25
+                            </Table.Cell>
+                            <Table.Cell className="map_column list_body">
+                                <p className="high">High</p>
+                            </Table.Cell>
+                            <Table.Cell className="list_body">
+                                <p className="high_">High</p>
+                            </Table.Cell>
+                        </Table.Row>
+                        <Table.Row height={28}>
+                            <Table.Cell className="map_column list_body" flexBasis={550} style={table_padding}>
+                                <img src={checkmark_circle} alt="" height="10" width="10" />
+                                <p>Firebase</p>
+                                <div>
+                                    <Popover
+                                        minWidth={30}
+                                        position={Position.BOTTOM_LEFT}
+                                        content={
+                                            <Menu>
+                                                <Menu.Group>
+                                                    <Menu.Item className="disabled_" style={disabled} disabled>
+                                                        <p>Move between selections</p>
+                                                    </Menu.Item>
+                                                    <Menu.Item
+                                                        icon={<img src={done} alt="" height="8" width="8" />}
+                                                        style={menu}
+                                                    >
+                                                        <p className="menucontent_">To do</p>
+                                                    </Menu.Item>
+                                                    <Menu.Item
+                                                        style={menu}
+                                                        icon={<img src={done} alt="" height="8" width="8" />}
+                                                    >
+                                                        <p className="menucontent_">Processing</p>
+                                                    </Menu.Item>
+                                                    <Menu.Item
+                                                        style={menu}
+                                                        icon={<img src={done} alt="" height="8" width="8" />}
+                                                    >
+                                                        <p className="menucontent_">Done</p>
+                                                    </Menu.Item>
+                                                </Menu.Group>
+                                            </Menu>
+                                        }
+                                    >
+                                        <img src={compare} alt="" height="8" width="14" />
+                                    </Popover>
+                                    <span>Details</span>
+                                    <img src={details_arrow} alt="" height="6" width="8" />
+                                </div>
+                            </Table.Cell>
+                            <Popover
+                                minWidth={210}
+                                marginTop={400}
+                                position={Position.BOTTOM_LEFT}
+                                content={
+                                    <Menu>
+                                        <Menu.Group>
+                                            <Menu.Item className="disabled_" disabled>
+                                                <p className="disabled_">Your collaborator</p>
+                                            </Menu.Item>
+                                            <Menu.Item
+                                                style={coll_drpdwn}
+                                                className="coll_drpdwn"
+                                                icon={
+                                                    <img
+                                                        src={avatar}
+                                                        alt=""
+                                                        className="bd_profiles"
+                                                        height="25"
+                                                        width="23"
+                                                    />
+                                                }
+                                            >
+                                                <p>Abdu Rahiman</p>
+                                            </Menu.Item>
+                                            <Menu.Item
+                                                style={coll_drpdwn}
+                                                className="coll_drpdwn"
+                                                icon={
+                                                    <img
+                                                        src={avatar1}
+                                                        alt=""
+                                                        className="bd_profiles"
+                                                        height="25"
+                                                        width="23"
+                                                    />
+                                                }
+                                            >
+                                                <p>Abdu Rahiman</p>
+                                            </Menu.Item>
+                                            <Menu.Item
+                                                style={coll_drpdwn}
+                                                className="coll_drpdwn"
+                                                icon={
+                                                    <img
+                                                        src={avatar}
+                                                        alt=""
+                                                        className="bd_profiles"
+                                                        height="25"
+                                                        width="23"
+                                                    />
+                                                }
+                                            >
+                                                <p>Abdu Rahiman</p>
+                                            </Menu.Item>
+                                            <Menu.Item
+                                                style={coll_drpdwn}
+                                                className="coll_drpdwn"
+                                                icon={
+                                                    <img
+                                                        src={avatar1}
+                                                        alt=""
+                                                        className="bd_profiles"
+                                                        height="25"
+                                                        width="23"
+                                                    />
+                                                }
+                                            >
+                                                <p>Abdu Rahiman</p>
+                                            </Menu.Item>
+                                            <Menu.Item
+                                                style={coll_drpdwn}
+                                                className="coll_drpdwn"
+                                                icon={
+                                                    <img
+                                                        src={avatar}
+                                                        alt=""
+                                                        className="bd_profiles"
+                                                        height="25"
+                                                        width="23"
+                                                    />
+                                                }
+                                            >
+                                                <p>Abdu Rahiman</p>
+                                            </Menu.Item>
+                                        </Menu.Group>
+                                        <Menu.Divider />
+                                        <Menu.Group>
+                                            <Menu.Item
+                                                onClick={() => setIsShown(true)}
+                                                style={invite}
+                                                icon={<img src={add_} alt="" height="10" width="10" />}
+                                            >
+                                                <p className="invite_">Invite collaborator</p>
+                                            </Menu.Item>
+                                        </Menu.Group>
+                                    </Menu>
+                                }
+                            >
+                                <Table.Cell className="map_column list_body" style={table_padding}>
+                                    <img src={avatar} alt="" height="16" width="14" className="assignee" />
+                                    Ashly
+                                </Table.Cell>
+                            </Popover>
+                            <Table.Cell className="map_column list_body" style={table_padding_}>
+                                Sep 20 - sep 25
+                            </Table.Cell>
+                            <Table.Cell className="map_column list_body">
+                                <p className="medium">Medium</p>
+                            </Table.Cell>
+                            <Table.Cell className="list_body"></Table.Cell>
+                        </Table.Row>
+                        <Table.Row height={28}>
+                            <Table.Cell className="map_column list_body" flexBasis={550} style={table_padding}>
+                                <img src={checkmark_circle} alt="" height="10" width="10" />
+                                <p>Product board data export file </p>
+                                <div>
+                                    <Popover
+                                        minWidth={30}
+                                        position={Position.BOTTOM_LEFT}
+                                        content={
+                                            <Menu>
+                                                <Menu.Group>
+                                                    <Menu.Item className="disabled_" style={disabled} disabled>
+                                                        <p>Move between selections</p>
+                                                    </Menu.Item>
+                                                    <Menu.Item
+                                                        icon={<img src={done} alt="" height="8" width="8" />}
+                                                        style={menu}
+                                                    >
+                                                        <p className="menucontent_">To do</p>
+                                                    </Menu.Item>
+                                                    <Menu.Item
+                                                        style={menu}
+                                                        icon={<img src={done} alt="" height="8" width="8" />}
+                                                    >
+                                                        <p className="menucontent_">Processing</p>
+                                                    </Menu.Item>
+                                                    <Menu.Item
+                                                        style={menu}
+                                                        icon={<img src={done} alt="" height="8" width="8" />}
+                                                    >
+                                                        <p className="menucontent_">Done</p>
+                                                    </Menu.Item>
+                                                </Menu.Group>
+                                            </Menu>
+                                        }
+                                    >
+                                        <img src={compare} alt="" height="8" width="14" />
+                                    </Popover>
+                                    <span>Details</span>
+                                    <img src={details_arrow} alt="" height="6" width="8" />
+                                </div>
+                            </Table.Cell>
+                            <Popover
+                                minWidth={210}
+                                marginTop={400}
+                                position={Position.BOTTOM_LEFT}
+                                content={
+                                    <Menu>
+                                        <Menu.Group>
+                                            <Menu.Item className="disabled_" disabled>
+                                                <p className="disabled_">Your collaborator</p>
+                                            </Menu.Item>
+                                            <Menu.Item
+                                                style={coll_drpdwn}
+                                                className="coll_drpdwn"
+                                                icon={
+                                                    <img
+                                                        src={avatar}
+                                                        alt=""
+                                                        className="bd_profiles"
+                                                        height="25"
+                                                        width="23"
+                                                    />
+                                                }
+                                            >
+                                                <p>Abdu Rahiman</p>
+                                            </Menu.Item>
+                                            <Menu.Item
+                                                style={coll_drpdwn}
+                                                className="coll_drpdwn"
+                                                icon={
+                                                    <img
+                                                        src={avatar1}
+                                                        alt=""
+                                                        className="bd_profiles"
+                                                        height="25"
+                                                        width="23"
+                                                    />
+                                                }
+                                            >
+                                                <p>Abdu Rahiman</p>
+                                            </Menu.Item>
+                                            <Menu.Item
+                                                style={coll_drpdwn}
+                                                className="coll_drpdwn"
+                                                icon={
+                                                    <img
+                                                        src={avatar}
+                                                        alt=""
+                                                        className="bd_profiles"
+                                                        height="25"
+                                                        width="23"
+                                                    />
+                                                }
+                                            >
+                                                <p>Abdu Rahiman</p>
+                                            </Menu.Item>
+                                            <Menu.Item
+                                                style={coll_drpdwn}
+                                                className="coll_drpdwn"
+                                                icon={
+                                                    <img
+                                                        src={avatar1}
+                                                        alt=""
+                                                        className="bd_profiles"
+                                                        height="25"
+                                                        width="23"
+                                                    />
+                                                }
+                                            >
+                                                <p>Abdu Rahiman</p>
+                                            </Menu.Item>
+                                            <Menu.Item
+                                                style={coll_drpdwn}
+                                                className="coll_drpdwn"
+                                                icon={
+                                                    <img
+                                                        src={avatar}
+                                                        alt=""
+                                                        className="bd_profiles"
+                                                        height="25"
+                                                        width="23"
+                                                    />
+                                                }
+                                            >
+                                                <p>Abdu Rahiman</p>
+                                            </Menu.Item>
+                                        </Menu.Group>
+                                        <Menu.Divider />
+                                        <Menu.Group>
+                                            <Menu.Item
+                                                onClick={() => setIsShown(true)}
+                                                style={invite}
+                                                icon={<img src={add_} alt="" height="10" width="10" />}
+                                            >
+                                                <p className="invite_">Invite collaborator</p>
+                                            </Menu.Item>
+                                        </Menu.Group>
+                                    </Menu>
+                                }
+                            >
+                                <Table.Cell className="map_column list_body" style={table_padding}>
+                                    <img src={avatar} alt="" height="16" width="14" className="assignee" />
+                                    Ashly
+                                </Table.Cell>
+                            </Popover>
+                            <Table.Cell className="map_column list_body" style={table_padding_}>
+                                Sep 20 - sep 25
+                            </Table.Cell>
+                            <Table.Cell className="map_column list_body">
+                                <p className="medium">Medium</p>
+                            </Table.Cell>
+                            <Table.Cell className="list_body"></Table.Cell>
+                        </Table.Row>
+                        <Table.Row height={28}>
+                            <Table.Cell className="map_column list_body" flexBasis={550} style={table_padding}>
+                                <img src={checkmark_circle} alt="" height="10" width="10" />
+                                <p>Payment remainder </p>
+                                <div>
+                                    <Popover
+                                        minWidth={30}
+                                        position={Position.BOTTOM_LEFT}
+                                        content={
+                                            <Menu>
+                                                <Menu.Group>
+                                                    <Menu.Item className="disabled_" style={disabled} disabled>
+                                                        <p>Move between selections</p>
+                                                    </Menu.Item>
+                                                    <Menu.Item
+                                                        icon={<img src={done} alt="" height="8" width="8" />}
+                                                        style={menu}
+                                                    >
+                                                        <p className="menucontent_">To do</p>
+                                                    </Menu.Item>
+                                                    <Menu.Item
+                                                        style={menu}
+                                                        icon={<img src={done} alt="" height="8" width="8" />}
+                                                    >
+                                                        <p className="menucontent_">Processing</p>
+                                                    </Menu.Item>
+                                                    <Menu.Item
+                                                        style={menu}
+                                                        icon={<img src={done} alt="" height="8" width="8" />}
+                                                    >
+                                                        <p className="menucontent_">Done</p>
+                                                    </Menu.Item>
+                                                </Menu.Group>
+                                            </Menu>
+                                        }
+                                    >
+                                        <img src={compare} alt="" height="8" width="14" />
+                                    </Popover>
+                                    <span>Details</span>
+                                    <img src={details_arrow} alt="" height="6" width="8" />
+                                </div>
+                            </Table.Cell>
+                            <Popover
+                                minWidth={210}
+                                marginTop={400}
+                                position={Position.BOTTOM_LEFT}
+                                content={
+                                    <Menu>
+                                        <Menu.Group>
+                                            <Menu.Item className="disabled_" disabled>
+                                                <p className="disabled_">Your collaborator</p>
+                                            </Menu.Item>
+                                            <Menu.Item
+                                                style={coll_drpdwn}
+                                                className="coll_drpdwn"
+                                                icon={
+                                                    <img
+                                                        src={avatar}
+                                                        alt=""
+                                                        className="bd_profiles"
+                                                        height="25"
+                                                        width="23"
+                                                    />
+                                                }
+                                            >
+                                                <p>Abdu Rahiman</p>
+                                            </Menu.Item>
+                                            <Menu.Item
+                                                style={coll_drpdwn}
+                                                className="coll_drpdwn"
+                                                icon={
+                                                    <img
+                                                        src={avatar1}
+                                                        alt=""
+                                                        className="bd_profiles"
+                                                        height="25"
+                                                        width="23"
+                                                    />
+                                                }
+                                            >
+                                                <p>Abdu Rahiman</p>
+                                            </Menu.Item>
+                                            <Menu.Item
+                                                style={coll_drpdwn}
+                                                className="coll_drpdwn"
+                                                icon={
+                                                    <img
+                                                        src={avatar}
+                                                        alt=""
+                                                        className="bd_profiles"
+                                                        height="25"
+                                                        width="23"
+                                                    />
+                                                }
+                                            >
+                                                <p>Abdu Rahiman</p>
+                                            </Menu.Item>
+                                            <Menu.Item
+                                                style={coll_drpdwn}
+                                                className="coll_drpdwn"
+                                                icon={
+                                                    <img
+                                                        src={avatar1}
+                                                        alt=""
+                                                        className="bd_profiles"
+                                                        height="25"
+                                                        width="23"
+                                                    />
+                                                }
+                                            >
+                                                <p>Abdu Rahiman</p>
+                                            </Menu.Item>
+                                            <Menu.Item
+                                                style={coll_drpdwn}
+                                                className="coll_drpdwn"
+                                                icon={
+                                                    <img
+                                                        src={avatar}
+                                                        alt=""
+                                                        className="bd_profiles"
+                                                        height="25"
+                                                        width="23"
+                                                    />
+                                                }
+                                            >
+                                                <p>Abdu Rahiman</p>
+                                            </Menu.Item>
+                                        </Menu.Group>
+                                        <Menu.Divider />
+                                        <Menu.Group>
+                                            <Menu.Item
+                                                onClick={() => setIsShown(true)}
+                                                style={invite}
+                                                icon={<img src={add_} alt="" height="10" width="10" />}
+                                            >
+                                                <p className="invite_">Invite collaborator</p>
+                                            </Menu.Item>
+                                        </Menu.Group>
+                                    </Menu>
+                                }
+                            >
+                                <Table.Cell className="map_column list_body" style={table_padding}>
+                                    <img src={avatar} alt="" height="16" width="14" className="assignee" />
+                                    Ashly
+                                </Table.Cell>
+                            </Popover>
+                            <Table.Cell className="map_column list_body" style={table_padding_}>
+                                Sep 20 - sep 25
+                            </Table.Cell>
+                            <Table.Cell className="map_column list_body">
+                                <p className="high">High</p>
+                            </Table.Cell>
+                            <Table.Cell className="list_body"></Table.Cell>
+                        </Table.Row>
+                        <Table.Row height={28}>
+                            <Table.Cell className="map_column list_body" flexBasis={550} style={table_padding}>
+                                <img src={checkmark_circle} alt="" height="10" width="10" />
+                                <p>User data packet </p>
+                                <div>
+                                    <Popover
+                                        minWidth={30}
+                                        position={Position.BOTTOM_LEFT}
+                                        content={
+                                            <Menu>
+                                                <Menu.Group>
+                                                    <Menu.Item className="disabled_" style={disabled} disabled>
+                                                        <p>Move between selections</p>
+                                                    </Menu.Item>
+                                                    <Menu.Item
+                                                        icon={<img src={done} alt="" height="8" width="8" />}
+                                                        style={menu}
+                                                    >
+                                                        <p className="menucontent_">To do</p>
+                                                    </Menu.Item>
+                                                    <Menu.Item
+                                                        style={menu}
+                                                        icon={<img src={done} alt="" height="8" width="8" />}
+                                                    >
+                                                        <p className="menucontent_">Processing</p>
+                                                    </Menu.Item>
+                                                    <Menu.Item
+                                                        style={menu}
+                                                        icon={<img src={done} alt="" height="8" width="8" />}
+                                                    >
+                                                        <p className="menucontent_">Done</p>
+                                                    </Menu.Item>
+                                                </Menu.Group>
+                                            </Menu>
+                                        }
+                                    >
+                                        <img src={compare} alt="" height="8" width="14" />
+                                    </Popover>
+                                    <span>Details</span>
+                                    <img src={details_arrow} alt="" height="6" width="8" />
+                                </div>
+                            </Table.Cell>
+                            <Popover
+                                minWidth={210}
+                                marginTop={400}
+                                position={Position.BOTTOM_LEFT}
+                                content={
+                                    <Menu>
+                                        <Menu.Group>
+                                            <Menu.Item className="disabled_" disabled>
+                                                <p className="disabled_">Your collaborator</p>
+                                            </Menu.Item>
+                                            <Menu.Item
+                                                style={coll_drpdwn}
+                                                className="coll_drpdwn"
+                                                icon={
+                                                    <img
+                                                        src={avatar}
+                                                        alt=""
+                                                        className="bd_profiles"
+                                                        height="25"
+                                                        width="23"
+                                                    />
+                                                }
+                                            >
+                                                <p>Abdu Rahiman</p>
+                                            </Menu.Item>
+                                            <Menu.Item
+                                                style={coll_drpdwn}
+                                                className="coll_drpdwn"
+                                                icon={
+                                                    <img
+                                                        src={avatar1}
+                                                        alt=""
+                                                        className="bd_profiles"
+                                                        height="25"
+                                                        width="23"
+                                                    />
+                                                }
+                                            >
+                                                <p>Abdu Rahiman</p>
+                                            </Menu.Item>
+                                            <Menu.Item
+                                                style={coll_drpdwn}
+                                                className="coll_drpdwn"
+                                                icon={
+                                                    <img
+                                                        src={avatar}
+                                                        alt=""
+                                                        className="bd_profiles"
+                                                        height="25"
+                                                        width="23"
+                                                    />
+                                                }
+                                            >
+                                                <p>Abdu Rahiman</p>
+                                            </Menu.Item>
+                                            <Menu.Item
+                                                style={coll_drpdwn}
+                                                className="coll_drpdwn"
+                                                icon={
+                                                    <img
+                                                        src={avatar1}
+                                                        alt=""
+                                                        className="bd_profiles"
+                                                        height="25"
+                                                        width="23"
+                                                    />
+                                                }
+                                            >
+                                                <p>Abdu Rahiman</p>
+                                            </Menu.Item>
+                                            <Menu.Item
+                                                style={coll_drpdwn}
+                                                className="coll_drpdwn"
+                                                icon={
+                                                    <img
+                                                        src={avatar}
+                                                        alt=""
+                                                        className="bd_profiles"
+                                                        height="25"
+                                                        width="23"
+                                                    />
+                                                }
+                                            >
+                                                <p>Abdu Rahiman</p>
+                                            </Menu.Item>
+                                        </Menu.Group>
+                                        <Menu.Divider />
+                                        <Menu.Group>
+                                            <Menu.Item
+                                                onClick={() => setIsShown(true)}
+                                                style={invite}
+                                                icon={<img src={add_} alt="" height="10" width="10" />}
+                                            >
+                                                <p className="invite_">Invite collaborator</p>
+                                            </Menu.Item>
+                                        </Menu.Group>
+                                    </Menu>
+                                }
+                            >
+                                <Table.Cell className="map_column list_body" style={table_padding}>
+                                    <img src={avatar} alt="" height="16" width="14" className="assignee" />
+                                    Ashly
+                                </Table.Cell>
+                            </Popover>
+                            <Table.Cell className="map_column list_body" style={table_padding_}>
+                                Sep 20 - sep 25
+                            </Table.Cell>
+                            <Table.Cell className="map_column list_body">
+                                <p className="low">Low</p>
+                            </Table.Cell>
+                            <Table.Cell className=" list_body"></Table.Cell>
+                        </Table.Row>
+                    </Pane>
+                )}
+
+                <div className="todo_div">
+                    <DragHandleVerticalIcon className="drag" />
+                    <div>
+                        <img
+                            src={arrow_dropdown}
+                            alt=""
+                            className={contentOpen1 ? "visible arrow_right" : "hidden arrow_right"}
+                            height="10"
+                            width="10"
+                            onClick={() => setContentOpen1(false)}
+                        />
+                        <img
+                            src={arrow_right}
+                            className={contentOpen1 ? "hidden arrow_right" : "visible arrow_right"}
+                            alt=""
+                            height="10"
+                            width="10"
+                            onClick={() => setContentOpen1(true)}
+                        />
+
+                        <p className="todo">Processing</p>
+                        <img src={listadd} alt="" height="11" width="11" onClick={() => setWriteTask1(true)} />
+                        <div>
+                            <Popover
+                                minWidth={30}
+                                position={Position.BOTTOM_LEFT}
+                                content={
+                                    <Menu>
+                                        <Menu.Group>
+                                            <Menu.Item style={menu}>
+                                                <p className="menucontent_">Set column limit</p>
+                                            </Menu.Item>
+                                            <Menu.Item style={menu}>
+                                                <p className="menucontent_">Delete</p>
+                                            </Menu.Item>
+                                        </Menu.Group>
+                                    </Menu>
+                                }
+                            >
+                                <MoreIcon className="list_more_" />
+                            </Popover>
+                        </div>
+                    </div>
                 </div>
+                {contentOpen1 && (
+                    <Pane className="list" width={1052}>
+                        {writeTask1 && (
+                            <Table.Row height={28} className="border_">
+                                <Table.Cell className="map_column editable_body" style={table_padding} flexBasis={615}>
+                                    <img src={checkmark_circle} alt="" height="10" width="10" />
+                                    <p onClick={() => setEditableField1(true)}>Write a task name</p>
+
+                                    {editableField1 && (
+                                        <TextInput
+                                            onKeyDown={handleKeyDown1}
+                                            style={editable_body}
+                                            fontSize="10px"
+                                            marginLeft="-125px"
+                                            borderRadius="none"
+                                            width="700px"
+                                            height="26px"
+                                            borderLeft="none"
+                                            paddingLeft="33px"
+                                            autoFocus
+                                        />
+                                    )}
+                                </Table.Cell>
+                                <Table.Cell className="map_column list_body" style={table_padding}></Table.Cell>
+                                <Table.Cell className="map_column list_body" style={table_padding_}></Table.Cell>
+                                <Table.Cell className="map_column list_body">
+                                    <p className="low"></p>
+                                </Table.Cell>
+                                <Table.Cell className="list_body">
+                                    <p></p>
+                                </Table.Cell>
+                            </Table.Row>
+                        )}
+                        <Table.Row height={28} className="border_">
+                            <Table.Cell className="map_column list_body" style={table_padding} flexBasis={615}>
+                                <img src={checkmark_circle} alt="" height="10" width="10" />
+                                <p>Develop prototype</p>
+                                <div>
+                                    <Popover
+                                        minWidth={30}
+                                        position={Position.BOTTOM_LEFT}
+                                        content={
+                                            <Menu>
+                                                <Menu.Group>
+                                                    <Menu.Item className="disabled_" style={disabled} disabled>
+                                                        <p>Move between selections</p>
+                                                    </Menu.Item>
+                                                    <Menu.Item
+                                                        icon={<img src={done} alt="" height="8" width="8" />}
+                                                        style={menu}
+                                                    >
+                                                        <p className="menucontent_">To do</p>
+                                                    </Menu.Item>
+                                                    <Menu.Item
+                                                        style={menu}
+                                                        icon={<img src={done} alt="" height="8" width="8" />}
+                                                    >
+                                                        <p className="menucontent_">Processing</p>
+                                                    </Menu.Item>
+                                                    <Menu.Item
+                                                        style={menu}
+                                                        icon={<img src={done} alt="" height="8" width="8" />}
+                                                    >
+                                                        <p className="menucontent_">Done</p>
+                                                    </Menu.Item>
+                                                </Menu.Group>
+                                            </Menu>
+                                        }
+                                    >
+                                        <img src={compare} alt="" height="8" width="14" />
+                                    </Popover>
+                                    <span>Details</span>
+                                    <img src={details_arrow} alt="" height="6" width="8" />
+                                </div>
+                            </Table.Cell>
+                            <Popover
+                                minWidth={210}
+                                marginTop={400}
+                                position={Position.BOTTOM_LEFT}
+                                content={
+                                    <Menu>
+                                        <Menu.Group>
+                                            <Menu.Item className="disabled_" disabled>
+                                                <p className="disabled_">Your collaborator</p>
+                                            </Menu.Item>
+                                            <Menu.Item
+                                                style={coll_drpdwn}
+                                                className="coll_drpdwn"
+                                                icon={
+                                                    <img
+                                                        src={avatar}
+                                                        alt=""
+                                                        className="bd_profiles"
+                                                        height="25"
+                                                        width="23"
+                                                    />
+                                                }
+                                            >
+                                                <p>Abdu Rahiman</p>
+                                            </Menu.Item>
+                                            <Menu.Item
+                                                style={coll_drpdwn}
+                                                className="coll_drpdwn"
+                                                icon={
+                                                    <img
+                                                        src={avatar1}
+                                                        alt=""
+                                                        className="bd_profiles"
+                                                        height="25"
+                                                        width="23"
+                                                    />
+                                                }
+                                            >
+                                                <p>Abdu Rahiman</p>
+                                            </Menu.Item>
+                                            <Menu.Item
+                                                style={coll_drpdwn}
+                                                className="coll_drpdwn"
+                                                icon={
+                                                    <img
+                                                        src={avatar}
+                                                        alt=""
+                                                        className="bd_profiles"
+                                                        height="25"
+                                                        width="23"
+                                                    />
+                                                }
+                                            >
+                                                <p>Abdu Rahiman</p>
+                                            </Menu.Item>
+                                            <Menu.Item
+                                                style={coll_drpdwn}
+                                                className="coll_drpdwn"
+                                                icon={
+                                                    <img
+                                                        src={avatar1}
+                                                        alt=""
+                                                        className="bd_profiles"
+                                                        height="25"
+                                                        width="23"
+                                                    />
+                                                }
+                                            >
+                                                <p>Abdu Rahiman</p>
+                                            </Menu.Item>
+                                            <Menu.Item
+                                                style={coll_drpdwn}
+                                                className="coll_drpdwn"
+                                                icon={
+                                                    <img
+                                                        src={avatar}
+                                                        alt=""
+                                                        className="bd_profiles"
+                                                        height="25"
+                                                        width="23"
+                                                    />
+                                                }
+                                            >
+                                                <p>Abdu Rahiman</p>
+                                            </Menu.Item>
+                                        </Menu.Group>
+                                        <Menu.Divider />
+                                        <Menu.Group>
+                                            <Menu.Item
+                                                onClick={() => setIsShown(true)}
+                                                style={invite}
+                                                icon={<img src={add_} alt="" height="10" width="10" />}
+                                            >
+                                                <p className="invite_">Invite collaborator</p>
+                                            </Menu.Item>
+                                        </Menu.Group>
+                                    </Menu>
+                                }
+                            >
+                                <Table.Cell className="map_column list_body" style={table_padding}>
+                                    <img src={avatar} alt="" height="16" width="14" className="assignee" />
+                                    Ashly
+                                </Table.Cell>
+                            </Popover>
+                            <Table.Cell className="map_column list_body" style={table_padding_}>
+                                Today - sep 20
+                            </Table.Cell>
+                            <Table.Cell className="map_column list_body">
+                                <p className="low">Low</p>
+                            </Table.Cell>
+                            <Table.Cell className="list_body">
+                                <p className="track">On track</p>
+                            </Table.Cell>
+                        </Table.Row>
+                        <Table.Row height={28}>
+                            <Table.Cell className="map_column list_body" flexBasis={615} style={table_padding}>
+                                <img src={checkmark_circle} alt="" height="10" width="10" />
+                                <p>Collect assets and implement too</p>
+                                <div>
+                                    <Popover
+                                        minWidth={30}
+                                        position={Position.BOTTOM_LEFT}
+                                        content={
+                                            <Menu>
+                                                <Menu.Group>
+                                                    <Menu.Item className="disabled_" style={disabled} disabled>
+                                                        <p>Move between selections</p>
+                                                    </Menu.Item>
+                                                    <Menu.Item
+                                                        icon={<img src={done} alt="" height="8" width="8" />}
+                                                        style={menu}
+                                                    >
+                                                        <p className="menucontent_">To do</p>
+                                                    </Menu.Item>
+                                                    <Menu.Item
+                                                        style={menu}
+                                                        icon={<img src={done} alt="" height="8" width="8" />}
+                                                    >
+                                                        <p className="menucontent_">Processing</p>
+                                                    </Menu.Item>
+                                                    <Menu.Item
+                                                        style={menu}
+                                                        icon={<img src={done} alt="" height="8" width="8" />}
+                                                    >
+                                                        <p className="menucontent_">Done</p>
+                                                    </Menu.Item>
+                                                </Menu.Group>
+                                            </Menu>
+                                        }
+                                    >
+                                        <img src={compare} alt="" height="8" width="14" />
+                                    </Popover>
+                                    <span>Details</span>
+                                    <img src={details_arrow} alt="" height="6" width="8" />
+                                </div>
+                            </Table.Cell>
+                            <Popover
+                                minWidth={210}
+                                marginTop={400}
+                                position={Position.BOTTOM_LEFT}
+                                content={
+                                    <Menu>
+                                        <Menu.Group>
+                                            <Menu.Item className="disabled_" disabled>
+                                                <p className="disabled_">Your collaborator</p>
+                                            </Menu.Item>
+                                            <Menu.Item
+                                                style={coll_drpdwn}
+                                                className="coll_drpdwn"
+                                                icon={
+                                                    <img
+                                                        src={avatar}
+                                                        alt=""
+                                                        className="bd_profiles"
+                                                        height="25"
+                                                        width="23"
+                                                    />
+                                                }
+                                            >
+                                                <p>Abdu Rahiman</p>
+                                            </Menu.Item>
+                                            <Menu.Item
+                                                style={coll_drpdwn}
+                                                className="coll_drpdwn"
+                                                icon={
+                                                    <img
+                                                        src={avatar1}
+                                                        alt=""
+                                                        className="bd_profiles"
+                                                        height="25"
+                                                        width="23"
+                                                    />
+                                                }
+                                            >
+                                                <p>Abdu Rahiman</p>
+                                            </Menu.Item>
+                                            <Menu.Item
+                                                style={coll_drpdwn}
+                                                className="coll_drpdwn"
+                                                icon={
+                                                    <img
+                                                        src={avatar}
+                                                        alt=""
+                                                        className="bd_profiles"
+                                                        height="25"
+                                                        width="23"
+                                                    />
+                                                }
+                                            >
+                                                <p>Abdu Rahiman</p>
+                                            </Menu.Item>
+                                            <Menu.Item
+                                                style={coll_drpdwn}
+                                                className="coll_drpdwn"
+                                                icon={
+                                                    <img
+                                                        src={avatar1}
+                                                        alt=""
+                                                        className="bd_profiles"
+                                                        height="25"
+                                                        width="23"
+                                                    />
+                                                }
+                                            >
+                                                <p>Abdu Rahiman</p>
+                                            </Menu.Item>
+                                            <Menu.Item
+                                                style={coll_drpdwn}
+                                                className="coll_drpdwn"
+                                                icon={
+                                                    <img
+                                                        src={avatar}
+                                                        alt=""
+                                                        className="bd_profiles"
+                                                        height="25"
+                                                        width="23"
+                                                    />
+                                                }
+                                            >
+                                                <p>Abdu Rahiman</p>
+                                            </Menu.Item>
+                                        </Menu.Group>
+                                        <Menu.Divider />
+                                        <Menu.Group>
+                                            <Menu.Item
+                                                onClick={() => setIsShown(true)}
+                                                style={invite}
+                                                icon={<img src={add_} alt="" height="10" width="10" />}
+                                            >
+                                                <p className="invite_">Invite collaborator</p>
+                                            </Menu.Item>
+                                        </Menu.Group>
+                                    </Menu>
+                                }
+                            >
+                                <Table.Cell className="map_column list_body" style={table_padding}>
+                                    <img src={avatar} alt="" height="16" width="14" className="assignee" />
+                                    Ashly
+                                </Table.Cell>
+                            </Popover>
+                            <Table.Cell className="map_column list_body" style={table_padding_}>
+                                Today - sep 20
+                            </Table.Cell>
+                            <Table.Cell className="map_column list_body">
+                                <p className="low">Low</p>
+                            </Table.Cell>
+                            <Table.Cell className=" list_body">
+                                <p className="risk">At risk</p>
+                            </Table.Cell>
+                        </Table.Row>
+                        <Table.Row height={28}>
+                            <Table.Cell className="map_column list_body" flexBasis={615} style={table_padding}>
+                                <img src={checkmark_circle} alt="" height="10" width="10" />
+                                <p>Acquire customer feedback</p>
+                                <div>
+                                    <Popover
+                                        minWidth={30}
+                                        position={Position.BOTTOM_LEFT}
+                                        content={
+                                            <Menu>
+                                                <Menu.Group>
+                                                    <Menu.Item className="disabled_" style={disabled} disabled>
+                                                        <p>Move between selections</p>
+                                                    </Menu.Item>
+                                                    <Menu.Item
+                                                        icon={<img src={done} alt="" height="8" width="8" />}
+                                                        style={menu}
+                                                    >
+                                                        <p className="menucontent_">To do</p>
+                                                    </Menu.Item>
+                                                    <Menu.Item
+                                                        style={menu}
+                                                        icon={<img src={done} alt="" height="8" width="8" />}
+                                                    >
+                                                        <p className="menucontent_">Processing</p>
+                                                    </Menu.Item>
+                                                    <Menu.Item
+                                                        style={menu}
+                                                        icon={<img src={done} alt="" height="8" width="8" />}
+                                                    >
+                                                        <p className="menucontent_">Done</p>
+                                                    </Menu.Item>
+                                                </Menu.Group>
+                                            </Menu>
+                                        }
+                                    >
+                                        <img src={compare} alt="" height="8" width="14" />
+                                    </Popover>
+                                    <span>Details</span>
+                                    <img src={details_arrow} alt="" height="6" width="8" />
+                                </div>
+                            </Table.Cell>
+                            <Popover
+                                minWidth={210}
+                                marginTop={400}
+                                position={Position.BOTTOM_LEFT}
+                                content={
+                                    <Menu>
+                                        <Menu.Group>
+                                            <Menu.Item className="disabled_" disabled>
+                                                <p className="disabled_">Your collaborator</p>
+                                            </Menu.Item>
+                                            <Menu.Item
+                                                style={coll_drpdwn}
+                                                className="coll_drpdwn"
+                                                icon={
+                                                    <img
+                                                        src={avatar}
+                                                        alt=""
+                                                        className="bd_profiles"
+                                                        height="25"
+                                                        width="23"
+                                                    />
+                                                }
+                                            >
+                                                <p>Abdu Rahiman</p>
+                                            </Menu.Item>
+                                            <Menu.Item
+                                                style={coll_drpdwn}
+                                                className="coll_drpdwn"
+                                                icon={
+                                                    <img
+                                                        src={avatar1}
+                                                        alt=""
+                                                        className="bd_profiles"
+                                                        height="25"
+                                                        width="23"
+                                                    />
+                                                }
+                                            >
+                                                <p>Abdu Rahiman</p>
+                                            </Menu.Item>
+                                            <Menu.Item
+                                                style={coll_drpdwn}
+                                                className="coll_drpdwn"
+                                                icon={
+                                                    <img
+                                                        src={avatar}
+                                                        alt=""
+                                                        className="bd_profiles"
+                                                        height="25"
+                                                        width="23"
+                                                    />
+                                                }
+                                            >
+                                                <p>Abdu Rahiman</p>
+                                            </Menu.Item>
+                                            <Menu.Item
+                                                style={coll_drpdwn}
+                                                className="coll_drpdwn"
+                                                icon={
+                                                    <img
+                                                        src={avatar1}
+                                                        alt=""
+                                                        className="bd_profiles"
+                                                        height="25"
+                                                        width="23"
+                                                    />
+                                                }
+                                            >
+                                                <p>Abdu Rahiman</p>
+                                            </Menu.Item>
+                                            <Menu.Item
+                                                style={coll_drpdwn}
+                                                className="coll_drpdwn"
+                                                icon={
+                                                    <img
+                                                        src={avatar}
+                                                        alt=""
+                                                        className="bd_profiles"
+                                                        height="25"
+                                                        width="23"
+                                                    />
+                                                }
+                                            >
+                                                <p>Abdu Rahiman</p>
+                                            </Menu.Item>
+                                        </Menu.Group>
+                                        <Menu.Divider />
+                                        <Menu.Group>
+                                            <Menu.Item
+                                                onClick={() => setIsShown(true)}
+                                                style={invite}
+                                                icon={<img src={add_} alt="" height="10" width="10" />}
+                                            >
+                                                <p className="invite_">Invite collaborator</p>
+                                            </Menu.Item>
+                                        </Menu.Group>
+                                    </Menu>
+                                }
+                            >
+                                <Table.Cell className="map_column list_body" style={table_padding}>
+                                    <img src={avatar} alt="" height="16" width="14" className="assignee" />
+                                    Ashly
+                                </Table.Cell>
+                            </Popover>
+                            <Table.Cell className="map_column list_body" style={table_padding_}>
+                                Sep 20 - sep 25
+                            </Table.Cell>
+                            <Table.Cell className="map_column list_body">
+                                <p className="medium">Medium</p>
+                            </Table.Cell>
+                            <Table.Cell className=" list_body">
+                                <p className="medium">Medium</p>
+                            </Table.Cell>
+                        </Table.Row>
+                        <Table.Row height={28}>
+                            <Table.Cell className="map_column list_body" flexBasis={615} style={table_padding}>
+                                <img src={checkmark_circle} alt="" height="10" width="10" />
+                                <p>A/B test report submission </p>
+                                <div>
+                                    <Popover
+                                        minWidth={30}
+                                        position={Position.BOTTOM_LEFT}
+                                        content={
+                                            <Menu>
+                                                <Menu.Group>
+                                                    <Menu.Item className="disabled_" style={disabled} disabled>
+                                                        <p>Move between selections</p>
+                                                    </Menu.Item>
+                                                    <Menu.Item
+                                                        icon={<img src={done} alt="" height="8" width="8" />}
+                                                        style={menu}
+                                                    >
+                                                        <p className="menucontent_">To do</p>
+                                                    </Menu.Item>
+                                                    <Menu.Item
+                                                        style={menu}
+                                                        icon={<img src={done} alt="" height="8" width="8" />}
+                                                    >
+                                                        <p className="menucontent_">Processing</p>
+                                                    </Menu.Item>
+                                                    <Menu.Item
+                                                        style={menu}
+                                                        icon={<img src={done} alt="" height="8" width="8" />}
+                                                    >
+                                                        <p className="menucontent_">Done</p>
+                                                    </Menu.Item>
+                                                </Menu.Group>
+                                            </Menu>
+                                        }
+                                    >
+                                        <img src={compare} alt="" height="8" width="14" />
+                                    </Popover>
+                                    <span>Details</span>
+                                    <img src={details_arrow} alt="" height="6" width="8" />
+                                </div>
+                            </Table.Cell>
+                            <Popover
+                                minWidth={210}
+                                marginTop={400}
+                                position={Position.BOTTOM_LEFT}
+                                content={
+                                    <Menu>
+                                        <Menu.Group>
+                                            <Menu.Item className="disabled_" disabled>
+                                                <p className="disabled_">Your collaborator</p>
+                                            </Menu.Item>
+                                            <Menu.Item
+                                                style={coll_drpdwn}
+                                                className="coll_drpdwn"
+                                                icon={
+                                                    <img
+                                                        src={avatar}
+                                                        alt=""
+                                                        className="bd_profiles"
+                                                        height="25"
+                                                        width="23"
+                                                    />
+                                                }
+                                            >
+                                                <p>Abdu Rahiman</p>
+                                            </Menu.Item>
+                                            <Menu.Item
+                                                style={coll_drpdwn}
+                                                className="coll_drpdwn"
+                                                icon={
+                                                    <img
+                                                        src={avatar1}
+                                                        alt=""
+                                                        className="bd_profiles"
+                                                        height="25"
+                                                        width="23"
+                                                    />
+                                                }
+                                            >
+                                                <p>Abdu Rahiman</p>
+                                            </Menu.Item>
+                                            <Menu.Item
+                                                style={coll_drpdwn}
+                                                className="coll_drpdwn"
+                                                icon={
+                                                    <img
+                                                        src={avatar}
+                                                        alt=""
+                                                        className="bd_profiles"
+                                                        height="25"
+                                                        width="23"
+                                                    />
+                                                }
+                                            >
+                                                <p>Abdu Rahiman</p>
+                                            </Menu.Item>
+                                            <Menu.Item
+                                                style={coll_drpdwn}
+                                                className="coll_drpdwn"
+                                                icon={
+                                                    <img
+                                                        src={avatar1}
+                                                        alt=""
+                                                        className="bd_profiles"
+                                                        height="25"
+                                                        width="23"
+                                                    />
+                                                }
+                                            >
+                                                <p>Abdu Rahiman</p>
+                                            </Menu.Item>
+                                            <Menu.Item
+                                                style={coll_drpdwn}
+                                                className="coll_drpdwn"
+                                                icon={
+                                                    <img
+                                                        src={avatar}
+                                                        alt=""
+                                                        className="bd_profiles"
+                                                        height="25"
+                                                        width="23"
+                                                    />
+                                                }
+                                            >
+                                                <p>Abdu Rahiman</p>
+                                            </Menu.Item>
+                                        </Menu.Group>
+                                        <Menu.Divider />
+                                        <Menu.Group>
+                                            <Menu.Item
+                                                onClick={() => setIsShown(true)}
+                                                style={invite}
+                                                icon={<img src={add_} alt="" height="10" width="10" />}
+                                            >
+                                                <p className="invite_">Invite collaborator</p>
+                                            </Menu.Item>
+                                        </Menu.Group>
+                                    </Menu>
+                                }
+                            >
+                                <Table.Cell className="map_column list_body" style={table_padding}>
+                                    <img src={avatar} alt="" height="16" width="14" className="assignee" />
+                                    Ashly
+                                </Table.Cell>
+                            </Popover>
+                            <Table.Cell className="map_column list_body" style={table_padding_}>
+                                Sep 20 - sep 25
+                            </Table.Cell>
+                            <Table.Cell className="map_column list_body">
+                                <p className="high">High</p>
+                            </Table.Cell>
+                            <Table.Cell className=" list_body">
+                                <p className="normal">Normal</p>
+                            </Table.Cell>
+                        </Table.Row>
+                        <Table.Row height={28}>
+                            <Table.Cell className="map_column list_body" flexBasis={615} style={table_padding}>
+                                <img src={checkmark_circle} alt="" height="10" width="10" />
+                                <p>Server implementation - technology paper brief </p>
+                                <div>
+                                    <Popover
+                                        minWidth={30}
+                                        position={Position.BOTTOM_LEFT}
+                                        content={
+                                            <Menu>
+                                                <Menu.Group>
+                                                    <Menu.Item className="disabled_" style={disabled} disabled>
+                                                        <p>Move between selections</p>
+                                                    </Menu.Item>
+                                                    <Menu.Item
+                                                        icon={<img src={done} alt="" height="8" width="8" />}
+                                                        style={menu}
+                                                    >
+                                                        <p className="menucontent_">To do</p>
+                                                    </Menu.Item>
+                                                    <Menu.Item
+                                                        style={menu}
+                                                        icon={<img src={done} alt="" height="8" width="8" />}
+                                                    >
+                                                        <p className="menucontent_">Processing</p>
+                                                    </Menu.Item>
+                                                    <Menu.Item
+                                                        style={menu}
+                                                        icon={<img src={done} alt="" height="8" width="8" />}
+                                                    >
+                                                        <p className="menucontent_">Done</p>
+                                                    </Menu.Item>
+                                                </Menu.Group>
+                                            </Menu>
+                                        }
+                                    >
+                                        <img src={compare} alt="" height="8" width="14" />
+                                    </Popover>
+                                    <span>Details</span>
+                                    <img src={details_arrow} alt="" height="6" width="8" />
+                                </div>
+                            </Table.Cell>
+                            <Popover
+                                minWidth={210}
+                                marginTop={400}
+                                position={Position.BOTTOM_LEFT}
+                                content={
+                                    <Menu>
+                                        <Menu.Group>
+                                            <Menu.Item className="disabled_" disabled>
+                                                <p className="disabled_">Your collaborator</p>
+                                            </Menu.Item>
+                                            <Menu.Item
+                                                style={coll_drpdwn}
+                                                className="coll_drpdwn"
+                                                icon={
+                                                    <img
+                                                        src={avatar}
+                                                        alt=""
+                                                        className="bd_profiles"
+                                                        height="25"
+                                                        width="23"
+                                                    />
+                                                }
+                                            >
+                                                <p>Abdu Rahiman</p>
+                                            </Menu.Item>
+                                            <Menu.Item
+                                                style={coll_drpdwn}
+                                                className="coll_drpdwn"
+                                                icon={
+                                                    <img
+                                                        src={avatar1}
+                                                        alt=""
+                                                        className="bd_profiles"
+                                                        height="25"
+                                                        width="23"
+                                                    />
+                                                }
+                                            >
+                                                <p>Abdu Rahiman</p>
+                                            </Menu.Item>
+                                            <Menu.Item
+                                                style={coll_drpdwn}
+                                                className="coll_drpdwn"
+                                                icon={
+                                                    <img
+                                                        src={avatar}
+                                                        alt=""
+                                                        className="bd_profiles"
+                                                        height="25"
+                                                        width="23"
+                                                    />
+                                                }
+                                            >
+                                                <p>Abdu Rahiman</p>
+                                            </Menu.Item>
+                                            <Menu.Item
+                                                style={coll_drpdwn}
+                                                className="coll_drpdwn"
+                                                icon={
+                                                    <img
+                                                        src={avatar1}
+                                                        alt=""
+                                                        className="bd_profiles"
+                                                        height="25"
+                                                        width="23"
+                                                    />
+                                                }
+                                            >
+                                                <p>Abdu Rahiman</p>
+                                            </Menu.Item>
+                                            <Menu.Item
+                                                style={coll_drpdwn}
+                                                className="coll_drpdwn"
+                                                icon={
+                                                    <img
+                                                        src={avatar}
+                                                        alt=""
+                                                        className="bd_profiles"
+                                                        height="25"
+                                                        width="23"
+                                                    />
+                                                }
+                                            >
+                                                <p>Abdu Rahiman</p>
+                                            </Menu.Item>
+                                        </Menu.Group>
+                                        <Menu.Divider />
+                                        <Menu.Group>
+                                            <Menu.Item
+                                                onClick={() => setIsShown(true)}
+                                                style={invite}
+                                                icon={<img src={add_} alt="" height="10" width="10" />}
+                                            >
+                                                <p className="invite_">Invite collaborator</p>
+                                            </Menu.Item>
+                                        </Menu.Group>
+                                    </Menu>
+                                }
+                            >
+                                <Table.Cell className="map_column list_body" style={table_padding}>
+                                    <img src={avatar} alt="" height="16" width="14" className="assignee" />
+                                    Ashly
+                                </Table.Cell>
+                            </Popover>
+                            <Table.Cell className="map_column list_body" style={table_padding_}>
+                                Sep 20 - sep 25
+                            </Table.Cell>
+                            <Table.Cell className="map_column list_body">
+                                <p className="high">High</p>
+                            </Table.Cell>
+                            <Table.Cell className="list_body">
+                                <p className="high_">High</p>
+                            </Table.Cell>
+                        </Table.Row>
+                        <Table.Row height={28}>
+                            <Table.Cell className="map_column list_body" flexBasis={615} style={table_padding}>
+                                <img src={checkmark_circle} alt="" height="10" width="10" />
+                                <p>Firebase</p>
+                                <div>
+                                    <Popover
+                                        minWidth={30}
+                                        position={Position.BOTTOM_LEFT}
+                                        content={
+                                            <Menu>
+                                                <Menu.Group>
+                                                    <Menu.Item className="disabled_" style={disabled} disabled>
+                                                        <p>Move between selections</p>
+                                                    </Menu.Item>
+                                                    <Menu.Item
+                                                        icon={<img src={done} alt="" height="8" width="8" />}
+                                                        style={menu}
+                                                    >
+                                                        <p className="menucontent_">To do</p>
+                                                    </Menu.Item>
+                                                    <Menu.Item
+                                                        style={menu}
+                                                        icon={<img src={done} alt="" height="8" width="8" />}
+                                                    >
+                                                        <p className="menucontent_">Processing</p>
+                                                    </Menu.Item>
+                                                    <Menu.Item
+                                                        style={menu}
+                                                        icon={<img src={done} alt="" height="8" width="8" />}
+                                                    >
+                                                        <p className="menucontent_">Done</p>
+                                                    </Menu.Item>
+                                                </Menu.Group>
+                                            </Menu>
+                                        }
+                                    >
+                                        <img src={compare} alt="" height="8" width="14" />
+                                    </Popover>
+                                    <span>Details</span>
+                                    <img src={details_arrow} alt="" height="6" width="8" />
+                                </div>
+                            </Table.Cell>
+                            <Popover
+                                minWidth={210}
+                                marginTop={400}
+                                position={Position.BOTTOM_LEFT}
+                                content={
+                                    <Menu>
+                                        <Menu.Group>
+                                            <Menu.Item className="disabled_" disabled>
+                                                <p className="disabled_">Your collaborator</p>
+                                            </Menu.Item>
+                                            <Menu.Item
+                                                style={coll_drpdwn}
+                                                className="coll_drpdwn"
+                                                icon={
+                                                    <img
+                                                        src={avatar}
+                                                        alt=""
+                                                        className="bd_profiles"
+                                                        height="25"
+                                                        width="23"
+                                                    />
+                                                }
+                                            >
+                                                <p>Abdu Rahiman</p>
+                                            </Menu.Item>
+                                            <Menu.Item
+                                                style={coll_drpdwn}
+                                                className="coll_drpdwn"
+                                                icon={
+                                                    <img
+                                                        src={avatar1}
+                                                        alt=""
+                                                        className="bd_profiles"
+                                                        height="25"
+                                                        width="23"
+                                                    />
+                                                }
+                                            >
+                                                <p>Abdu Rahiman</p>
+                                            </Menu.Item>
+                                            <Menu.Item
+                                                style={coll_drpdwn}
+                                                className="coll_drpdwn"
+                                                icon={
+                                                    <img
+                                                        src={avatar}
+                                                        alt=""
+                                                        className="bd_profiles"
+                                                        height="25"
+                                                        width="23"
+                                                    />
+                                                }
+                                            >
+                                                <p>Abdu Rahiman</p>
+                                            </Menu.Item>
+                                            <Menu.Item
+                                                style={coll_drpdwn}
+                                                className="coll_drpdwn"
+                                                icon={
+                                                    <img
+                                                        src={avatar1}
+                                                        alt=""
+                                                        className="bd_profiles"
+                                                        height="25"
+                                                        width="23"
+                                                    />
+                                                }
+                                            >
+                                                <p>Abdu Rahiman</p>
+                                            </Menu.Item>
+                                            <Menu.Item
+                                                style={coll_drpdwn}
+                                                className="coll_drpdwn"
+                                                icon={
+                                                    <img
+                                                        src={avatar}
+                                                        alt=""
+                                                        className="bd_profiles"
+                                                        height="25"
+                                                        width="23"
+                                                    />
+                                                }
+                                            >
+                                                <p>Abdu Rahiman</p>
+                                            </Menu.Item>
+                                        </Menu.Group>
+                                        <Menu.Divider />
+                                        <Menu.Group>
+                                            <Menu.Item
+                                                onClick={() => setIsShown(true)}
+                                                style={invite}
+                                                icon={<img src={add_} alt="" height="10" width="10" />}
+                                            >
+                                                <p className="invite_">Invite collaborator</p>
+                                            </Menu.Item>
+                                        </Menu.Group>
+                                    </Menu>
+                                }
+                            >
+                                <Table.Cell className="map_column list_body" style={table_padding}>
+                                    <img src={avatar} alt="" height="16" width="14" className="assignee" />
+                                    Ashly
+                                </Table.Cell>
+                            </Popover>
+                            <Table.Cell className="map_column list_body" style={table_padding_}>
+                                Sep 20 - sep 25
+                            </Table.Cell>
+                            <Table.Cell className="map_column list_body">
+                                <p className="medium">Medium</p>
+                            </Table.Cell>
+                            <Table.Cell className="list_body"></Table.Cell>
+                        </Table.Row>
+                        <Table.Row height={28}>
+                            <Table.Cell className="map_column list_body" flexBasis={615} style={table_padding}>
+                                <img src={checkmark_circle} alt="" height="10" width="10" />
+                                <p>Product board data export file </p>
+                                <div>
+                                    <Popover
+                                        minWidth={30}
+                                        position={Position.BOTTOM_LEFT}
+                                        content={
+                                            <Menu>
+                                                <Menu.Group>
+                                                    <Menu.Item className="disabled_" style={disabled} disabled>
+                                                        <p>Move between selections</p>
+                                                    </Menu.Item>
+                                                    <Menu.Item
+                                                        icon={<img src={done} alt="" height="8" width="8" />}
+                                                        style={menu}
+                                                    >
+                                                        <p className="menucontent_">To do</p>
+                                                    </Menu.Item>
+                                                    <Menu.Item
+                                                        style={menu}
+                                                        icon={<img src={done} alt="" height="8" width="8" />}
+                                                    >
+                                                        <p className="menucontent_">Processing</p>
+                                                    </Menu.Item>
+                                                    <Menu.Item
+                                                        style={menu}
+                                                        icon={<img src={done} alt="" height="8" width="8" />}
+                                                    >
+                                                        <p className="menucontent_">Done</p>
+                                                    </Menu.Item>
+                                                </Menu.Group>
+                                            </Menu>
+                                        }
+                                    >
+                                        <img src={compare} alt="" height="8" width="14" />
+                                    </Popover>
+                                    <span>Details</span>
+                                    <img src={details_arrow} alt="" height="6" width="8" />
+                                </div>
+                            </Table.Cell>
+                            <Popover
+                                minWidth={210}
+                                marginTop={400}
+                                position={Position.BOTTOM_LEFT}
+                                content={
+                                    <Menu>
+                                        <Menu.Group>
+                                            <Menu.Item className="disabled_" disabled>
+                                                <p className="disabled_">Your collaborator</p>
+                                            </Menu.Item>
+                                            <Menu.Item
+                                                style={coll_drpdwn}
+                                                className="coll_drpdwn"
+                                                icon={
+                                                    <img
+                                                        src={avatar}
+                                                        alt=""
+                                                        className="bd_profiles"
+                                                        height="25"
+                                                        width="23"
+                                                    />
+                                                }
+                                            >
+                                                <p>Abdu Rahiman</p>
+                                            </Menu.Item>
+                                            <Menu.Item
+                                                style={coll_drpdwn}
+                                                className="coll_drpdwn"
+                                                icon={
+                                                    <img
+                                                        src={avatar1}
+                                                        alt=""
+                                                        className="bd_profiles"
+                                                        height="25"
+                                                        width="23"
+                                                    />
+                                                }
+                                            >
+                                                <p>Abdu Rahiman</p>
+                                            </Menu.Item>
+                                            <Menu.Item
+                                                style={coll_drpdwn}
+                                                className="coll_drpdwn"
+                                                icon={
+                                                    <img
+                                                        src={avatar}
+                                                        alt=""
+                                                        className="bd_profiles"
+                                                        height="25"
+                                                        width="23"
+                                                    />
+                                                }
+                                            >
+                                                <p>Abdu Rahiman</p>
+                                            </Menu.Item>
+                                            <Menu.Item
+                                                style={coll_drpdwn}
+                                                className="coll_drpdwn"
+                                                icon={
+                                                    <img
+                                                        src={avatar1}
+                                                        alt=""
+                                                        className="bd_profiles"
+                                                        height="25"
+                                                        width="23"
+                                                    />
+                                                }
+                                            >
+                                                <p>Abdu Rahiman</p>
+                                            </Menu.Item>
+                                            <Menu.Item
+                                                style={coll_drpdwn}
+                                                className="coll_drpdwn"
+                                                icon={
+                                                    <img
+                                                        src={avatar}
+                                                        alt=""
+                                                        className="bd_profiles"
+                                                        height="25"
+                                                        width="23"
+                                                    />
+                                                }
+                                            >
+                                                <p>Abdu Rahiman</p>
+                                            </Menu.Item>
+                                        </Menu.Group>
+                                        <Menu.Divider />
+                                        <Menu.Group>
+                                            <Menu.Item
+                                                onClick={() => setIsShown(true)}
+                                                style={invite}
+                                                icon={<img src={add_} alt="" height="10" width="10" />}
+                                            >
+                                                <p className="invite_">Invite collaborator</p>
+                                            </Menu.Item>
+                                        </Menu.Group>
+                                    </Menu>
+                                }
+                            >
+                                <Table.Cell className="map_column list_body" style={table_padding}>
+                                    <img src={avatar} alt="" height="16" width="14" className="assignee" />
+                                    Ashly
+                                </Table.Cell>
+                            </Popover>
+                            <Table.Cell className="map_column list_body" style={table_padding_}>
+                                Sep 20 - sep 25
+                            </Table.Cell>
+                            <Table.Cell className="map_column list_body">
+                                <p className="medium">Medium</p>
+                            </Table.Cell>
+                            <Table.Cell className="list_body"></Table.Cell>
+                        </Table.Row>
+                        <Table.Row height={28}>
+                            <Table.Cell className="map_column list_body" flexBasis={615} style={table_padding}>
+                                <img src={checkmark_circle} alt="" height="10" width="10" />
+                                <p>Payment remainder </p>
+                                <div>
+                                    <Popover
+                                        minWidth={30}
+                                        position={Position.BOTTOM_LEFT}
+                                        content={
+                                            <Menu>
+                                                <Menu.Group>
+                                                    <Menu.Item className="disabled_" style={disabled} disabled>
+                                                        <p>Move between selections</p>
+                                                    </Menu.Item>
+                                                    <Menu.Item
+                                                        icon={<img src={done} alt="" height="8" width="8" />}
+                                                        style={menu}
+                                                    >
+                                                        <p className="menucontent_">To do</p>
+                                                    </Menu.Item>
+                                                    <Menu.Item
+                                                        style={menu}
+                                                        icon={<img src={done} alt="" height="8" width="8" />}
+                                                    >
+                                                        <p className="menucontent_">Processing</p>
+                                                    </Menu.Item>
+                                                    <Menu.Item
+                                                        style={menu}
+                                                        icon={<img src={done} alt="" height="8" width="8" />}
+                                                    >
+                                                        <p className="menucontent_">Done</p>
+                                                    </Menu.Item>
+                                                </Menu.Group>
+                                            </Menu>
+                                        }
+                                    >
+                                        <img src={compare} alt="" height="8" width="14" />
+                                    </Popover>
+                                    <span>Details</span>
+                                    <img src={details_arrow} alt="" height="6" width="8" />
+                                </div>
+                            </Table.Cell>
+                            <Popover
+                                minWidth={210}
+                                marginTop={400}
+                                position={Position.BOTTOM_LEFT}
+                                content={
+                                    <Menu>
+                                        <Menu.Group>
+                                            <Menu.Item className="disabled_" disabled>
+                                                <p className="disabled_">Your collaborator</p>
+                                            </Menu.Item>
+                                            <Menu.Item
+                                                style={coll_drpdwn}
+                                                className="coll_drpdwn"
+                                                icon={
+                                                    <img
+                                                        src={avatar}
+                                                        alt=""
+                                                        className="bd_profiles"
+                                                        height="25"
+                                                        width="23"
+                                                    />
+                                                }
+                                            >
+                                                <p>Abdu Rahiman</p>
+                                            </Menu.Item>
+                                            <Menu.Item
+                                                style={coll_drpdwn}
+                                                className="coll_drpdwn"
+                                                icon={
+                                                    <img
+                                                        src={avatar1}
+                                                        alt=""
+                                                        className="bd_profiles"
+                                                        height="25"
+                                                        width="23"
+                                                    />
+                                                }
+                                            >
+                                                <p>Abdu Rahiman</p>
+                                            </Menu.Item>
+                                            <Menu.Item
+                                                style={coll_drpdwn}
+                                                className="coll_drpdwn"
+                                                icon={
+                                                    <img
+                                                        src={avatar}
+                                                        alt=""
+                                                        className="bd_profiles"
+                                                        height="25"
+                                                        width="23"
+                                                    />
+                                                }
+                                            >
+                                                <p>Abdu Rahiman</p>
+                                            </Menu.Item>
+                                            <Menu.Item
+                                                style={coll_drpdwn}
+                                                className="coll_drpdwn"
+                                                icon={
+                                                    <img
+                                                        src={avatar1}
+                                                        alt=""
+                                                        className="bd_profiles"
+                                                        height="25"
+                                                        width="23"
+                                                    />
+                                                }
+                                            >
+                                                <p>Abdu Rahiman</p>
+                                            </Menu.Item>
+                                            <Menu.Item
+                                                style={coll_drpdwn}
+                                                className="coll_drpdwn"
+                                                icon={
+                                                    <img
+                                                        src={avatar}
+                                                        alt=""
+                                                        className="bd_profiles"
+                                                        height="25"
+                                                        width="23"
+                                                    />
+                                                }
+                                            >
+                                                <p>Abdu Rahiman</p>
+                                            </Menu.Item>
+                                        </Menu.Group>
+                                        <Menu.Divider />
+                                        <Menu.Group>
+                                            <Menu.Item
+                                                onClick={() => setIsShown(true)}
+                                                style={invite}
+                                                icon={<img src={add_} alt="" height="10" width="10" />}
+                                            >
+                                                <p className="invite_">Invite collaborator</p>
+                                            </Menu.Item>
+                                        </Menu.Group>
+                                    </Menu>
+                                }
+                            >
+                                <Table.Cell className="map_column list_body" style={table_padding}>
+                                    <img src={avatar} alt="" height="16" width="14" className="assignee" />
+                                    Ashly
+                                </Table.Cell>
+                            </Popover>
+                            <Table.Cell className="map_column list_body" style={table_padding_}>
+                                Sep 20 - sep 25
+                            </Table.Cell>
+                            <Table.Cell className="map_column list_body">
+                                <p className="high">High</p>
+                            </Table.Cell>
+                            <Table.Cell className="list_body"></Table.Cell>
+                        </Table.Row>
+                        <Table.Row height={28}>
+                            <Table.Cell className="map_column list_body" flexBasis={615} style={table_padding}>
+                                <img src={checkmark_circle} alt="" height="10" width="10" />
+                                <p>User data packet </p>
+                                <div>
+                                    <Popover
+                                        minWidth={30}
+                                        position={Position.BOTTOM_LEFT}
+                                        content={
+                                            <Menu>
+                                                <Menu.Group>
+                                                    <Menu.Item className="disabled_" style={disabled} disabled>
+                                                        <p>Move between selections</p>
+                                                    </Menu.Item>
+                                                    <Menu.Item
+                                                        icon={<img src={done} alt="" height="8" width="8" />}
+                                                        style={menu}
+                                                    >
+                                                        <p className="menucontent_">To do</p>
+                                                    </Menu.Item>
+                                                    <Menu.Item
+                                                        style={menu}
+                                                        icon={<img src={done} alt="" height="8" width="8" />}
+                                                    >
+                                                        <p className="menucontent_">Processing</p>
+                                                    </Menu.Item>
+                                                    <Menu.Item
+                                                        style={menu}
+                                                        icon={<img src={done} alt="" height="8" width="8" />}
+                                                    >
+                                                        <p className="menucontent_">Done</p>
+                                                    </Menu.Item>
+                                                </Menu.Group>
+                                            </Menu>
+                                        }
+                                    >
+                                        <img src={compare} alt="" height="8" width="14" />
+                                    </Popover>
+                                    <span>Details</span>
+                                    <img src={details_arrow} alt="" height="6" width="8" />
+                                </div>
+                            </Table.Cell>
+                            <Popover
+                                minWidth={210}
+                                marginTop={400}
+                                position={Position.BOTTOM_LEFT}
+                                content={
+                                    <Menu>
+                                        <Menu.Group>
+                                            <Menu.Item className="disabled_" disabled>
+                                                <p className="disabled_">Your collaborator</p>
+                                            </Menu.Item>
+                                            <Menu.Item
+                                                style={coll_drpdwn}
+                                                className="coll_drpdwn"
+                                                icon={
+                                                    <img
+                                                        src={avatar}
+                                                        alt=""
+                                                        className="bd_profiles"
+                                                        height="25"
+                                                        width="23"
+                                                    />
+                                                }
+                                            >
+                                                <p>Abdu Rahiman</p>
+                                            </Menu.Item>
+                                            <Menu.Item
+                                                style={coll_drpdwn}
+                                                className="coll_drpdwn"
+                                                icon={
+                                                    <img
+                                                        src={avatar1}
+                                                        alt=""
+                                                        className="bd_profiles"
+                                                        height="25"
+                                                        width="23"
+                                                    />
+                                                }
+                                            >
+                                                <p>Abdu Rahiman</p>
+                                            </Menu.Item>
+                                            <Menu.Item
+                                                style={coll_drpdwn}
+                                                className="coll_drpdwn"
+                                                icon={
+                                                    <img
+                                                        src={avatar}
+                                                        alt=""
+                                                        className="bd_profiles"
+                                                        height="25"
+                                                        width="23"
+                                                    />
+                                                }
+                                            >
+                                                <p>Abdu Rahiman</p>
+                                            </Menu.Item>
+                                            <Menu.Item
+                                                style={coll_drpdwn}
+                                                className="coll_drpdwn"
+                                                icon={
+                                                    <img
+                                                        src={avatar1}
+                                                        alt=""
+                                                        className="bd_profiles"
+                                                        height="25"
+                                                        width="23"
+                                                    />
+                                                }
+                                            >
+                                                <p>Abdu Rahiman</p>
+                                            </Menu.Item>
+                                            <Menu.Item
+                                                style={coll_drpdwn}
+                                                className="coll_drpdwn"
+                                                icon={
+                                                    <img
+                                                        src={avatar}
+                                                        alt=""
+                                                        className="bd_profiles"
+                                                        height="25"
+                                                        width="23"
+                                                    />
+                                                }
+                                            >
+                                                <p>Abdu Rahiman</p>
+                                            </Menu.Item>
+                                        </Menu.Group>
+                                        <Menu.Divider />
+                                        <Menu.Group>
+                                            <Menu.Item
+                                                onClick={() => setIsShown(true)}
+                                                style={invite}
+                                                icon={<img src={add_} alt="" height="10" width="10" />}
+                                            >
+                                                <p className="invite_">Invite collaborator</p>
+                                            </Menu.Item>
+                                        </Menu.Group>
+                                    </Menu>
+                                }
+                            >
+                                <Table.Cell className="map_column list_body" style={table_padding}>
+                                    <img src={avatar} alt="" height="16" width="14" className="assignee" />
+                                    Ashly
+                                </Table.Cell>
+                            </Popover>
+                            <Table.Cell className="map_column list_body" style={table_padding_}>
+                                Sep 20 - sep 25
+                            </Table.Cell>
+                            <Table.Cell className="map_column list_body">
+                                <p className="low">Low</p>
+                            </Table.Cell>
+                            <Table.Cell className=" list_body"></Table.Cell>
+                        </Table.Row>
+                    </Pane>
+                )}
+                <div className="todo_div">
+                    <DragHandleVerticalIcon className="drag" />
+                    <div>
+                        <img
+                            src={arrow_dropdown}
+                            alt=""
+                            className={contentOpen2 ? "visible arrow_right" : "hidden arrow_right"}
+                            height="10"
+                            width="10"
+                            onClick={() => setContentOpen2(false)}
+                        />
+                        <img
+                            src={arrow_right}
+                            className={contentOpen2 ? "hidden arrow_right" : "visible arrow_right"}
+                            alt=""
+                            height="10"
+                            width="10"
+                            onClick={() => setContentOpen2(true)}
+                        />
+
+                        <p className="todo">Done</p>
+                        <img src={listadd} alt="" height="11" width="11" onClick={() => setWriteTask2(true)} />
+                        <div>
+                            <Popover
+                                minWidth={30}
+                                position={Position.BOTTOM_LEFT}
+                                content={
+                                    <Menu>
+                                        <Menu.Group>
+                                            <Menu.Item style={menu}>
+                                                <p className="menucontent_">Set column limit</p>
+                                            </Menu.Item>
+                                            <Menu.Item style={menu}>
+                                                <p className="menucontent_">Delete</p>
+                                            </Menu.Item>
+                                        </Menu.Group>
+                                    </Menu>
+                                }
+                            >
+                                <MoreIcon className="list_more" />
+                            </Popover>
+                        </div>
+                    </div>
+                </div>
+                {contentOpen2 && (
+                    <Pane className="list" width={1052}>
+                        {writeTask2 && (
+                            <Table.Row height={28} className="border_">
+                                <Table.Cell className="map_column editable_body" style={table_padding} flexBasis={615}>
+                                    <img src={checkmark_circle} alt="" height="10" width="10" />
+                                    <p onClick={() => setEditableField2(true)}>Write a task name</p>
+
+                                    {editableField2 && (
+                                        <TextInput
+                                            onKeyDown={handleKeyDown2}
+                                            style={editable_body}
+                                            fontSize="10px"
+                                            marginLeft="-125px"
+                                            borderRadius="none"
+                                            width="700px"
+                                            height="26px"
+                                            borderLeft="none"
+                                            paddingLeft="33px"
+                                            autoFocus
+                                        />
+                                    )}
+                                </Table.Cell>
+                                <Table.Cell className="map_column list_body" style={table_padding}></Table.Cell>
+                                <Table.Cell className="map_column list_body" style={table_padding_}></Table.Cell>
+                                <Table.Cell className="map_column list_body">
+                                    <p className="low"></p>
+                                </Table.Cell>
+                                <Table.Cell className="list_body">
+                                    <p></p>
+                                </Table.Cell>
+                            </Table.Row>
+                        )}
+                        <Table.Row height={28} className="border_">
+                            <Table.Cell className="map_column list_body" style={table_padding} flexBasis={615}>
+                                <img src={checkmark_circle} alt="" height="10" width="10" />
+                                <p>Develop prototype</p>
+                                <div>
+                                    <Popover
+                                        minWidth={30}
+                                        position={Position.BOTTOM_LEFT}
+                                        content={
+                                            <Menu>
+                                                <Menu.Group>
+                                                    <Menu.Item className="disabled_" style={disabled} disabled>
+                                                        <p>Move between selections</p>
+                                                    </Menu.Item>
+                                                    <Menu.Item
+                                                        icon={<img src={done} alt="" height="8" width="8" />}
+                                                        style={menu}
+                                                    >
+                                                        <p className="menucontent_">To do</p>
+                                                    </Menu.Item>
+                                                    <Menu.Item
+                                                        style={menu}
+                                                        icon={<img src={done} alt="" height="8" width="8" />}
+                                                    >
+                                                        <p className="menucontent_">Processing</p>
+                                                    </Menu.Item>
+                                                    <Menu.Item
+                                                        style={menu}
+                                                        icon={<img src={done} alt="" height="8" width="8" />}
+                                                    >
+                                                        <p className="menucontent_">Done</p>
+                                                    </Menu.Item>
+                                                </Menu.Group>
+                                            </Menu>
+                                        }
+                                    >
+                                        <img src={compare} alt="" height="8" width="14" />
+                                    </Popover>
+                                    <span>Details</span>
+                                    <img src={details_arrow} alt="" height="6" width="8" />
+                                </div>
+                            </Table.Cell>
+                            <Popover
+                                minWidth={210}
+                                marginTop={400}
+                                position={Position.BOTTOM_LEFT}
+                                content={
+                                    <Menu>
+                                        <Menu.Group>
+                                            <Menu.Item className="disabled_" disabled>
+                                                <p className="disabled_">Your collaborator</p>
+                                            </Menu.Item>
+                                            <Menu.Item
+                                                style={coll_drpdwn}
+                                                className="coll_drpdwn"
+                                                icon={
+                                                    <img
+                                                        src={avatar}
+                                                        alt=""
+                                                        className="bd_profiles"
+                                                        height="25"
+                                                        width="23"
+                                                    />
+                                                }
+                                            >
+                                                <p>Abdu Rahiman</p>
+                                            </Menu.Item>
+                                            <Menu.Item
+                                                style={coll_drpdwn}
+                                                className="coll_drpdwn"
+                                                icon={
+                                                    <img
+                                                        src={avatar1}
+                                                        alt=""
+                                                        className="bd_profiles"
+                                                        height="25"
+                                                        width="23"
+                                                    />
+                                                }
+                                            >
+                                                <p>Abdu Rahiman</p>
+                                            </Menu.Item>
+                                            <Menu.Item
+                                                style={coll_drpdwn}
+                                                className="coll_drpdwn"
+                                                icon={
+                                                    <img
+                                                        src={avatar}
+                                                        alt=""
+                                                        className="bd_profiles"
+                                                        height="25"
+                                                        width="23"
+                                                    />
+                                                }
+                                            >
+                                                <p>Abdu Rahiman</p>
+                                            </Menu.Item>
+                                            <Menu.Item
+                                                style={coll_drpdwn}
+                                                className="coll_drpdwn"
+                                                icon={
+                                                    <img
+                                                        src={avatar1}
+                                                        alt=""
+                                                        className="bd_profiles"
+                                                        height="25"
+                                                        width="23"
+                                                    />
+                                                }
+                                            >
+                                                <p>Abdu Rahiman</p>
+                                            </Menu.Item>
+                                            <Menu.Item
+                                                style={coll_drpdwn}
+                                                className="coll_drpdwn"
+                                                icon={
+                                                    <img
+                                                        src={avatar}
+                                                        alt=""
+                                                        className="bd_profiles"
+                                                        height="25"
+                                                        width="23"
+                                                    />
+                                                }
+                                            >
+                                                <p>Abdu Rahiman</p>
+                                            </Menu.Item>
+                                        </Menu.Group>
+                                        <Menu.Divider />
+                                        <Menu.Group>
+                                            <Menu.Item
+                                                onClick={() => setIsShown(true)}
+                                                style={invite}
+                                                icon={<img src={add_} alt="" height="10" width="10" />}
+                                            >
+                                                <p className="invite_">Invite collaborator</p>
+                                            </Menu.Item>
+                                        </Menu.Group>
+                                    </Menu>
+                                }
+                            >
+                                <Table.Cell className="map_column list_body" style={table_padding}>
+                                    <img src={avatar} alt="" height="16" width="14" className="assignee" />
+                                    Ashly
+                                </Table.Cell>
+                            </Popover>
+                            <Table.Cell className="map_column list_body" style={table_padding_}>
+                                Today - sep 20
+                            </Table.Cell>
+                            <Table.Cell className="map_column list_body">
+                                <p className="low">Low</p>
+                            </Table.Cell>
+                            <Table.Cell className="list_body">
+                                <p className="track">On track</p>
+                            </Table.Cell>
+                        </Table.Row>
+                        <Table.Row height={28}>
+                            <Table.Cell className="map_column list_body" flexBasis={615} style={table_padding}>
+                                <img src={checkmark_circle} alt="" height="10" width="10" />
+                                <p>Collect assets and implement too</p>
+                                <div>
+                                    <Popover
+                                        minWidth={30}
+                                        position={Position.BOTTOM_LEFT}
+                                        content={
+                                            <Menu>
+                                                <Menu.Group>
+                                                    <Menu.Item className="disabled_" style={disabled} disabled>
+                                                        <p>Move between selections</p>
+                                                    </Menu.Item>
+                                                    <Menu.Item
+                                                        icon={<img src={done} alt="" height="8" width="8" />}
+                                                        style={menu}
+                                                    >
+                                                        <p className="menucontent_">To do</p>
+                                                    </Menu.Item>
+                                                    <Menu.Item
+                                                        style={menu}
+                                                        icon={<img src={done} alt="" height="8" width="8" />}
+                                                    >
+                                                        <p className="menucontent_">Processing</p>
+                                                    </Menu.Item>
+                                                    <Menu.Item
+                                                        style={menu}
+                                                        icon={<img src={done} alt="" height="8" width="8" />}
+                                                    >
+                                                        <p className="menucontent_">Done</p>
+                                                    </Menu.Item>
+                                                </Menu.Group>
+                                            </Menu>
+                                        }
+                                    >
+                                        <img src={compare} alt="" height="8" width="14" />
+                                    </Popover>
+                                    <span>Details</span>
+                                    <img src={details_arrow} alt="" height="6" width="8" />
+                                </div>
+                            </Table.Cell>
+                            <Popover
+                                minWidth={210}
+                                marginTop={400}
+                                position={Position.BOTTOM_LEFT}
+                                content={
+                                    <Menu>
+                                        <Menu.Group>
+                                            <Menu.Item className="disabled_" disabled>
+                                                <p className="disabled_">Your collaborator</p>
+                                            </Menu.Item>
+                                            <Menu.Item
+                                                style={coll_drpdwn}
+                                                className="coll_drpdwn"
+                                                icon={
+                                                    <img
+                                                        src={avatar}
+                                                        alt=""
+                                                        className="bd_profiles"
+                                                        height="25"
+                                                        width="23"
+                                                    />
+                                                }
+                                            >
+                                                <p>Abdu Rahiman</p>
+                                            </Menu.Item>
+                                            <Menu.Item
+                                                style={coll_drpdwn}
+                                                className="coll_drpdwn"
+                                                icon={
+                                                    <img
+                                                        src={avatar1}
+                                                        alt=""
+                                                        className="bd_profiles"
+                                                        height="25"
+                                                        width="23"
+                                                    />
+                                                }
+                                            >
+                                                <p>Abdu Rahiman</p>
+                                            </Menu.Item>
+                                            <Menu.Item
+                                                style={coll_drpdwn}
+                                                className="coll_drpdwn"
+                                                icon={
+                                                    <img
+                                                        src={avatar}
+                                                        alt=""
+                                                        className="bd_profiles"
+                                                        height="25"
+                                                        width="23"
+                                                    />
+                                                }
+                                            >
+                                                <p>Abdu Rahiman</p>
+                                            </Menu.Item>
+                                            <Menu.Item
+                                                style={coll_drpdwn}
+                                                className="coll_drpdwn"
+                                                icon={
+                                                    <img
+                                                        src={avatar1}
+                                                        alt=""
+                                                        className="bd_profiles"
+                                                        height="25"
+                                                        width="23"
+                                                    />
+                                                }
+                                            >
+                                                <p>Abdu Rahiman</p>
+                                            </Menu.Item>
+                                            <Menu.Item
+                                                style={coll_drpdwn}
+                                                className="coll_drpdwn"
+                                                icon={
+                                                    <img
+                                                        src={avatar}
+                                                        alt=""
+                                                        className="bd_profiles"
+                                                        height="25"
+                                                        width="23"
+                                                    />
+                                                }
+                                            >
+                                                <p>Abdu Rahiman</p>
+                                            </Menu.Item>
+                                        </Menu.Group>
+                                        <Menu.Divider />
+                                        <Menu.Group>
+                                            <Menu.Item
+                                                onClick={() => setIsShown(true)}
+                                                style={invite}
+                                                icon={<img src={add_} alt="" height="10" width="10" />}
+                                            >
+                                                <p className="invite_">Invite collaborator</p>
+                                            </Menu.Item>
+                                        </Menu.Group>
+                                    </Menu>
+                                }
+                            >
+                                <Table.Cell className="map_column list_body" style={table_padding}>
+                                    <img src={avatar} alt="" height="16" width="14" className="assignee" />
+                                    Ashly
+                                </Table.Cell>
+                            </Popover>
+                            <Table.Cell className="map_column list_body" style={table_padding_}>
+                                Today - sep 20
+                            </Table.Cell>
+                            <Table.Cell className="map_column list_body">
+                                <p className="low">Low</p>
+                            </Table.Cell>
+                            <Table.Cell className=" list_body">
+                                <p className="risk">At risk</p>
+                            </Table.Cell>
+                        </Table.Row>
+                        <Table.Row height={28}>
+                            <Table.Cell className="map_column list_body" flexBasis={615} style={table_padding}>
+                                <img src={checkmark_circle} alt="" height="10" width="10" />
+                                <p>Acquire customer feedback</p>
+                                <div>
+                                    <Popover
+                                        minWidth={30}
+                                        position={Position.BOTTOM_LEFT}
+                                        content={
+                                            <Menu>
+                                                <Menu.Group>
+                                                    <Menu.Item className="disabled_" style={disabled} disabled>
+                                                        <p>Move between selections</p>
+                                                    </Menu.Item>
+                                                    <Menu.Item
+                                                        icon={<img src={done} alt="" height="8" width="8" />}
+                                                        style={menu}
+                                                    >
+                                                        <p className="menucontent_">To do</p>
+                                                    </Menu.Item>
+                                                    <Menu.Item
+                                                        style={menu}
+                                                        icon={<img src={done} alt="" height="8" width="8" />}
+                                                    >
+                                                        <p className="menucontent_">Processing</p>
+                                                    </Menu.Item>
+                                                    <Menu.Item
+                                                        style={menu}
+                                                        icon={<img src={done} alt="" height="8" width="8" />}
+                                                    >
+                                                        <p className="menucontent_">Done</p>
+                                                    </Menu.Item>
+                                                </Menu.Group>
+                                            </Menu>
+                                        }
+                                    >
+                                        <img src={compare} alt="" height="8" width="14" />
+                                    </Popover>
+                                    <span>Details</span>
+                                    <img src={details_arrow} alt="" height="6" width="8" />
+                                </div>
+                            </Table.Cell>
+                            <Popover
+                                minWidth={210}
+                                marginTop={400}
+                                position={Position.BOTTOM_LEFT}
+                                content={
+                                    <Menu>
+                                        <Menu.Group>
+                                            <Menu.Item className="disabled_" disabled>
+                                                <p className="disabled_">Your collaborator</p>
+                                            </Menu.Item>
+                                            <Menu.Item
+                                                style={coll_drpdwn}
+                                                className="coll_drpdwn"
+                                                icon={
+                                                    <img
+                                                        src={avatar}
+                                                        alt=""
+                                                        className="bd_profiles"
+                                                        height="25"
+                                                        width="23"
+                                                    />
+                                                }
+                                            >
+                                                <p>Abdu Rahiman</p>
+                                            </Menu.Item>
+                                            <Menu.Item
+                                                style={coll_drpdwn}
+                                                className="coll_drpdwn"
+                                                icon={
+                                                    <img
+                                                        src={avatar1}
+                                                        alt=""
+                                                        className="bd_profiles"
+                                                        height="25"
+                                                        width="23"
+                                                    />
+                                                }
+                                            >
+                                                <p>Abdu Rahiman</p>
+                                            </Menu.Item>
+                                            <Menu.Item
+                                                style={coll_drpdwn}
+                                                className="coll_drpdwn"
+                                                icon={
+                                                    <img
+                                                        src={avatar}
+                                                        alt=""
+                                                        className="bd_profiles"
+                                                        height="25"
+                                                        width="23"
+                                                    />
+                                                }
+                                            >
+                                                <p>Abdu Rahiman</p>
+                                            </Menu.Item>
+                                            <Menu.Item
+                                                style={coll_drpdwn}
+                                                className="coll_drpdwn"
+                                                icon={
+                                                    <img
+                                                        src={avatar1}
+                                                        alt=""
+                                                        className="bd_profiles"
+                                                        height="25"
+                                                        width="23"
+                                                    />
+                                                }
+                                            >
+                                                <p>Abdu Rahiman</p>
+                                            </Menu.Item>
+                                            <Menu.Item
+                                                style={coll_drpdwn}
+                                                className="coll_drpdwn"
+                                                icon={
+                                                    <img
+                                                        src={avatar}
+                                                        alt=""
+                                                        className="bd_profiles"
+                                                        height="25"
+                                                        width="23"
+                                                    />
+                                                }
+                                            >
+                                                <p>Abdu Rahiman</p>
+                                            </Menu.Item>
+                                        </Menu.Group>
+                                        <Menu.Divider />
+                                        <Menu.Group>
+                                            <Menu.Item
+                                                onClick={() => setIsShown(true)}
+                                                style={invite}
+                                                icon={<img src={add_} alt="" height="10" width="10" />}
+                                            >
+                                                <p className="invite_">Invite collaborator</p>
+                                            </Menu.Item>
+                                        </Menu.Group>
+                                    </Menu>
+                                }
+                            >
+                                <Table.Cell className="map_column list_body" style={table_padding}>
+                                    <img src={avatar} alt="" height="16" width="14" className="assignee" />
+                                    Ashly
+                                </Table.Cell>
+                            </Popover>
+                            <Table.Cell className="map_column list_body" style={table_padding_}>
+                                Sep 20 - sep 25
+                            </Table.Cell>
+                            <Table.Cell className="map_column list_body">
+                                <p className="medium">Medium</p>
+                            </Table.Cell>
+                            <Table.Cell className=" list_body">
+                                <p className="medium">Medium</p>
+                            </Table.Cell>
+                        </Table.Row>
+                        <Table.Row height={28}>
+                            <Table.Cell className="map_column list_body" flexBasis={615} style={table_padding}>
+                                <img src={checkmark_circle} alt="" height="10" width="10" />
+                                <p>A/B test report submission </p>
+                                <div>
+                                    <Popover
+                                        minWidth={30}
+                                        position={Position.BOTTOM_LEFT}
+                                        content={
+                                            <Menu>
+                                                <Menu.Group>
+                                                    <Menu.Item className="disabled_" style={disabled} disabled>
+                                                        <p>Move between selections</p>
+                                                    </Menu.Item>
+                                                    <Menu.Item
+                                                        icon={<img src={done} alt="" height="8" width="8" />}
+                                                        style={menu}
+                                                    >
+                                                        <p className="menucontent_">To do</p>
+                                                    </Menu.Item>
+                                                    <Menu.Item
+                                                        style={menu}
+                                                        icon={<img src={done} alt="" height="8" width="8" />}
+                                                    >
+                                                        <p className="menucontent_">Processing</p>
+                                                    </Menu.Item>
+                                                    <Menu.Item
+                                                        style={menu}
+                                                        icon={<img src={done} alt="" height="8" width="8" />}
+                                                    >
+                                                        <p className="menucontent_">Done</p>
+                                                    </Menu.Item>
+                                                </Menu.Group>
+                                            </Menu>
+                                        }
+                                    >
+                                        <img src={compare} alt="" height="8" width="14" />
+                                    </Popover>
+                                    <span>Details</span>
+                                    <img src={details_arrow} alt="" height="6" width="8" />
+                                </div>
+                            </Table.Cell>
+                            <Popover
+                                minWidth={210}
+                                marginTop={400}
+                                position={Position.BOTTOM_LEFT}
+                                content={
+                                    <Menu>
+                                        <Menu.Group>
+                                            <Menu.Item className="disabled_" disabled>
+                                                <p className="disabled_">Your collaborator</p>
+                                            </Menu.Item>
+                                            <Menu.Item
+                                                style={coll_drpdwn}
+                                                className="coll_drpdwn"
+                                                icon={
+                                                    <img
+                                                        src={avatar}
+                                                        alt=""
+                                                        className="bd_profiles"
+                                                        height="25"
+                                                        width="23"
+                                                    />
+                                                }
+                                            >
+                                                <p>Abdu Rahiman</p>
+                                            </Menu.Item>
+                                            <Menu.Item
+                                                style={coll_drpdwn}
+                                                className="coll_drpdwn"
+                                                icon={
+                                                    <img
+                                                        src={avatar1}
+                                                        alt=""
+                                                        className="bd_profiles"
+                                                        height="25"
+                                                        width="23"
+                                                    />
+                                                }
+                                            >
+                                                <p>Abdu Rahiman</p>
+                                            </Menu.Item>
+                                            <Menu.Item
+                                                style={coll_drpdwn}
+                                                className="coll_drpdwn"
+                                                icon={
+                                                    <img
+                                                        src={avatar}
+                                                        alt=""
+                                                        className="bd_profiles"
+                                                        height="25"
+                                                        width="23"
+                                                    />
+                                                }
+                                            >
+                                                <p>Abdu Rahiman</p>
+                                            </Menu.Item>
+                                            <Menu.Item
+                                                style={coll_drpdwn}
+                                                className="coll_drpdwn"
+                                                icon={
+                                                    <img
+                                                        src={avatar1}
+                                                        alt=""
+                                                        className="bd_profiles"
+                                                        height="25"
+                                                        width="23"
+                                                    />
+                                                }
+                                            >
+                                                <p>Abdu Rahiman</p>
+                                            </Menu.Item>
+                                            <Menu.Item
+                                                style={coll_drpdwn}
+                                                className="coll_drpdwn"
+                                                icon={
+                                                    <img
+                                                        src={avatar}
+                                                        alt=""
+                                                        className="bd_profiles"
+                                                        height="25"
+                                                        width="23"
+                                                    />
+                                                }
+                                            >
+                                                <p>Abdu Rahiman</p>
+                                            </Menu.Item>
+                                        </Menu.Group>
+                                        <Menu.Divider />
+                                        <Menu.Group>
+                                            <Menu.Item
+                                                onClick={() => setIsShown(true)}
+                                                style={invite}
+                                                icon={<img src={add_} alt="" height="10" width="10" />}
+                                            >
+                                                <p className="invite_">Invite collaborator</p>
+                                            </Menu.Item>
+                                        </Menu.Group>
+                                    </Menu>
+                                }
+                            >
+                                <Table.Cell className="map_column list_body" style={table_padding}>
+                                    <img src={avatar} alt="" height="16" width="14" className="assignee" />
+                                    Ashly
+                                </Table.Cell>
+                            </Popover>
+                            <Table.Cell className="map_column list_body" style={table_padding_}>
+                                Sep 20 - sep 25
+                            </Table.Cell>
+                            <Table.Cell className="map_column list_body">
+                                <p className="high">High</p>
+                            </Table.Cell>
+                            <Table.Cell className=" list_body">
+                                <p className="normal">Normal</p>
+                            </Table.Cell>
+                        </Table.Row>
+                        <Table.Row height={28}>
+                            <Table.Cell className="map_column list_body" flexBasis={615} style={table_padding}>
+                                <img src={checkmark_circle} alt="" height="10" width="10" />
+                                <p>Server implementation - technology paper brief </p>
+                                <div>
+                                    <Popover
+                                        minWidth={30}
+                                        position={Position.BOTTOM_LEFT}
+                                        content={
+                                            <Menu>
+                                                <Menu.Group>
+                                                    <Menu.Item className="disabled_" style={disabled} disabled>
+                                                        <p>Move between selections</p>
+                                                    </Menu.Item>
+                                                    <Menu.Item
+                                                        icon={<img src={done} alt="" height="8" width="8" />}
+                                                        style={menu}
+                                                    >
+                                                        <p className="menucontent_">To do</p>
+                                                    </Menu.Item>
+                                                    <Menu.Item
+                                                        style={menu}
+                                                        icon={<img src={done} alt="" height="8" width="8" />}
+                                                    >
+                                                        <p className="menucontent_">Processing</p>
+                                                    </Menu.Item>
+                                                    <Menu.Item
+                                                        style={menu}
+                                                        icon={<img src={done} alt="" height="8" width="8" />}
+                                                    >
+                                                        <p className="menucontent_">Done</p>
+                                                    </Menu.Item>
+                                                </Menu.Group>
+                                            </Menu>
+                                        }
+                                    >
+                                        <img src={compare} alt="" height="8" width="14" />
+                                    </Popover>
+                                    <span>Details</span>
+                                    <img src={details_arrow} alt="" height="6" width="8" />
+                                </div>
+                            </Table.Cell>
+                            <Popover
+                                minWidth={210}
+                                marginTop={400}
+                                position={Position.BOTTOM_LEFT}
+                                content={
+                                    <Menu>
+                                        <Menu.Group>
+                                            <Menu.Item className="disabled_" disabled>
+                                                <p className="disabled_">Your collaborator</p>
+                                            </Menu.Item>
+                                            <Menu.Item
+                                                style={coll_drpdwn}
+                                                className="coll_drpdwn"
+                                                icon={
+                                                    <img
+                                                        src={avatar}
+                                                        alt=""
+                                                        className="bd_profiles"
+                                                        height="25"
+                                                        width="23"
+                                                    />
+                                                }
+                                            >
+                                                <p>Abdu Rahiman</p>
+                                            </Menu.Item>
+                                            <Menu.Item
+                                                style={coll_drpdwn}
+                                                className="coll_drpdwn"
+                                                icon={
+                                                    <img
+                                                        src={avatar1}
+                                                        alt=""
+                                                        className="bd_profiles"
+                                                        height="25"
+                                                        width="23"
+                                                    />
+                                                }
+                                            >
+                                                <p>Abdu Rahiman</p>
+                                            </Menu.Item>
+                                            <Menu.Item
+                                                style={coll_drpdwn}
+                                                className="coll_drpdwn"
+                                                icon={
+                                                    <img
+                                                        src={avatar}
+                                                        alt=""
+                                                        className="bd_profiles"
+                                                        height="25"
+                                                        width="23"
+                                                    />
+                                                }
+                                            >
+                                                <p>Abdu Rahiman</p>
+                                            </Menu.Item>
+                                            <Menu.Item
+                                                style={coll_drpdwn}
+                                                className="coll_drpdwn"
+                                                icon={
+                                                    <img
+                                                        src={avatar1}
+                                                        alt=""
+                                                        className="bd_profiles"
+                                                        height="25"
+                                                        width="23"
+                                                    />
+                                                }
+                                            >
+                                                <p>Abdu Rahiman</p>
+                                            </Menu.Item>
+                                            <Menu.Item
+                                                style={coll_drpdwn}
+                                                className="coll_drpdwn"
+                                                icon={
+                                                    <img
+                                                        src={avatar}
+                                                        alt=""
+                                                        className="bd_profiles"
+                                                        height="25"
+                                                        width="23"
+                                                    />
+                                                }
+                                            >
+                                                <p>Abdu Rahiman</p>
+                                            </Menu.Item>
+                                        </Menu.Group>
+                                        <Menu.Divider />
+                                        <Menu.Group>
+                                            <Menu.Item
+                                                onClick={() => setIsShown(true)}
+                                                style={invite}
+                                                icon={<img src={add_} alt="" height="10" width="10" />}
+                                            >
+                                                <p className="invite_">Invite collaborator</p>
+                                            </Menu.Item>
+                                        </Menu.Group>
+                                    </Menu>
+                                }
+                            >
+                                <Table.Cell className="map_column list_body" style={table_padding}>
+                                    <img src={avatar} alt="" height="16" width="14" className="assignee" />
+                                    Ashly
+                                </Table.Cell>
+                            </Popover>
+                            <Table.Cell className="map_column list_body" style={table_padding_}>
+                                Sep 20 - sep 25
+                            </Table.Cell>
+                            <Table.Cell className="map_column list_body">
+                                <p className="high">High</p>
+                            </Table.Cell>
+                            <Table.Cell className="list_body">
+                                <p className="high_">High</p>
+                            </Table.Cell>
+                        </Table.Row>
+                        <Table.Row height={28}>
+                            <Table.Cell className="map_column list_body" flexBasis={615} style={table_padding}>
+                                <img src={checkmark_circle} alt="" height="10" width="10" />
+                                <p>Firebase</p>
+                                <div>
+                                    <Popover
+                                        minWidth={30}
+                                        position={Position.BOTTOM_LEFT}
+                                        content={
+                                            <Menu>
+                                                <Menu.Group>
+                                                    <Menu.Item className="disabled_" style={disabled} disabled>
+                                                        <p>Move between selections</p>
+                                                    </Menu.Item>
+                                                    <Menu.Item
+                                                        icon={<img src={done} alt="" height="8" width="8" />}
+                                                        style={menu}
+                                                    >
+                                                        <p className="menucontent_">To do</p>
+                                                    </Menu.Item>
+                                                    <Menu.Item
+                                                        style={menu}
+                                                        icon={<img src={done} alt="" height="8" width="8" />}
+                                                    >
+                                                        <p className="menucontent_">Processing</p>
+                                                    </Menu.Item>
+                                                    <Menu.Item
+                                                        style={menu}
+                                                        icon={<img src={done} alt="" height="8" width="8" />}
+                                                    >
+                                                        <p className="menucontent_">Done</p>
+                                                    </Menu.Item>
+                                                </Menu.Group>
+                                            </Menu>
+                                        }
+                                    >
+                                        <img src={compare} alt="" height="8" width="14" />
+                                    </Popover>
+                                    <span>Details</span>
+                                    <img src={details_arrow} alt="" height="6" width="8" />
+                                </div>
+                            </Table.Cell>
+                            <Popover
+                                minWidth={210}
+                                marginTop={400}
+                                position={Position.BOTTOM_LEFT}
+                                content={
+                                    <Menu>
+                                        <Menu.Group>
+                                            <Menu.Item className="disabled_" disabled>
+                                                <p className="disabled_">Your collaborator</p>
+                                            </Menu.Item>
+                                            <Menu.Item
+                                                style={coll_drpdwn}
+                                                className="coll_drpdwn"
+                                                icon={
+                                                    <img
+                                                        src={avatar}
+                                                        alt=""
+                                                        className="bd_profiles"
+                                                        height="25"
+                                                        width="23"
+                                                    />
+                                                }
+                                            >
+                                                <p>Abdu Rahiman</p>
+                                            </Menu.Item>
+                                            <Menu.Item
+                                                style={coll_drpdwn}
+                                                className="coll_drpdwn"
+                                                icon={
+                                                    <img
+                                                        src={avatar1}
+                                                        alt=""
+                                                        className="bd_profiles"
+                                                        height="25"
+                                                        width="23"
+                                                    />
+                                                }
+                                            >
+                                                <p>Abdu Rahiman</p>
+                                            </Menu.Item>
+                                            <Menu.Item
+                                                style={coll_drpdwn}
+                                                className="coll_drpdwn"
+                                                icon={
+                                                    <img
+                                                        src={avatar}
+                                                        alt=""
+                                                        className="bd_profiles"
+                                                        height="25"
+                                                        width="23"
+                                                    />
+                                                }
+                                            >
+                                                <p>Abdu Rahiman</p>
+                                            </Menu.Item>
+                                            <Menu.Item
+                                                style={coll_drpdwn}
+                                                className="coll_drpdwn"
+                                                icon={
+                                                    <img
+                                                        src={avatar1}
+                                                        alt=""
+                                                        className="bd_profiles"
+                                                        height="25"
+                                                        width="23"
+                                                    />
+                                                }
+                                            >
+                                                <p>Abdu Rahiman</p>
+                                            </Menu.Item>
+                                            <Menu.Item
+                                                style={coll_drpdwn}
+                                                className="coll_drpdwn"
+                                                icon={
+                                                    <img
+                                                        src={avatar}
+                                                        alt=""
+                                                        className="bd_profiles"
+                                                        height="25"
+                                                        width="23"
+                                                    />
+                                                }
+                                            >
+                                                <p>Abdu Rahiman</p>
+                                            </Menu.Item>
+                                        </Menu.Group>
+                                        <Menu.Divider />
+                                        <Menu.Group>
+                                            <Menu.Item
+                                                onClick={() => setIsShown(true)}
+                                                style={invite}
+                                                icon={<img src={add_} alt="" height="10" width="10" />}
+                                            >
+                                                <p className="invite_">Invite collaborator</p>
+                                            </Menu.Item>
+                                        </Menu.Group>
+                                    </Menu>
+                                }
+                            >
+                                <Table.Cell className="map_column list_body" style={table_padding}>
+                                    <img src={avatar} alt="" height="16" width="14" className="assignee" />
+                                    Ashly
+                                </Table.Cell>
+                            </Popover>
+                            <Table.Cell className="map_column list_body" style={table_padding_}>
+                                Sep 20 - sep 25
+                            </Table.Cell>
+                            <Table.Cell className="map_column list_body">
+                                <p className="medium">Medium</p>
+                            </Table.Cell>
+                            <Table.Cell className="list_body"></Table.Cell>
+                        </Table.Row>
+                        <Table.Row height={28}>
+                            <Table.Cell className="map_column list_body" flexBasis={615} style={table_padding}>
+                                <img src={checkmark_circle} alt="" height="10" width="10" />
+                                <p>Product board data export file </p>
+                                <div>
+                                    <Popover
+                                        minWidth={30}
+                                        position={Position.BOTTOM_LEFT}
+                                        content={
+                                            <Menu>
+                                                <Menu.Group>
+                                                    <Menu.Item className="disabled_" style={disabled} disabled>
+                                                        <p>Move between selections</p>
+                                                    </Menu.Item>
+                                                    <Menu.Item
+                                                        icon={<img src={done} alt="" height="8" width="8" />}
+                                                        style={menu}
+                                                    >
+                                                        <p className="menucontent_">To do</p>
+                                                    </Menu.Item>
+                                                    <Menu.Item
+                                                        style={menu}
+                                                        icon={<img src={done} alt="" height="8" width="8" />}
+                                                    >
+                                                        <p className="menucontent_">Processing</p>
+                                                    </Menu.Item>
+                                                    <Menu.Item
+                                                        style={menu}
+                                                        icon={<img src={done} alt="" height="8" width="8" />}
+                                                    >
+                                                        <p className="menucontent_">Done</p>
+                                                    </Menu.Item>
+                                                </Menu.Group>
+                                            </Menu>
+                                        }
+                                    >
+                                        <img src={compare} alt="" height="8" width="14" />
+                                    </Popover>
+                                    <span>Details</span>
+                                    <img src={details_arrow} alt="" height="6" width="8" />
+                                </div>
+                            </Table.Cell>
+                            <Popover
+                                minWidth={210}
+                                marginTop={400}
+                                position={Position.BOTTOM_LEFT}
+                                content={
+                                    <Menu>
+                                        <Menu.Group>
+                                            <Menu.Item className="disabled_" disabled>
+                                                <p className="disabled_">Your collaborator</p>
+                                            </Menu.Item>
+                                            <Menu.Item
+                                                style={coll_drpdwn}
+                                                className="coll_drpdwn"
+                                                icon={
+                                                    <img
+                                                        src={avatar}
+                                                        alt=""
+                                                        className="bd_profiles"
+                                                        height="25"
+                                                        width="23"
+                                                    />
+                                                }
+                                            >
+                                                <p>Abdu Rahiman</p>
+                                            </Menu.Item>
+                                            <Menu.Item
+                                                style={coll_drpdwn}
+                                                className="coll_drpdwn"
+                                                icon={
+                                                    <img
+                                                        src={avatar1}
+                                                        alt=""
+                                                        className="bd_profiles"
+                                                        height="25"
+                                                        width="23"
+                                                    />
+                                                }
+                                            >
+                                                <p>Abdu Rahiman</p>
+                                            </Menu.Item>
+                                            <Menu.Item
+                                                style={coll_drpdwn}
+                                                className="coll_drpdwn"
+                                                icon={
+                                                    <img
+                                                        src={avatar}
+                                                        alt=""
+                                                        className="bd_profiles"
+                                                        height="25"
+                                                        width="23"
+                                                    />
+                                                }
+                                            >
+                                                <p>Abdu Rahiman</p>
+                                            </Menu.Item>
+                                            <Menu.Item
+                                                style={coll_drpdwn}
+                                                className="coll_drpdwn"
+                                                icon={
+                                                    <img
+                                                        src={avatar1}
+                                                        alt=""
+                                                        className="bd_profiles"
+                                                        height="25"
+                                                        width="23"
+                                                    />
+                                                }
+                                            >
+                                                <p>Abdu Rahiman</p>
+                                            </Menu.Item>
+                                            <Menu.Item
+                                                style={coll_drpdwn}
+                                                className="coll_drpdwn"
+                                                icon={
+                                                    <img
+                                                        src={avatar}
+                                                        alt=""
+                                                        className="bd_profiles"
+                                                        height="25"
+                                                        width="23"
+                                                    />
+                                                }
+                                            >
+                                                <p>Abdu Rahiman</p>
+                                            </Menu.Item>
+                                        </Menu.Group>
+                                        <Menu.Divider />
+                                        <Menu.Group>
+                                            <Menu.Item
+                                                onClick={() => setIsShown(true)}
+                                                style={invite}
+                                                icon={<img src={add_} alt="" height="10" width="10" />}
+                                            >
+                                                <p className="invite_">Invite collaborator</p>
+                                            </Menu.Item>
+                                        </Menu.Group>
+                                    </Menu>
+                                }
+                            >
+                                <Table.Cell className="map_column list_body" style={table_padding}>
+                                    <img src={avatar} alt="" height="16" width="14" className="assignee" />
+                                    Ashly
+                                </Table.Cell>
+                            </Popover>
+                            <Table.Cell className="map_column list_body" style={table_padding_}>
+                                Sep 20 - sep 25
+                            </Table.Cell>
+                            <Table.Cell className="map_column list_body">
+                                <p className="medium">Medium</p>
+                            </Table.Cell>
+                            <Table.Cell className="list_body"></Table.Cell>
+                        </Table.Row>
+                        <Table.Row height={28}>
+                            <Table.Cell className="map_column list_body" flexBasis={615} style={table_padding}>
+                                <img src={checkmark_circle} alt="" height="10" width="10" />
+                                <p>Payment remainder </p>
+                                <div>
+                                    <Popover
+                                        minWidth={30}
+                                        position={Position.BOTTOM_LEFT}
+                                        content={
+                                            <Menu>
+                                                <Menu.Group>
+                                                    <Menu.Item className="disabled_" style={disabled} disabled>
+                                                        <p>Move between selections</p>
+                                                    </Menu.Item>
+                                                    <Menu.Item
+                                                        icon={<img src={done} alt="" height="8" width="8" />}
+                                                        style={menu}
+                                                    >
+                                                        <p className="menucontent_">To do</p>
+                                                    </Menu.Item>
+                                                    <Menu.Item
+                                                        style={menu}
+                                                        icon={<img src={done} alt="" height="8" width="8" />}
+                                                    >
+                                                        <p className="menucontent_">Processing</p>
+                                                    </Menu.Item>
+                                                    <Menu.Item
+                                                        style={menu}
+                                                        icon={<img src={done} alt="" height="8" width="8" />}
+                                                    >
+                                                        <p className="menucontent_">Done</p>
+                                                    </Menu.Item>
+                                                </Menu.Group>
+                                            </Menu>
+                                        }
+                                    >
+                                        <img src={compare} alt="" height="8" width="14" />
+                                    </Popover>
+                                    <span>Details</span>
+                                    <img src={details_arrow} alt="" height="6" width="8" />
+                                </div>
+                            </Table.Cell>
+                            <Popover
+                                minWidth={210}
+                                marginTop={400}
+                                position={Position.BOTTOM_LEFT}
+                                content={
+                                    <Menu>
+                                        <Menu.Group>
+                                            <Menu.Item className="disabled_" disabled>
+                                                <p className="disabled_">Your collaborator</p>
+                                            </Menu.Item>
+                                            <Menu.Item
+                                                style={coll_drpdwn}
+                                                className="coll_drpdwn"
+                                                icon={
+                                                    <img
+                                                        src={avatar}
+                                                        alt=""
+                                                        className="bd_profiles"
+                                                        height="25"
+                                                        width="23"
+                                                    />
+                                                }
+                                            >
+                                                <p>Abdu Rahiman</p>
+                                            </Menu.Item>
+                                            <Menu.Item
+                                                style={coll_drpdwn}
+                                                className="coll_drpdwn"
+                                                icon={
+                                                    <img
+                                                        src={avatar1}
+                                                        alt=""
+                                                        className="bd_profiles"
+                                                        height="25"
+                                                        width="23"
+                                                    />
+                                                }
+                                            >
+                                                <p>Abdu Rahiman</p>
+                                            </Menu.Item>
+                                            <Menu.Item
+                                                style={coll_drpdwn}
+                                                className="coll_drpdwn"
+                                                icon={
+                                                    <img
+                                                        src={avatar}
+                                                        alt=""
+                                                        className="bd_profiles"
+                                                        height="25"
+                                                        width="23"
+                                                    />
+                                                }
+                                            >
+                                                <p>Abdu Rahiman</p>
+                                            </Menu.Item>
+                                            <Menu.Item
+                                                style={coll_drpdwn}
+                                                className="coll_drpdwn"
+                                                icon={
+                                                    <img
+                                                        src={avatar1}
+                                                        alt=""
+                                                        className="bd_profiles"
+                                                        height="25"
+                                                        width="23"
+                                                    />
+                                                }
+                                            >
+                                                <p>Abdu Rahiman</p>
+                                            </Menu.Item>
+                                            <Menu.Item
+                                                style={coll_drpdwn}
+                                                className="coll_drpdwn"
+                                                icon={
+                                                    <img
+                                                        src={avatar}
+                                                        alt=""
+                                                        className="bd_profiles"
+                                                        height="25"
+                                                        width="23"
+                                                    />
+                                                }
+                                            >
+                                                <p>Abdu Rahiman</p>
+                                            </Menu.Item>
+                                        </Menu.Group>
+                                        <Menu.Divider />
+                                        <Menu.Group>
+                                            <Menu.Item
+                                                onClick={() => setIsShown(true)}
+                                                style={invite}
+                                                icon={<img src={add_} alt="" height="10" width="10" />}
+                                            >
+                                                <p className="invite_">Invite collaborator</p>
+                                            </Menu.Item>
+                                        </Menu.Group>
+                                    </Menu>
+                                }
+                            >
+                                <Table.Cell className="map_column list_body" style={table_padding}>
+                                    <img src={avatar} alt="" height="16" width="14" className="assignee" />
+                                    Ashly
+                                </Table.Cell>
+                            </Popover>
+                            <Table.Cell className="map_column list_body" style={table_padding_}>
+                                Sep 20 - sep 25
+                            </Table.Cell>
+                            <Table.Cell className="map_column list_body">
+                                <p className="high">High</p>
+                            </Table.Cell>
+                            <Table.Cell className="list_body"></Table.Cell>
+                        </Table.Row>
+                        <Table.Row height={28}>
+                            <Table.Cell className="map_column list_body" flexBasis={615} style={table_padding}>
+                                <img src={checkmark_circle} alt="" height="10" width="10" />
+                                <p>User data packet </p>
+                                <div>
+                                    <Popover
+                                        minWidth={30}
+                                        position={Position.BOTTOM_LEFT}
+                                        content={
+                                            <Menu>
+                                                <Menu.Group>
+                                                    <Menu.Item className="disabled_" style={disabled} disabled>
+                                                        <p>Move between selections</p>
+                                                    </Menu.Item>
+                                                    <Menu.Item
+                                                        icon={<img src={done} alt="" height="8" width="8" />}
+                                                        style={menu}
+                                                    >
+                                                        <p className="menucontent_">To do</p>
+                                                    </Menu.Item>
+                                                    <Menu.Item
+                                                        style={menu}
+                                                        icon={<img src={done} alt="" height="8" width="8" />}
+                                                    >
+                                                        <p className="menucontent_">Processing</p>
+                                                    </Menu.Item>
+                                                    <Menu.Item
+                                                        style={menu}
+                                                        icon={<img src={done} alt="" height="8" width="8" />}
+                                                    >
+                                                        <p className="menucontent_">Done</p>
+                                                    </Menu.Item>
+                                                </Menu.Group>
+                                            </Menu>
+                                        }
+                                    >
+                                        <img src={compare} alt="" height="8" width="14" />
+                                    </Popover>
+                                    <span>Details</span>
+                                    <img src={details_arrow} alt="" height="6" width="8" />
+                                </div>
+                            </Table.Cell>
+                            <Popover
+                                minWidth={210}
+                                marginTop={400}
+                                position={Position.BOTTOM_LEFT}
+                                content={
+                                    <Menu>
+                                        <Menu.Group>
+                                            <Menu.Item className="disabled_" disabled>
+                                                <p className="disabled_">Your collaborator</p>
+                                            </Menu.Item>
+                                            <Menu.Item
+                                                style={coll_drpdwn}
+                                                className="coll_drpdwn"
+                                                icon={
+                                                    <img
+                                                        src={avatar}
+                                                        alt=""
+                                                        className="bd_profiles"
+                                                        height="25"
+                                                        width="23"
+                                                    />
+                                                }
+                                            >
+                                                <p>Abdu Rahiman</p>
+                                            </Menu.Item>
+                                            <Menu.Item
+                                                style={coll_drpdwn}
+                                                className="coll_drpdwn"
+                                                icon={
+                                                    <img
+                                                        src={avatar1}
+                                                        alt=""
+                                                        className="bd_profiles"
+                                                        height="25"
+                                                        width="23"
+                                                    />
+                                                }
+                                            >
+                                                <p>Abdu Rahiman</p>
+                                            </Menu.Item>
+                                            <Menu.Item
+                                                style={coll_drpdwn}
+                                                className="coll_drpdwn"
+                                                icon={
+                                                    <img
+                                                        src={avatar}
+                                                        alt=""
+                                                        className="bd_profiles"
+                                                        height="25"
+                                                        width="23"
+                                                    />
+                                                }
+                                            >
+                                                <p>Abdu Rahiman</p>
+                                            </Menu.Item>
+                                            <Menu.Item
+                                                style={coll_drpdwn}
+                                                className="coll_drpdwn"
+                                                icon={
+                                                    <img
+                                                        src={avatar1}
+                                                        alt=""
+                                                        className="bd_profiles"
+                                                        height="25"
+                                                        width="23"
+                                                    />
+                                                }
+                                            >
+                                                <p>Abdu Rahiman</p>
+                                            </Menu.Item>
+                                            <Menu.Item
+                                                style={coll_drpdwn}
+                                                className="coll_drpdwn"
+                                                icon={
+                                                    <img
+                                                        src={avatar}
+                                                        alt=""
+                                                        className="bd_profiles"
+                                                        height="25"
+                                                        width="23"
+                                                    />
+                                                }
+                                            >
+                                                <p>Abdu Rahiman</p>
+                                            </Menu.Item>
+                                        </Menu.Group>
+                                        <Menu.Divider />
+                                        <Menu.Group>
+                                            <Menu.Item
+                                                onClick={() => setIsShown(true)}
+                                                style={invite}
+                                                icon={<img src={add_} alt="" height="10" width="10" />}
+                                            >
+                                                <p className="invite_">Invite collaborator</p>
+                                            </Menu.Item>
+                                        </Menu.Group>
+                                    </Menu>
+                                }
+                            >
+                                <Table.Cell className="map_column list_body" style={table_padding}>
+                                    <img src={avatar} alt="" height="16" width="14" className="assignee" />
+                                    Ashly
+                                </Table.Cell>
+                            </Popover>
+                            <Table.Cell className="map_column list_body" style={table_padding_}>
+                                Sep 20 - sep 25
+                            </Table.Cell>
+                            <Table.Cell className="map_column list_body">
+                                <p className="low">Low</p>
+                            </Table.Cell>
+                            <Table.Cell className=" list_body"></Table.Cell>
+                        </Table.Row>
+                    </Pane>
+                )}
             </div>
         </div>
     );
