@@ -1,0 +1,66 @@
+.a .space_sidebar {
+    padding-left: 4.427vw;
+
+    margin-top: 4.167vw;
+    width: 21.875vw;
+    /* height: 100vh; */
+    padding-top: 4.583vw;
+    position: fixed;
+    /* overflow-y: scroll;
+    height: 80%; */
+    /* background-color: white; */
+}
+.a .board_img {
+    height: 1.073vw;
+    width: 0.839vw;
+    margin-left: 0.172vw;
+}
+.a .map_img {
+    height: 0.833vw;
+    width: 1.021vw;
+    margin-left: 0.052vw;
+}
+.a .table_img {
+    height: 0.885vw;
+    width: 0.885vw;
+    margin-left: 0.156vw;
+}
+.a .time_img {
+    height: 0.568vw;
+    width: 1.042vw;
+    margin-left: 0.052vw;
+}
+.a .calendar_img {
+    height: 0.813vw;
+    width: 0.922vw;
+    margin-left: 0.161vw;
+}
+.a .view_img {
+    height: 0.901vw;
+    width: 0.885vw;
+    margin-left: 0.12vw;
+}
+.a .set_img {
+    height: 0.885vw;
+    width: 0.885vw;
+    margin-left: 0.104vw;
+}
+.a .space_sidebar .content {
+    display: inline;
+    font-family: "GTEestiProDisplay-Light";
+    font-size: 0.938vw;
+    color: #444444;
+    margin-left: 0.677vw;
+}
+.a .space_sidebar .title {
+    font-family: "GTEestiProDisplay-Light";
+    color: #444444;
+    font-size: 0.938vw;
+    margin-bottom: 1.823vw;
+    margin-top: 1.302vw;
+}
+.a .search_input::placeholder {
+    font-family: "GTEestiProDisplay-Light";
+    color: #6d6d6d;
+    font-size: 0.938vw;
+}

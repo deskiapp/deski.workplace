@@ -3,7 +3,7 @@
 }
 .list_head {
     font-family: "GTEestiProDisplay-Thin";
-    font-size: 13px;
+    font-size: 0.885vw;
     color: #444444;
 }
 .arrow_down {
@@ -44,20 +44,20 @@
 }
 .list_body p {
     font-family: "GTEestiProDisplay-light";
-    font-size: 13px;
+    font-size: 0.885vw;
     color: #444444;
     margin-left: 13px;
 }
 .editable_body p {
     font-family: "GTEestiProDisplay-thin";
-    font-size: 13px;
+    font-size: 0.677vw;
     color: #9b9b9b;
     margin-left: 13px;
 }
 
 .list_body span {
     font-family: "GTEestiProDisplay-light";
-    font-size: 12px;
+    font-size: 0.885vw;
     color: #2b2727;
     margin-left: 20px;
     margin-right: 4px;
@@ -76,7 +76,7 @@
 }
 .list_body {
     font-family: "GTEestiProDisplay-light";
-    font-size: 13px;
+    font-size: 0.885vw;
     color: #444444;
 }
 .list_body .low {
@@ -123,6 +123,7 @@
 }
 .list {
     margin-top: 20px;
+    width: 75.582vw;
 }
 .assignee {
     border-radius: 3px;
@@ -132,7 +133,7 @@
     display: inline;
     font-family: "GTEestiProDisplay-Regular";
     color: #444444;
-    font-size: 16px;
+    font-size: 1.042vw;
     margin-right: 20px;
     margin-left: 20px;
 }
