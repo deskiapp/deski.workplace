@@ -40,25 +40,21 @@
 .profile_links {
     display: block;
     text-decoration: none;
-    padding: 0.208vw 0.99vw 0.104vw 0.036vw;
-    margin-top: 0.7vw;
-    border-radius: 0.156vw;
+    padding: 4px 19px 2px 0.7px;
+    margin-top: 10px;
+    border-radius: 3px;
     cursor: pointer;
-    height: 1.406vw;
-    width: 11.607vw;
 }
 .profile_links:hover {
     background-color: #f5f5f5;
-    width: 11.607vw;
-    height: 1.406vw;
+    width: 145px;
 }
 .profile_links_selected {
     display: block;
+    width: 145px;
+    margin-top: 10px;
+    padding: 4px 19px 2px 0.7px;
     text-decoration: none;
-    padding: 0.208vw 0.99vw 0.104vw 0.036vw;
-    margin-top: 1.198vw;
-    border-radius: 0.156vw;
-    height: 1.406vw;
-    width: 11.607vw;
+    border-radius: 3px;
     background-color: #f5f5f5;
 }

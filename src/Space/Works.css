@@ -1,7 +1,9 @@
 .map {
-    padding-top: 8.929vw;
-    margin-left: 25.125vw;
-    margin-bottom: 100px;
+    padding-top: 100px;
+    margin-left: 315px;
+    overflow-x: scroll;
+    height: 555px;
+    overflow-y: scroll;
 }
 .map h2 {
     font-family: "GTEestiProDisplay-regular";
