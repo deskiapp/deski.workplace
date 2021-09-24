@@ -3,7 +3,7 @@
     margin-left: 360px;
 }
 .user_details h2 {
-    font-family: "GTEestiProDisplay-regular";
+    font-family: "GTEestiProDisplay-Medium";
     font-size: 21px;
     letter-spacing: 0.7px;
     color: #344563;
@@ -58,8 +58,7 @@
 .remove_user p {
     display: inline;
     margin-left: 10px;
-    font-family: "GTEestiProDisplay-light";
+    font-family: "GTEestiProDisplay-Regular";
     color: #858585;
     font-size: 11px;
-    letter-spacing: 0.2px;
 }

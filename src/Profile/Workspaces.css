@@ -3,7 +3,7 @@
     margin-left: 360px;
 }
 .workspaces h2 {
-    font-family: "GTEestiProDisplay-regular";
+    font-family: "GTEestiProDisplay-Medium";
     font-size: 21px;
     letter-spacing: 0.7px;
     color: #344563;
@@ -13,14 +13,14 @@
 }
 .my_workspace h4 {
     color: #344563;
-    font-family: "GTEestiProDisplay-light";
+    font-family: "GTEestiProDisplay-Regular";
     letter-spacing: 0.5px;
     margin-top: 45px;
 }
 .card_div h4 {
     color: #344563;
     letter-spacing: 0.4px;
-    font-family: "SegoeUI";
+    font-family: "SegoeUISemibold";
     margin-left: 55px;
     margin-top: -40px;
     font-size: 14px;
@@ -63,10 +63,10 @@
 }
 .second_workspace h4 span {
     color: #2b2b2b;
-    font-family: "GTEestiProDisplay-light";
+    font-family: "GTEestiProDisplay-Regular";
     font-size: 9px;
     border-radius: 2px;
-    background-color: #a4a4a4;
+    background-color: rgba(164, 164, 164, 0.3);
     margin-left: 10px;
     padding: 1px 4px 0 4px;
 }
@@ -96,16 +96,17 @@
     color: #ff2442;
 }
 .dropdwn {
-    width: 400px;
-    height: 30px;
+    width: 420px;
+    height: 31px;
     border: solid 0.1px #cecece;
     background-color: #fff;
-    color: #9a9a9a;
-    font-size: 13px;
+    color: #7b7b7b;
+    font-size: 15px;
     font-family: "GTEestiProDisplay-Light";
     text-align: left;
     padding-left: 7px;
-    margin-left: 0;
+    margin-left: -5px;
+    margin-right: -20px;
     cursor: pointer;
 }
 .drop_icon_pro {
@@ -124,6 +125,7 @@
     cursor: pointer;
     color: #fff;
     border: none;
+    margin-right: -20px;
     border-color: #0052cc;
     margin-left: 15px;
 }
@@ -131,5 +133,5 @@
     background-color: #086bff;
 }
 .move {
-    margin-left: 220px;
+    margin-left: 235px;
 }

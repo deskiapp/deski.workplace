@@ -13,7 +13,7 @@
 }
 .workspace_container h2 {
     display: inline;
-    font-family: "GTEestiProDisplay-Regular";
+    font-family: "GTEestiProDisplay-Medium";
     color: #344563;
     font-size: 21px;
     letter-spacing: 0.7px;
@@ -51,7 +51,7 @@
 }
 .add_space {
     color: #344563;
-    font-family: "GTEestiProDisplay-light";
+    font-family: "GTEestiProDisplay-Regular";
     font-size: 13px;
     letter-spacing: 0.3px;
 }
@@ -61,7 +61,7 @@
 }
 .space h4 {
     color: #344563;
-    font-family: "SegoeUI";
+    font-family: "SegoeUISemibold";
     font-size: 14px;
     margin-top: 8px;
 }
@@ -95,7 +95,7 @@
 .space .progress {
     text-align: center;
     color: #344563;
-    font-family: "GTEestiProDisplay-light";
+    font-family: "GTEestiProDisplay-Medium";
     font-size: 7px;
     margin-top: 15px;
 }
@@ -145,7 +145,7 @@
 
 .clock p {
     color: #858585;
-    font-family: "GTEestiProDisplay-light";
+    font-family: "GTEestiProDisplay-Regular";
     font-size: 9px;
     letter-spacing: 0.4px;
     margin-top: 0;
@@ -215,7 +215,7 @@
 .new_name::placeholder {
     font-family: "GTEestiProDisplay-light";
     color: #7b7b7b;
-    font-size: 13px;
+    font-size: 15px;
 }
 .pop_row {
     margin-top: 20px;
@@ -224,7 +224,7 @@
     font-size: 15px;
     letter-spacing: 0.3px;
     color: #344563;
-    font-family: "GTEestiProDisplay-Thin";
+    font-family: "GTEestiProDisplay-light";
 }
 .share_workspace p {
     margin-top: -5px;
@@ -233,6 +233,23 @@
     font-family: "SegoeUI";
     color: #7b7b7b;
     width: 400px;
+}
+.rename_workspace h4 {
+    font-size: 17px;
+    letter-spacing: 0.3px;
+    color: #344563;
+    font-family: "GTEestiProDisplay-regular";
+    margin-left: -5px;
+}
+
+.rename_workspace p {
+    margin-top: -5px;
+    margin-bottom: 15px;
+    font-size: 11px;
+    font-family: "GTEestiProDisplay-light";
+    color: #7b7b7b;
+    width: 400px;
+    margin-left: -5px;
 }
 .share_input::placeholder {
     color: #9a9a9a;
@@ -250,7 +267,7 @@
     letter-spacing: 0.3px;
     color: #344563;
     font-size: 15px;
-    font-family: "GTEestiProDisplay-Thin";
+    font-family: "GTEestiProDisplay-light";
 }
 .dlt_workspace p {
     margin-left: -15px;
@@ -264,10 +281,11 @@
     width: 400px;
     height: 40px;
     border-radius: 4px;
-    border: solid 0.1px #cecece;
+    border: solid 0.1px rgba(112, 112, 112, 0.1);
     background-color: #fff;
     color: #9a9a9a;
     font-family: "SegoeUI";
+    font-size: 13px;
     text-align: left;
     padding-left: 25px;
     cursor: pointer;
@@ -286,9 +304,23 @@
     margin-left: 245px;
     cursor: pointer;
 }
+.renamecancel_btn {
+    width: 59.4px;
+    height: 27px;
+    border-radius: 4px;
+    background-color: white;
+    color: #7f7c82;
+    font-family: "SegoeUISemibold";
+    font-size: 13px;
+    border: none;
+    border-color: #efefef;
+    margin-top: 30px;
+    margin-left: 260px;
+    cursor: pointer;
+}
 .add_btn {
     border-radius: 4px;
-    font-family: "SegoeUI";
+    font-family: "SegoeUISemibold";
     font-size: 13px;
     background-color: #0052cc;
     width: 80.4px;
@@ -298,12 +330,14 @@
     border: none;
     border-color: #0052cc;
     margin-left: 15px;
+    margin-right: -15px;
 }
 .cncl {
-    margin-left: 130px;
+    margin-left: 150px;
     margin-top: 20px;
 }
 .dlt_btn {
+    margin-right: -25px;
     border-radius: 4px;
     font-family: "SegoeUISemibold";
     font-size: 13px;
@@ -317,6 +351,9 @@
     margin-left: 15px;
 }
 .cancel_btn:hover {
+    background-color: #f3f1f5;
+}
+.renamecancel_btn:hover {
     background-color: #f3f1f5;
 }
 .add_btn:hover {

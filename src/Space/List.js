@@ -350,7 +350,7 @@ function List() {
 
                         <p className="todo">To do</p>
                         <img src={listadd} alt="" height="11" width="11" onClick={() => setWriteTask(true)} />
-                        <div>
+                        <div className="td">
                             <Popover
                                 minWidth={30}
                                 position={Position.BOTTOM_LEFT}
@@ -372,8 +372,9 @@ function List() {
                         </div>
                     </div>
                 </div>
+
                 {contentOpen && (
-                    <Pane className="list" width={1052}>
+                    <Pane className="list">
                         {writeTask && (
                             <Table.Row height={28} className="border_">
                                 <Table.Cell className="map_column editable_body" style={table_padding} flexBasis={550}>
@@ -384,13 +385,13 @@ function List() {
                                         <TextInput
                                             onKeyDown={handleKeyDown}
                                             style={editable_body}
-                                            fontSize="10px"
+                                            fontSize="13px"
                                             marginLeft="-125px"
                                             borderRadius="none"
                                             width="700px"
                                             height="26px"
                                             borderLeft="none"
-                                            paddingLeft="33px"
+                                            paddingLeft="40px"
                                             autoFocus
                                         />
                                     )}
@@ -1826,7 +1827,7 @@ function List() {
 
                         <p className="todo">Processing</p>
                         <img src={listadd} alt="" height="11" width="11" onClick={() => setWriteTask1(true)} />
-                        <div>
+                        <div className="pro">
                             <Popover
                                 minWidth={30}
                                 position={Position.BOTTOM_LEFT}
@@ -1843,16 +1844,17 @@ function List() {
                                     </Menu>
                                 }
                             >
-                                <MoreIcon className="list_more_" />
+                                <MoreIcon className="list_more" />
                             </Popover>
                         </div>
                     </div>
                 </div>
+
                 {contentOpen1 && (
-                    <Pane className="list" width={1052}>
+                    <Pane className="list">
                         {writeTask1 && (
                             <Table.Row height={28} className="border_">
-                                <Table.Cell className="map_column editable_body" style={table_padding} flexBasis={615}>
+                                <Table.Cell className="map_column editable_body" style={table_padding} flexBasis={550}>
                                     <img src={checkmark_circle} alt="" height="10" width="10" />
                                     <p onClick={() => setEditableField1(true)}>Write a task name</p>
 
@@ -1860,13 +1862,13 @@ function List() {
                                         <TextInput
                                             onKeyDown={handleKeyDown1}
                                             style={editable_body}
-                                            fontSize="10px"
+                                            fontSize="13px"
                                             marginLeft="-125px"
                                             borderRadius="none"
                                             width="700px"
                                             height="26px"
                                             borderLeft="none"
-                                            paddingLeft="33px"
+                                            paddingLeft="40px"
                                             autoFocus
                                         />
                                     )}
@@ -1882,7 +1884,7 @@ function List() {
                             </Table.Row>
                         )}
                         <Table.Row height={28} className="border_">
-                            <Table.Cell className="map_column list_body" style={table_padding} flexBasis={615}>
+                            <Table.Cell className="map_column list_body" style={table_padding} flexBasis={550}>
                                 <img src={checkmark_circle} alt="" height="10" width="10" />
                                 <p>Develop prototype</p>
                                 <div>
@@ -2038,7 +2040,7 @@ function List() {
                             </Table.Cell>
                         </Table.Row>
                         <Table.Row height={28}>
-                            <Table.Cell className="map_column list_body" flexBasis={615} style={table_padding}>
+                            <Table.Cell className="map_column list_body" flexBasis={550} style={table_padding}>
                                 <img src={checkmark_circle} alt="" height="10" width="10" />
                                 <p>Collect assets and implement too</p>
                                 <div>
@@ -2194,7 +2196,7 @@ function List() {
                             </Table.Cell>
                         </Table.Row>
                         <Table.Row height={28}>
-                            <Table.Cell className="map_column list_body" flexBasis={615} style={table_padding}>
+                            <Table.Cell className="map_column list_body" flexBasis={550} style={table_padding}>
                                 <img src={checkmark_circle} alt="" height="10" width="10" />
                                 <p>Acquire customer feedback</p>
                                 <div>
@@ -2350,7 +2352,7 @@ function List() {
                             </Table.Cell>
                         </Table.Row>
                         <Table.Row height={28}>
-                            <Table.Cell className="map_column list_body" flexBasis={615} style={table_padding}>
+                            <Table.Cell className="map_column list_body" flexBasis={550} style={table_padding}>
                                 <img src={checkmark_circle} alt="" height="10" width="10" />
                                 <p>A/B test report submission </p>
                                 <div>
@@ -2506,7 +2508,7 @@ function List() {
                             </Table.Cell>
                         </Table.Row>
                         <Table.Row height={28}>
-                            <Table.Cell className="map_column list_body" flexBasis={615} style={table_padding}>
+                            <Table.Cell className="map_column list_body" flexBasis={550} style={table_padding}>
                                 <img src={checkmark_circle} alt="" height="10" width="10" />
                                 <p>Server implementation - technology paper brief </p>
                                 <div>
@@ -2662,7 +2664,7 @@ function List() {
                             </Table.Cell>
                         </Table.Row>
                         <Table.Row height={28}>
-                            <Table.Cell className="map_column list_body" flexBasis={615} style={table_padding}>
+                            <Table.Cell className="map_column list_body" flexBasis={550} style={table_padding}>
                                 <img src={checkmark_circle} alt="" height="10" width="10" />
                                 <p>Firebase</p>
                                 <div>
@@ -2816,7 +2818,7 @@ function List() {
                             <Table.Cell className="list_body"></Table.Cell>
                         </Table.Row>
                         <Table.Row height={28}>
-                            <Table.Cell className="map_column list_body" flexBasis={615} style={table_padding}>
+                            <Table.Cell className="map_column list_body" flexBasis={550} style={table_padding}>
                                 <img src={checkmark_circle} alt="" height="10" width="10" />
                                 <p>Product board data export file </p>
                                 <div>
@@ -2970,7 +2972,7 @@ function List() {
                             <Table.Cell className="list_body"></Table.Cell>
                         </Table.Row>
                         <Table.Row height={28}>
-                            <Table.Cell className="map_column list_body" flexBasis={615} style={table_padding}>
+                            <Table.Cell className="map_column list_body" flexBasis={550} style={table_padding}>
                                 <img src={checkmark_circle} alt="" height="10" width="10" />
                                 <p>Payment remainder </p>
                                 <div>
@@ -3124,7 +3126,7 @@ function List() {
                             <Table.Cell className="list_body"></Table.Cell>
                         </Table.Row>
                         <Table.Row height={28}>
-                            <Table.Cell className="map_column list_body" flexBasis={615} style={table_padding}>
+                            <Table.Cell className="map_column list_body" flexBasis={550} style={table_padding}>
                                 <img src={checkmark_circle} alt="" height="10" width="10" />
                                 <p>User data packet </p>
                                 <div>
@@ -3301,7 +3303,7 @@ function List() {
 
                         <p className="todo">Done</p>
                         <img src={listadd} alt="" height="11" width="11" onClick={() => setWriteTask2(true)} />
-                        <div>
+                        <div className="done">
                             <Popover
                                 minWidth={30}
                                 position={Position.BOTTOM_LEFT}
@@ -3324,10 +3326,10 @@ function List() {
                     </div>
                 </div>
                 {contentOpen2 && (
-                    <Pane className="list" width={1052}>
+                    <Pane className="list">
                         {writeTask2 && (
                             <Table.Row height={28} className="border_">
-                                <Table.Cell className="map_column editable_body" style={table_padding} flexBasis={615}>
+                                <Table.Cell className="map_column editable_body" style={table_padding} flexBasis={550}>
                                     <img src={checkmark_circle} alt="" height="10" width="10" />
                                     <p onClick={() => setEditableField2(true)}>Write a task name</p>
 
@@ -3335,13 +3337,13 @@ function List() {
                                         <TextInput
                                             onKeyDown={handleKeyDown2}
                                             style={editable_body}
-                                            fontSize="10px"
+                                            fontSize="13px"
                                             marginLeft="-125px"
                                             borderRadius="none"
                                             width="700px"
                                             height="26px"
                                             borderLeft="none"
-                                            paddingLeft="33px"
+                                            paddingLeft="40px"
                                             autoFocus
                                         />
                                     )}
@@ -3357,7 +3359,7 @@ function List() {
                             </Table.Row>
                         )}
                         <Table.Row height={28} className="border_">
-                            <Table.Cell className="map_column list_body" style={table_padding} flexBasis={615}>
+                            <Table.Cell className="map_column list_body" style={table_padding} flexBasis={550}>
                                 <img src={checkmark_circle} alt="" height="10" width="10" />
                                 <p>Develop prototype</p>
                                 <div>
@@ -3513,7 +3515,7 @@ function List() {
                             </Table.Cell>
                         </Table.Row>
                         <Table.Row height={28}>
-                            <Table.Cell className="map_column list_body" flexBasis={615} style={table_padding}>
+                            <Table.Cell className="map_column list_body" flexBasis={550} style={table_padding}>
                                 <img src={checkmark_circle} alt="" height="10" width="10" />
                                 <p>Collect assets and implement too</p>
                                 <div>
@@ -3669,7 +3671,7 @@ function List() {
                             </Table.Cell>
                         </Table.Row>
                         <Table.Row height={28}>
-                            <Table.Cell className="map_column list_body" flexBasis={615} style={table_padding}>
+                            <Table.Cell className="map_column list_body" flexBasis={550} style={table_padding}>
                                 <img src={checkmark_circle} alt="" height="10" width="10" />
                                 <p>Acquire customer feedback</p>
                                 <div>
@@ -3825,7 +3827,7 @@ function List() {
                             </Table.Cell>
                         </Table.Row>
                         <Table.Row height={28}>
-                            <Table.Cell className="map_column list_body" flexBasis={615} style={table_padding}>
+                            <Table.Cell className="map_column list_body" flexBasis={550} style={table_padding}>
                                 <img src={checkmark_circle} alt="" height="10" width="10" />
                                 <p>A/B test report submission </p>
                                 <div>
@@ -3981,7 +3983,7 @@ function List() {
                             </Table.Cell>
                         </Table.Row>
                         <Table.Row height={28}>
-                            <Table.Cell className="map_column list_body" flexBasis={615} style={table_padding}>
+                            <Table.Cell className="map_column list_body" flexBasis={550} style={table_padding}>
                                 <img src={checkmark_circle} alt="" height="10" width="10" />
                                 <p>Server implementation - technology paper brief </p>
                                 <div>
@@ -4137,7 +4139,7 @@ function List() {
                             </Table.Cell>
                         </Table.Row>
                         <Table.Row height={28}>
-                            <Table.Cell className="map_column list_body" flexBasis={615} style={table_padding}>
+                            <Table.Cell className="map_column list_body" flexBasis={550} style={table_padding}>
                                 <img src={checkmark_circle} alt="" height="10" width="10" />
                                 <p>Firebase</p>
                                 <div>
@@ -4291,7 +4293,7 @@ function List() {
                             <Table.Cell className="list_body"></Table.Cell>
                         </Table.Row>
                         <Table.Row height={28}>
-                            <Table.Cell className="map_column list_body" flexBasis={615} style={table_padding}>
+                            <Table.Cell className="map_column list_body" flexBasis={550} style={table_padding}>
                                 <img src={checkmark_circle} alt="" height="10" width="10" />
                                 <p>Product board data export file </p>
                                 <div>
@@ -4445,7 +4447,7 @@ function List() {
                             <Table.Cell className="list_body"></Table.Cell>
                         </Table.Row>
                         <Table.Row height={28}>
-                            <Table.Cell className="map_column list_body" flexBasis={615} style={table_padding}>
+                            <Table.Cell className="map_column list_body" flexBasis={550} style={table_padding}>
                                 <img src={checkmark_circle} alt="" height="10" width="10" />
                                 <p>Payment remainder </p>
                                 <div>
@@ -4599,7 +4601,7 @@ function List() {
                             <Table.Cell className="list_body"></Table.Cell>
                         </Table.Row>
                         <Table.Row height={28}>
-                            <Table.Cell className="map_column list_body" flexBasis={615} style={table_padding}>
+                            <Table.Cell className="map_column list_body" flexBasis={550} style={table_padding}>
                                 <img src={checkmark_circle} alt="" height="10" width="10" />
                                 <p>User data packet </p>
                                 <div>

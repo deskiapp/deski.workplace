@@ -106,7 +106,7 @@
     font-size: 15px;
     letter-spacing: 0.3px;
     color: #344563;
-    font-family: "GTEestiProDisplay-Thin";
+    font-family: "GTEestiProDisplay-light";
 }
 .start_team .texts {
     margin-left: 5px;
@@ -131,7 +131,7 @@
 }
 .team_add_btn {
     border-radius: 4px;
-    font-family: "SegoeUI";
+    font-family: "SegoeUISemibold";
     font-size: 13px;
     background-color: #0052cc;
     width: 90px;

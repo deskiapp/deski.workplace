@@ -3,7 +3,7 @@
 }
 .list_head {
     font-family: "GTEestiProDisplay-Thin";
-    font-size: 0.885vw;
+    font-size: 13px;
     color: #444444;
 }
 .arrow_down {
@@ -22,7 +22,7 @@
     visibility: hidden;
 }
 .arrow_down3 {
-    margin-left: 33px;
+    margin-left: 38px;
     width: 8px;
     visibility: hidden;
 }
@@ -44,20 +44,20 @@
 }
 .list_body p {
     font-family: "GTEestiProDisplay-light";
-    font-size: 0.885vw;
+    font-size: 13px;
     color: #444444;
     margin-left: 13px;
 }
 .editable_body p {
     font-family: "GTEestiProDisplay-thin";
-    font-size: 0.677vw;
+    font-size: 12px;
     color: #9b9b9b;
     margin-left: 13px;
 }
 
 .list_body span {
     font-family: "GTEestiProDisplay-light";
-    font-size: 0.885vw;
+    font-size: 13px;
     color: #2b2727;
     margin-left: 20px;
     margin-right: 4px;
@@ -76,7 +76,7 @@
 }
 .list_body {
     font-family: "GTEestiProDisplay-light";
-    font-size: 0.885vw;
+    font-size: 13px;
     color: #444444;
 }
 .list_body .low {
@@ -123,7 +123,7 @@
 }
 .list {
     margin-top: 20px;
-    width: 75.582vw;
+    width: 1052px;
 }
 .assignee {
     border-radius: 3px;
@@ -133,22 +133,18 @@
     display: inline;
     font-family: "GTEestiProDisplay-Regular";
     color: #444444;
-    font-size: 1.042vw;
+    font-size: 16px;
     margin-right: 20px;
     margin-left: 20px;
 }
+
 .list_more {
     margin-left: 20px;
     color: #4a4a4a;
     height: 11px;
     width: 11px;
 }
-.list_more_ {
-    margin-left: 55px;
-    color: #4a4a4a;
-    height: 11px;
-    width: 11px;
-}
+
 .menucontent_ {
     font-family: "SegoeUI";
     color: #707070;
@@ -164,15 +160,23 @@
 .visible {
     visibility: visible;
 }
-.todo_div div div {
+.todo_div div .done {
+    margin-top: -18px;
+    margin-left: 85px;
+}
+.todo_div div .td {
     margin-top: -17.5px;
     margin-left: 85px;
+}
+.todo_div div .pro {
+    margin-top: -18px;
+    margin-left: 120px;
 }
 .todo_div {
     margin-top: 20px;
     margin-bottom: 35px;
     cursor: pointer;
-    width: 140px;
+    width: 200px;
 }
 .pro_div .pro {
     display: inline;
@@ -206,7 +210,7 @@
 @media (min-width: 2000px) {
     .list_body div {
         position: absolute;
-        right: 54%;
+        right: 53.3%;
         visibility: hidden;
     }
 }

@@ -3,7 +3,7 @@
     margin-left: 360px;
 }
 .account h2 {
-    font-family: "GTEestiProDisplay-regular";
+    font-family: "GTEestiProDisplay-Medium";
     font-size: 21px;
     letter-spacing: 0.7px;
     color: #344563;
@@ -85,7 +85,7 @@ span .add {
 .card_div h4 {
     color: #344563;
     letter-spacing: 0.4px;
-    font-family: "SegoeUI";
+    font-family: "SegoeUISemibold";
     margin-left: 55px;
     margin-top: -40px;
     font-size: 14px;

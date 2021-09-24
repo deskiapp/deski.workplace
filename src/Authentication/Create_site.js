@@ -52,7 +52,7 @@ function Create_site() {
                                     SetCorrect(false);
                                 }
                             }}
-                            borderColor="#c5c5c5"
+                            border="solid 1.5px #c5c5c5"
                             backgroundColor="#fafbfc"
                             className="create_site_inputfield"
                             placeholder="Your-site-name                                                                   .deski.app"

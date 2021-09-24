@@ -33,7 +33,7 @@ body {
     font-size: 14px;
 }
 .login_pane .p2 {
-    font-family: "GTEestiProDisplay-Thin";
+    font-family: "GTEestiProDisplay-light";
     letter-spacing: 0.5px;
     margin-top: 15px;
     color: gray;
@@ -70,7 +70,7 @@ body {
     background-color: #0052cc;
     color: white;
     font-size: 12px;
-    font-family: "SegoeUI";
+    font-family: "SegoeUISemibold";
     cursor: pointer;
 }
 .login_continue:hover {
@@ -112,8 +112,8 @@ body {
 }
 .login_inputfield::placeholder {
     font-size: 11px;
-    font-family: "GTEestiProDisplay-Thin";
-    letter-spacing: 0.6px;
+    font-family: "GTEestiProDisplay-light";
+
     color: #949494;
 }
 ul {
@@ -126,7 +126,7 @@ li {
 .login_link {
     text-decoration: none;
     color: #0052cc;
-    font-family: "GTEestiProDisplay-Thin";
+    font-family: "GTEestiProDisplay-light";
     letter-spacing: 0.5px;
     font-size: 11px;
     margin-left: 80px;
@@ -134,7 +134,7 @@ li {
 .login_li {
     text-decoration: none;
     color: #0052cc;
-    font-family: "GTEestiProDisplay-Thin";
+    font-family: "GTEestiProDisplay-light";
     text-align: center;
     letter-spacing: 0.5px;
     font-size: 11px;
@@ -170,7 +170,7 @@ li {
     font-size: 14px;
 }
 .mob_login_pane .p2 {
-    font-family: "GTEestiProDisplay-Thin";
+    font-family: "GTEestiProDisplay-light";
     letter-spacing: 0.5px;
     margin-top: 15px;
     color: gray;
@@ -212,7 +212,7 @@ li {
     background-color: #0052cc;
     color: white;
     font-size: 12px;
-    font-family: "SegoeUI";
+    font-family: "SegoeUISemibold";
 }
 
 .mob_login_btn {
@@ -235,7 +235,7 @@ li {
 .mob_login_link {
     text-decoration: none;
     color: #0052cc;
-    font-family: "GTEestiProDisplay-Thin";
+    font-family: "GTEestiProDisplay-light";
     letter-spacing: 0.5px;
     font-size: 11px;
     margin-left: 29px;
@@ -249,7 +249,7 @@ li {
 .mob_login_li {
     text-decoration: none;
     color: #0052cc;
-    font-family: "GTEestiProDisplay-Thin";
+    font-family: "GTEestiProDisplay-light";
     text-align: center;
     letter-spacing: 0.5px;
     font-size: 11px;

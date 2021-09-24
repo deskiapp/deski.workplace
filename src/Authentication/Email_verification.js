@@ -39,9 +39,9 @@ function Email_verification() {
                 </p>
 
                 <p>
-                    You will need to{" "}
+                    You will need to
                     <Link to="/signup" className="fp_link">
-                        <span className="blue_text">create a new account</span>
+                        <span className="blue_text"> create a new account</span>
                     </Link>
                 </p>
             </div>

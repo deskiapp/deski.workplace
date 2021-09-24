@@ -68,7 +68,7 @@ function Workplace() {
 
     const textinput = {
         height: "40px",
-        border: "solid 0.1px #cecece",
+        border: "solid 0.1px rgba(112,112,112,0.1",
         color: "#9a9a9a",
     };
 
@@ -152,21 +152,23 @@ function Workplace() {
                             isShown={isShown3}
                             hasFooter={false}
                         >
-                            <div className="share_workspace">
+                            <div className="rename_workspace">
                                 <h4>Change App Development to</h4>
                                 <p>Change your space name to another</p>
                                 <TextInput
+                                    marginLeft="-5px"
+                                    marginRight="-20px"
                                     className="new_name"
                                     borderRadius="none"
-                                    width={400}
-                                    height={25}
+                                    width={420}
+                                    height={31}
                                     placeholder="Enter new name"
                                 />
                                 <div>
-                                    <button className="cancel_btn" onClick={() => setIsShown3(false)}>
+                                    <button className="renamecancel_btn move" onClick={() => setIsShown3(false)}>
                                         Cancel
                                     </button>
-                                    <button className="add_btn" onClick={() => setIsShown3(false)}>
+                                    <button className="move_btn" onClick={() => setIsShown3(false)}>
                                         Save
                                     </button>
                                 </div>
@@ -184,7 +186,7 @@ function Workplace() {
                             isShown={isShown2}
                             hasFooter={false}
                         >
-                            <div className="share_workspace">
+                            <div className="rename_workspace">
                                 <h4>Move My First workplace to another workspace</h4>
                                 <p>Choose workspace</p>
 

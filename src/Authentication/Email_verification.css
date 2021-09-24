@@ -15,12 +15,12 @@
 }
 .email p {
     text-align: center;
-    font-family: "SegoeUISemibold";
+    font-family: "SegoeUI";
     font-size: 12px;
     margin-top: -5px;
 }
 .bold {
-    font-family: "SegoeUIBold";
+    font-family: "SegoeUISemibold";
 }
 .resend_email {
     background-color: #0052cc;
