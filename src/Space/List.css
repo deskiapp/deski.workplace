@@ -207,10 +207,17 @@
     color: #444444;
     font-size: 11px;
 }
+@media (min-width: 1910px) {
+    .list_body div {
+        /* position: absolute; */
+        right: 51%;
+        visibility: hidden;
+    }
+}
 @media (min-width: 2000px) {
     .list_body div {
-        position: absolute;
-        right: 53.3%;
+        /* position: absolute; */
+        right: 53.5%;
         visibility: hidden;
     }
 }

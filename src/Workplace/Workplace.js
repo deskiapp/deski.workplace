@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Workplace.css";
 import { Link, useHistory } from "react-router-dom";
 import Workspace_list from "./Workspace_list";
@@ -34,9 +34,37 @@ import {
 import avatar from "../assets/avatar.jpg";
 import avatar1 from "../assets/avatar1.jpeg";
 import avatar2 from "../assets/avatar2.jpeg";
+import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
 import clock from "../assets/clock.png";
 
+const finalSpaceCharacters = [
+    {
+        id: "Bug Tracking",
+        name: "Bug Tracking",
+        progress: "72%",
+        day: "7 days left",
+        collaborators: "+8",
+    },
+    {
+        id: "App Development",
+        name: "App Development",
+        progress: "72%",
+        day: "7 days left",
+        collaborators: "+8",
+    },
+];
+
 function Workplace() {
+    const [characters, updateCharacters] = useState(finalSpaceCharacters);
+
+    function handleOnDragEnd(result) {
+        if (!result.destination) return;
+        const items = Array.from(characters);
+        const [reorderedItem] = items.splice(result.source.index, 1);
+        items.splice(result.destination.index, 0, reorderedItem);
+
+        updateCharacters(items);
+    }
     let history = useHistory();
 
     const [selected, setSelected] = React.useState(null);
@@ -280,74 +308,125 @@ function Workplace() {
                             </div>
                         </Dialog>
                     </div>
-                    <div>
-                        <Pane
-                            className="space"
-                            onClick={() => {
-                                history.push("/board");
-                            }}
-                        >
-                            <DragHandleVerticalIcon className="moreicon" />
-                            <Popover
-                                position={Position.BOTTOM_LEFT}
-                                minWidth={50}
-                                content={
-                                    <Menu>
-                                        <Menu.Group>
-                                            <Menu.Item onSelect={() => setIsShown3(true)} style={menu}>
-                                                <p className="menucontent">Rename space</p>
-                                            </Menu.Item>
-                                            <Menu.Item onSelect={() => setIsShown(true)} style={menu}>
-                                                <p className="menucontent">Share</p>
-                                            </Menu.Item>
-                                            <Menu.Item onSelect={() => setIsShown2(true)} style={menu}>
-                                                <p className="menucontent">Move space</p>
-                                            </Menu.Item>
-                                            <Menu.Item style={menu}>
-                                                <p className="menucontent">Duplicate</p>
-                                            </Menu.Item>
-                                            <Menu.Item onSelect={() => setIsShown1(true)} intent="danger" style={menu}>
-                                                <p className="menucontentred">Delete</p>
-                                            </Menu.Item>
-                                        </Menu.Group>
-                                    </Menu>
-                                }
-                            >
-                                <MoreIcon className="more_home" />
-                            </Popover>
-                            <img src={bug} alt="" height="35" width="35" />
-                            <h4>Bug Tracking</h4>
-                            <p className="deski">www.deskiapp.com</p>
-                            <p className="des">
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas imperdiet velit
-                            </p>
-                            <p className="progress">72%</p>
-                            <div className="create_site">
-                                <div style={containerStyles}>
-                                    <div style={fillerStyles}></div>
+                    {/* <div> */}
+                    <DragDropContext onDragEnd={handleOnDragEnd}>
+                        <Droppable droppableId="characters">
+                            {(provided) => (
+                                <div className="characters a" {...provided.droppableProps} ref={provided.innerRef}>
+                                    {characters.map(({ id, name, progress, day, collaborators }, index) => {
+                                        return (
+                                            <Draggable key={id} draggableId={id} index={index}>
+                                                {(provided) => (
+                                                    <Pane
+                                                        className="space"
+                                                        onClick={() => {
+                                                            history.push("/board");
+                                                        }}
+                                                        ref={provided.innerRef}
+                                                        {...provided.draggableProps}
+                                                        {...provided.dragHandleProps}
+                                                    >
+                                                        <DragHandleVerticalIcon className="moreicon" />
+                                                        <Popover
+                                                            position={Position.BOTTOM_LEFT}
+                                                            minWidth={50}
+                                                            content={
+                                                                <Menu>
+                                                                    <Menu.Group>
+                                                                        <Menu.Item
+                                                                            onSelect={() => setIsShown3(true)}
+                                                                            style={menu}
+                                                                        >
+                                                                            <p className="menucontent">Rename space</p>
+                                                                        </Menu.Item>
+                                                                        <Menu.Item
+                                                                            onSelect={() => setIsShown(true)}
+                                                                            style={menu}
+                                                                        >
+                                                                            <p className="menucontent">Share</p>
+                                                                        </Menu.Item>
+                                                                        <Menu.Item
+                                                                            onSelect={() => setIsShown2(true)}
+                                                                            style={menu}
+                                                                        >
+                                                                            <p className="menucontent">Move space</p>
+                                                                        </Menu.Item>
+                                                                        <Menu.Item style={menu}>
+                                                                            <p className="menucontent">Duplicate</p>
+                                                                        </Menu.Item>
+                                                                        <Menu.Item
+                                                                            onSelect={() => setIsShown1(true)}
+                                                                            intent="danger"
+                                                                            style={menu}
+                                                                        >
+                                                                            <p className="menucontentred">Delete</p>
+                                                                        </Menu.Item>
+                                                                    </Menu.Group>
+                                                                </Menu>
+                                                            }
+                                                        >
+                                                            <MoreIcon className="more_home" />
+                                                        </Popover>
+                                                        <img src={bug} alt="" height="35" width="35" />
+                                                        <h4>{name}</h4>
+                                                        <p className="deski">www.deskiapp.com</p>
+                                                        <p className="des">
+                                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                                            Maecenas imperdiet velit
+                                                        </p>
+                                                        <p className="progress">{progress}</p>
+                                                        <div className="create_site">
+                                                            <div style={containerStyles}>
+                                                                <div style={fillerStyles}></div>
+                                                            </div>
+                                                        </div>
+                                                        <div className="clock">
+                                                            <img src={clock} alt="" height="11" width="11" />
+                                                            <p>{day}</p>
+                                                        </div>
+                                                        <div className="overlap">
+                                                            <div>
+                                                                <img
+                                                                    src={avatar}
+                                                                    alt=""
+                                                                    className="profiles"
+                                                                    height="19"
+                                                                    width="19"
+                                                                />
+                                                            </div>
+                                                            <div>
+                                                                <img
+                                                                    src={avatar1}
+                                                                    alt=""
+                                                                    className="profiles"
+                                                                    height="19"
+                                                                    width="19"
+                                                                />
+                                                            </div>
+                                                            <div>
+                                                                <img
+                                                                    src={avatar2}
+                                                                    alt=""
+                                                                    className="profiles"
+                                                                    height="19"
+                                                                    width="19"
+                                                                />
+                                                            </div>
+                                                            <div className="img_cnt">
+                                                                <p>{collaborators}</p>
+                                                            </div>
+                                                        </div>
+                                                    </Pane>
+                                                )}
+                                            </Draggable>
+                                        );
+                                    })}
+                                    {provided.placeholder}
                                 </div>
-                            </div>
-                            <div className="clock">
-                                <img src={clock} alt="" height="11" width="11" />
-                                <p>7 days left</p>
-                            </div>
-                            <div className="overlap">
-                                <div>
-                                    <img src={avatar} alt="" className="profiles" height="19" width="19" />
-                                </div>
-                                <div>
-                                    <img src={avatar1} alt="" className="profiles" height="19" width="19" />
-                                </div>
-                                <div>
-                                    <img src={avatar2} alt="" className="profiles" height="19" width="19" />
-                                </div>
-                                <div className="img_cnt">
-                                    <p>+8</p>
-                                </div>
-                            </div>
-                        </Pane>
-
-                        <Link to="/board">
+                            )}
+                        </Droppable>
+                    </DragDropContext>
+                    {/* <Link to="/board">
                             <Pane className="space">
                                 <DragHandleVerticalIcon className="moreicon" />
                                 <Popover
@@ -409,70 +488,69 @@ function Workplace() {
                                     </div>
                                 </div>
                             </Pane>
-                        </Link>
-                        <Popover
-                            bringFocusInside
-                            content={
-                                <Pane width={420} height={155} padding={10} flexDirection="column">
+                        </Link> */}
+
+                    <Popover
+                        bringFocusInside
+                        content={
+                            <Pane width={420} height={155} padding={10} flexDirection="column">
+                                <Pane>
+                                    <Pane className="container">
+                                        <img src={scratch} alt="" height="25" width="25" />
+                                        <Pane className="popover">
+                                            <p className="title">Start from scratch</p>
+                                            <p className="des">Standardize your work with own workflow</p>
+                                        </Pane>
+                                    </Pane>
+                                </Pane>
+                                <Pane className="row_2">
+                                    <Pane className="container">
+                                        <img src={kanban} alt="" height="25" width="25" />
+                                        <Pane className="popover">
+                                            <p className="title">Kanban</p>
+                                            <p className="des">Visualize and advance your project on a powerful board</p>
+                                        </Pane>
+                                    </Pane>
+                                </Pane>
+                                <div className="pop_row">
                                     <Pane>
                                         <Pane className="container">
-                                            <img src={scratch} alt="" height="25" width="25" />
+                                            <img src={scrum} alt="" height="25" width="25" />
                                             <Pane className="popover">
-                                                <p className="title">Start from scratch</p>
-                                                <p className="des">Standardize your work with own workflow</p>
+                                                <p className="title">Scrum</p>
+                                                <p className="des">
+                                                    Sprint towards your project goals with a board ,backlog and road map
+                                                </p>
                                             </Pane>
                                         </Pane>
                                     </Pane>
                                     <Pane className="row_2">
                                         <Pane className="container">
-                                            <img src={kanban} alt="" height="25" width="25" />
+                                            <img src={template} alt="" height="25" width="25" />
                                             <Pane className="popover">
-                                                <p className="title">Kanban</p>
+                                                <p className="title">Start with templates</p>
                                                 <p className="des">
-                                                    Visualize and advance your project on a powerful board
+                                                    Pre-build templates, where you can quickly get started
                                                 </p>
                                             </Pane>
                                         </Pane>
                                     </Pane>
-                                    <div className="pop_row">
-                                        <Pane>
-                                            <Pane className="container">
-                                                <img src={scrum} alt="" height="25" width="25" />
-                                                <Pane className="popover">
-                                                    <p className="title">Scrum</p>
-                                                    <p className="des">
-                                                        Sprint towards your project goals with a board ,backlog and road map
-                                                    </p>
-                                                </Pane>
-                                            </Pane>
-                                        </Pane>
-                                        <Pane className="row_2">
-                                            <Pane className="container">
-                                                <img src={template} alt="" height="25" width="25" />
-                                                <Pane className="popover">
-                                                    <p className="title">Start with templates</p>
-                                                    <p className="des">
-                                                        Pre-build templates, where you can quickly get started
-                                                    </p>
-                                                </Pane>
-                                            </Pane>
-                                        </Pane>
-                                    </div>
-                                </Pane>
-                            }
-                        >
-                            <Pane className="space spc">
-                                <center>
-                                    <img src={add_circle} className="add_circle" alt="add_circle" height="22" width="22" />
-                                </center>
-                                <center>
-                                    <p className="add_space">Add Space</p>
-                                </center>
+                                </div>
                             </Pane>
-                        </Popover>
-                    </div>
+                        }
+                    >
+                        <Pane className="space spc">
+                            <center>
+                                <img src={add_circle} className="add_circle" alt="add_circle" height="22" width="22" />
+                            </center>
+                            <center>
+                                <p className="add_space">Add Space</p>
+                            </center>
+                        </Pane>
+                    </Popover>
+                    {/* </div> */}
                 </Pane>
-
+                {/* 
                 <Pane className="workspace_container">
                     <div>
                         <h2>My Second Workspace</h2>
@@ -700,7 +778,7 @@ function Workplace() {
                             </Pane>
                         </Popover>
                     </div>
-                </Pane>
+                </Pane> */}
                 <Pane className="add_workspace" onClick={() => setSelectedTab(true)}>
                     <img src={add} alt="" height="15" width="15" />
                     <p>Add Workspace</p>

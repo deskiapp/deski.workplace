@@ -2,9 +2,10 @@
     padding-top: 105px;
     margin-left: 360px;
     margin-bottom: 100px;
+    width: 100%;
 }
 .feed h2 {
-    font-family: "GTEestiProDisplay-Medium";
+    font-family: "GTEestiProDisplay-regular";
     font-size: 21px;
     letter-spacing: 0.7px;
     color: #344563;
@@ -119,11 +120,10 @@
 }
 .feed_center {
     margin-top: 230px;
-    margin-left: -35px;
-    display: flex;
-    justify-content: center;
+    margin-left: 455px;
     font-family: "GTEestiProDisplay-regular";
     font-size: 9px;
+    display: flex;
     letter-spacing: 0.2px;
     color: #344563;
 }

@@ -3,7 +3,7 @@
     margin-left: 360px;
 }
 .workspaces h2 {
-    font-family: "GTEestiProDisplay-Medium";
+    font-family: "GTEestiProDisplay-regular";
     font-size: 21px;
     letter-spacing: 0.7px;
     color: #344563;
@@ -49,7 +49,7 @@
 }
 .second_workspace h4 {
     color: #344563;
-    font-family: "GTEestiProDisplay-light";
+    font-family: "GTEestiProDisplay-regular";
     letter-spacing: 0.5px;
     margin-top: 45px;
 }

@@ -13,7 +13,7 @@
 }
 .workspace_container h2 {
     display: inline;
-    font-family: "GTEestiProDisplay-Medium";
+    font-family: "GTEestiProDisplay-regular";
     color: #344563;
     font-size: 21px;
     letter-spacing: 0.7px;
@@ -68,6 +68,9 @@
 .moreicon {
     float: right;
     color: #cecece;
+}
+.a {
+    background-color: blue;
 }
 .overlap {
     margin-left: 130px;
@@ -369,7 +372,7 @@
     margin-left: 362px;
 }
 .addworkspace_field .addworkspace_field_ {
-    font-family: "GTEestiProDisplay-regular";
+    font-family: "GTEestiProDisplay-Medium";
     color: #344563;
     font-size: 21px;
 }

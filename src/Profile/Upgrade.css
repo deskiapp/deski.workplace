@@ -4,11 +4,11 @@
     display: flex;
     justify-content: center;
     font-family: "GTEestiProDisplay-Bold";
-    font-size: 60px;
+    font-size: 27px;
     margin-bottom: -110px;
 }
 .preview {
-    margin-left: 70px;
+    margin-left: 30px;
     background-image: linear-gradient(100deg, #ff554b 9%, #fac02c 68%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -19,12 +19,12 @@
     -webkit-text-fill-color: transparent;
 }
 .pricing_version {
+    margin-top: 50px;
     width: 100%;
     display: flex;
     justify-content: center;
     font-family: "GTEestiProDisplay-Bold";
-    font-size: 60px;
-    font-weight: bolder;
+    font-size: 27px;
     background-image: linear-gradient(100deg, #02106b 34%, #00dfd8 68%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;

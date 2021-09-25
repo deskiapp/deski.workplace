@@ -38,6 +38,7 @@ function Board() {
     const [createIssue3, setCreateIssue3] = React.useState(false);
     const [addBoard, setAddBoard] = React.useState(false);
     const [selected, setSelected] = React.useState(null);
+    const [value, setValue] = React.useState("");
 
     const coll_drpdwn = {
         height: "35px",
@@ -376,11 +377,26 @@ function Board() {
                             </div>
                             {selectedTab3 && (
                                 <div className="board_name">
-                                    <TextInput width={260} autoFocus />
+                                    <TextInput
+                                        width={260}
+                                        autoFocus
+                                        value={value}
+                                        onChange={(e) => setValue(e.target.value)}
+                                    />
                                     <br></br>
                                     <div>
                                         <button>
-                                            <TickIcon className="icon" size={12} />
+                                            <TickIcon
+                                                className="icon"
+                                                size={12}
+                                                onClick={() => {
+                                                    if (value == "") {
+                                                        setAddBoard(false);
+                                                    } else {
+                                                        setSelectedTab3(false);
+                                                    }
+                                                }}
+                                            />
                                         </button>
                                         <button onClick={() => setSelectedTab3(false)}>
                                             <CrossIcon className="icon" size={12} />
@@ -401,17 +417,25 @@ function Board() {
                             )}
                         </div>
                     )}
-                    <div
-                        className="end_col"
-                        onClick={() => {
-                            setAddBoard(true);
-                            setSelectedTab3(true);
-                        }}
-                    >
-                        <div className="board_add">
+                    <div className="end_col">
+                        <div
+                            className="board_add"
+                            onClick={() => {
+                                setAddBoard(true);
+                                setSelectedTab3(true);
+                            }}
+                        >
                             <img src={add} alt="" height="14" width="10" />
                         </div>
                     </div>
+                    <div
+                        className="outside"
+                        onClick={() => {
+                            if (value == "") {
+                                setAddBoard(false);
+                            }
+                        }}
+                    ></div>
                 </div>
             </div>
         </div>
