@@ -7,9 +7,10 @@
 .workspace_container {
     /* background-color: brown; */
     margin-left: 360px;
-    height: 300px;
-    width: 700px;
+    height: fit-content;
+    width: 900px;
     z-index: 0;
+    margin-bottom: 40px;
 }
 .workspace_container h2 {
     display: inline;
@@ -23,7 +24,6 @@
     color: #cecece;
     cursor: pointer;
     float: right;
-    margin-top: 50px;
     margin-left: 50px;
     margin-top: 1px;
     margin-right: 5px;
@@ -43,7 +43,7 @@
     box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.16);
     background-color: #fff;
     margin-right: 22px;
-    margin-bottom: 50px;
+    margin-bottom: 10px;
 }
 .spc:hover {
     background-color: #f3f1f5;
@@ -69,9 +69,18 @@
     float: right;
     color: #cecece;
 }
-.a {
-    background-color: blue;
+.card_dragicon {
+    float: right;
+    color: #cecece;
+    visibility: hidden;
 }
+.card_drag {
+    /* background-color: blue; */
+    display: flex;
+    /* width: fit-content; */
+    flex-wrap: wrap;
+}
+
 .overlap {
     margin-left: 130px;
     margin-top: -35px;
@@ -166,7 +175,7 @@
 }
 .add_workspace {
     cursor: pointer;
-    margin-top: 50px;
+    margin-top: 10px;
     margin-left: 360px;
     height: fit-content;
     width: 1000px;
@@ -363,7 +372,8 @@
     background-color: #086bff;
 }
 
-.space:hover .more_home {
+.space:hover .more_home,
+.space:hover .card_dragicon {
     visibility: visible;
 }
 
