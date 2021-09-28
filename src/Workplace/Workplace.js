@@ -10,10 +10,7 @@ import share from "../assets/share.svg";
 import dlt from "../assets/dlt.svg";
 import rename from "../assets/rename.svg";
 import settings from "../assets/settings.svg";
-import kanban from "../assets/kanban.svg";
-import scrum from "../assets/scrum.svg";
-import template from "../assets/template.svg";
-import scratch from "../assets/scratch.svg";
+
 import arrow from "../assets/arrow.svg";
 import add_circle from "../assets/add_circle.svg";
 import {
@@ -489,61 +486,7 @@ function Workplace() {
                                             );
                                         })}
                                         {provided.placeholder}
-                                        <Popover
-                                            bringFocusInside
-                                            content={
-                                                <Pane width={420} height={155} padding={10} flexDirection="column">
-                                                    <Pane>
-                                                        <Pane className="container">
-                                                            <img src={scratch} alt="" height="25" width="25" />
-                                                            <Pane className="popover">
-                                                                <p className="title">Start from scratch</p>
-                                                                <p className="des">
-                                                                    Standardize your work with own workflow
-                                                                </p>
-                                                            </Pane>
-                                                        </Pane>
-                                                    </Pane>
-                                                    <Pane className="row_2">
-                                                        <Pane className="container">
-                                                            <img src={kanban} alt="" height="25" width="25" />
-                                                            <Pane className="popover">
-                                                                <p className="title">Kanban</p>
-                                                                <p className="des">
-                                                                    Visualize and advance your project on a powerful board
-                                                                </p>
-                                                            </Pane>
-                                                        </Pane>
-                                                    </Pane>
-                                                    <div className="pop_row">
-                                                        <Pane>
-                                                            <Pane className="container">
-                                                                <img src={scrum} alt="" height="25" width="25" />
-                                                                <Pane className="popover">
-                                                                    <p className="title">Scrum</p>
-                                                                    <p className="des">
-                                                                        Sprint towards your project goals with a board
-                                                                        ,backlog and road map
-                                                                    </p>
-                                                                </Pane>
-                                                            </Pane>
-                                                        </Pane>
-                                                        <Pane className="row_2">
-                                                            <Pane className="container">
-                                                                <img src={template} alt="" height="25" width="25" />
-                                                                <Pane className="popover">
-                                                                    <p className="title">Start with templates</p>
-                                                                    <p className="des">
-                                                                        Pre-build templates, where you can quickly get
-                                                                        started
-                                                                    </p>
-                                                                </Pane>
-                                                            </Pane>
-                                                        </Pane>
-                                                    </div>
-                                                </Pane>
-                                            }
-                                        >
+                                        <Link to="/new_project">
                                             <Pane className="space spc">
                                                 <center>
                                                     <img
@@ -558,7 +501,7 @@ function Workplace() {
                                                     <p className="add_space">Add Space</p>
                                                 </center>
                                             </Pane>
-                                        </Popover>
+                                        </Link>
                                     </div>
                                 )}
                             </Droppable>
@@ -892,61 +835,7 @@ function Workplace() {
                                             );
                                         })}
                                         {provided.placeholder}
-                                        <Popover
-                                            bringFocusInside
-                                            content={
-                                                <Pane width={420} height={155} padding={10} flexDirection="column">
-                                                    <Pane>
-                                                        <Pane className="container">
-                                                            <img src={scratch} alt="" height="25" width="25" />
-                                                            <Pane className="popover">
-                                                                <p className="title">Start from scratch</p>
-                                                                <p className="des">
-                                                                    Standardize your work with own workflow
-                                                                </p>
-                                                            </Pane>
-                                                        </Pane>
-                                                    </Pane>
-                                                    <Pane className="row_2">
-                                                        <Pane className="container">
-                                                            <img src={kanban} alt="" height="25" width="25" />
-                                                            <Pane className="popover">
-                                                                <p className="title">Kanban</p>
-                                                                <p className="des">
-                                                                    Visualize and advance your project on a powerful board
-                                                                </p>
-                                                            </Pane>
-                                                        </Pane>
-                                                    </Pane>
-                                                    <div className="pop_row">
-                                                        <Pane>
-                                                            <Pane className="container">
-                                                                <img src={scrum} alt="" height="25" width="25" />
-                                                                <Pane className="popover">
-                                                                    <p className="title">Scrum</p>
-                                                                    <p className="des">
-                                                                        Sprint towards your project goals with a board
-                                                                        ,backlog and road map
-                                                                    </p>
-                                                                </Pane>
-                                                            </Pane>
-                                                        </Pane>
-                                                        <Pane className="row_2">
-                                                            <Pane className="container">
-                                                                <img src={template} alt="" height="25" width="25" />
-                                                                <Pane className="popover">
-                                                                    <p className="title">Start with templates</p>
-                                                                    <p className="des">
-                                                                        Pre-build templates, where you can quickly get
-                                                                        started
-                                                                    </p>
-                                                                </Pane>
-                                                            </Pane>
-                                                        </Pane>
-                                                    </div>
-                                                </Pane>
-                                            }
-                                        >
+                                        <Link to="/new_project">
                                             <Pane className="space spc">
                                                 <center>
                                                     <img
@@ -961,7 +850,7 @@ function Workplace() {
                                                     <p className="add_space">Add Space</p>
                                                 </center>
                                             </Pane>
-                                        </Popover>
+                                        </Link>
                                     </div>
                                 )}
                             </Droppable>

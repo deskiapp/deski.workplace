@@ -19,7 +19,9 @@ import Email_verification from "./Authentication/Email_verification";
 import Forgot_password from "./Authentication/Forgot_password";
 import Template from "./Workplace/Template";
 import Workplace from "./Workplace/Workplace";
+import Blank_project from "./Workplace/Blank_project";
 import Feed from "./Workplace/Feed";
+import Create_new from "./Workplace/Create_new";
 import Account from "./Profile/Account";
 import Collaborators from "./Profile/Collaborators";
 import Workspaces from "./Profile/Workspaces";
@@ -74,6 +76,8 @@ function App() {
                 <Route path="/create_view" component={View} />
                 <Route path="/upgrade" component={Upgrad} />
                 <Route path="/list" component={List} />
+                <Route path="/new_project" component={Create_new} />
+                <Route path="/blank_project" component={Blank_project} />
             </Router>
         </div>
     );
