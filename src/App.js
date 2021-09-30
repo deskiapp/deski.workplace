@@ -18,7 +18,10 @@ import Setting_up from "./Authentication/Setting_up";
 import Email_verification from "./Authentication/Email_verification";
 import Forgot_password from "./Authentication/Forgot_password";
 import Template from "./Workplace/Template";
+import Templates from "./Workplace/Templates";
 import Workplace from "./Workplace/Workplace";
+import Calendars from "./Space/Calendars";
+import Kanban from "./Workplace/Kanban";
 import Blank_project from "./Workplace/Blank_project";
 import Feed from "./Workplace/Feed";
 import Create_new from "./Workplace/Create_new";
@@ -78,6 +81,9 @@ function App() {
                 <Route path="/list" component={List} />
                 <Route path="/new_project" component={Create_new} />
                 <Route path="/blank_project" component={Blank_project} />
+                <Route path="/templates" component={Templates} />
+                <Route path="/kanban" component={Kanban} />
+                <Route path="/calendars" component={Calendars} />
             </Router>
         </div>
     );

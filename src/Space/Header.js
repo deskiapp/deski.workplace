@@ -58,7 +58,7 @@ function Header() {
                         Dashboard
                     </Link>
 
-                    <Link to="/filters" className={selectedtab === 2 ? "wrknav_links_selected" : "wrknav_links"}>
+                    <Link to="/calendars" className={selectedtab === 2 ? "wrknav_links_selected" : "wrknav_links"}>
                         Filters
                     </Link>
                     <Link to="/people" className={selectedtab === 3 ? "wrknav_links_selected" : "wrknav_links"}>

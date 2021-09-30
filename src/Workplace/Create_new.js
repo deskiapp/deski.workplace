@@ -34,15 +34,17 @@ function Create_new() {
                         </div>
                     </div>
                 </Link>
-                <div className="cards">
-                    <div className="boxes">
-                        <img src={kanban} alt="" height="40" width="40" />
+                <Link to="/kanban" className="links">
+                    <div className="cards">
+                        <div className="boxes">
+                            <img src={kanban} alt="" height="40" width="40" />
+                        </div>
+                        <div className="project_name">
+                            <h1>Kanban</h1>
+                            <p>Advance your workflow</p>
+                        </div>
                     </div>
-                    <div className="project_name">
-                        <h1>Kanban</h1>
-                        <p>Advance your workflow</p>
-                    </div>
-                </div>
+                </Link>
                 <div className="cards">
                     <div className="boxes">
                         <img src={scrum} alt="" height="43.47" width="50.35" />
@@ -52,15 +54,17 @@ function Create_new() {
                         <p>Sprint towards project</p>
                     </div>
                 </div>
-                <div className="cards">
-                    <div className="boxes">
-                        <img src={template} alt="" height="43" width="34.3" />
+                <Link to="/templates" className="links">
+                    <div className="cards">
+                        <div className="boxes">
+                            <img src={template} alt="" height="43" width="34.3" />
+                        </div>
+                        <div className="project_name">
+                            <h1>Templates</h1>
+                            <p>Choose from library</p>
+                        </div>
                     </div>
-                    <div className="project_name">
-                        <h1>Templates</h1>
-                        <p>Choose from library</p>
-                    </div>
-                </div>
+                </Link>
             </div>
         </div>
     );

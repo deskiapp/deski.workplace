@@ -35,7 +35,9 @@ function Blank_project() {
             </div>
             <div className="blank_project">
                 <h2>New project</h2>
-                <p className="name">Name</p>
+                <p className="name">
+                    Name<span>*</span>
+                </p>
                 <TextInput style={textinput} />
                 <p className="key">
                     Key<span>*</span>

@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/static/css/main.c2e624b2.chunk.css",
-    "main.js": "/static/js/main.bcee58c6.chunk.js",
-    "main.js.map": "/static/js/main.bcee58c6.chunk.js.map",
-    "runtime-main.js": "/static/js/runtime-main.03809cd1.js",
-    "runtime-main.js.map": "/static/js/runtime-main.03809cd1.js.map",
-    "static/js/2.86a8d5e1.chunk.js": "/static/js/2.86a8d5e1.chunk.js",
-    "static/js/2.86a8d5e1.chunk.js.map": "/static/js/2.86a8d5e1.chunk.js.map",
-    "static/js/3.c63118da.chunk.js": "/static/js/3.c63118da.chunk.js",
-    "static/js/3.c63118da.chunk.js.map": "/static/js/3.c63118da.chunk.js.map",
+    "main.css": "/static/css/main.554a6e81.chunk.css",
+    "main.js": "/static/js/main.cec675de.chunk.js",
+    "main.js.map": "/static/js/main.cec675de.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.134e37db.js",
+    "runtime-main.js.map": "/static/js/runtime-main.134e37db.js.map",
+    "static/js/2.579cd569.chunk.js": "/static/js/2.579cd569.chunk.js",
+    "static/js/2.579cd569.chunk.js.map": "/static/js/2.579cd569.chunk.js.map",
+    "static/js/3.87cc818e.chunk.js": "/static/js/3.87cc818e.chunk.js",
+    "static/js/3.87cc818e.chunk.js.map": "/static/js/3.87cc818e.chunk.js.map",
     "index.html": "/index.html",
-    "static/css/main.c2e624b2.chunk.css.map": "/static/css/main.c2e624b2.chunk.css.map",
-    "static/js/2.86a8d5e1.chunk.js.LICENSE.txt": "/static/js/2.86a8d5e1.chunk.js.LICENSE.txt",
+    "static/css/main.554a6e81.chunk.css.map": "/static/css/main.554a6e81.chunk.css.map",
+    "static/js/2.579cd569.chunk.js.LICENSE.txt": "/static/js/2.579cd569.chunk.js.LICENSE.txt",
     "static/media/activity.f79bb6ca.svg": "/static/media/activity.f79bb6ca.svg",
     "static/media/add.363247ed.svg": "/static/media/add.363247ed.svg",
     "static/media/add_.f9b81ed9.svg": "/static/media/add_.f9b81ed9.svg",
@@ -57,6 +57,7 @@
     "static/media/group_work.d63dc620.svg": "/static/media/group_work.d63dc620.svg",
     "static/media/App.css": "/static/media/seguisb.c32d6af1.ttf",
     "static/media/kanban.514ffa65.svg": "/static/media/kanban.514ffa65.svg",
+    "static/media/kanbanboard.2afe6dda.svg": "/static/media/kanbanboard.2afe6dda.svg",
     "static/media/key.3bb07116.svg": "/static/media/key.3bb07116.svg",
     "static/media/listadd.a870c4d9.svg": "/static/media/listadd.a870c4d9.svg",
     "static/media/location.efd8d7fd.svg": "/static/media/location.efd8d7fd.svg",
@@ -87,9 +88,9 @@
     "static/media/workspace.a61c462a.svg": "/static/media/workspace.a61c462a.svg"
   },
   "entrypoints": [
-    "static/js/runtime-main.03809cd1.js",
-    "static/js/2.86a8d5e1.chunk.js",
-    "static/css/main.c2e624b2.chunk.css",
-    "static/js/main.bcee58c6.chunk.js"
+    "static/js/runtime-main.134e37db.js",
+    "static/js/2.579cd569.chunk.js",
+    "static/css/main.554a6e81.chunk.css",
+    "static/js/main.cec675de.chunk.js"
   ]
 }

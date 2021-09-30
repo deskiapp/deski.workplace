@@ -1,5 +1,6 @@
 import React from "react";
 import "./Feed.css";
+import { Link } from "react-router-dom";
 import Workspace_list from "./Workspace_list";
 import Header from "../Workplace/Header";
 import { Pane, DragHandleVerticalIcon, SearchInput, Popover, Menu } from "evergreen-ui";
@@ -317,10 +318,11 @@ function Feed() {
                             content={
                                 <Menu>
                                     <Menu.Group>
-                                        <Menu.Item style={menu}>
-                                            <p className="menucontent">Sort as latest</p>
-                                        </Menu.Item>
-
+                                        <Link to="/calendars">
+                                            <Menu.Item style={menu}>
+                                                <p className="menucontent">Sort as latest</p>
+                                            </Menu.Item>
+                                        </Link>
                                         <Menu.Item style={menu}>
                                             <p className="menucontent">Sort as first</p>
                                         </Menu.Item>
