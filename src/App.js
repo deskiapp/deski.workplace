@@ -20,7 +20,6 @@ import Forgot_password from "./Authentication/Forgot_password";
 import Template from "./Workplace/Template";
 import Templates from "./Workplace/Templates";
 import Workplace from "./Workplace/Workplace";
-import Calendars from "./Space/Calendars";
 import Kanban from "./Workplace/Kanban";
 import Blank_project from "./Workplace/Blank_project";
 import Feed from "./Workplace/Feed";
@@ -83,7 +82,6 @@ function App() {
                 <Route path="/blank_project" component={Blank_project} />
                 <Route path="/templates" component={Templates} />
                 <Route path="/kanban" component={Kanban} />
-                <Route path="/calendars" component={Calendars} />
             </Router>
         </div>
     );

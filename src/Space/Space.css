@@ -31,3 +31,116 @@
     font-size: 13px;
     letter-spacing: 0.5px;
 }
+
+/* <header> create_issue */
+.create_issue:hover {
+    cursor: pointer;
+}
+.create_issue {
+    z-index: 5;
+    position: fixed;
+    min-width: 683px;
+    height: 584px;
+    left: 757px;
+    top: 297px;
+    background: #ffffff;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+.create_issue:hover {
+    background: white;
+    cursor: auto;
+}
+
+.create_issue .header {
+    padding: 11px 28px 0 31px;
+    height: 24px;
+    border-bottom: 0.7px solid #cac7c7;
+}
+.create_issue .header p {
+    font-family: "SegoeUI";
+    font-weight: normal;
+    font-size: 12px;
+    margin-right: 6px;
+}
+.create_issue .h_right {
+    float: right;
+}
+.create_issue .h_right img {
+    margin-left: 22px;
+}
+.create_issue_textinput::placeholder {
+    font-size: 24px;
+    font-family: "GTEestiProDisplay-regular";
+    color: #000000;
+}
+.textarea::placeholder {
+    font-family: "Segoe UI";
+    font-size: 12px;
+    color: #858585;
+}
+
+.create_issue_content p {
+    display: block;
+    margin-top: 0;
+    margin-top: 22px;
+    margin-bottom: 0;
+    font-weight: normal;
+    font-size: 12px;
+    font-family: "SegoeUI";
+    color: #858585;
+}
+.create_issue_content {
+    margin-left: 32px;
+}
+
+.create_issue_content p .span1 {
+    background: rgba(15, 152, 230, 0.56);
+    border-radius: 20px;
+    padding: 5px;
+    color: #574747;
+    margin-left: 77px;
+}
+.create_issue_content p .span2 {
+    margin-left: 77px;
+    cursor: pointer;
+}
+.create_issue_content p .span3 {
+    background: #fded62;
+    border-radius: 5px;
+    color: #574747;
+    margin-left: 98px;
+    padding: 0 30px 4px 30px;
+    color: #574747;
+}
+.create_issue_content p .span4 {
+    background: #71dada;
+    border-radius: 5px;
+    color: #574747;
+    margin-left: 87px;
+    padding: 2px 16px 2px 19px;
+}
+.create_issue_content p .span5 {
+    background: #71dada;
+    border-radius: 5px;
+    color: #574747;
+    margin-left: 89px;
+    padding: 2px 11px 4px 12px;
+}
+.create_issue_btn {
+    background: #ffffff;
+    border: 0.7px solid #c4c4c4;
+    box-sizing: border-box;
+    border-radius: 5px;
+    width: 99.33px;
+    height: 28px;
+    font-size: 12px;
+    color: #858585;
+    font-family: "SegoeUI";
+    margin-top: 19px;
+    margin-left: 21px;
+    display: block;
+    cursor: pointer;
+}
+.plusmath {
+    margin-right: 4px;
+}

@@ -53,7 +53,7 @@ header {
     position: relative;
     padding: 0 10px;
 }
-.wrknav_links_ {
+.create_btn {
     text-decoration: none;
     font-family: "GTEestiProDisplay-light";
     color: #344563;
@@ -61,15 +61,23 @@ header {
     letter-spacing: 0.2px;
     font-size: 14px;
     position: relative;
-    padding: 5px 15px;
+    height: 27px;
+    width: 70px;
+    border: none;
+    background: none;
 }
-.wrknav_links_:hover {
+.create_btn:hover {
     border-radius: 4px;
     background-color: #3250fe;
     color: white;
+    cursor: pointer;
 }
 .wrk_nav {
     margin-top: -47px;
+    margin-left: 220px;
+}
+.wrk_nav_ {
+    margin-top: -51px;
     margin-left: 220px;
 }
 .wrknav_links_selected {
@@ -84,23 +92,7 @@ header {
     padding-bottom: 16px;
     border-bottom: 4px solid #3250fe;
 }
-/* .wrknav_links_selected_ {
-    text-decoration: none;
-    font-family: "GTEestiProDisplay-light";
-    color: #344563;
-    margin-left: 30px;
-    letter-spacing: 0.2px;
-    font-size: 14px;
-    position: relative;
-    padding: 0 10px;
-    padding-bottom: 16px;
-    border-bottom: 4px solid #3250fe;
-}
-.wrknav_links_selected_:hover {
-    border-radius: 4px;
-    background-color: #3250fe;
-    color: white;
-} */
+
 .profile_menu p {
     font-family: "SegoeUI";
     font-size: 13px;

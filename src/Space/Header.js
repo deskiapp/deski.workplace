@@ -2,8 +2,17 @@ import React from "react";
 import deski_ash from "../assets/deski_ash.svg";
 import { Link, useLocation } from "react-router-dom";
 import bell from "../assets/bell.svg";
+
+import sortdown from "../assets/sortdown.png";
+import plusmath from "../assets/plusmath.png";
+import planner from "../assets/planner.png";
+import ellips from "../assets/ellips.png";
+import exit from "../assets/exit.png";
+import menuvertical from "../assets/menuvertical.png";
+import like from "../assets/like.png";
+import attach from "../assets/attach.png";
 import avatar from "../assets/avatar.jpg";
-import { Avatar, Menu, Popover, Position, Dialog, CrossIcon, MoreIcon, TextInput } from "evergreen-ui";
+import { Avatar, Menu, Popover, Position, Dialog, CrossIcon, MoreIcon, TextInput, Pane, Textarea } from "evergreen-ui";
 import dropbox from "../assets/dropbox.png";
 
 function Header() {
@@ -11,6 +20,8 @@ function Header() {
     const [isShown1, setIsShown1] = React.useState(false);
     // const [isShown2, setIsShown2] = React.useState(false);
     const [isShown3, setIsShown3] = React.useState(false);
+    const [create, setCreate] = React.useState(false);
+    const [caledar, setCalendar] = React.useState(false);
 
     const location = useLocation();
     const [selectedtab, setSelectedTab] = React.useState(0);
@@ -21,7 +32,28 @@ function Header() {
     const profile_menu = {
         height: "30px",
     };
-
+    const textinput = {
+        width: "608px",
+        height: "36px",
+        border: "0.5px solid #C4C4C4",
+        borderRadius: "5px",
+        margin: "25px 0 0 20px",
+        padding: "2px 0 4px 12px",
+        marginBottom: "28px",
+        fontSize: "24px",
+        fontSamily: "GTEestiProDisplay-regular",
+        color: "#000000",
+    };
+    const textarea = {
+        height: "71px",
+        width: "608px",
+        marginLeft: "20px",
+        borderRadius: "5px",
+        marginTop: "17px",
+        fontSize: "12px",
+        fontSamily: "Segoe UI",
+        color: "#858585",
+    };
     React.useEffect(() => {
         if (location.pathname === "/dashboard") {
             setSelectedTab(1);
@@ -38,10 +70,6 @@ function Header() {
         if (location.pathname === "/people") {
             setSelectedTab(3);
         }
-
-        if (location.pathname === "/create") {
-            setSelectedTab(4);
-        }
     });
 
     return (
@@ -50,7 +78,7 @@ function Header() {
                 <Link to="/workplace">
                     <img src={deski_ash} alt="" height="60" width="110" />
                 </Link>
-                <div className="wrk_nav">
+                <div className="wrk_nav_">
                     <Link to="/works" className={selectedtab === 0 ? "wrknav_links_selected" : "wrknav_links"}>
                         Works
                     </Link>
@@ -58,15 +86,15 @@ function Header() {
                         Dashboard
                     </Link>
 
-                    <Link to="/calendars" className={selectedtab === 2 ? "wrknav_links_selected" : "wrknav_links"}>
+                    <Link to="/filters" className={selectedtab === 2 ? "wrknav_links_selected" : "wrknav_links"}>
                         Filters
                     </Link>
                     <Link to="/people" className={selectedtab === 3 ? "wrknav_links_selected" : "wrknav_links"}>
                         People
                     </Link>
-                    <Link to="/create" className={selectedtab === 4 ? "wrknav_links_selected" : "wrknav_links_"}>
+                    <button className="create_btn" onClick={() => setCreate(true)}>
                         Create
-                    </Link>
+                    </button>
 
                     <div className="header_right">
                         <Popover
@@ -259,6 +287,51 @@ function Header() {
                     </div>
                 </Dialog>
             </header>
+            {create && (
+                <Pane className="create_issue">
+                    <div className="header">
+                        <p>Todo</p>
+                        <img src={sortdown} alt="" />
+                        <div className="h_right">
+                            <img src={like} alt="" />
+                            <img src={attach} alt="" />
+                            <img src={menuvertical} alt="" />
+                            <img src={exit} alt="" />
+                        </div>
+                    </div>
+                    <TextInput style={textinput} className="create_issue_textinput" placeholder="My First Workspace" />
+                    <div className="create_issue_content">
+                        <p>
+                            Assignee
+                            <span className="span1">HC</span>
+                        </p>
+                        <p>
+                            Due date
+                            <span className="span2">
+                                <TextInput type="date" border="none" width="10" padding="0" />
+                            </span>
+                        </p>
+                        <p>
+                            Label
+                            <span className="span3">High</span>
+                        </p>
+                        <p>
+                            Priority
+                            <span className="span4">Medium</span>
+                        </p>
+                        <p>
+                            Project
+                            <span className="span5">Bug tracking project</span>
+                        </p>
+                        <p>Description</p>
+                    </div>
+                    <Textarea style={textarea} className="textarea" placeholder="Add more details to this task" />
+                    <button className="create_issue_btn">
+                        <img src={plusmath} alt="" className="plusmath" />
+                        Add subtask
+                    </button>
+                </Pane>
+            )}
         </div>
     );
 }

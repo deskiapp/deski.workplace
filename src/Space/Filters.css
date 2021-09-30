@@ -1,0 +1,231 @@
+.leftmenu {
+    height: 100%;
+    width: 300px;
+    background-color: black;
+    padding: 60px 16px 10px 16px;
+    margin-top: 55px;
+}
+.react-calendar {
+    width: 300px;
+    height: 316px;
+    margin-bottom: -60px;
+}
+.react-calendar--doubleView {
+    width: 700px;
+}
+.react-calendar--doubleView .react-calendar__viewContainer {
+    display: flex;
+    margin: -0.5em;
+}
+.react-calendar--doubleView .react-calendar__viewContainer > * {
+    width: 50%;
+    margin: 0.5em;
+}
+.react-calendar,
+.react-calendar *,
+.react-calendar *:before,
+.react-calendar *:after {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+.react-calendar button {
+    margin: 0;
+    border: 0;
+    outline: none;
+}
+.react-calendar button:enabled:hover {
+    cursor: pointer;
+}
+.react-calendar__navigation {
+    height: 44px;
+    margin-bottom: 1em;
+}
+.react-calendar__navigation button {
+    min-width: 44px;
+    background: none;
+    color: white;
+    font-weight: 500;
+    font-size: 15px;
+    font-family: "SegoeUI";
+}
+/* .react-calendar__navigation button:enabled:hover,
+.react-calendar__navigation button:enabled:focus {
+    background-color: #e6e6e6;
+} */
+/* .react-calendar__navigation button[disabled] {
+    background-color: #f0f0f0;
+} */
+.react-calendar__month-view__weekdays {
+    text-align: center;
+    text-transform: uppercase;
+    color: #71717a;
+    border-bottom: none;
+    font-weight: 600;
+    font-size: 10px;
+    font-family: "SegoeUI";
+}
+abbr[title] {
+    text-decoration: none;
+}
+.react-calendar__month-view__weekdays__weekday {
+    padding: 0.5em;
+}
+.react-calendar__month-view__weekNumbers {
+    font-weight: bold;
+}
+.react-calendar__month-view__weekNumbers .react-calendar__tile {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.75em;
+
+    padding: calc(0.75em / 0.75) calc(0.5em / 0.75);
+}
+/* .react-calendar__month-view__days__day--weekend {
+    color: #d10000;
+} */
+.react-calendar__month-view__days__day--neighboringMonth {
+    color: #71717a;
+}
+.react-calendar__year-view .react-calendar__tile,
+.react-calendar__decade-view .react-calendar__tile,
+.react-calendar__century-view .react-calendar__tile {
+    padding: 2em 0.5em;
+}
+.react-calendar__tile {
+    max-width: 100%;
+    text-align: center;
+    padding: 0.75em 0.5em;
+    background: none;
+    color: white;
+    font-weight: 600;
+    font-size: 11px;
+    font-family: "SegoeUI";
+}
+.react-calendar__tile:disabled {
+    background-color: #f0f0f0;
+}
+.react-calendar__tile:enabled:hover,
+.react-calendar__tile:enabled:focus {
+    background-color: #e6e6e6;
+    border-radius: 20px;
+}
+/* .react-calendar__tile--now {
+    background: #ffff76;
+}
+.react-calendar__tile--now:enabled:hover,
+.react-calendar__tile--now:enabled:focus {
+    background: #ffffa9;
+} */
+.react-calendar__tile--hasActive {
+    background: #1087ff;
+
+    border-radius: 20px;
+}
+.react-calendar__tile--hasActive:enabled:hover,
+.react-calendar__tile--hasActive:enabled:focus {
+    background: #1087ff;
+
+    border-radius: 20px;
+}
+.react-calendar__tile--active {
+    background: #006edc;
+    color: white;
+    border-radius: 20px;
+}
+.react-calendar__tile--active:enabled:hover,
+.react-calendar__tile--active:enabled:focus {
+    border-radius: 20px;
+    background: #1087ff;
+    border-radius: 20px;
+}
+/* .react-calendar--selectRange .react-calendar__tile--hover {
+    background-color: #e6e6e6;
+    border-radius: 20px;
+} */
+
+.leftmenu_contents .today {
+    font-weight: bold;
+    font-size: 13px;
+    color: #3b82f6;
+    font-family: "SegoeUI";
+    display: inline;
+}
+.leftmenu_contents .today span {
+    font-weight: normal;
+    margin-left: 4px;
+}
+.leftmenu_contents .temp {
+    font-family: "SegoeUI";
+    font-weight: bold;
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.7);
+    margin-right: 4px;
+    float: right;
+    margin-top: 0;
+}
+.leftmenu_contents .temp span {
+    font-weight: normal;
+}
+.leftmenu_contents .img {
+    margin-right: 30px;
+    float: right;
+}
+.leftmenu_contents .title {
+    width: 180px;
+    height: 20px;
+    background: #a855f7;
+    border-radius: 6px;
+    font-weight: 500;
+    font-size: 14px;
+    color: #ffffff;
+    font-family: "SegoeUI";
+    padding: 0px 6px;
+    margin-top: -10px;
+}
+.leftmenu_contents .time {
+    margin-top: 8px;
+}
+.leftmenu_contents .time p {
+    font-weight: 600;
+    font-size: 11px;
+    font-family: "SegoeUI";
+    color: #a1a1aa;
+    margin-left: 20px;
+    margin-top: -18px;
+}
+.leftmenu_contents .time .camera {
+    margin-left: 116px;
+    margin-top: -27px;
+}
+.leftmenu_contents .time_sub {
+    font-weight: 500;
+    font-size: 12px;
+    font-family: "SegoeUI";
+    color: #ffffff;
+    margin-left: 20px;
+    margin-top: -14px;
+    margin-bottom: -5px;
+    width: 200px;
+}
+.leftmenu_contents .time_sub div {
+    font-family: "SegoeUI";
+    font-weight: normal;
+    font-size: 11px;
+    color: #a1a1aa;
+    margin-top: -11px;
+    margin-bottom: 12px;
+}
+.leftmenu_contents .others {
+    color: rgba(255, 255, 255, 0.7);
+    font-weight: bold;
+    font-size: 13px;
+    font-family: "SegoeUI";
+    display: inline;
+    background: none;
+}
+.leftmenu_contents .others span {
+    font-weight: normal;
+    margin-left: 4px;
+}
