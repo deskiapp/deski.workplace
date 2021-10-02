@@ -60,7 +60,7 @@ function People() {
                             history.push("/user_details");
                         }}
                     >
-                        <Avatar src={people1} size={70} />
+                        <Avatar src={people1} size={70} zIndex="-5" />
                         <span>Tommy Guzman</span>
                         <p>Web developer</p>
                     </Pane>
@@ -70,7 +70,7 @@ function People() {
                             history.push("/user_details");
                         }}
                     >
-                        <Avatar src={people2} size={70} />
+                        <Avatar src={people2} size={70} zIndex="-5" />
                         <span>Tommy Guzman</span>
                         <p>Web developer</p>
                     </Pane>
@@ -80,7 +80,7 @@ function People() {
                             history.push("/user_details");
                         }}
                     >
-                        <Avatar src={people3} size={70} />
+                        <Avatar src={people3} size={70} zIndex="-5" />
                         <span>Tommy Guzman</span>
                         <p>Web developer</p>
                     </Pane>
@@ -90,7 +90,7 @@ function People() {
                             history.push("/user_details");
                         }}
                     >
-                        <Avatar src={people4} size={70} />
+                        <Avatar src={people4} size={70} zIndex="-5" />
                         <span>Tommy Guzman</span>
                         <p>Web developer</p>
                     </Pane>
@@ -100,7 +100,7 @@ function People() {
                             history.push("/user_details");
                         }}
                     >
-                        <Avatar src={people5} size={70} />
+                        <Avatar src={people5} size={70} zIndex="-5" />
                         <span>Tommy Guzman</span>
                         <p>Web developer</p>
                     </Pane>
@@ -110,7 +110,7 @@ function People() {
                             history.push("/user_details");
                         }}
                     >
-                        <Avatar src={people6} size={70} />
+                        <Avatar src={people6} size={70} zIndex="-5" />
                         <span>Tommy Guzman</span>
                         <p>Web developer</p>
                     </Pane>

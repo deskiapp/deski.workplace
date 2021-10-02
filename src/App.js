@@ -37,7 +37,7 @@ import Works from "./Space/Works";
 import Filters from "./Space/Filters";
 import Create from "./Space/Create";
 import Settings from "./Space/Settings";
-import Board from "./Space/Board/Board";
+import Board from "./Space/Board";
 import View from "./Space/View";
 import Calendar from "./Space/Calendar";
 import Chart from "./Space/Chart";

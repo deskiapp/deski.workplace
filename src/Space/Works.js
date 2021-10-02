@@ -1,7 +1,7 @@
 import React from "react";
 import Header from "./Header";
 import "./Works.css";
-import "./Board/Board.css";
+import "./Board.css";
 import Space from "./Space";
 import arrow from "../assets/arrow.svg";
 

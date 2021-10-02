@@ -1,28 +1,36 @@
-import React from "react";
+import React, { useState } from "react";
 import deski_ash from "../assets/deski_ash.svg";
 import { Link, useLocation } from "react-router-dom";
 import bell from "../assets/bell.svg";
-
+import { Calendar } from "small-google-calendar";
+import { format } from "date-fns";
 import sortdown from "../assets/sortdown.png";
 import plusmath from "../assets/plusmath.png";
 import planner from "../assets/planner.png";
-import ellips from "../assets/ellips.png";
 import exit from "../assets/exit.png";
 import menuvertical from "../assets/menuvertical.png";
-import like from "../assets/like.png";
+import like from "../assets/like.svg";
 import attach from "../assets/attach.png";
 import avatar from "../assets/avatar.jpg";
 import { Avatar, Menu, Popover, Position, Dialog, CrossIcon, MoreIcon, TextInput, Pane, Textarea } from "evergreen-ui";
 import dropbox from "../assets/dropbox.png";
+import { position } from "ui-box";
 
 function Header() {
     const [isShown, setIsShown] = React.useState(false);
     const [isShown1, setIsShown1] = React.useState(false);
     // const [isShown2, setIsShown2] = React.useState(false);
     const [isShown3, setIsShown3] = React.useState(false);
-    const [create, setCreate] = React.useState(false);
-    const [caledar, setCalendar] = React.useState(false);
 
+    const [title, setTitle] = React.useState(false);
+    const [show, setShow] = useState(false);
+    const [date, setDate] = useState(new Date());
+
+    function handleKeyDown(e) {
+        if (e.key === "Enter") {
+            setTitle(false);
+        }
+    }
     const location = useLocation();
     const [selectedtab, setSelectedTab] = React.useState(0);
 
@@ -37,12 +45,13 @@ function Header() {
         height: "36px",
         border: "0.5px solid #C4C4C4",
         borderRadius: "5px",
-        margin: "25px 0 0 20px",
         padding: "2px 0 4px 12px",
-        marginBottom: "28px",
         fontSize: "24px",
         fontSamily: "GTEestiProDisplay-regular",
         color: "#000000",
+        marginLeft: "20px",
+        marginTop: "-70px",
+        position: "absolute",
     };
     const textarea = {
         height: "71px",
@@ -53,6 +62,7 @@ function Header() {
         fontSize: "12px",
         fontSamily: "Segoe UI",
         color: "#858585",
+        resize: "none",
     };
     React.useEffect(() => {
         if (location.pathname === "/dashboard") {
@@ -71,7 +81,12 @@ function Header() {
             setSelectedTab(3);
         }
     });
-
+    function openNav() {
+        document.getElementById("mySidenav").style.width = "683px";
+    }
+    function closeNav() {
+        document.getElementById("mySidenav").style.width = "0";
+    }
     return (
         <div>
             <header>
@@ -92,9 +107,209 @@ function Header() {
                     <Link to="/people" className={selectedtab === 3 ? "wrknav_links_selected" : "wrknav_links"}>
                         People
                     </Link>
-                    <button className="create_btn" onClick={() => setCreate(true)}>
+                    <button className="create_btn" onClick={openNav}>
                         Create
                     </button>
+
+                    <div className="create_issue" id="mySidenav">
+                        <div className="header">
+                            <Popover
+                                minWidth={50}
+                                position={Position.BOTTOM_LEFT}
+                                content={
+                                    <Menu>
+                                        <Menu.Group>
+                                            <Menu.Item>
+                                                <p className="menucontent">Todo 1</p>
+                                            </Menu.Item>
+                                            <Menu.Item>
+                                                <p className="menucontent">Todo 2</p>
+                                            </Menu.Item>
+                                            <Menu.Item>
+                                                <p className="menucontent">Todo 3</p>
+                                            </Menu.Item>
+                                            <Menu.Item>
+                                                <p className="menucontent">Todo 4</p>
+                                            </Menu.Item>
+                                            <Menu.Item>
+                                                <p className="menucontent">Todo 5</p>
+                                            </Menu.Item>
+                                        </Menu.Group>
+                                    </Menu>
+                                }
+                            >
+                                <div className="create_issue_todo">
+                                    <p>Todo</p>
+                                    <div className="todo_drop">
+                                        <img src={sortdown} alt="" />
+                                    </div>
+                                </div>
+                            </Popover>
+                            <div className="h_right">
+                                <img src={like} alt="" />
+                                <img src={attach} alt="" />
+                                <img src={menuvertical} alt="" />
+                                <img src={exit} alt="" onClick={closeNav} />
+                            </div>
+                        </div>
+
+                        <h1 onClick={() => setTitle(true)}>My First Workspace</h1>
+                        {title && (
+                            <TextInput
+                                autoFocus
+                                onKeyDown={handleKeyDown}
+                                style={textinput}
+                                className="create_issue_textinput"
+                                placeholder="My First Workspace"
+                            />
+                        )}
+                        <div className="create_issue_content">
+                            <p>Assignee </p>
+                            <Popover
+                                minWidth={50}
+                                position={Position.BOTTOM_LEFT}
+                                content={
+                                    <Menu>
+                                        <Menu.Group>
+                                            <Menu.Item>
+                                                <p className="menucontent">Assignee 1</p>
+                                            </Menu.Item>
+                                            <Menu.Item>
+                                                <p className="menucontent">Assignee 2</p>
+                                            </Menu.Item>
+                                            <Menu.Item>
+                                                <p className="menucontent">Assignee 3</p>
+                                            </Menu.Item>
+                                            <Menu.Item>
+                                                <p className="menucontent">Assignee 4</p>
+                                            </Menu.Item>
+                                            <Menu.Item>
+                                                <p className="menucontent">Assignee 5</p>
+                                            </Menu.Item>
+                                        </Menu.Group>
+                                    </Menu>
+                                }
+                            >
+                                <div className="span">
+                                    <span className="span1">HC</span>
+                                    <img src={sortdown} alt="" className="sortdown" />
+                                </div>
+                            </Popover>
+                            <p>Due date </p>
+                            <div className="span2">
+                                <img src={planner} alt="" onClick={() => setShow(true)} />
+                                <div>{format(date, "MMM dd")}</div>
+                            </div>
+                            <Calendar
+                                className="r"
+                                show={show}
+                                onChange={(value) => {
+                                    setDate(value);
+                                    setShow(false);
+                                }}
+                            />
+
+                            <p>Label</p>
+                            <Popover
+                                minWidth={50}
+                                position={Position.BOTTOM_LEFT}
+                                content={
+                                    <Menu>
+                                        <Menu.Group>
+                                            <Menu.Item>
+                                                <p className="menucontent">Label 1</p>
+                                            </Menu.Item>
+                                            <Menu.Item>
+                                                <p className="menucontent">Label 2</p>
+                                            </Menu.Item>
+                                            <Menu.Item>
+                                                <p className="menucontent">Label 3</p>
+                                            </Menu.Item>
+                                            <Menu.Item>
+                                                <p className="menucontent">Label 4</p>
+                                            </Menu.Item>
+                                            <Menu.Item>
+                                                <p className="menucontent">Label 5</p>
+                                            </Menu.Item>
+                                        </Menu.Group>
+                                    </Menu>
+                                }
+                            >
+                                <div className="span">
+                                    <span className="span3">High</span>
+                                    <img src={sortdown} alt="" className="sortdown" />
+                                </div>
+                            </Popover>
+                            <p>Priority</p>
+                            <Popover
+                                position={Position.BOTTOM_LEFT}
+                                minWidth={50}
+                                content={
+                                    <Menu>
+                                        <Menu.Group>
+                                            <Menu.Item>
+                                                <p className="menucontent">Priority 1</p>
+                                            </Menu.Item>
+                                            <Menu.Item>
+                                                <p className="menucontent">Priority 2</p>
+                                            </Menu.Item>
+                                            <Menu.Item>
+                                                <p className="menucontent">Priority 3</p>
+                                            </Menu.Item>
+                                            <Menu.Item>
+                                                <p className="menucontent">Priority 4</p>
+                                            </Menu.Item>
+                                            <Menu.Item>
+                                                <p className="menucontent">Priority 5</p>
+                                            </Menu.Item>
+                                        </Menu.Group>
+                                    </Menu>
+                                }
+                            >
+                                <div className="span">
+                                    <span className="span4">Medium</span>
+                                    <img src={sortdown} alt="" className="sortdown" />
+                                </div>
+                            </Popover>
+                            <p>Project </p>
+                            <Popover
+                                position={Position.BOTTOM_LEFT}
+                                minWidth={50}
+                                content={
+                                    <Menu>
+                                        <Menu.Group>
+                                            <Menu.Item>
+                                                <p className="menucontent">Project 1</p>
+                                            </Menu.Item>
+                                            <Menu.Item>
+                                                <p className="menucontent">Project 2</p>
+                                            </Menu.Item>
+                                            <Menu.Item>
+                                                <p className="menucontent">Project 3</p>
+                                            </Menu.Item>
+                                            <Menu.Item>
+                                                <p className="menucontent">Project 4</p>
+                                            </Menu.Item>
+                                            <Menu.Item>
+                                                <p className="menucontent">Project 5</p>
+                                            </Menu.Item>
+                                        </Menu.Group>
+                                    </Menu>
+                                }
+                            >
+                                <div className="span">
+                                    <span className="span5">Bug tracking project</span>
+                                    <img src={sortdown} alt="" className="sortdown" />
+                                </div>
+                            </Popover>
+                            <p>Description</p>
+                        </div>
+                        <Textarea style={textarea} className="textarea" placeholder="Add more details to this task" />
+                        <button className="create_issue_btn">
+                            <img src={plusmath} alt="" className="plusmath" />
+                            Add subtask
+                        </button>
+                    </div>
 
                     <div className="header_right">
                         <Popover
@@ -287,51 +502,6 @@ function Header() {
                     </div>
                 </Dialog>
             </header>
-            {create && (
-                <Pane className="create_issue">
-                    <div className="header">
-                        <p>Todo</p>
-                        <img src={sortdown} alt="" />
-                        <div className="h_right">
-                            <img src={like} alt="" />
-                            <img src={attach} alt="" />
-                            <img src={menuvertical} alt="" />
-                            <img src={exit} alt="" />
-                        </div>
-                    </div>
-                    <TextInput style={textinput} className="create_issue_textinput" placeholder="My First Workspace" />
-                    <div className="create_issue_content">
-                        <p>
-                            Assignee
-                            <span className="span1">HC</span>
-                        </p>
-                        <p>
-                            Due date
-                            <span className="span2">
-                                <TextInput type="date" border="none" width="10" padding="0" />
-                            </span>
-                        </p>
-                        <p>
-                            Label
-                            <span className="span3">High</span>
-                        </p>
-                        <p>
-                            Priority
-                            <span className="span4">Medium</span>
-                        </p>
-                        <p>
-                            Project
-                            <span className="span5">Bug tracking project</span>
-                        </p>
-                        <p>Description</p>
-                    </div>
-                    <Textarea style={textarea} className="textarea" placeholder="Add more details to this task" />
-                    <button className="create_issue_btn">
-                        <img src={plusmath} alt="" className="plusmath" />
-                        Add subtask
-                    </button>
-                </Pane>
-            )}
         </div>
     );
 }

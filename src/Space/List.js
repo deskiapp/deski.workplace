@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./List.css";
 import Header from "./Header";
 import Space from "./Space";
@@ -14,7 +14,18 @@ import compare from "../assets/compare.svg";
 import add_ from "../assets/add_.svg";
 import checkmark_circle from "../assets/checkmark_circle.svg";
 import arrow_dropdown from "../assets/arrow_dropdown.svg";
+import { Calendar } from "small-google-calendar";
+import { format } from "date-fns";
+import sortdown from "../assets/sortdown.png";
+import plusmath from "../assets/plusmath.png";
+import planner from "../assets/planner.png";
+import exit from "../assets/exit.png";
+import menuvertical from "../assets/menuvertical.png";
+import like from "../assets/like.svg";
+import attach from "../assets/attach.png";
+import avatar from "../assets/avatar.jpg";
 import {
+    Textarea,
     Popover,
     Menu,
     Dialog,
@@ -27,7 +38,7 @@ import {
     Pane,
     DragHandleVerticalIcon,
 } from "evergreen-ui";
-import avatar from "../assets/avatar.jpg";
+
 import avatar1 from "../assets/avatar1.jpeg";
 import avatar2 from "../assets/avatar2.jpeg";
 
@@ -44,6 +55,10 @@ function List() {
     const [contentOpen1, setContentOpen1] = React.useState(true);
     const [contentOpen2, setContentOpen2] = React.useState(true);
 
+    const [show, setShow] = useState(false);
+    const [date, setDate] = useState(new Date());
+    const [title, setTitle] = React.useState(false);
+
     const editable_body = {
         fontFamily: "GTEestiProDisplay-light",
         fontSize: "12px",
@@ -53,9 +68,7 @@ function List() {
         height: "35px",
         paddingBottom: "15px",
     };
-    const editable = {
-        // paddingLeft: "-20px",
-    };
+
     const disabled = {
         marginTop: "-10px",
         marginLeft: "-18px",
@@ -65,6 +78,30 @@ function List() {
         height: "40px",
         border: "solid 0.1px #cecece",
         color: "#9a9a9a",
+    };
+    const textinput_ = {
+        width: "608px",
+        height: "36px",
+        border: "0.5px solid #C4C4C4",
+        borderRadius: "5px",
+        padding: "2px 0 4px 12px",
+        fontSize: "24px",
+        fontSamily: "GTEestiProDisplay-regular",
+        color: "#000000",
+        marginLeft: "20px",
+        marginTop: "-70px",
+        position: "absolute",
+    };
+    const textarea = {
+        height: "71px",
+        width: "608px",
+        marginLeft: "20px",
+        borderRadius: "5px",
+        marginTop: "17px",
+        fontSize: "12px",
+        fontSamily: "Segoe UI",
+        color: "#858585",
+        resize: "none",
     };
     const invite = {
         height: "20px",
@@ -94,6 +131,17 @@ function List() {
         if (e.key === "Enter") {
             setEditableField2(false);
         }
+    }
+    function handleKeyDown(e) {
+        if (e.key === "Enter") {
+            setTitle(false);
+        }
+    }
+    function openNav() {
+        document.getElementById("mySidenav").style.width = "683px";
+    }
+    function closeNav() {
+        document.getElementById("mySidenav").style.width = "0";
     }
     return (
         <div>
@@ -444,8 +492,9 @@ function List() {
                                     >
                                         <img src={compare} alt="" height="8" width="14" />
                                     </Popover>
-                                    <span>Details</span>
-                                    <img src={details_arrow} alt="" height="6" width="8" />
+                                    <span onClick={openNav}>
+                                        Details <img src={details_arrow} alt="" height="6" width="8" />
+                                    </span>
                                 </div>
                             </Table.Cell>
                             <Popover
@@ -600,8 +649,9 @@ function List() {
                                     >
                                         <img src={compare} alt="" height="8" width="14" />
                                     </Popover>
-                                    <span>Details</span>
-                                    <img src={details_arrow} alt="" height="6" width="8" />
+                                    <span onClick={openNav}>
+                                        Details <img src={details_arrow} alt="" height="6" width="8" />
+                                    </span>
                                 </div>
                             </Table.Cell>
                             <Popover
@@ -756,8 +806,9 @@ function List() {
                                     >
                                         <img src={compare} alt="" height="8" width="14" />
                                     </Popover>
-                                    <span>Details</span>
-                                    <img src={details_arrow} alt="" height="6" width="8" />
+                                    <span onClick={openNav}>
+                                        Details <img src={details_arrow} alt="" height="6" width="8" />
+                                    </span>
                                 </div>
                             </Table.Cell>
                             <Popover
@@ -912,8 +963,9 @@ function List() {
                                     >
                                         <img src={compare} alt="" height="8" width="14" />
                                     </Popover>
-                                    <span>Details</span>
-                                    <img src={details_arrow} alt="" height="6" width="8" />
+                                    <span onClick={openNav}>
+                                        Details <img src={details_arrow} alt="" height="6" width="8" />
+                                    </span>
                                 </div>
                             </Table.Cell>
                             <Popover
@@ -1068,8 +1120,9 @@ function List() {
                                     >
                                         <img src={compare} alt="" height="8" width="14" />
                                     </Popover>
-                                    <span>Details</span>
-                                    <img src={details_arrow} alt="" height="6" width="8" />
+                                    <span onClick={openNav}>
+                                        Details <img src={details_arrow} alt="" height="6" width="8" />
+                                    </span>
                                 </div>
                             </Table.Cell>
                             <Popover
@@ -1224,8 +1277,9 @@ function List() {
                                     >
                                         <img src={compare} alt="" height="8" width="14" />
                                     </Popover>
-                                    <span>Details</span>
-                                    <img src={details_arrow} alt="" height="6" width="8" />
+                                    <span onClick={openNav}>
+                                        Details <img src={details_arrow} alt="" height="6" width="8" />
+                                    </span>
                                 </div>
                             </Table.Cell>
                             <Popover
@@ -1378,8 +1432,9 @@ function List() {
                                     >
                                         <img src={compare} alt="" height="8" width="14" />
                                     </Popover>
-                                    <span>Details</span>
-                                    <img src={details_arrow} alt="" height="6" width="8" />
+                                    <span onClick={openNav}>
+                                        Details <img src={details_arrow} alt="" height="6" width="8" />
+                                    </span>
                                 </div>
                             </Table.Cell>
                             <Popover
@@ -1532,8 +1587,9 @@ function List() {
                                     >
                                         <img src={compare} alt="" height="8" width="14" />
                                     </Popover>
-                                    <span>Details</span>
-                                    <img src={details_arrow} alt="" height="6" width="8" />
+                                    <span onClick={openNav}>
+                                        Details <img src={details_arrow} alt="" height="6" width="8" />
+                                    </span>
                                 </div>
                             </Table.Cell>
                             <Popover
@@ -1686,8 +1742,9 @@ function List() {
                                     >
                                         <img src={compare} alt="" height="8" width="14" />
                                     </Popover>
-                                    <span>Details</span>
-                                    <img src={details_arrow} alt="" height="6" width="8" />
+                                    <span onClick={openNav}>
+                                        Details <img src={details_arrow} alt="" height="6" width="8" />
+                                    </span>
                                 </div>
                             </Table.Cell>
                             <Popover
@@ -1921,8 +1978,9 @@ function List() {
                                     >
                                         <img src={compare} alt="" height="8" width="14" />
                                     </Popover>
-                                    <span>Details</span>
-                                    <img src={details_arrow} alt="" height="6" width="8" />
+                                    <span onClick={openNav}>
+                                        Details <img src={details_arrow} alt="" height="6" width="8" />
+                                    </span>
                                 </div>
                             </Table.Cell>
                             <Popover
@@ -2077,8 +2135,9 @@ function List() {
                                     >
                                         <img src={compare} alt="" height="8" width="14" />
                                     </Popover>
-                                    <span>Details</span>
-                                    <img src={details_arrow} alt="" height="6" width="8" />
+                                    <span onClick={openNav}>
+                                        Details <img src={details_arrow} alt="" height="6" width="8" />
+                                    </span>
                                 </div>
                             </Table.Cell>
                             <Popover
@@ -2233,8 +2292,9 @@ function List() {
                                     >
                                         <img src={compare} alt="" height="8" width="14" />
                                     </Popover>
-                                    <span>Details</span>
-                                    <img src={details_arrow} alt="" height="6" width="8" />
+                                    <span onClick={openNav}>
+                                        Details <img src={details_arrow} alt="" height="6" width="8" />
+                                    </span>
                                 </div>
                             </Table.Cell>
                             <Popover
@@ -2389,8 +2449,9 @@ function List() {
                                     >
                                         <img src={compare} alt="" height="8" width="14" />
                                     </Popover>
-                                    <span>Details</span>
-                                    <img src={details_arrow} alt="" height="6" width="8" />
+                                    <span onClick={openNav}>
+                                        Details <img src={details_arrow} alt="" height="6" width="8" />
+                                    </span>
                                 </div>
                             </Table.Cell>
                             <Popover
@@ -2545,8 +2606,9 @@ function List() {
                                     >
                                         <img src={compare} alt="" height="8" width="14" />
                                     </Popover>
-                                    <span>Details</span>
-                                    <img src={details_arrow} alt="" height="6" width="8" />
+                                    <span onClick={openNav}>
+                                        Details <img src={details_arrow} alt="" height="6" width="8" />
+                                    </span>
                                 </div>
                             </Table.Cell>
                             <Popover
@@ -2701,8 +2763,9 @@ function List() {
                                     >
                                         <img src={compare} alt="" height="8" width="14" />
                                     </Popover>
-                                    <span>Details</span>
-                                    <img src={details_arrow} alt="" height="6" width="8" />
+                                    <span onClick={openNav}>
+                                        Details <img src={details_arrow} alt="" height="6" width="8" />
+                                    </span>
                                 </div>
                             </Table.Cell>
                             <Popover
@@ -2855,8 +2918,9 @@ function List() {
                                     >
                                         <img src={compare} alt="" height="8" width="14" />
                                     </Popover>
-                                    <span>Details</span>
-                                    <img src={details_arrow} alt="" height="6" width="8" />
+                                    <span onClick={openNav}>
+                                        Details <img src={details_arrow} alt="" height="6" width="8" />
+                                    </span>
                                 </div>
                             </Table.Cell>
                             <Popover
@@ -3009,8 +3073,9 @@ function List() {
                                     >
                                         <img src={compare} alt="" height="8" width="14" />
                                     </Popover>
-                                    <span>Details</span>
-                                    <img src={details_arrow} alt="" height="6" width="8" />
+                                    <span onClick={openNav}>
+                                        Details <img src={details_arrow} alt="" height="6" width="8" />
+                                    </span>
                                 </div>
                             </Table.Cell>
                             <Popover
@@ -3163,8 +3228,9 @@ function List() {
                                     >
                                         <img src={compare} alt="" height="8" width="14" />
                                     </Popover>
-                                    <span>Details</span>
-                                    <img src={details_arrow} alt="" height="6" width="8" />
+                                    <span onClick={openNav}>
+                                        Details <img src={details_arrow} alt="" height="6" width="8" />
+                                    </span>
                                 </div>
                             </Table.Cell>
                             <Popover
@@ -3396,8 +3462,9 @@ function List() {
                                     >
                                         <img src={compare} alt="" height="8" width="14" />
                                     </Popover>
-                                    <span>Details</span>
-                                    <img src={details_arrow} alt="" height="6" width="8" />
+                                    <span onClick={openNav}>
+                                        Details <img src={details_arrow} alt="" height="6" width="8" />
+                                    </span>
                                 </div>
                             </Table.Cell>
                             <Popover
@@ -3552,8 +3619,9 @@ function List() {
                                     >
                                         <img src={compare} alt="" height="8" width="14" />
                                     </Popover>
-                                    <span>Details</span>
-                                    <img src={details_arrow} alt="" height="6" width="8" />
+                                    <span onClick={openNav}>
+                                        Details <img src={details_arrow} alt="" height="6" width="8" />
+                                    </span>
                                 </div>
                             </Table.Cell>
                             <Popover
@@ -3708,8 +3776,9 @@ function List() {
                                     >
                                         <img src={compare} alt="" height="8" width="14" />
                                     </Popover>
-                                    <span>Details</span>
-                                    <img src={details_arrow} alt="" height="6" width="8" />
+                                    <span onClick={openNav}>
+                                        Details <img src={details_arrow} alt="" height="6" width="8" />
+                                    </span>
                                 </div>
                             </Table.Cell>
                             <Popover
@@ -3864,8 +3933,9 @@ function List() {
                                     >
                                         <img src={compare} alt="" height="8" width="14" />
                                     </Popover>
-                                    <span>Details</span>
-                                    <img src={details_arrow} alt="" height="6" width="8" />
+                                    <span onClick={openNav}>
+                                        Details <img src={details_arrow} alt="" height="6" width="8" />
+                                    </span>
                                 </div>
                             </Table.Cell>
                             <Popover
@@ -4020,8 +4090,9 @@ function List() {
                                     >
                                         <img src={compare} alt="" height="8" width="14" />
                                     </Popover>
-                                    <span>Details</span>
-                                    <img src={details_arrow} alt="" height="6" width="8" />
+                                    <span onClick={openNav}>
+                                        Details <img src={details_arrow} alt="" height="6" width="8" />
+                                    </span>
                                 </div>
                             </Table.Cell>
                             <Popover
@@ -4176,8 +4247,9 @@ function List() {
                                     >
                                         <img src={compare} alt="" height="8" width="14" />
                                     </Popover>
-                                    <span>Details</span>
-                                    <img src={details_arrow} alt="" height="6" width="8" />
+                                    <span onClick={openNav}>
+                                        Details <img src={details_arrow} alt="" height="6" width="8" />
+                                    </span>
                                 </div>
                             </Table.Cell>
                             <Popover
@@ -4330,8 +4402,9 @@ function List() {
                                     >
                                         <img src={compare} alt="" height="8" width="14" />
                                     </Popover>
-                                    <span>Details</span>
-                                    <img src={details_arrow} alt="" height="6" width="8" />
+                                    <span onClick={openNav}>
+                                        Details <img src={details_arrow} alt="" height="6" width="8" />
+                                    </span>
                                 </div>
                             </Table.Cell>
                             <Popover
@@ -4484,8 +4557,9 @@ function List() {
                                     >
                                         <img src={compare} alt="" height="8" width="14" />
                                     </Popover>
-                                    <span>Details</span>
-                                    <img src={details_arrow} alt="" height="6" width="8" />
+                                    <span onClick={openNav}>
+                                        Details <img src={details_arrow} alt="" height="6" width="8" />
+                                    </span>
                                 </div>
                             </Table.Cell>
                             <Popover
@@ -4638,8 +4712,9 @@ function List() {
                                     >
                                         <img src={compare} alt="" height="8" width="14" />
                                     </Popover>
-                                    <span>Details</span>
-                                    <img src={details_arrow} alt="" height="6" width="8" />
+                                    <span onClick={openNav}>
+                                        Details <img src={details_arrow} alt="" height="6" width="8" />
+                                    </span>
                                 </div>
                             </Table.Cell>
                             <Popover
@@ -4756,6 +4831,206 @@ function List() {
                         </Table.Row>
                     </Pane>
                 )}
+            </div>
+
+            <div className="create_issue" id="mySidenav">
+                <div className="header">
+                    <Popover
+                        minWidth={50}
+                        position={Position.BOTTOM_LEFT}
+                        content={
+                            <Menu>
+                                <Menu.Group>
+                                    <Menu.Item>
+                                        <p className="menucontent">Todo 1</p>
+                                    </Menu.Item>
+                                    <Menu.Item>
+                                        <p className="menucontent">Todo 2</p>
+                                    </Menu.Item>
+                                    <Menu.Item>
+                                        <p className="menucontent">Todo 3</p>
+                                    </Menu.Item>
+                                    <Menu.Item>
+                                        <p className="menucontent">Todo 4</p>
+                                    </Menu.Item>
+                                    <Menu.Item>
+                                        <p className="menucontent">Todo 5</p>
+                                    </Menu.Item>
+                                </Menu.Group>
+                            </Menu>
+                        }
+                    >
+                        <div className="create_issue_todo">
+                            <p>Todo</p>
+                            <div className="todo_drop">
+                                <img src={sortdown} alt="" />
+                            </div>
+                        </div>
+                    </Popover>
+                    <div className="h_right">
+                        <img src={like} alt="" />
+                        <img src={attach} alt="" />
+                        <img src={menuvertical} alt="" />
+                        <img src={exit} alt="" onClick={closeNav} />
+                    </div>
+                </div>
+
+                <h1 onClick={() => setTitle(true)}>My First Workspace</h1>
+                {title && (
+                    <TextInput
+                        autoFocus
+                        onKeyDown={handleKeyDown}
+                        style={textinput}
+                        className="create_issue_textinput"
+                        placeholder="My First Workspace"
+                    />
+                )}
+                <div className="create_issue_content">
+                    <p>Assignee </p>
+                    <Popover
+                        minWidth={50}
+                        position={Position.BOTTOM_LEFT}
+                        content={
+                            <Menu>
+                                <Menu.Group>
+                                    <Menu.Item>
+                                        <p className="menucontent">Assignee 1</p>
+                                    </Menu.Item>
+                                    <Menu.Item>
+                                        <p className="menucontent">Assignee 2</p>
+                                    </Menu.Item>
+                                    <Menu.Item>
+                                        <p className="menucontent">Assignee 3</p>
+                                    </Menu.Item>
+                                    <Menu.Item>
+                                        <p className="menucontent">Assignee 4</p>
+                                    </Menu.Item>
+                                    <Menu.Item>
+                                        <p className="menucontent">Assignee 5</p>
+                                    </Menu.Item>
+                                </Menu.Group>
+                            </Menu>
+                        }
+                    >
+                        <div className="span">
+                            <span className="span1">HC</span>
+                            <img src={sortdown} alt="" className="sortdown" />
+                        </div>
+                    </Popover>
+                    <p>Due date </p>
+                    <div className="span2">
+                        <img src={planner} alt="" onClick={() => setShow(true)} />
+                        <div>{format(date, "MMM dd")}</div>
+                    </div>
+                    <Calendar
+                        className="r"
+                        show={show}
+                        onChange={(value) => {
+                            setDate(value);
+                            setShow(false);
+                        }}
+                    />
+
+                    <p>Label</p>
+                    <Popover
+                        minWidth={50}
+                        position={Position.BOTTOM_LEFT}
+                        content={
+                            <Menu>
+                                <Menu.Group>
+                                    <Menu.Item>
+                                        <p className="menucontent">Label 1</p>
+                                    </Menu.Item>
+                                    <Menu.Item>
+                                        <p className="menucontent">Label 2</p>
+                                    </Menu.Item>
+                                    <Menu.Item>
+                                        <p className="menucontent">Label 3</p>
+                                    </Menu.Item>
+                                    <Menu.Item>
+                                        <p className="menucontent">Label 4</p>
+                                    </Menu.Item>
+                                    <Menu.Item>
+                                        <p className="menucontent">Label 5</p>
+                                    </Menu.Item>
+                                </Menu.Group>
+                            </Menu>
+                        }
+                    >
+                        <div className="span">
+                            <span className="span3">High</span>
+                            <img src={sortdown} alt="" className="sortdown" />
+                        </div>
+                    </Popover>
+                    <p>Priority</p>
+                    <Popover
+                        position={Position.BOTTOM_LEFT}
+                        minWidth={50}
+                        content={
+                            <Menu>
+                                <Menu.Group>
+                                    <Menu.Item>
+                                        <p className="menucontent">Priority 1</p>
+                                    </Menu.Item>
+                                    <Menu.Item>
+                                        <p className="menucontent">Priority 2</p>
+                                    </Menu.Item>
+                                    <Menu.Item>
+                                        <p className="menucontent">Priority 3</p>
+                                    </Menu.Item>
+                                    <Menu.Item>
+                                        <p className="menucontent">Priority 4</p>
+                                    </Menu.Item>
+                                    <Menu.Item>
+                                        <p className="menucontent">Priority 5</p>
+                                    </Menu.Item>
+                                </Menu.Group>
+                            </Menu>
+                        }
+                    >
+                        <div className="span">
+                            <span className="span4">Medium</span>
+                            <img src={sortdown} alt="" className="sortdown" />
+                        </div>
+                    </Popover>
+                    <p>Project </p>
+                    <Popover
+                        position={Position.BOTTOM_LEFT}
+                        minWidth={50}
+                        content={
+                            <Menu>
+                                <Menu.Group>
+                                    <Menu.Item>
+                                        <p className="menucontent">Project 1</p>
+                                    </Menu.Item>
+                                    <Menu.Item>
+                                        <p className="menucontent">Project 2</p>
+                                    </Menu.Item>
+                                    <Menu.Item>
+                                        <p className="menucontent">Project 3</p>
+                                    </Menu.Item>
+                                    <Menu.Item>
+                                        <p className="menucontent">Project 4</p>
+                                    </Menu.Item>
+                                    <Menu.Item>
+                                        <p className="menucontent">Project 5</p>
+                                    </Menu.Item>
+                                </Menu.Group>
+                            </Menu>
+                        }
+                    >
+                        <div className="span">
+                            <span className="span5">Bug tracking project</span>
+                            <img src={sortdown} alt="" className="sortdown" />
+                        </div>
+                    </Popover>
+                    <p>Description</p>
+                </div>
+                <Textarea style={textarea} className="textarea" placeholder="Add more details to this task" />
+                <button className="create_issue_btn">
+                    <img src={plusmath} alt="" className="plusmath" />
+                    Add subtask
+                </button>
             </div>
         </div>
     );

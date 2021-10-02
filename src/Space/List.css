@@ -207,6 +207,9 @@
     color: #444444;
     font-size: 11px;
 }
+.details_arrow {
+    margin-right: 4px;
+}
 @media (min-width: 1910px) {
     .list_body div {
         /* position: absolute; */
