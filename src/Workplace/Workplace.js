@@ -143,7 +143,6 @@ function Workplace() {
         color: "#9a9a9a",
     };
     const more_home = {
-        /* background-color: brown; */
         color: "#cecece",
         cursor: "pointer",
         float: "right",
@@ -152,7 +151,6 @@ function Workplace() {
         marginRight: "5px",
         width: "13px",
         height: "13px",
-        // visibility: "hidden",
     };
 
     return (
@@ -166,28 +164,37 @@ function Workplace() {
                         <Popover
                             position={Position.BOTTOM_LEFT}
                             minWidth={120}
-                            content={
+                            content={({ close }) => (
                                 <Menu>
                                     <Menu.Group>
                                         <Menu.Item style={menu} icon={<Avatar src={settings} shape="square" size={10} />}>
                                             <p className="menucontent">Workspace settings</p>
                                         </Menu.Item>
                                         <Menu.Item
-                                            onSelect={() => setIsShown(true)}
+                                            onClick={() => {
+                                                setIsShown(true);
+                                                close();
+                                            }}
                                             style={menu}
                                             icon={<img src={share} alt="" height="10" width="10" />}
                                         >
                                             <p className="menucontent">Share workspace</p>
                                         </Menu.Item>
                                         <Menu.Item
-                                            onSelect={() => setIsShown3(true)}
+                                            onSelect={() => {
+                                                setIsShown3(true);
+                                                close();
+                                            }}
                                             style={menu}
                                             icon={<img src={rename} alt="" height="10" width="10" />}
                                         >
                                             <p className="menucontent">Rename workspace</p>
                                         </Menu.Item>
                                         <Menu.Item
-                                            onClick={() => setIsShown1(true)}
+                                            onClick={() => {
+                                                setIsShown1(true);
+                                                close();
+                                            }}
                                             style={menu}
                                             icon={<img src={dlt} alt="" height="10" width="10" />}
                                         >
@@ -195,7 +202,7 @@ function Workplace() {
                                         </Menu.Item>
                                     </Menu.Group>
                                 </Menu>
-                            }
+                            )}
                         >
                             <img src={arrow} alt="" className="arrow" />
                         </Popover>
@@ -302,7 +309,7 @@ function Workplace() {
                                     <button className="cancel_btn move" onClick={() => setIsShown2(false)}>
                                         Cancel
                                     </button>
-                                    <button className="move_btn" onClick={() => setIsShown2(false)} s>
+                                    <button className="move_btn" onClick={() => setIsShown2(false)}>
                                         Move
                                     </button>
                                 </div>
@@ -389,11 +396,14 @@ function Workplace() {
                                                                 <Popover
                                                                     position={Position.BOTTOM_LEFT}
                                                                     minWidth={50}
-                                                                    content={
+                                                                    content={({ close }) => (
                                                                         <Menu>
                                                                             <Menu.Group>
                                                                                 <Menu.Item
-                                                                                    onSelect={() => setIsShown3(true)}
+                                                                                    onSelect={() => {
+                                                                                        setIsShown3(true);
+                                                                                        close();
+                                                                                    }}
                                                                                     style={menu}
                                                                                 >
                                                                                     <p className="menucontent">
@@ -401,13 +411,19 @@ function Workplace() {
                                                                                     </p>
                                                                                 </Menu.Item>
                                                                                 <Menu.Item
-                                                                                    onSelect={() => setIsShown(true)}
+                                                                                    onSelect={() => {
+                                                                                        setIsShown(true);
+                                                                                        close();
+                                                                                    }}
                                                                                     style={menu}
                                                                                 >
                                                                                     <p className="menucontent">Share</p>
                                                                                 </Menu.Item>
                                                                                 <Menu.Item
-                                                                                    onSelect={() => setIsShown2(true)}
+                                                                                    onSelect={() => {
+                                                                                        setIsShown2(true);
+                                                                                        close();
+                                                                                    }}
                                                                                     style={menu}
                                                                                 >
                                                                                     <p className="menucontent">
@@ -418,7 +434,10 @@ function Workplace() {
                                                                                     <p className="menucontent">Duplicate</p>
                                                                                 </Menu.Item>
                                                                                 <Menu.Item
-                                                                                    onSelect={() => setIsShown1(true)}
+                                                                                    onSelect={() => {
+                                                                                        setIsShown1(true);
+                                                                                        close();
+                                                                                    }}
                                                                                     intent="danger"
                                                                                     style={menu}
                                                                                 >
@@ -426,7 +445,7 @@ function Workplace() {
                                                                                 </Menu.Item>
                                                                             </Menu.Group>
                                                                         </Menu>
-                                                                    }
+                                                                    )}
                                                                 >
                                                                     <MoreIcon className="more_home" style={more_home} />
                                                                 </Popover>
@@ -515,28 +534,37 @@ function Workplace() {
                         <Popover
                             position={Position.BOTTOM_LEFT}
                             minWidth={120}
-                            content={
+                            content={({ close }) => (
                                 <Menu>
                                     <Menu.Group>
                                         <Menu.Item style={menu} icon={<Avatar src={settings} shape="square" size={10} />}>
                                             <p className="menucontent">Workspace settings</p>
                                         </Menu.Item>
                                         <Menu.Item
-                                            onSelect={() => setIsShown(true)}
+                                            onClick={() => {
+                                                setIsShown(true);
+                                                close();
+                                            }}
                                             style={menu}
                                             icon={<img src={share} alt="" height="10" width="10" />}
                                         >
                                             <p className="menucontent">Share workspace</p>
                                         </Menu.Item>
                                         <Menu.Item
-                                            onSelect={() => setIsShown3(true)}
+                                            onSelect={() => {
+                                                setIsShown3(true);
+                                                close();
+                                            }}
                                             style={menu}
                                             icon={<img src={rename} alt="" height="10" width="10" />}
                                         >
                                             <p className="menucontent">Rename workspace</p>
                                         </Menu.Item>
                                         <Menu.Item
-                                            onClick={() => setIsShown1(true)}
+                                            onClick={() => {
+                                                setIsShown1(true);
+                                                close();
+                                            }}
                                             style={menu}
                                             icon={<img src={dlt} alt="" height="10" width="10" />}
                                         >
@@ -544,7 +572,7 @@ function Workplace() {
                                         </Menu.Item>
                                     </Menu.Group>
                                 </Menu>
-                            }
+                            )}
                         >
                             <img src={arrow} alt="" className="arrow" />
                         </Popover>
@@ -738,11 +766,14 @@ function Workplace() {
                                                                 <Popover
                                                                     position={Position.BOTTOM_LEFT}
                                                                     minWidth={50}
-                                                                    content={
+                                                                    content={({ close }) => (
                                                                         <Menu>
                                                                             <Menu.Group>
                                                                                 <Menu.Item
-                                                                                    onSelect={() => setIsShown3(true)}
+                                                                                    onSelect={() => {
+                                                                                        setIsShown3(true);
+                                                                                        close();
+                                                                                    }}
                                                                                     style={menu}
                                                                                 >
                                                                                     <p className="menucontent">
@@ -750,13 +781,19 @@ function Workplace() {
                                                                                     </p>
                                                                                 </Menu.Item>
                                                                                 <Menu.Item
-                                                                                    onSelect={() => setIsShown(true)}
+                                                                                    onSelect={() => {
+                                                                                        setIsShown(true);
+                                                                                        close();
+                                                                                    }}
                                                                                     style={menu}
                                                                                 >
                                                                                     <p className="menucontent">Share</p>
                                                                                 </Menu.Item>
                                                                                 <Menu.Item
-                                                                                    onSelect={() => setIsShown2(true)}
+                                                                                    onSelect={() => {
+                                                                                        setIsShown2(true);
+                                                                                        close();
+                                                                                    }}
                                                                                     style={menu}
                                                                                 >
                                                                                     <p className="menucontent">
@@ -767,7 +804,10 @@ function Workplace() {
                                                                                     <p className="menucontent">Duplicate</p>
                                                                                 </Menu.Item>
                                                                                 <Menu.Item
-                                                                                    onSelect={() => setIsShown1(true)}
+                                                                                    onSelect={() => {
+                                                                                        setIsShown1(true);
+                                                                                        close();
+                                                                                    }}
                                                                                     intent="danger"
                                                                                     style={menu}
                                                                                 >
@@ -775,7 +815,7 @@ function Workplace() {
                                                                                 </Menu.Item>
                                                                             </Menu.Group>
                                                                         </Menu>
-                                                                    }
+                                                                    )}
                                                                 >
                                                                     <MoreIcon className="more_home" style={more_home} />
                                                                 </Popover>

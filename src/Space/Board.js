@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import Header from "./Header";
 import Space from "./Space";
 import done_all from "../assets/done_all.svg";
@@ -11,7 +11,6 @@ import {
     TextInputField,
     TextareaField,
     Dialog,
-    Textarea,
     SelectMenu,
     TextInput,
     TickIcon,
@@ -29,15 +28,6 @@ import { MoreIcon } from "evergreen-ui";
 import arrow from "../assets/arrow.svg";
 
 import send_ from "../assets/send_.svg";
-import { Calendar } from "small-google-calendar";
-import { format } from "date-fns";
-import sortdown from "../assets/sortdown.png";
-import plusmath from "../assets/plusmath.png";
-import planner from "../assets/planner.png";
-import exit from "../assets/exit.png";
-import menuvertical from "../assets/menuvertical.png";
-import like from "../assets/like.svg";
-import attach from "../assets/attach.png";
 
 function Board() {
     const [isShown, setIsShown] = React.useState(false);
@@ -48,8 +38,6 @@ function Board() {
     const [addBoard, setAddBoard] = React.useState(false);
     const [selected, setSelected] = React.useState(null);
     const [value, setValue] = React.useState("");
-    const [show, setShow] = useState(false);
-    const [date, setDate] = useState(new Date());
 
     const coll_drpdwn = {
         height: "35px",
@@ -63,41 +51,12 @@ function Board() {
         border: "solid 0.1px #cecece",
         color: "#9a9a9a",
     };
-    const [title, setTitle] = React.useState(false);
 
-    function handleKeyDown(e) {
-        if (e.key === "Enter") {
-            setTitle(false);
-        }
-    }
     function openNav() {
         document.getElementById("mySidenav").style.width = "683px";
     }
-    function closeNav() {
-        document.getElementById("mySidenav").style.width = "0";
-    }
-    const textinput_ = {
-        width: "608px",
-        height: "36px",
-        border: "0.5px solid #C4C4C4",
-        borderRadius: "5px",
-        padding: "2px 0 4px 12px",
-        fontSize: "24px",
-        fontSamily: "GTEestiProDisplay-regular",
-        color: "#000000",
-        marginLeft: "20px",
-        marginTop: "-70px",
-        position: "absolute",
-    };
-    const textarea = {
-        height: "71px",
-        width: "608px",
-        marginLeft: "20px",
-        borderRadius: "5px",
-        marginTop: "17px",
-        fontSize: "12px",
-        fontSamily: "Segoe UI",
-        color: "#858585",
+
+    const textareafield = {
         resize: "none",
     };
     const [selectedTab, setSelectedTab] = React.useState(false);
@@ -347,7 +306,13 @@ function Board() {
                         </div>
                         {createIssue && (
                             <div>
-                                <TextareaField height={80} marginLeft={5} width={260} marginTop={-29} />
+                                <TextareaField
+                                    height={80}
+                                    marginLeft={5}
+                                    width={260}
+                                    marginTop={-29}
+                                    style={textareafield}
+                                />
                                 <img src={send_} alt="" className="issue_send" onClick={() => setCreateIssue(false)} />
                             </div>
                         )}
@@ -410,7 +375,13 @@ function Board() {
                         </div>
                         {createIssue1 && (
                             <div>
-                                <TextareaField height={80} marginLeft={5} width={260} marginTop={-29} />
+                                <TextareaField
+                                    height={80}
+                                    marginLeft={5}
+                                    width={260}
+                                    marginTop={-29}
+                                    style={textareafield}
+                                />
                                 <img src={send_} alt="" className="issue_send" onClick={() => setCreateIssue1(false)} />
                             </div>
                         )}
@@ -473,7 +444,13 @@ function Board() {
                         </div>
                         {createIssue2 && (
                             <div>
-                                <TextareaField height={80} marginLeft={5} width={260} marginTop={-29} />
+                                <TextareaField
+                                    height={80}
+                                    marginLeft={5}
+                                    width={260}
+                                    marginTop={-29}
+                                    style={textareafield}
+                                />
                                 <img src={send_} alt="" className="issue_send" onClick={() => setCreateIssue2(false)} />
                             </div>
                         )}
@@ -562,205 +539,6 @@ function Board() {
                         }}
                     ></div>
                 </div>
-            </div>
-            <div className="create_issue" id="mySidenav">
-                <div className="header">
-                    <Popover
-                        minWidth={50}
-                        position={Position.BOTTOM_LEFT}
-                        content={
-                            <Menu>
-                                <Menu.Group>
-                                    <Menu.Item>
-                                        <p className="menucontent">Todo 1</p>
-                                    </Menu.Item>
-                                    <Menu.Item>
-                                        <p className="menucontent">Todo 2</p>
-                                    </Menu.Item>
-                                    <Menu.Item>
-                                        <p className="menucontent">Todo 3</p>
-                                    </Menu.Item>
-                                    <Menu.Item>
-                                        <p className="menucontent">Todo 4</p>
-                                    </Menu.Item>
-                                    <Menu.Item>
-                                        <p className="menucontent">Todo 5</p>
-                                    </Menu.Item>
-                                </Menu.Group>
-                            </Menu>
-                        }
-                    >
-                        <div className="create_issue_todo">
-                            <p>Todo</p>
-                            <div className="todo_drop">
-                                <img src={sortdown} alt="" />
-                            </div>
-                        </div>
-                    </Popover>
-                    <div className="h_right">
-                        <img src={like} alt="" />
-                        <img src={attach} alt="" />
-                        <img src={menuvertical} alt="" />
-                        <img src={exit} alt="" onClick={closeNav} />
-                    </div>
-                </div>
-
-                <h1 onClick={() => setTitle(true)}>My First Workspace</h1>
-                {title && (
-                    <TextInput
-                        autoFocus
-                        onKeyDown={handleKeyDown}
-                        style={textinput}
-                        className="create_issue_textinput"
-                        placeholder="My First Workspace"
-                    />
-                )}
-                <div className="create_issue_content">
-                    <p>Assignee </p>
-                    <Popover
-                        minWidth={50}
-                        position={Position.BOTTOM_LEFT}
-                        content={
-                            <Menu>
-                                <Menu.Group>
-                                    <Menu.Item>
-                                        <p className="menucontent">Assignee 1</p>
-                                    </Menu.Item>
-                                    <Menu.Item>
-                                        <p className="menucontent">Assignee 2</p>
-                                    </Menu.Item>
-                                    <Menu.Item>
-                                        <p className="menucontent">Assignee 3</p>
-                                    </Menu.Item>
-                                    <Menu.Item>
-                                        <p className="menucontent">Assignee 4</p>
-                                    </Menu.Item>
-                                    <Menu.Item>
-                                        <p className="menucontent">Assignee 5</p>
-                                    </Menu.Item>
-                                </Menu.Group>
-                            </Menu>
-                        }
-                    >
-                        <div className="span">
-                            <span className="span1">HC</span>
-                            <img src={sortdown} alt="" className="sortdown" />
-                        </div>
-                    </Popover>
-                    <p>Due date </p>
-                    <div className="span2">
-                        <img src={planner} alt="" onClick={() => setShow(true)} />
-                        <div>{format(date, "MMM dd")}</div>
-                    </div>
-                    <Calendar
-                        className="r"
-                        show={show}
-                        onChange={(value) => {
-                            setDate(value);
-                            setShow(false);
-                        }}
-                    />
-
-                    <p>Label</p>
-                    <Popover
-                        minWidth={50}
-                        position={Position.BOTTOM_LEFT}
-                        content={
-                            <Menu>
-                                <Menu.Group>
-                                    <Menu.Item>
-                                        <p className="menucontent">Label 1</p>
-                                    </Menu.Item>
-                                    <Menu.Item>
-                                        <p className="menucontent">Label 2</p>
-                                    </Menu.Item>
-                                    <Menu.Item>
-                                        <p className="menucontent">Label 3</p>
-                                    </Menu.Item>
-                                    <Menu.Item>
-                                        <p className="menucontent">Label 4</p>
-                                    </Menu.Item>
-                                    <Menu.Item>
-                                        <p className="menucontent">Label 5</p>
-                                    </Menu.Item>
-                                </Menu.Group>
-                            </Menu>
-                        }
-                    >
-                        <div className="span">
-                            <span className="span3">High</span>
-                            <img src={sortdown} alt="" className="sortdown" />
-                        </div>
-                    </Popover>
-                    <p>Priority</p>
-                    <Popover
-                        position={Position.BOTTOM_LEFT}
-                        minWidth={50}
-                        content={
-                            <Menu>
-                                <Menu.Group>
-                                    <Menu.Item>
-                                        <p className="menucontent">Priority 1</p>
-                                    </Menu.Item>
-                                    <Menu.Item>
-                                        <p className="menucontent">Priority 2</p>
-                                    </Menu.Item>
-                                    <Menu.Item>
-                                        <p className="menucontent">Priority 3</p>
-                                    </Menu.Item>
-                                    <Menu.Item>
-                                        <p className="menucontent">Priority 4</p>
-                                    </Menu.Item>
-                                    <Menu.Item>
-                                        <p className="menucontent">Priority 5</p>
-                                    </Menu.Item>
-                                </Menu.Group>
-                            </Menu>
-                        }
-                    >
-                        <div className="span">
-                            <span className="span4">Medium</span>
-                            <img src={sortdown} alt="" className="sortdown" />
-                        </div>
-                    </Popover>
-                    <p>Project </p>
-                    <Popover
-                        position={Position.BOTTOM_LEFT}
-                        minWidth={50}
-                        content={
-                            <Menu>
-                                <Menu.Group>
-                                    <Menu.Item>
-                                        <p className="menucontent">Project 1</p>
-                                    </Menu.Item>
-                                    <Menu.Item>
-                                        <p className="menucontent">Project 2</p>
-                                    </Menu.Item>
-                                    <Menu.Item>
-                                        <p className="menucontent">Project 3</p>
-                                    </Menu.Item>
-                                    <Menu.Item>
-                                        <p className="menucontent">Project 4</p>
-                                    </Menu.Item>
-                                    <Menu.Item>
-                                        <p className="menucontent">Project 5</p>
-                                    </Menu.Item>
-                                </Menu.Group>
-                            </Menu>
-                        }
-                    >
-                        <div className="span">
-                            <span className="span5">Bug tracking project</span>
-                            <img src={sortdown} alt="" className="sortdown" />
-                        </div>
-                    </Popover>
-                    <p>Description</p>
-                </div>
-                <Textarea style={textarea} className="textarea" placeholder="Add more details to this task" />
-                <button className="create_issue_btn">
-                    <img src={plusmath} alt="" className="plusmath" />
-                    Add subtask
-                </button>
             </div>
         </div>
     );

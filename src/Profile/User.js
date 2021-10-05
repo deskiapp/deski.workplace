@@ -19,14 +19,14 @@ function User() {
     return (
         <div>
             <div className="profile_sidebar">
-                <p className="title1">SETTINGS</p>
+                <p className="title">SETTINGS</p>
                 <Link to="/user_details" className={selectedtab1 === 0 ? "profile_links_selected" : "profile_links"}>
-                    <img src={ash_user} alt="" height="14" width="14" />
-                    <p className="content1">Account overview</p>
+                    <img src={ash_user} alt="" height="13" width="13" />
+                    <p className="content">Account overview</p>
                 </Link>
                 <Link to="#" className="profile_links">
-                    <img src={activity} alt="" height="14" width="14" />
-                    <p className="content1">Activity</p>
+                    <img src={activity} alt="" height="13" width="13" />
+                    <p className="content">Activity</p>
                 </Link>
                 <div
                     className="profile_links"
@@ -34,8 +34,8 @@ function User() {
                         history.goBack();
                     }}
                 >
-                    <img src={arrow_back} alt="" height="11" width="11" />
-                    <p className="content1">Back</p>
+                    <img src={arrow_back} alt="" height="11" width="13" />
+                    <p className="content">Back</p>
                 </div>
             </div>
         </div>

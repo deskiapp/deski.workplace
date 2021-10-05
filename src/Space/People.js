@@ -114,6 +114,7 @@ function People() {
                         <span>Tommy Guzman</span>
                         <p>Web developer</p>
                     </Pane>
+
                     <Dialog
                         margin="none"
                         padding="none"

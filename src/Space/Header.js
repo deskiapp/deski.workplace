@@ -12,15 +12,56 @@ import menuvertical from "../assets/menuvertical.png";
 import like from "../assets/like.svg";
 import attach from "../assets/attach.png";
 import avatar from "../assets/avatar.jpg";
-import { Avatar, Menu, Popover, Position, Dialog, CrossIcon, MoreIcon, TextInput, Pane, Textarea } from "evergreen-ui";
+import checkmark_circle from "../assets/checkmark_circle.svg";
+
+import {
+    Table,
+    Avatar,
+    Menu,
+    Pane,
+    Popover,
+    Position,
+    Dialog,
+    CrossIcon,
+    MoreIcon,
+    TextInput,
+    TextInputField,
+    SelectMenu,
+    Textarea,
+} from "evergreen-ui";
 import dropbox from "../assets/dropbox.png";
-import { position } from "ui-box";
+import avatar1 from "../assets/avatar1.jpeg";
+import add_ from "../assets/add_.svg";
+import arrow from "../assets/arrow.svg";
 
 function Header() {
+    const coll_drpdwn = {
+        height: "35px",
+        paddingBottom: "15px",
+    };
+    const invite = {
+        height: "20px",
+    };
+    const textinput_ = {
+        height: "40px",
+        border: "solid 0.1px #cecece",
+        color: "#9a9a9a",
+    };
+    const table_padding = {
+        padding: 0,
+        paddingLeft: "10px",
+    };
+
+    const editable_body = {
+        fontFamily: "GTEestiProDisplay-light",
+        fontSize: "12px",
+        color: "#444444",
+    };
     const [isShown, setIsShown] = React.useState(false);
     const [isShown1, setIsShown1] = React.useState(false);
-    // const [isShown2, setIsShown2] = React.useState(false);
-    const [isShown3, setIsShown3] = React.useState(false);
+    const [editableField, setEditableField] = React.useState(false);
+    const [writeTask, setWriteTask] = React.useState(false);
+    const [selected, setSelected] = React.useState(null);
 
     const [title, setTitle] = React.useState(false);
     const [show, setShow] = useState(false);
@@ -29,8 +70,10 @@ function Header() {
     function handleKeyDown(e) {
         if (e.key === "Enter") {
             setTitle(false);
+            setEditableField(false);
         }
     }
+
     const location = useLocation();
     const [selectedtab, setSelectedTab] = React.useState(0);
 
@@ -50,7 +93,7 @@ function Header() {
         fontSamily: "GTEestiProDisplay-regular",
         color: "#000000",
         marginLeft: "20px",
-        marginTop: "-70px",
+        marginTop: "60px",
         position: "absolute",
     };
     const textarea = {
@@ -166,25 +209,99 @@ function Header() {
                         <div className="create_issue_content">
                             <p>Assignee </p>
                             <Popover
-                                minWidth={50}
+                                minWidth={210}
+                                marginTop={400}
                                 position={Position.BOTTOM_LEFT}
                                 content={
                                     <Menu>
                                         <Menu.Group>
-                                            <Menu.Item>
-                                                <p className="menucontent">Assignee 1</p>
+                                            <Menu.Item className="disabled_" disabled>
+                                                <p className="disabled_">Your collaborator</p>
                                             </Menu.Item>
-                                            <Menu.Item>
-                                                <p className="menucontent">Assignee 2</p>
+                                            <Menu.Item
+                                                style={coll_drpdwn}
+                                                className="coll_drpdwn"
+                                                icon={
+                                                    <img
+                                                        src={avatar}
+                                                        alt=""
+                                                        className="bd_profiles"
+                                                        height="25"
+                                                        width="23"
+                                                    />
+                                                }
+                                            >
+                                                <p>Abdu Rahiman</p>
                                             </Menu.Item>
-                                            <Menu.Item>
-                                                <p className="menucontent">Assignee 3</p>
+                                            <Menu.Item
+                                                style={coll_drpdwn}
+                                                className="coll_drpdwn"
+                                                icon={
+                                                    <img
+                                                        src={avatar1}
+                                                        alt=""
+                                                        className="bd_profiles"
+                                                        height="25"
+                                                        width="23"
+                                                    />
+                                                }
+                                            >
+                                                <p>Abdu Rahiman</p>
                                             </Menu.Item>
-                                            <Menu.Item>
-                                                <p className="menucontent">Assignee 4</p>
+                                            <Menu.Item
+                                                style={coll_drpdwn}
+                                                className="coll_drpdwn"
+                                                icon={
+                                                    <img
+                                                        src={avatar}
+                                                        alt=""
+                                                        className="bd_profiles"
+                                                        height="25"
+                                                        width="23"
+                                                    />
+                                                }
+                                            >
+                                                <p>Abdu Rahiman</p>
                                             </Menu.Item>
-                                            <Menu.Item>
-                                                <p className="menucontent">Assignee 5</p>
+                                            <Menu.Item
+                                                style={coll_drpdwn}
+                                                className="coll_drpdwn"
+                                                icon={
+                                                    <img
+                                                        src={avatar1}
+                                                        alt=""
+                                                        className="bd_profiles"
+                                                        height="25"
+                                                        width="23"
+                                                    />
+                                                }
+                                            >
+                                                <p>Abdu Rahiman</p>
+                                            </Menu.Item>
+                                            <Menu.Item
+                                                style={coll_drpdwn}
+                                                className="coll_drpdwn"
+                                                icon={
+                                                    <img
+                                                        src={avatar}
+                                                        alt=""
+                                                        className="bd_profiles"
+                                                        height="25"
+                                                        width="23"
+                                                    />
+                                                }
+                                            >
+                                                <p>Abdu Rahiman</p>
+                                            </Menu.Item>
+                                        </Menu.Group>
+                                        <Menu.Divider />
+                                        <Menu.Group>
+                                            <Menu.Item
+                                                onClick={() => setIsShown1(true)}
+                                                style={invite}
+                                                icon={<img src={add_} alt="" height="10" width="10" />}
+                                            >
+                                                <p className="invite_">Invite collaborator</p>
                                             </Menu.Item>
                                         </Menu.Group>
                                     </Menu>
@@ -201,7 +318,6 @@ function Header() {
                                 <div>{format(date, "MMM dd")}</div>
                             </div>
                             <Calendar
-                                className="r"
                                 show={show}
                                 onChange={(value) => {
                                     setDate(value);
@@ -305,10 +421,39 @@ function Header() {
                             <p>Description</p>
                         </div>
                         <Textarea style={textarea} className="textarea" placeholder="Add more details to this task" />
-                        <button className="create_issue_btn">
+                        <button className="create_issue_btn" onClick={() => setWriteTask(true)}>
                             <img src={plusmath} alt="" className="plusmath" />
                             Add subtask
                         </button>
+                        {writeTask && (
+                            <Pane className="add_subtask">
+                                <Table.Row height={28} className="border_">
+                                    <Table.Cell className="map_column editable_body" style={table_padding} flexBasis={300}>
+                                        <img src={checkmark_circle} alt="" height="10" width="10" />
+                                        <p onClick={() => setEditableField(true)}>Write a task name</p>
+
+                                        {editableField && (
+                                            <TextInput
+                                                onKeyDown={handleKeyDown}
+                                                style={editable_body}
+                                                fontSize="13px"
+                                                marginLeft="-126px"
+                                                borderRadius="none"
+                                                width="357px"
+                                                height="26px"
+                                                borderLeft="none"
+                                                paddingLeft="40px"
+                                                autoFocus
+                                            />
+                                        )}
+                                    </Table.Cell>
+                                    <Table.Cell className="map_column "></Table.Cell>
+                                    <Table.Cell className="map_column "></Table.Cell>
+                                    <Table.Cell></Table.Cell>
+                                </Table.Row>
+                            </Pane>
+                        )}
+                        <div className="create_issue_empty"></div>
                     </div>
 
                     <div className="header_right">
@@ -360,6 +505,60 @@ function Header() {
                 <Dialog
                     margin="none"
                     padding="none"
+                    topOffset={170}
+                    width={465}
+                    minHeightContent={305}
+                    onCloseComplete={() => setIsShown1(false)}
+                    preventBodyScrolling
+                    hasHeader={false}
+                    isShown={isShown1}
+                    hasFooter={false}
+                >
+                    <div className="share_workspace">
+                        <h4>Add your teammates to deski Software</h4>
+                        <p>
+                            People you add will receive an invite automatically or after your site admin has approved the
+                            request.
+                        </p>
+                        <TextInputField
+                            width={400}
+                            style={textinput_}
+                            className="share_input"
+                            placeholder="Type name, group or email address"
+                        />
+                        <SelectMenu
+                            height={140}
+                            width={400}
+                            title="Select name"
+                            options={["Collaborator", "Admin", "Viewer", "Administrator"].map((label) => ({
+                                label,
+                                value: label,
+                            }))}
+                            selected={selected}
+                            closeOnSelect={true}
+                            hasFilter={false}
+                            hasTitle={false}
+                            onSelect={(item) => setSelected(item.value)}
+                        >
+                            <button className="dropdown">
+                                {selected || "Administrator"}
+                                <img src={arrow} className="drop_icon" alt="" height="8" width="15" />
+                            </button>
+                        </SelectMenu>
+
+                        <div>
+                            <button className="cancel_btn" onClick={() => setIsShown1(false)}>
+                                Cancel
+                            </button>
+                            <button className="add_btn" onClick={() => setIsShown1(false)} s>
+                                Add
+                            </button>
+                        </div>
+                    </div>
+                </Dialog>
+                <Dialog
+                    margin="none"
+                    padding="none"
                     topOffset={120}
                     width={570}
                     onCloseComplete={() => setIsShown(false)}
@@ -377,24 +576,13 @@ function Header() {
                             content={
                                 <Menu>
                                     <Menu.Group>
-                                        <Menu.Item
-                                            onSelect={() => {
-                                                setIsShown3(true);
-                                                setIsShown(false);
-                                            }}
-                                        >
+                                        <Menu.Item>
                                             <p className="menucontent">Rename</p>
                                         </Menu.Item>
                                         <Menu.Item>
                                             <p className="menucontent">Connect</p>
                                         </Menu.Item>
-                                        <Menu.Item
-                                            intent="danger"
-                                            onSelect={() => {
-                                                setIsShown1(true);
-                                                setIsShown(false);
-                                            }}
-                                        >
+                                        <Menu.Item intent="danger">
                                             <p className="menucontentred">Delete</p>
                                         </Menu.Item>
                                     </Menu.Group>
@@ -442,62 +630,6 @@ function Header() {
                                 <img src={dropbox} alt="" height="34" width="40" className="dropbox" />
                                 <h3>Dropbox</h3>
                             </div>
-                        </div>
-                    </div>
-                </Dialog>
-                <Dialog
-                    topOffset={235}
-                    width={400}
-                    minHeightContent={160}
-                    onCloseComplete={() => setIsShown1(false)}
-                    preventBodyScrolling
-                    hasHeader={false}
-                    isShown={isShown1}
-                    hasFooter={false}
-                >
-                    <div className="dlt_workspace">
-                        <h4>Are you sure you want to delete this workspace ? </h4>
-                        <p>Recently deleted workspaces can be restored from trash.</p>
-
-                        <div>
-                            <button className="cancel_btn cncl" onClick={() => setIsShown1(false)}>
-                                Cancel
-                            </button>
-                            <button className="dlt_btn" onClick={() => setIsShown1(false)}>
-                                Delete workspace
-                            </button>
-                        </div>
-                    </div>
-                </Dialog>
-                <Dialog
-                    margin="none"
-                    padding="none"
-                    topOffset={220}
-                    width={465}
-                    minHeightContent={205}
-                    onCloseComplete={() => setIsShown3(false)}
-                    preventBodyScrolling
-                    hasHeader={false}
-                    isShown={isShown3}
-                    hasFooter={false}
-                >
-                    <div className="share_workspace">
-                        <h4>Change App Development to</h4>
-                        <p>Change your space name to another</p>
-                        <TextInput
-                            className="new_name"
-                            borderRadius="none"
-                            width={400}
-                            height={25}
-                            placeholder="Enter new name"
-                        />
-                        <div>
-                            <button className="cancel_btn" onClick={() => setIsShown3(false)}>
-                                Cancel
-                            </button>
-                            <button className="add_btn" onClick={() => setIsShown3(false)}>
-                                Save
-                            </button>
                         </div>
                     </div>
                 </Dialog>

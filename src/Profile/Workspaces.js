@@ -50,28 +50,37 @@ function Workspaces() {
                     <Popover
                         position={Position.BOTTOM_LEFT}
                         minWidth={120}
-                        content={
+                        content={({ close }) => (
                             <Menu>
                                 <Menu.Group>
                                     <Menu.Item style={menu} icon={<Avatar src={settings} shape="square" size={10} />}>
                                         <p className="menucontent">Workspace settings</p>
                                     </Menu.Item>
                                     <Menu.Item
-                                        onSelect={() => setIsShown(true)}
+                                        onSelect={() => {
+                                            setIsShown(true);
+                                            close();
+                                        }}
                                         style={menu}
                                         icon={<img src={share} alt="" height="10" width="10" />}
                                     >
                                         <p className="menucontent">Share workspace</p>
                                     </Menu.Item>
                                     <Menu.Item
-                                        onSelect={() => setIsShown3(true)}
+                                        onSelect={() => {
+                                            setIsShown3(true);
+                                            close();
+                                        }}
                                         style={menu}
                                         icon={<img src={rename} alt="" height="10" width="10" />}
                                     >
                                         <p className="menucontent">Rename workspace</p>
                                     </Menu.Item>
                                     <Menu.Item
-                                        onClick={() => setIsShown1(true)}
+                                        onClick={() => {
+                                            setIsShown1(true);
+                                            close();
+                                        }}
                                         style={menu}
                                         icon={<img src={dlt} alt="" height="10" width="10" />}
                                     >
@@ -79,7 +88,7 @@ function Workspaces() {
                                     </Menu.Item>
                                 </Menu.Group>
                             </Menu>
-                        }
+                        )}
                     >
                         <div className="arrow_div">
                             <img src={arrow} alt="" className="arrow1" />
@@ -253,27 +262,52 @@ function Workspaces() {
                             <Popover
                                 position={Position.BOTTOM_LEFT}
                                 minWidth={50}
-                                content={
+                                content={({ close }) => (
                                     <Menu>
                                         <Menu.Group>
-                                            <Menu.Item onSelect={() => setIsShown3(true)} style={menu}>
+                                            <Menu.Item
+                                                onSelect={() => {
+                                                    setIsShown3(true);
+                                                    close();
+                                                }}
+                                                style={menu}
+                                            >
                                                 <p className="menucontent">Rename space</p>
                                             </Menu.Item>
-                                            <Menu.Item onSelect={() => setIsShown(true)} style={menu}>
+                                            <Menu.Item
+                                                onSelect={() => {
+                                                    setIsShown(true);
+                                                    close();
+                                                }}
+                                                style={menu}
+                                            >
                                                 <p className="menucontent">Share</p>
                                             </Menu.Item>
-                                            <Menu.Item onSelect={() => setIsShown2(true)} style={menu}>
+                                            <Menu.Item
+                                                onSelect={() => {
+                                                    setIsShown2(true);
+                                                    close();
+                                                }}
+                                                style={menu}
+                                            >
                                                 <p className="menucontent">Move space</p>
                                             </Menu.Item>
                                             <Menu.Item style={menu}>
                                                 <p className="menucontent">Duplicate</p>
                                             </Menu.Item>
-                                            <Menu.Item onSelect={() => setIsShown1(true)} intent="danger" style={menu}>
+                                            <Menu.Item
+                                                onSelect={() => {
+                                                    setIsShown1(true);
+                                                    close();
+                                                }}
+                                                intent="danger"
+                                                style={menu}
+                                            >
                                                 <p className="menucontentred">Delete</p>
                                             </Menu.Item>
                                         </Menu.Group>
                                     </Menu>
-                                }
+                                )}
                             >
                                 <MoreIcon className="more_" />
                             </Popover>
@@ -289,27 +323,52 @@ function Workspaces() {
                             <Popover
                                 position={Position.BOTTOM_LEFT}
                                 minWidth={50}
-                                content={
+                                content={({ close }) => (
                                     <Menu>
                                         <Menu.Group>
-                                            <Menu.Item onSelect={() => setIsShown3(true)} style={menu}>
+                                            <Menu.Item
+                                                onSelect={() => {
+                                                    setIsShown3(true);
+                                                    close();
+                                                }}
+                                                style={menu}
+                                            >
                                                 <p className="menucontent">Rename space</p>
                                             </Menu.Item>
-                                            <Menu.Item onSelect={() => setIsShown(true)} style={menu}>
+                                            <Menu.Item
+                                                onSelect={() => {
+                                                    setIsShown(true);
+                                                    close();
+                                                }}
+                                                style={menu}
+                                            >
                                                 <p className="menucontent">Share</p>
                                             </Menu.Item>
-                                            <Menu.Item onSelect={() => setIsShown2(true)} style={menu}>
+                                            <Menu.Item
+                                                onSelect={() => {
+                                                    setIsShown2(true);
+                                                    close();
+                                                }}
+                                                style={menu}
+                                            >
                                                 <p className="menucontent">Move space</p>
                                             </Menu.Item>
                                             <Menu.Item style={menu}>
                                                 <p className="menucontent">Duplicate</p>
                                             </Menu.Item>
-                                            <Menu.Item onSelect={() => setIsShown1(true)} intent="danger" style={menu}>
+                                            <Menu.Item
+                                                onSelect={() => {
+                                                    setIsShown1(true);
+                                                    close();
+                                                }}
+                                                intent="danger"
+                                                style={menu}
+                                            >
                                                 <p className="menucontentred">Delete</p>
                                             </Menu.Item>
                                         </Menu.Group>
                                     </Menu>
-                                }
+                                )}
                             >
                                 <MoreIcon className="more_" />
                             </Popover>
@@ -324,27 +383,52 @@ function Workspaces() {
                             <Popover
                                 position={Position.BOTTOM_LEFT}
                                 minWidth={50}
-                                content={
+                                content={({ close }) => (
                                     <Menu>
                                         <Menu.Group>
-                                            <Menu.Item onSelect={() => setIsShown3(true)} style={menu}>
+                                            <Menu.Item
+                                                onSelect={() => {
+                                                    setIsShown3(true);
+                                                    close();
+                                                }}
+                                                style={menu}
+                                            >
                                                 <p className="menucontent">Rename space</p>
                                             </Menu.Item>
-                                            <Menu.Item onSelect={() => setIsShown(true)} style={menu}>
+                                            <Menu.Item
+                                                onSelect={() => {
+                                                    setIsShown(true);
+                                                    close();
+                                                }}
+                                                style={menu}
+                                            >
                                                 <p className="menucontent">Share</p>
                                             </Menu.Item>
-                                            <Menu.Item onSelect={() => setIsShown2(true)} style={menu}>
+                                            <Menu.Item
+                                                onSelect={() => {
+                                                    setIsShown2(true);
+                                                    close();
+                                                }}
+                                                style={menu}
+                                            >
                                                 <p className="menucontent">Move space</p>
                                             </Menu.Item>
                                             <Menu.Item style={menu}>
                                                 <p className="menucontent">Duplicate</p>
                                             </Menu.Item>
-                                            <Menu.Item onSelect={() => setIsShown1(true)} intent="danger" style={menu}>
+                                            <Menu.Item
+                                                onSelect={() => {
+                                                    setIsShown1(true);
+                                                    close();
+                                                }}
+                                                intent="danger"
+                                                style={menu}
+                                            >
                                                 <p className="menucontentred">Delete</p>
                                             </Menu.Item>
                                         </Menu.Group>
                                     </Menu>
-                                }
+                                )}
                             >
                                 <MoreIcon className="more_" />
                             </Popover>
@@ -362,27 +446,52 @@ function Workspaces() {
                             <Popover
                                 position={Position.BOTTOM_LEFT}
                                 minWidth={50}
-                                content={
+                                content={({ close }) => (
                                     <Menu>
                                         <Menu.Group>
-                                            <Menu.Item onSelect={() => setIsShown3(true)} style={menu}>
+                                            <Menu.Item
+                                                onSelect={() => {
+                                                    setIsShown3(true);
+                                                    close();
+                                                }}
+                                                style={menu}
+                                            >
                                                 <p className="menucontent">Rename space</p>
                                             </Menu.Item>
-                                            <Menu.Item onSelect={() => setIsShown(true)} style={menu}>
+                                            <Menu.Item
+                                                onSelect={() => {
+                                                    setIsShown(true);
+                                                    close();
+                                                }}
+                                                style={menu}
+                                            >
                                                 <p className="menucontent">Share</p>
                                             </Menu.Item>
-                                            <Menu.Item onSelect={() => setIsShown2(true)} style={menu}>
+                                            <Menu.Item
+                                                onSelect={() => {
+                                                    setIsShown2(true);
+                                                    close();
+                                                }}
+                                                style={menu}
+                                            >
                                                 <p className="menucontent">Move space</p>
                                             </Menu.Item>
                                             <Menu.Item style={menu}>
                                                 <p className="menucontent">Duplicate</p>
                                             </Menu.Item>
-                                            <Menu.Item onSelect={() => setIsShown1(true)} intent="danger" style={menu}>
+                                            <Menu.Item
+                                                onSelect={() => {
+                                                    setIsShown1(true);
+                                                    close();
+                                                }}
+                                                intent="danger"
+                                                style={menu}
+                                            >
                                                 <p className="menucontentred">Delete</p>
                                             </Menu.Item>
                                         </Menu.Group>
                                     </Menu>
-                                }
+                                )}
                             >
                                 <MoreIcon className="more_" />
                             </Popover>
@@ -397,27 +506,52 @@ function Workspaces() {
                             <Popover
                                 position={Position.BOTTOM_LEFT}
                                 minWidth={50}
-                                content={
+                                content={({ close }) => (
                                     <Menu>
                                         <Menu.Group>
-                                            <Menu.Item onSelect={() => setIsShown3(true)} style={menu}>
+                                            <Menu.Item
+                                                onSelect={() => {
+                                                    setIsShown3(true);
+                                                    close();
+                                                }}
+                                                style={menu}
+                                            >
                                                 <p className="menucontent">Rename space</p>
                                             </Menu.Item>
-                                            <Menu.Item onSelect={() => setIsShown(true)} style={menu}>
+                                            <Menu.Item
+                                                onSelect={() => {
+                                                    setIsShown(true);
+                                                    close();
+                                                }}
+                                                style={menu}
+                                            >
                                                 <p className="menucontent">Share</p>
                                             </Menu.Item>
-                                            <Menu.Item onSelect={() => setIsShown2(true)} style={menu}>
+                                            <Menu.Item
+                                                onSelect={() => {
+                                                    setIsShown2(true);
+                                                    close();
+                                                }}
+                                                style={menu}
+                                            >
                                                 <p className="menucontent">Move space</p>
                                             </Menu.Item>
                                             <Menu.Item style={menu}>
                                                 <p className="menucontent">Duplicate</p>
                                             </Menu.Item>
-                                            <Menu.Item onSelect={() => setIsShown1(true)} intent="danger" style={menu}>
+                                            <Menu.Item
+                                                onSelect={() => {
+                                                    setIsShown1(true);
+                                                    close();
+                                                }}
+                                                intent="danger"
+                                                style={menu}
+                                            >
                                                 <p className="menucontentred">Delete</p>
                                             </Menu.Item>
                                         </Menu.Group>
                                     </Menu>
-                                }
+                                )}
                             >
                                 <MoreIcon className="more_" />
                             </Popover>
@@ -432,27 +566,52 @@ function Workspaces() {
                             <Popover
                                 position={Position.BOTTOM_LEFT}
                                 minWidth={50}
-                                content={
+                                content={({ close }) => (
                                     <Menu>
                                         <Menu.Group>
-                                            <Menu.Item onSelect={() => setIsShown3(true)} style={menu}>
+                                            <Menu.Item
+                                                onSelect={() => {
+                                                    setIsShown3(true);
+                                                    close();
+                                                }}
+                                                style={menu}
+                                            >
                                                 <p className="menucontent">Rename space</p>
                                             </Menu.Item>
-                                            <Menu.Item onSelect={() => setIsShown(true)} style={menu}>
+                                            <Menu.Item
+                                                onSelect={() => {
+                                                    setIsShown(true);
+                                                    close();
+                                                }}
+                                                style={menu}
+                                            >
                                                 <p className="menucontent">Share</p>
                                             </Menu.Item>
-                                            <Menu.Item onSelect={() => setIsShown2(true)} style={menu}>
+                                            <Menu.Item
+                                                onSelect={() => {
+                                                    setIsShown2(true);
+                                                    close();
+                                                }}
+                                                style={menu}
+                                            >
                                                 <p className="menucontent">Move space</p>
                                             </Menu.Item>
                                             <Menu.Item style={menu}>
                                                 <p className="menucontent">Duplicate</p>
                                             </Menu.Item>
-                                            <Menu.Item onSelect={() => setIsShown1(true)} intent="danger" style={menu}>
+                                            <Menu.Item
+                                                onSelect={() => {
+                                                    setIsShown1(true);
+                                                    close();
+                                                }}
+                                                intent="danger"
+                                                style={menu}
+                                            >
                                                 <p className="menucontentred">Delete</p>
                                             </Menu.Item>
                                         </Menu.Group>
                                     </Menu>
-                                }
+                                )}
                             >
                                 <MoreIcon className="more_" />
                             </Popover>
@@ -475,27 +634,52 @@ function Workspaces() {
                             <Popover
                                 position={Position.BOTTOM_LEFT}
                                 minWidth={50}
-                                content={
+                                content={({ close }) => (
                                     <Menu>
                                         <Menu.Group>
-                                            <Menu.Item onSelect={() => setIsShown3(true)} style={menu}>
+                                            <Menu.Item
+                                                onSelect={() => {
+                                                    setIsShown3(true);
+                                                    close();
+                                                }}
+                                                style={menu}
+                                            >
                                                 <p className="menucontent">Rename space</p>
                                             </Menu.Item>
-                                            <Menu.Item onSelect={() => setIsShown(true)} style={menu}>
+                                            <Menu.Item
+                                                onSelect={() => {
+                                                    setIsShown(true);
+                                                    close();
+                                                }}
+                                                style={menu}
+                                            >
                                                 <p className="menucontent">Share</p>
                                             </Menu.Item>
-                                            <Menu.Item onSelect={() => setIsShown2(true)} style={menu}>
+                                            <Menu.Item
+                                                onSelect={() => {
+                                                    setIsShown2(true);
+                                                    close();
+                                                }}
+                                                style={menu}
+                                            >
                                                 <p className="menucontent">Move space</p>
                                             </Menu.Item>
                                             <Menu.Item style={menu}>
                                                 <p className="menucontent">Duplicate</p>
                                             </Menu.Item>
-                                            <Menu.Item onSelect={() => setIsShown1(true)} intent="danger" style={menu}>
+                                            <Menu.Item
+                                                onSelect={() => {
+                                                    setIsShown1(true);
+                                                    close();
+                                                }}
+                                                intent="danger"
+                                                style={menu}
+                                            >
                                                 <p className="menucontentred">Delete</p>
                                             </Menu.Item>
                                         </Menu.Group>
                                     </Menu>
-                                }
+                                )}
                             >
                                 <MoreIcon className="more_" />
                             </Popover>
@@ -510,27 +694,52 @@ function Workspaces() {
                             <Popover
                                 position={Position.BOTTOM_LEFT}
                                 minWidth={50}
-                                content={
+                                content={({ close }) => (
                                     <Menu>
                                         <Menu.Group>
-                                            <Menu.Item onSelect={() => setIsShown3(true)} style={menu}>
+                                            <Menu.Item
+                                                onSelect={() => {
+                                                    setIsShown3(true);
+                                                    close();
+                                                }}
+                                                style={menu}
+                                            >
                                                 <p className="menucontent">Rename space</p>
                                             </Menu.Item>
-                                            <Menu.Item onSelect={() => setIsShown(true)} style={menu}>
+                                            <Menu.Item
+                                                onSelect={() => {
+                                                    setIsShown(true);
+                                                    close();
+                                                }}
+                                                style={menu}
+                                            >
                                                 <p className="menucontent">Share</p>
                                             </Menu.Item>
-                                            <Menu.Item onSelect={() => setIsShown2(true)} style={menu}>
+                                            <Menu.Item
+                                                onSelect={() => {
+                                                    setIsShown2(true);
+                                                    close();
+                                                }}
+                                                style={menu}
+                                            >
                                                 <p className="menucontent">Move space</p>
                                             </Menu.Item>
                                             <Menu.Item style={menu}>
                                                 <p className="menucontent">Duplicate</p>
                                             </Menu.Item>
-                                            <Menu.Item onSelect={() => setIsShown1(true)} intent="danger" style={menu}>
+                                            <Menu.Item
+                                                onSelect={() => {
+                                                    setIsShown1(true);
+                                                    close();
+                                                }}
+                                                intent="danger"
+                                                style={menu}
+                                            >
                                                 <p className="menucontentred">Delete</p>
                                             </Menu.Item>
                                         </Menu.Group>
                                     </Menu>
-                                }
+                                )}
                             >
                                 <MoreIcon className="more_" />
                             </Popover>
@@ -545,27 +754,52 @@ function Workspaces() {
                             <Popover
                                 position={Position.BOTTOM_LEFT}
                                 minWidth={50}
-                                content={
+                                content={({ close }) => (
                                     <Menu>
                                         <Menu.Group>
-                                            <Menu.Item onSelect={() => setIsShown3(true)} style={menu}>
+                                            <Menu.Item
+                                                onSelect={() => {
+                                                    setIsShown3(true);
+                                                    close();
+                                                }}
+                                                style={menu}
+                                            >
                                                 <p className="menucontent">Rename space</p>
                                             </Menu.Item>
-                                            <Menu.Item onSelect={() => setIsShown(true)} style={menu}>
+                                            <Menu.Item
+                                                onSelect={() => {
+                                                    setIsShown(true);
+                                                    close();
+                                                }}
+                                                style={menu}
+                                            >
                                                 <p className="menucontent">Share</p>
                                             </Menu.Item>
-                                            <Menu.Item onSelect={() => setIsShown2(true)} style={menu}>
+                                            <Menu.Item
+                                                onSelect={() => {
+                                                    setIsShown2(true);
+                                                    close();
+                                                }}
+                                                style={menu}
+                                            >
                                                 <p className="menucontent">Move space</p>
                                             </Menu.Item>
                                             <Menu.Item style={menu}>
                                                 <p className="menucontent">Duplicate</p>
                                             </Menu.Item>
-                                            <Menu.Item onSelect={() => setIsShown1(true)} intent="danger" style={menu}>
+                                            <Menu.Item
+                                                onSelect={() => {
+                                                    setIsShown1(true);
+                                                    close();
+                                                }}
+                                                intent="danger"
+                                                style={menu}
+                                            >
                                                 <p className="menucontentred">Delete</p>
                                             </Menu.Item>
                                         </Menu.Group>
                                     </Menu>
-                                }
+                                )}
                             >
                                 <MoreIcon className="more_" />
                             </Popover>

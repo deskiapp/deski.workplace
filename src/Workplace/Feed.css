@@ -216,8 +216,12 @@
 .task_con p {
     color: #7b7b7b;
     font-family: "SegoeUI";
-    font-size: 10px;
+    font-size: 14px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.36;
     width: 590px;
     margin-left: 50px;
-    margin-top: -35px;
+    margin-top: -41px;
 }

@@ -46,15 +46,15 @@ function Profile() {
                     <p className="content">Workspaces</p>
                 </Link>
                 <Link to="/collaborators" className={selectedtabs === 2 ? "profile_links_selected" : "profile_links"}>
-                    <img src={collaborators} alt="" height="13" width="13" />
+                    <img src={collaborators} alt="" height="14" width="13" />
                     <p className="content">Collaborators</p>
                 </Link>
                 <Link to="/referrals" className={selectedtabs === 3 ? "profile_links_selected" : "profile_links"}>
-                    <img src={star} alt="" height="13" width="13" />
+                    <img src={star} alt="" height="14" width="13" />
                     <p className="content">Referrals and Credit</p>
                 </Link>
                 <Link to="/profile_trash" className={selectedtabs === 4 ? "profile_links_selected" : "profile_links"}>
-                    <img src={trash} alt="" height="10" width="10" />
+                    <img src={trash} alt="" height="11" width="13" />
                     <p className="content">Trash</p>
                 </Link>
             </div>
