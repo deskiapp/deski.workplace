@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Login.css";
 import path from "../assets/path.svg";
 import deski_white from "../assets/deski_white.svg";
@@ -23,6 +23,73 @@ const Mobile = ({ children }) => {
 function Login() {
     let history = useHistory();
 
+    const [userName,setUserName] = useState('')
+    const [password,setPassword] = useState('');
+
+
+    const handleChangeUserInput = (props) => (e) => {
+
+          if(props === "username"){
+
+              setUserName(e.target.value)
+          }else if(props === "password"){
+
+              setPassword(e.target.value)  
+          }
+
+    }
+
+
+    const handleLogin = (props) => {
+
+           if(userName===""){
+
+
+           }else if(password===""){
+
+           }else{
+
+
+             
+
+
+            var details = {
+               
+               'email': userName,
+               'password':password,
+                'type':'0'
+     
+             };
+           
+           var formBody = [];
+           for (var property in details) {
+             var encodedKey = encodeURIComponent(property);
+             var encodedValue = encodeURIComponent(details[property]);
+             formBody.push(encodedKey + "=" + encodedValue);
+           }
+           formBody = formBody.join("&");
+           
+           fetch('http://18.116.203.74:6769/login', {
+             method: 'POST',
+             headers: {
+               'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
+             },
+             body: formBody
+           }).then((response)=>{
+                 
+   
+                 console.log(response)
+           })
+
+
+              // history.push("/home");
+           }
+         
+    }
+
+
+
+
     return (
         <div>
             <Desktop>
@@ -41,6 +108,7 @@ function Login() {
                                 borderRadius={2}
                                 borderColor="#dfe1e6"
                                 placeholder="Enter email"
+                                onChange={handleChangeUserInput("username")}
                             />
                             <TextInput
                                 width={265}
@@ -49,12 +117,14 @@ function Login() {
                                 borderColor="#dfe1e6"
                                 borderRadius={2}
                                 placeholder="Password"
+                                onChange={handleChangeUserInput("password")}
                             />
                             <button
                                 className="login_continue"
                                 onClick={() => {
-                                    history.push("/home");
-                                }}
+                                    // history.push("/create_site");
+                                    handleLogin("")
+                                 }}
                             >
                                 Continue
                             </button>

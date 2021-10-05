@@ -1,3 +1,4 @@
+
 import React from "react";
 import "./App.css";
 
@@ -26,7 +27,13 @@ import Workspaces from "./Profile/Workspaces";
 import Referrals from "./Profile/Referrals";
 import User_details from "./Profile/User_details";
 
+import firebase from './services/firebase'
+
 function App() {
+
+
+   
+
     return (
         <div className="App">
             <Router>
