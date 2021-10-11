@@ -3,7 +3,7 @@ import "./Login.css";
 import path from "../assets/path.svg";
 import deski_white from "../assets/deski_white.svg";
 import google_text from "../assets/google_text.svg";
-import { Pane, TextInput } from "evergreen-ui";
+import { Pane, TextInput, toaster } from "evergreen-ui";
 import { Link, useHistory } from "react-router-dom";
 import { useMediaQuery } from "react-responsive";
 
@@ -58,39 +58,65 @@ function Login() {
 
 const handleSignup = (props) => {
   
-     
-            var details = {
-                firebaseUid: "",
-                log_email: signupData.email,
-                type: "1",
-                log_password: signupData.password,
-               
-            };
+            if(signupData.email===""){
 
-            var formBody = [];
-            for (var property in details) {
-                var encodedKey = encodeURIComponent(property);
-                var encodedValue = encodeURIComponent(details[property]);
-                formBody.push(encodedKey + "=" + encodedValue);
+
+            }else if(signupData.password===""){
+
+
+
+            }else{
+
+                var myHeaders = new Headers();
+                myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
+                
+                var urlencoded = new URLSearchParams();
+                urlencoded.append("email", signupData.email);
+                urlencoded.append("password",signupData.password);
+                
+                var requestOptions = {
+                  method: 'POST',
+                  headers: myHeaders,
+                  body: urlencoded,
+                  redirect: 'follow'
+                };
+                
+                fetch("http://18.116.203.74:6769/login", requestOptions)
+                  .then(response => {
+                    if (response.ok){
+                      response.json().then(json => {
+                        console.log(json.user_email+" "+json.user_password)
+                        console.log(signupData.email+" "+signupData.password)
+                       // const myJSON = JSON.stringify(json);
+                      //  console.log(myJSON)
+                     //   console.log(myJSON.user_email)
+                     //   console.log(signupData.email)
+
+
+                        
+                           if(signupData.email.trim()===json.user_email.trim() && signupData.password.trim()=== json.user_password.trim()){
+
+                                history.push('/workplace')
+                                toaster.notify("Login Success")
+                           }
+
+
+                      })
+                    }
+                  })
+                  .catch(error => console.log('error: ', error))
+
             }
-            formBody = formBody.join("&");
-
-            fetch('http://18.116.203.74:6769/login', {
-                method: 'POST',
-                // mode: 'no-cors',
           
-             headers: {
-                'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
-             },
-            
-             body: formBody
-           })
+
+
+          
+
+
+
+       
         
-           .then((response) => response.json())
-           .then(response =>{ console.log(response)
-           if(response.log_email===response.email)
-           {  history.push("/workplace")}
-         } )
+          
          
         }
         const handleSignupWithGmail = (props) => {
