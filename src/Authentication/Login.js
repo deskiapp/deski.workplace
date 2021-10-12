@@ -74,6 +74,7 @@ const handleSignup = (props) => {
                 urlencoded.append("email", signupData.email);
                 urlencoded.append("password",signupData.password);
                 
+             
                 var requestOptions = {
                   method: 'POST',
                   headers: myHeaders,
@@ -87,36 +88,29 @@ const handleSignup = (props) => {
                       response.json().then(json => {
                         console.log(json.user_email+" "+json.user_password)
                         console.log(signupData.email+" "+signupData.password)
-                       // const myJSON = JSON.stringify(json);
-                      //  console.log(myJSON)
-                     //   console.log(myJSON.user_email)
-                     //   console.log(signupData.email)
+                      
 
 
-                        
+                  
                            if(signupData.email.trim()===json.user_email.trim() && signupData.password.trim()=== json.user_password.trim()){
 
                                 history.push('/workplace')
-                                toaster.notify("Login Success")
+                                toaster.success("Login Success")
                            }
+                           else if(parseInt(json.message) === 0){
 
-
+                                SetIncorrect(true);
+                            }
                       })
                     }
+                 
+                    
                   })
-                  .catch(error => console.log('error: ', error))
+                  .catch(error => console.log('error: ', error)
+               )
 
             }
-          
-
-
-          
-
-
-
-       
-        
-          
+           
          
         }
         const handleSignupWithGmail = (props) => {

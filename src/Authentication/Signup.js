@@ -1,15 +1,16 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./Signup.css";
-
+import axios from 'axios'
 import path from "../assets/path.svg";
 import eye from "../assets/eye.svg";
 import deski_white from "../assets/deski_white.svg";
 import google_text from "../assets/google_text.svg";
-import { Pane, TextInput } from "evergreen-ui";
+import { Pane, TextInput, toaster } from "evergreen-ui";
 import { useHistory } from "react-router-dom";
 import { useMediaQuery } from "react-responsive";
 
 import firebase from "../services/firebase";
+
 
 const auth = firebase.auth();
 
@@ -26,7 +27,29 @@ const Mobile = ({ children }) => {
     return isMobile ? children : null;
 };
 
-function Signup() {
+function Signup(json) {
+   
+//   const [ip, setIP] = useState('');
+
+
+  const getData = async () => {
+    const res = await axios.get('https://geolocation-db.com/json/')
+    console.log(res.data);
+    // setIP(res.data.IPv4)
+  }
+  
+  useEffect( () => {
+    
+    getData()
+
+  }, [])
+    var today = new Date();
+    // var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+    // var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+   
+    var ipaddress= json.ip;
+    console.log(today )
+
     let history = useHistory();
     const [incorrect, SetIncorrect] = React.useState(false);
 
@@ -85,8 +108,14 @@ function Signup() {
         }
         return true;
     };
+    // function address(json) {
+        
+       
+    // }
+    const signup = (props,json) =>{
 
-    const handleSignup = (props) => {
+  
+
         if (emailValidaton(signupData.workEmail)) {
             if (signupData.firstName.length >7) {
                 // alert("Empty first name");
@@ -95,6 +124,7 @@ function Signup() {
             } else if (signupData.password.length >16) {
                 // alert("Empty password");
             } else {
+               
                 var details = {
                     firebaseUid: "",
                     email: signupData.workEmail,
@@ -103,7 +133,11 @@ function Signup() {
                     lastName: signupData.lastName,
                     password: signupData.password,
                 };
+             
 
+                     
+                
+               
                 var formBody = [];
                 for (var property in details) {
                     var encodedKey = encodeURIComponent(property);
@@ -111,27 +145,90 @@ function Signup() {
                     formBody.push(encodedKey + "=" + encodedValue);
                 }
                 formBody = formBody.join("&");
-
-                fetch('http://18.116.203.74:6769/signup', {
-                    method: 'POST',
-                    // mode: 'no-cors',
-              
-                 headers: {
-                   'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8',
-              
-                 },
                 
-                 body: formBody
-               })  
-               .then(
-                 (response) => {
-                    console.log(response);
-                    // history.push("/workplace")
-                 })
-            }}else {
+                var myHeaders = new Headers();
+                myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
+                
+                var requestOptions = {
+                    method: 'POST',
+                    headers: myHeaders,
+                    body: formBody,
+                    redirect: 'follow'
+                  };
+                
+                
+                
+                    fetch("http://18.116.203.74:6769/signup", requestOptions)
+                    .then(response => {
+                      if (response.ok){
+                        response.json().then(json => {
+                            console.log(signupData.firstName+" "+signupData.lastName)
+                          console.log(signupData.workEmail+" "+signupData.password)
+                          
+                               history.push("/workplace")
+                
+                               toaster.success("Signup success")
+                       
+                
+                        })
+                      }
+                    })
+                
+                    .catch(error => console.log('error: ', error))
+                
+               
+                }}else {
             // alert("not a valid email");
         }
-    };
+    }
+    
+    const handleSignup = (props) => {
+        
+               
+          
+
+                    var myHeaders = new Headers();
+                    myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
+                    
+                    var urlencoded = new URLSearchParams();
+                    urlencoded.append("email", signupData.workEmail);
+                
+                    
+                    var checkuserRequest = {
+                      method: 'POST',
+                      headers: myHeaders,
+                      body: urlencoded,
+                      redirect: 'follow'
+                    };
+
+                    fetch("http://18.116.203.74:6769/checkUser", checkuserRequest)
+                  .then(response => {
+                    if (response.ok){
+                      response.json().then(json => {
+                        console.log(json.message)
+                        console.log(signupData.workEmail)
+
+       
+
+                         if(parseInt(json.message) === 0 ){
+
+                            signup();
+                       }
+                         else  if(parseInt(json.message) === 1) {
+
+                               SetIncorrect(true);
+                            
+                            }
+
+                      })
+                    }
+                 
+                    
+                  })
+                  .catch(error => console.log('error: ', error)
+               )
+      
+    }
     const handleSignupWithGmail = (props) => {
         const googleProvider = new firebase.auth.GoogleAuthProvider();
         auth.signInWithPopup(googleProvider)
@@ -182,7 +279,8 @@ function Signup() {
                 })
           
           
-              }
+            }
+        
     React.useState(() => {});
 
     return (
@@ -203,7 +301,7 @@ function Signup() {
                             <div className="get_started">
                                 <p className="required">Work Email</p>
                                 <TextInput
-                                    onInput={(e) => SetIncorrect(true)}
+                                 
                                     width={300}
                                     borderRadius={2}
                                     borderColor="#c5c5c5"
@@ -302,7 +400,7 @@ function Signup() {
                                 <p className="required">Work Email</p>
                                 <TextInput
                                     width={200}
-                                    onInput={(e) => SetIncorrect(true)}
+                                    
                                     borderRadius={2}
                                     borderColor="#c5c5c5"
                                     onChange={handleChangeInput("wMail")}
@@ -397,7 +495,7 @@ function Signup() {
                                 <p className="required">Work Email</p>
                                 <TextInput
                                     width={300}
-                                    onInput={(e) => SetIncorrect(true)}
+                                 
                                     borderRadius={2}
                                     borderColor="#c5c5c5"
                                     onChange={handleChangeInput("wMail")}
