@@ -1,9 +1,22 @@
-import React from "react";
+import React,{useEffect,useState} from "react";
 import "./Setting_up.css";
 import deski_ash from "../assets/deski_ash.svg";
 import business_team from "../assets/business_team.png";
+import {useHistory} from 'react-router-dom'
 
 function Setting_up() {
+
+        let history = useHistory();
+        
+
+        const [value, setValue] = React.useState(0);
+      
+        useEffect(() => {
+          setValue(10 * 45);
+        
+        });
+    setTimeout(function(){history.push("/workplace")},2000);
+
     const containerStyles = {
         height: 7,
         width: "450px",
@@ -15,7 +28,9 @@ function Setting_up() {
 
     const fillerStyles = {
         height: "100%",
-        width: "30%",
+        width: `${value}px`,
+        transition: '2s ease',
+     
         backgroundColor: "#42526e",
         borderRadius: "inherit",
         textAlign: "right",

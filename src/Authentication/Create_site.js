@@ -1,4 +1,4 @@
-import React from "react";
+import React,{useState} from "react";
 import "./Create_site.css";
 import deski_ash from "../assets/deski_ash.svg";
 import { Pane, TextInput } from "evergreen-ui";
@@ -19,12 +19,79 @@ const Mobile = ({ children }) => {
     return isMobile ? children : null;
 };
 
+
 function Create_site() {
-    const [value, setValue] = React.useState("");
 
     let history = useHistory();
     const [incorrect, SetIncorrect] = React.useState(false);
     const [correct, SetCorrect] = React.useState(false);
+
+
+    const [username, setUsername] = useState("");
+
+    const CreateSite = (props) =>{
+
+
+        if (username === "") {
+          
+            
+            } else {
+               
+                var urlencoded = new URLSearchParams();
+                urlencoded.append("username", username);
+
+                // var formBody = [];
+                // for (var property in details) {
+                //     var encodedKey = encodeURIComponent(property);
+                //     var encodedValue = encodeURIComponent(details[property]);
+                //     formBody.push(encodedKey + "=" + encodedValue);
+                // }
+                // formBody = formBody.join("&");
+
+                var myHeaders = new Headers();
+                myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
+
+
+                var requestOptions = {
+                  method: 'POST',
+                  headers: myHeaders,
+                  body: urlencoded,
+                  redirect: 'follow'
+                };
+  
+             
+                
+                    fetch("http://18.116.203.74:6769/checkUsername", requestOptions)
+                    .then(response => {
+                      if (response.ok){
+                        response.json().then(json => {
+                            console.log(username) 
+                            console.log(json.message)   
+
+                            if(parseInt(json.message) === 0 ){
+
+                                SetCorrect(true)
+                                SetIncorrect(false);
+
+                                setTimeout(function(){history.push("/setting_up")},1000);
+                           }
+                             else  if(parseInt(json.message) === 1) {
+    
+                                   SetIncorrect(true);
+                                   SetCorrect(false)
+                                
+                                }
+                
+                        })
+                      }
+                    })
+                
+                    .catch(error => console.log('error: ', error))
+                
+               
+                }
+            }
+
 
     return (
         <div>
@@ -39,19 +106,8 @@ function Create_site() {
                         <p className="choose">Choose something familiar like your team and company</p>
                         <TextInput
                             width={322}
-                            onInput={(e) => {
-                                setValue(e.target.value);
-                                if (value.length > 0) {
-                                    SetIncorrect(true);
-                                } else {
-                                    SetIncorrect(false);
-                                }
-                                if (value.length == 0) {
-                                    SetCorrect(true);
-                                } else {
-                                    SetCorrect(false);
-                                }
-                            }}
+                        
+                            onChange={(e)=>setUsername(e.target.value)}
                             border="solid 1.5px #c5c5c5"
                             backgroundColor="#fafbfc"
                             className="create_site_inputfield"
@@ -64,9 +120,9 @@ function Create_site() {
                             </p>
                         )}
                         <button
-                            className={correct ? "create_site_button_active" : "create_site_button"}
+                            className={(username === "") ? "create_site_button" : "create_site_button_active"}
                             onClick={() => {
-                                history.push("/email_verification");
+                                CreateSite("");
                             }}
                         >
                             Continue
@@ -84,19 +140,10 @@ function Create_site() {
                         <h4>Give your site a name</h4>
                         <p className="choose">Choose something familiar like your team and company</p>
                         <TextInput
-                            onInput={(e) => {
-                                setValue(e.target.value);
-                                if (value.length > 0) {
-                                    SetIncorrect(true);
-                                } else {
-                                    SetIncorrect(false);
-                                }
-                                if (value.length == 0) {
-                                    SetCorrect(true);
-                                } else {
-                                    SetCorrect(false);
-                                }
-                            }}
+           
+                            onChange={(e)=>setUsername(e.target.value)}
+
+
                             width={220}
                             borderColor="#c5c5c5"
                             backgroundColor="#fafbfc"
@@ -112,8 +159,9 @@ function Create_site() {
                         <button
                             className={correct ? "mob_create_site_button_active" : "mob_create_site_button"}
                             onClick={() => {
-                                history.push("/email_verification");
+                                CreateSite("");
                             }}
+
                         >
                             Continue
                         </button>
@@ -130,19 +178,10 @@ function Create_site() {
                         <h4>Give your site a name</h4>
                         <p className="choose">Choose something familiar like your team and company</p>
                         <TextInput
-                            onInput={(e) => {
-                                setValue(e.target.value);
-                                if (value.length > 0) {
-                                    SetIncorrect(true);
-                                } else {
-                                    SetIncorrect(false);
-                                }
-                                if (value.length == 0) {
-                                    SetCorrect(true);
-                                } else {
-                                    SetCorrect(false);
-                                }
-                            }}
+    
+                            onChange={(e)=>setUsername(e.target.value)}
+
+
                             width={322}
                             borderColor="#c5c5c5"
                             backgroundColor="#fafbfc"
@@ -158,7 +197,7 @@ function Create_site() {
                         <button
                             className={correct ? "create_site_button_active" : "create_site_button"}
                             onClick={() => {
-                                history.push("/email_verification");
+                                CreateSite("");
                             }}
                         >
                             Continue

@@ -88,24 +88,23 @@ const handleSignup = (props) => {
                       response.json().then(json => {
                         console.log(json.user_email+" "+json.user_password)
                         console.log(signupData.email+" "+signupData.password)
-                      
-
-
-                  
-                           if(signupData.email.trim()===json.user_email.trim() && signupData.password.trim()=== json.user_password.trim()){
-
-                                history.push('/workplace')
-                                toaster.success("Login Success")
-                           }
-                           else if(parseInt(json.message) === 0){
+   
+                     
+                           if(json.user_email == undefined || json.user_password == undefined){
 
                                 SetIncorrect(true);
                             }
+                            else  if(signupData.email.trim()===json.user_email.trim() && signupData.password.trim()=== json.user_password.trim()){
+
+                                history.push('/setting_up')
+                                // toaster.success("Login Success")
+                           }
                       })
                     }
                  
                     
                   })
+                  
                   .catch(error => console.log('error: ', error)
                )
 
@@ -141,7 +140,7 @@ const handleSignup = (props) => {
     
                     fetch('http://18.116.203.74:6769/login', {
                         method: 'POST',
-                        mode:'no-cores',
+                     
                         headers: {
                           'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
                         },
@@ -149,6 +148,7 @@ const handleSignup = (props) => {
                       }).then((response)=>{
               
                             console.log(response)
+                            history.push("/setting_up")
                            
                       })
 

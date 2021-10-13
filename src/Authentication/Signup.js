@@ -27,15 +27,26 @@ const Mobile = ({ children }) => {
     return isMobile ? children : null;
 };
 
-function Signup(json) {
+function Signup() {
    
-//   const [ip, setIP] = useState('');
+  const [getDetails, setGetDetails] = useState({
+    ip: "",
+    latitude: "",
+    longitude: "",
+});
 
 
   const getData = async () => {
     const res = await axios.get('https://geolocation-db.com/json/')
     console.log(res.data);
-    // setIP(res.data.IPv4)
+    setGetDetails({
+        ip: res.data.IPv4,
+        latitude: res.data.latitude,
+        longitude:res.data.longitude,
+       
+    });
+
+
   }
   
   useEffect( () => {
@@ -43,12 +54,7 @@ function Signup(json) {
     getData()
 
   }, [])
-    var today = new Date();
-    // var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
-    // var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
    
-    var ipaddress= json.ip;
-    console.log(today )
 
     let history = useHistory();
     const [incorrect, SetIncorrect] = React.useState(false);
@@ -112,16 +118,16 @@ function Signup(json) {
         
        
     // }
-    const signup = (props,json) =>{
+    const signup = (props) =>{
 
   
 
         if (emailValidaton(signupData.workEmail)) {
-            if (signupData.firstName.length >7) {
+            if (signupData.firstName.length >7 || signupData.firstName === "") {
                 // alert("Empty first name");
-            } else if (signupData.lastName.length >7) {
+            } else if (signupData.lastName.length >7 || signupData.lastName === "") {
                 // alert("Empty last name");
-            } else if (signupData.password.length >16) {
+            } else if (signupData.password.length >16 || signupData.password === "") {
                 // alert("Empty password");
             } else {
                
@@ -131,12 +137,16 @@ function Signup(json) {
                     type: "1",
                     displayName: signupData.firstName,
                     lastName: signupData.lastName,
-                    password: signupData.password,
-                };
-             
+                    password: signupData.password,                
+                    // userGeolocation: +"latitude:"+ getDetails.latitude +"longitude :"+ getDetails.longitude,
+                    userIp: "gugyky",
+                 
+                    userLocation: "userlocation",
+                    // date: new Date(),
 
-                     
-                
+                   
+                };
+ 
                
                 var formBody = [];
                 for (var property in details) {
@@ -162,13 +172,13 @@ function Signup(json) {
                     .then(response => {
                       if (response.ok){
                         response.json().then(json => {
-                            console.log(signupData.firstName+" "+signupData.lastName)
+                          console.log(signupData.firstName+" "+signupData.lastName)
                           console.log(signupData.workEmail+" "+signupData.password)
+                          console.log(getDetails.ip)
+                          console.log(getDetails.latitude)
+                          console.log(getDetails.longitude)
                           
-                               history.push("/workplace")
-                
-                               toaster.success("Signup success")
-                       
+                               history.push("/email_verification")
                 
                         })
                       }
@@ -257,7 +267,7 @@ function Signup(json) {
 
                 fetch('http://18.116.203.74:6769/signup', {
                     method: 'POST',
-                    mode:'no-cores',
+                
                     headers: {
                       'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
                     },
@@ -266,6 +276,7 @@ function Signup(json) {
                         
           
                         console.log(response)
+                        history.push("/email_verification")
                   })
           
                  

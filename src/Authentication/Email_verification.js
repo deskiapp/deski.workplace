@@ -28,7 +28,7 @@ function Email_verification() {
                     <button
                         className="resend_email"
                         onClick={() => {
-                            history.push("/setting_up");
+                            history.push("/create_site");
                         }}
                     >
                         Resend email
