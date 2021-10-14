@@ -27,6 +27,9 @@ const Mobile = ({ children }) => {
 function Login() {
     
     const [incorrect, SetIncorrect] = React.useState(false);
+    const [googleincorrect, setGoogleincorrect] = React.useState(false);
+
+    
     let history = useHistory();
 
  
@@ -95,9 +98,8 @@ const handleSignup = (props) => {
                                 SetIncorrect(true);
                             }
                             else  if(signupData.email.trim()===json.user_email.trim() && signupData.password.trim()=== json.user_password.trim()){
-
+                                localStorage.setItem('data',signupData.email)
                                 history.push('/setting_up')
-                                // toaster.success("Login Success")
                            }
                       })
                     }
@@ -112,6 +114,7 @@ const handleSignup = (props) => {
            
          
         }
+    
         const handleSignupWithGmail = (props) => {
             const googleProvider = new firebase.auth.GoogleAuthProvider();
             auth.signInWithPopup(googleProvider)
@@ -124,10 +127,9 @@ const handleSignup = (props) => {
                     console.log(displayName + " --- " + email + " --- " + firebaseUid);
     
                     var details = {
-                        firebaseUid: firebaseUid,
+                        
                         email: email,
-                        type: "0",
-                        displayName: displayName,
+                      
                     };
     
                     var formBody = [];
@@ -138,18 +140,40 @@ const handleSignup = (props) => {
                     }
                     formBody = formBody.join("&");
     
-                    fetch('http://18.116.203.74:6769/login', {
+
+            fetch("http://18.116.203.74:6769/checkUser",  {
                         method: 'POST',
                      
                         headers: {
                           'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
                         },
                         body: formBody
-                      }).then((response)=>{
-              
-                            console.log(response)
-                            history.push("/setting_up")
+                      }).then(response => {
+                        if (response.ok){
+                          response.json().then(json => {
+                            console.log(json.message)
+
+    
+           
+    
+                             if(parseInt(json.message) === 1 ){
+    
+                                localStorage.setItem('data',email)
                            
+                            history.push("/setting_up")
+
+                               
+                           }
+                             else  if(parseInt(json.message) === 0) {
+    
+                               setGoogleincorrect(true)
+                                
+                                }
+    
+                          })
+                        }
+                     
+                        
                       })
 
               
@@ -176,6 +200,7 @@ const handleSignup = (props) => {
                             <p className="p1">Login to continue</p>
                             <h5>Your teams site</h5>
                             {incorrect && <p className="invalid">*The username or password is incorrect</p>}
+                            {googleincorrect && <p className="invalid">*The user is not exist</p>}
                             <TextInput
                              
                                 width={265}
@@ -260,6 +285,8 @@ const handleSignup = (props) => {
                             <p className="p1">Login to continue</p>
                             <h5>Your teams site</h5>
                             {incorrect && <p className="invalid">*The username or password is incorrect</p>}
+                            {googleincorrect && <p className="invalid">*The user is not exist</p>}
+
 
                             <TextInput
                                 width={210}
@@ -344,6 +371,8 @@ const handleSignup = (props) => {
                             <p className="p1">Login to continue</p>
                             <h5>Your teams site</h5>
                             {incorrect && <p className="invalid">*The username or password is incorrect</p>}
+                            {googleincorrect && <p className="invalid">*The user is not exist</p>}
+
 
                             <TextInput
                                 width={265}

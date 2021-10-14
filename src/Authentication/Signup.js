@@ -33,6 +33,11 @@ function Signup() {
     ip: "",
     latitude: "",
     longitude: "",
+    country_code: "",
+    country_name: "",
+    postal:"",
+    state:"",
+    city:"",
 });
 
 
@@ -43,6 +48,11 @@ function Signup() {
         ip: res.data.IPv4,
         latitude: res.data.latitude,
         longitude:res.data.longitude,
+        country_code:res.data.country_code,
+        country_name:res.data.country_name,
+        city:res.data.city,
+        state:res.data.state,
+        postal:res.data.postal,
        
     });
 
@@ -118,9 +128,15 @@ function Signup() {
         
        
     // }
-    const signup = (props) =>{
+    const signUp = (props) => {
 
-  
+        var dt = new Date().getTime();
+        var uuid = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+            var r = (dt + Math.random()*16)%16 | 0;
+            dt = Math.floor(dt/16);
+            return (c=='x' ? r :(r&0x3|0x8)).toString(16);
+        });
+
 
         if (emailValidaton(signupData.workEmail)) {
             if (signupData.firstName.length >7 || signupData.firstName === "") {
@@ -131,42 +147,56 @@ function Signup() {
                 // alert("Empty password");
             } else {
                
-                var details = {
-                    firebaseUid: "",
-                    email: signupData.workEmail,
-                    type: "1",
-                    displayName: signupData.firstName,
-                    lastName: signupData.lastName,
-                    password: signupData.password,                
-                    // userGeolocation: +"latitude:"+ getDetails.latitude +"longitude :"+ getDetails.longitude,
-                    userIp: "gugyky",
-                 
-                    userLocation: "userlocation",
-                    // date: new Date(),
+                // var details = {
+                //     firebaseUid: "",
+                //     email: signupData.workEmail,
+                //     type: "1",
+                //     displayName: signupData.firstName,
+                //     lastName: signupData.lastName,
+                //     password: signupData.password,                
+                //     // userGeolocation: +"latitude:"+ getDetails.latitude +"longitude :"+ getDetails.longitude,
+                //     // userIp: "gugyky",
+                //     userIp:  getDetails.ip,
+                //     //  userLocation: +"country_code:"+ getDetails.country_code +"country_name :"+ getDetails.country_name,
+                //     userLocation: "1",
+                //     // date: new Date(),
 
                    
-                };
+                // };
  
                
-                var formBody = [];
-                for (var property in details) {
-                    var encodedKey = encodeURIComponent(property);
-                    var encodedValue = encodeURIComponent(details[property]);
-                    formBody.push(encodedKey + "=" + encodedValue);
-                }
-                formBody = formBody.join("&");
+                // var formBody = [];
+                // for (var property in details) {
+                //     var encodedKey = encodeURIComponent(property);
+                //     var encodedValue = encodeURIComponent(details[property]);
+                //     formBody.push(encodedKey + "=" + encodedValue);
+                // }
+                // formBody = formBody.join("&");
                 
                 var myHeaders = new Headers();
                 myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
+
                 
+                var urlencoded = new URLSearchParams();
+                urlencoded.append("firebaseUid", uuid);
+                urlencoded.append("email", signupData.workEmail);
+                urlencoded.append("displayName", signupData.firstName);
+                urlencoded.append("lastName", signupData.lastName);
+                urlencoded.append("password", signupData.password);
+                urlencoded.append("userIp", getDetails.ip);
+                urlencoded.append("userRegtime", new Date());
+                urlencoded.append("userLocation", getDetails.state +", "+ getDetails.city);               
+                urlencoded.append("userGeolocation", getDetails.postal +"  "+ getDetails.latitude +"  "+ getDetails.longitude +"  "+ getDetails.country_code +"  "+ getDetails.country_name);   
+
+                
+
                 var requestOptions = {
                     method: 'POST',
                     headers: myHeaders,
-                    body: formBody,
+                    body: urlencoded,
                     redirect: 'follow'
                   };
-                
-                
+                               
                 
                     fetch("http://18.116.203.74:6769/signup", requestOptions)
                     .then(response => {
@@ -174,11 +204,10 @@ function Signup() {
                         response.json().then(json => {
                           console.log(signupData.firstName+" "+signupData.lastName)
                           console.log(signupData.workEmail+" "+signupData.password)
-                          console.log(getDetails.ip)
-                          console.log(getDetails.latitude)
-                          console.log(getDetails.longitude)
-                          
-                               history.push("/email_verification")
+              
+                            localStorage.setItem('data_password',signupData.password)
+                                 
+                               history.push("/email_verification");
                 
                         })
                       }
@@ -222,7 +251,8 @@ function Signup() {
 
                          if(parseInt(json.message) === 0 ){
 
-                            signup();
+                            signUp();
+                            // alert("hai")
                        }
                          else  if(parseInt(json.message) === 1) {
 
@@ -241,6 +271,75 @@ function Signup() {
     }
     const handleSignupWithGmail = (props) => {
         const googleProvider = new firebase.auth.GoogleAuthProvider();
+            auth.signInWithPopup(googleProvider)
+                .then((res) => {
+                    console.log(res.user);
+    
+                    var displayName = res.user.displayName;
+                    var email = res.user.email;
+                    var firebaseUid = res.user.uid;
+                    console.log(displayName + " --- " + email + " --- " + firebaseUid);
+    
+                    var details = {
+                        
+                        email: email,
+                      
+                    };
+    
+                    var formBody = [];
+                    for (var property in details) {
+                        var encodedKey = encodeURIComponent(property);
+                        var encodedValue = encodeURIComponent(details[property]);
+                        formBody.push(encodedKey + "=" + encodedValue);
+                    }
+                    formBody = formBody.join("&");
+    
+
+            fetch("http://18.116.203.74:6769/checkUser",  {
+                        method: 'POST',
+                     
+                        headers: {
+                          'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
+                        },
+                        body: formBody
+                      }).then(response => {
+                        if (response.ok){
+                          response.json().then(json => {
+                            console.log(json.message)
+
+    
+           
+    
+                             if(parseInt(json.message) === 1 ){
+    
+                                SignupWithGmail();
+
+                               
+                           }
+                             else  if(parseInt(json.message) === 1) {
+    
+                               SetIncorrect(true)
+                                
+                                }
+    
+                          })
+                        }
+                     
+                        
+                      })
+
+              
+                    }).catch((error) => {
+                      console.log(error.message)
+                    })
+              
+              
+                  }
+        React.useState(() => {});
+
+
+    const SignupWithGmail = (props) => {
+        const googleProvider = new firebase.auth.GoogleAuthProvider();
         auth.signInWithPopup(googleProvider)
             .then((res) => {
                 console.log(res.user);
@@ -255,6 +354,12 @@ function Signup() {
                     email: email,
                     type: "0",
                     displayName: displayName,
+                    lastName: "",
+                    password:"",
+                    userRegtime: new Date() ,
+                    userGeolocation: getDetails.postal +"  "+ getDetails.latitude +"  "+ getDetails.longitude +"  "+ getDetails.country_code +"  "+ getDetails.country_name ,
+                    userLocation: getDetails.state +", "+ getDetails.city ,
+                    userIp: getDetails.ip,
                 };
 
                 var formBody = [];
@@ -276,6 +381,9 @@ function Signup() {
                         
           
                         console.log(response)
+                 
+                        localStorage.setItem('data_password',signupData.password)
+                       
                         history.push("/email_verification")
                   })
           
@@ -293,6 +401,8 @@ function Signup() {
             }
         
     React.useState(() => {});
+
+  
 
     return (
         <div>
@@ -411,7 +521,6 @@ function Signup() {
                                 <p className="required">Work Email</p>
                                 <TextInput
                                     width={200}
-                                    
                                     borderRadius={2}
                                     borderColor="#c5c5c5"
                                     onChange={handleChangeInput("wMail")}

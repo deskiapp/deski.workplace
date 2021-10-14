@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useRef,useState } from "react";
 import "./Account.css";
 import Header from "../Workplace/Header";
 import Profile from "./Profile";
@@ -14,19 +14,83 @@ import app from "../assets/app.svg";
 import add_blue from "../assets/add_blue.svg";
 import { Pane, Dialog, TextInput, CrossIcon, TickIcon } from "evergreen-ui";
 
-function Account() {
+const Account = (props) => {
+
+
+    
     const [selectedTab, setSelectedTab] = React.useState(false);
     const [selectedTab1, setSelectedTab1] = React.useState(false);
     const [selectedTab2, setSelectedTab2] = React.useState(false);
     const [selectedTab3, setSelectedTab3] = React.useState(false);
     const [selectedTab4, setSelectedTab4] = React.useState(false);
+    const [Ispassword, setIsPassword] = React.useState(true);
+    const [Nopassword, setNoPassword] = React.useState(false);
 
     const inputFile = useRef(null);
     const onButtonClick = () => {
         inputFile.current.click();
     };
 
+    const [password,setPassword]=useState("");
+
+    const AddPassword = (props) => {
+
+    }
+
+    const [profile, setProfile] = useState({
+      name: "",
+      email: "",
+      password:"",
+    });
+
     const [isShown, setIsShown] = React.useState(false);
+
+
+    const emaildata = localStorage.getItem('data')
+    const passworddata = localStorage.getItem('data_password')
+
+    if(passworddata === " "){
+        setIsPassword(false)
+        setNoPassword(true)
+    }
+ 
+
+    var myHeaders = new Headers();
+    myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
+    
+    var urlencoded = new URLSearchParams();
+    urlencoded.append("email", emaildata.trim());
+    
+ 
+    var requestOptions = {
+      method: 'POST',
+      headers: myHeaders,
+      body: urlencoded,
+      redirect: 'follow'
+    };
+    
+    fetch("http://18.116.203.74:6769/profile", requestOptions)
+      .then(response => {
+        if (response.ok){
+          response.json().then(json => {
+            console.log(json.user_first_name+" "+json.user_last_name)
+            console.log(json.user_email)
+            console.log(json.user_password)
+            setProfile({
+               name: json.user_first_name+" "+json.user_last_name,
+               email: json.user_email,
+               password:json.user_password
+               
+            });
+         
+          })
+        }
+     
+        
+      })
+      
+      .catch(error => console.log('error: ', error)
+   )
 
     return (
         <div>
@@ -38,20 +102,24 @@ function Account() {
                 <input type="file" id="file" ref={inputFile} style={{ display: "none" }} />
                 <div className="account_con">
                     <span className="span1">
-                        My Account
+                        {profile.name}
                         <img className="edit" src={pen} alt="" />
                     </span>
-                    <p>hey@deski.app</p>
-                    <span className="span2" onClick={() => setSelectedTab4(true)}>
+                    <p>{profile.email}</p>
+                    {Ispassword &&
+                    <p>{profile.password.replace(/[^\s]/g, "*")}</p>}
+                    {Nopassword &&<span className="span2" onClick={() => setSelectedTab4(true)}>
                         Add password
                         <img className="add" src={add_blue} alt="" />
-                    </span>
+                    </span>}
                     {selectedTab4 ? (
                         <div className="roles_">
-                            <TextInput width={200} autoFocus />
+                            <TextInput width={200} autoFocus onChange={(e)=>setPassword(e.target.value)}/>
                             <br></br>
                             <div>
-                                <button>
+                                <button  onClick={() => {
+                                    AddPassword("");
+                                }}>
                                     <TickIcon className="icon" size={12} />
                                 </button>
                                 <button onClick={() => setSelectedTab4(false)}>

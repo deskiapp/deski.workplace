@@ -22,31 +22,87 @@ const Mobile = ({ children }) => {
 
 function Create_site() {
 
+
+    const emaildata = JSON.stringify(localStorage.getItem('data'))
+    
     let history = useHistory();
     const [incorrect, SetIncorrect] = React.useState(false);
     const [correct, SetCorrect] = React.useState(false);
 
 
+    
     const [username, setUsername] = useState("");
 
-    const CreateSite = (props) =>{
 
 
-        if (username === "") {
+
+
+    const CheckUsername = (props) => {
+        var myHeaders = new Headers();
+        myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
+        
+        var urlencoded = new URLSearchParams();
+        urlencoded.append("username", username);
+    
+        
+        var checkuserRequest = {
+          method: 'POST',
+          headers: myHeaders,
+          body: urlencoded,
+          redirect: 'follow'
+        };
+
+        fetch("http://18.116.203.74:6769/checkUsername", checkuserRequest)
+      .then(response => {
+        if (response.ok){
+          response.json().then(json => {
+            console.log(json.message)
+            console.log(username)
+
+
+             if(parseInt(json.message) === 0 ){
+
+                 AddUsername();
+           }
+             else  if(parseInt(json.message) === 1) {
+
+                   SetIncorrect(true);
+                
+                }
+
+          })
+        }
+     
+        
+      })
+      .catch(error => console.log('error: ', error)
+   )
+
+}
+    
+
+    const AddUsername = (props) =>{
+
+
+        var dt = new Date().getTime();
+        var uuid = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+            var r = (dt + Math.random()*16)%16 | 0;
+            dt = Math.floor(dt/16);
+            return (c=='x' ? r :(r&0x3|0x8)).toString(16);
+        });
+
+
+        if (username === "" || username.length >7) {
           
             
             } else {
                
                 var urlencoded = new URLSearchParams();
+                urlencoded.append("firebaseUid", uuid);
+                urlencoded.append("userId", "");
                 urlencoded.append("username", username);
-
-                // var formBody = [];
-                // for (var property in details) {
-                //     var encodedKey = encodeURIComponent(property);
-                //     var encodedValue = encodeURIComponent(details[property]);
-                //     formBody.push(encodedKey + "=" + encodedValue);
-                // }
-                // formBody = formBody.join("&");
+                urlencoded.append("emailId", emaildata);
+                urlencoded.append("timeStamp", new Date());
 
                 var myHeaders = new Headers();
                 myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
@@ -56,31 +112,23 @@ function Create_site() {
                   method: 'POST',
                   headers: myHeaders,
                   body: urlencoded,
-                  redirect: 'follow'
+                  redirect: 'follow' 
                 };
   
              
                 
-                    fetch("http://18.116.203.74:6769/checkUsername", requestOptions)
+                    fetch("http://18.116.203.74:6769/addUsername", requestOptions)
                     .then(response => {
                       if (response.ok){
                         response.json().then(json => {
                             console.log(username) 
-                            console.log(json.message)   
-
-                            if(parseInt(json.message) === 0 ){
+                           
 
                                 SetCorrect(true)
-                                SetIncorrect(false);
+                            
 
                                 setTimeout(function(){history.push("/setting_up")},1000);
-                           }
-                             else  if(parseInt(json.message) === 1) {
-    
-                                   SetIncorrect(true);
-                                   SetCorrect(false)
-                                
-                                }
+                       
                 
                         })
                       }
@@ -122,7 +170,7 @@ function Create_site() {
                         <button
                             className={(username === "") ? "create_site_button" : "create_site_button_active"}
                             onClick={() => {
-                                CreateSite("");
+                                CheckUsername("");
                             }}
                         >
                             Continue
@@ -159,7 +207,7 @@ function Create_site() {
                         <button
                             className={correct ? "mob_create_site_button_active" : "mob_create_site_button"}
                             onClick={() => {
-                                CreateSite("");
+                                CheckUsername("");
                             }}
 
                         >
@@ -197,7 +245,7 @@ function Create_site() {
                         <button
                             className={correct ? "create_site_button_active" : "create_site_button"}
                             onClick={() => {
-                                CreateSite("");
+                                CheckUsername("");
                             }}
                         >
                             Continue
