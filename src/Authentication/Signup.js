@@ -124,10 +124,7 @@ function Signup() {
         }
         return true;
     };
-    // function address(json) {
-        
-       
-    // }
+
     const signUp = (props) => {
 
         var dt = new Date().getTime();
@@ -146,33 +143,8 @@ function Signup() {
             } else if (signupData.password.length >16 || signupData.password === "") {
                 // alert("Empty password");
             } else {
-               
-                // var details = {
-                //     firebaseUid: "",
-                //     email: signupData.workEmail,
-                //     type: "1",
-                //     displayName: signupData.firstName,
-                //     lastName: signupData.lastName,
-                //     password: signupData.password,                
-                //     // userGeolocation: +"latitude:"+ getDetails.latitude +"longitude :"+ getDetails.longitude,
-                //     // userIp: "gugyky",
-                //     userIp:  getDetails.ip,
-                //     //  userLocation: +"country_code:"+ getDetails.country_code +"country_name :"+ getDetails.country_name,
-                //     userLocation: "1",
-                //     // date: new Date(),
 
-                   
-                // };
- 
-               
-                // var formBody = [];
-                // for (var property in details) {
-                //     var encodedKey = encodeURIComponent(property);
-                //     var encodedValue = encodeURIComponent(details[property]);
-                //     formBody.push(encodedKey + "=" + encodedValue);
-                // }
-                // formBody = formBody.join("&");
-                
+            
                 var myHeaders = new Headers();
                 myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
 
@@ -204,8 +176,8 @@ function Signup() {
                         response.json().then(json => {
                           console.log(signupData.firstName+" "+signupData.lastName)
                           console.log(signupData.workEmail+" "+signupData.password)
-              
-                            localStorage.setItem('data_password',signupData.password)
+     
+                            localStorage.setItem('data',signupData.workEmail)
                                  
                                history.push("/email_verification");
                 
@@ -252,7 +224,7 @@ function Signup() {
                          if(parseInt(json.message) === 0 ){
 
                             signUp();
-                            // alert("hai")
+                   
                        }
                          else  if(parseInt(json.message) === 1) {
 
@@ -310,7 +282,7 @@ function Signup() {
     
            
     
-                             if(parseInt(json.message) === 1 ){
+                             if(parseInt(json.message) === 0){
     
                                 SignupWithGmail();
 
@@ -339,6 +311,8 @@ function Signup() {
 
 
     const SignupWithGmail = (props) => {
+       
+
         const googleProvider = new firebase.auth.GoogleAuthProvider();
         auth.signInWithPopup(googleProvider)
             .then((res) => {
@@ -352,10 +326,9 @@ function Signup() {
                 var details = {
                     firebaseUid: firebaseUid,
                     email: email,
-                    type: "0",
                     displayName: displayName,
                     lastName: "",
-                    password:"",
+                    password: "",
                     userRegtime: new Date() ,
                     userGeolocation: getDetails.postal +"  "+ getDetails.latitude +"  "+ getDetails.longitude +"  "+ getDetails.country_code +"  "+ getDetails.country_name ,
                     userLocation: getDetails.state +", "+ getDetails.city ,
@@ -377,31 +350,28 @@ function Signup() {
                       'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
                     },
                     body: formBody
-                  }).then((response)=>{
-                        
-          
-                        console.log(response)
-                 
-                        localStorage.setItem('data_password',signupData.password)
-                       
+                  }).then(response => {
+                    if (response.ok){
+                      response.json().then(json => {
+                     
+   
+                        localStorage.setItem('data',email)
                         history.push("/email_verification")
-                  })
-          
-                 
-          
-                  
-          
-          
-          
-                }).catch((error) => {
-                  console.log(error.message)
-                })
-          
-          
-            }
-        
-    React.useState(() => {});
+                
+                    })
+                }
+             
+                
+              })
 
+      
+            }).catch((error) => {
+              console.log(error.message)
+            })
+      
+      
+          }
+React.useState(() => {});
   
 
     return (

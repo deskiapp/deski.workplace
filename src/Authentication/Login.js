@@ -31,6 +31,7 @@ function Login() {
 
     
     let history = useHistory();
+    const [googlePassword,setGooglePassword] = useState("")
 
  
     const [signupData, setSignUpData] = useState({
@@ -98,7 +99,8 @@ const handleSignup = (props) => {
                                 SetIncorrect(true);
                             }
                             else  if(signupData.email.trim()===json.user_email.trim() && signupData.password.trim()=== json.user_password.trim()){
-                                localStorage.setItem('data',signupData.email)
+                            localStorage.setItem('data',signupData.email)
+  
                                 history.push('/setting_up')
                            }
                       })
@@ -139,6 +141,8 @@ const handleSignup = (props) => {
                         formBody.push(encodedKey + "=" + encodedValue);
                     }
                     formBody = formBody.join("&");
+
+
     
 
             fetch("http://18.116.203.74:6769/checkUser",  {
@@ -153,21 +157,17 @@ const handleSignup = (props) => {
                           response.json().then(json => {
                             console.log(json.message)
 
-    
-           
-    
-                             if(parseInt(json.message) === 1 ){
-    
-                                localStorage.setItem('data',email)
                            
-                            history.push("/setting_up")
-
-                               
-                           }
-                             else  if(parseInt(json.message) === 0) {
+                               if  (parseInt(json.message) === 0) {
     
                                setGoogleincorrect(true)
                                 
+                                }
+                                else{
+                                    localStorage.setItem('data',email)
+                           
+                           
+                                    history.push("/setting_up")
                                 }
     
                           })
@@ -177,12 +177,18 @@ const handleSignup = (props) => {
                       })
 
               
-                    }).catch((error) => {
-                      console.log(error.message)
-                    })
-              
+                    // }).catch((error) => {
+                    //   console.log(error.message)
+                    // })
+                   
+    
+          
+                }).catch((error) => {
+                  console.log(error.message)
+                })
               
                   }
+
         React.useState(() => {});
 
 

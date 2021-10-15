@@ -23,7 +23,8 @@ const Mobile = ({ children }) => {
 function Create_site() {
 
 
-    const emaildata = JSON.stringify(localStorage.getItem('data'))
+    const emaildata = localStorage.getItem('data')
+    console.log(emaildata)
     
     let history = useHistory();
     const [incorrect, SetIncorrect] = React.useState(false);
@@ -98,8 +99,7 @@ function Create_site() {
             } else {
                
                 var urlencoded = new URLSearchParams();
-                urlencoded.append("firebaseUid", uuid);
-                urlencoded.append("userId", "");
+                urlencoded.append("userId", uuid);
                 urlencoded.append("username", username);
                 urlencoded.append("emailId", emaildata);
                 urlencoded.append("timeStamp", new Date());
@@ -205,7 +205,7 @@ function Create_site() {
                             </p>
                         )}
                         <button
-                            className={correct ? "mob_create_site_button_active" : "mob_create_site_button"}
+                           className={(username === "") ? "create_site_button" : "create_site_button_active"}
                             onClick={() => {
                                 CheckUsername("");
                             }}
@@ -243,7 +243,7 @@ function Create_site() {
                             </p>
                         )}
                         <button
-                            className={correct ? "create_site_button_active" : "create_site_button"}
+                              className={(username === "") ? "create_site_button" : "create_site_button_active"}
                             onClick={() => {
                                 CheckUsername("");
                             }}

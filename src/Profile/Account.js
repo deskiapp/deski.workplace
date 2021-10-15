@@ -23,7 +23,9 @@ const Account = (props) => {
     const [selectedTab2, setSelectedTab2] = React.useState(false);
     const [selectedTab3, setSelectedTab3] = React.useState(false);
     const [selectedTab4, setSelectedTab4] = React.useState(false);
-    const [Ispassword, setIsPassword] = React.useState(true);
+    const [selectedTab5, setSelectedTab5] = React.useState(false);
+    const [selectedTab6, setSelectedTab6] = React.useState(false);
+    const [Ispassword, setIsPassword] = React.useState(false);
     const [Nopassword, setNoPassword] = React.useState(false);
 
     const inputFile = useRef(null);
@@ -31,28 +33,20 @@ const Account = (props) => {
         inputFile.current.click();
     };
 
-    const [password,setPassword]=useState("");
-
-    const AddPassword = (props) => {
-
-    }
-
     const [profile, setProfile] = useState({
-      name: "",
-      email: "",
-      password:"",
+        name: "",
+        email: "",
+        password: "",
+        userid:"",
+       
     });
+
+
 
     const [isShown, setIsShown] = React.useState(false);
 
 
     const emaildata = localStorage.getItem('data')
-    const passworddata = localStorage.getItem('data_password')
-
-    if(passworddata === " "){
-        setIsPassword(false)
-        setNoPassword(true)
-    }
  
 
     var myHeaders = new Headers();
@@ -73,15 +67,22 @@ const Account = (props) => {
       .then(response => {
         if (response.ok){
           response.json().then(json => {
-            console.log(json.user_first_name+" "+json.user_last_name)
-            console.log(json.user_email)
-            console.log(json.user_password)
+   
             setProfile({
                name: json.user_first_name+" "+json.user_last_name,
                email: json.user_email,
-               password:json.user_password
+               password:json.user_password,
+               userid:json.user_id
                
             });
+             if(json.user_password.trim() === ""){
+                    
+                    setNoPassword(true);
+                 }
+            else {
+                    setIsPassword(true);
+                  
+              }
          
           })
         }
@@ -91,6 +92,84 @@ const Account = (props) => {
       
       .catch(error => console.log('error: ', error)
    )
+
+
+   
+   const [updateprofile, setUpdateProfile] = useState({
+    firstname: "",
+    lastname: "",
+    password:"",
+  });
+
+  const handleUpdateProfile = (props) => (e) => {
+    if (props === "firstname") {
+        setUpdateProfile({
+            firstname: e.target.value,
+            lastname: updateprofile.lastname,
+            password: updateprofile.password,
+          
+        });
+    } else if (props === "lastname") {
+        setUpdateProfile({
+            firstname: updateprofile.firstname,
+            lastname: e.target.value,
+            password: updateprofile.password,
+          
+        });
+    } else if (props === "password") {
+        setUpdateProfile({
+            firstname: updateprofile.firstname,
+            lastname: updateprofile.lastname,
+            password: e.target.value,
+          
+        });
+
+};
+}
+
+
+
+const UpdateProfiledata = (props) => {
+          
+
+        var myHeaders = new Headers();
+        myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
+        
+        var urlencoded = new URLSearchParams();
+
+        urlencoded.append("userId", profile.userid);
+        urlencoded.append("firstName", updateprofile.firstname);
+        urlencoded.append("lastName", updateprofile.lastname);
+        urlencoded.append("password",updateprofile.password);
+        
+     
+        var requestOptions = {
+          method: 'POST',
+          headers: myHeaders,
+          body: urlencoded,
+          redirect: 'follow'
+        };
+        
+        fetch("http://18.116.203.74:6769/updateProfile", requestOptions)
+          .then(response => {
+            if (response.ok){
+              response.json().then(json => {
+                console.log(updateprofile.firstname)
+                console.log(updateprofile.lastname)
+
+             
+              })
+            }
+         
+            
+          })
+          
+          .catch(error => console.log('error: ', error)
+       )
+
+    }
+   
+
 
     return (
         <div>
@@ -103,22 +182,56 @@ const Account = (props) => {
                 <div className="account_con">
                     <span className="span1">
                         {profile.name}
-                        <img className="edit" src={pen} alt="" />
+                        <img className="edit" src={pen} alt="" onClick={()=>setSelectedTab5(true)}/>
+                        {selectedTab5 ? (
+                        <div className="roles_">
+                            <TextInput width={95} className="roles_firstname" autoFocusonChange={handleUpdateProfile("firstname")}/>
+                            <TextInput width={95} autoFocus onChange={handleUpdateProfile("lastname")}/>
+                            <br></br>
+                            <div>
+                                <button  onClick={() => {
+                                    UpdateProfiledata("");
+                                }}>
+                                    <TickIcon className="icon" size={12} />
+                                </button>
+                                <button onClick={() => setSelectedTab5(false)}>
+                                    <CrossIcon className="icon" size={12} />
+                                </button>
+                            </div>
+                        </div>
+                    ) : null}
                     </span>
                     <p>{profile.email}</p>
                     {Ispassword &&
-                    <p>{profile.password.replace(/[^\s]/g, "*")}</p>}
+                    <p>{profile.password.replace(/[^\s]/g, "*")}
+                    <img className="password_edit" src={pen} alt="" onClick={()=>setSelectedTab6(true)}/>
+                        {selectedTab6 ? (
+                        <div className="roles_">
+                            <TextInput width={200} autoFocus onChange={handleUpdateProfile("password")}/>
+                            <br></br>
+                            <div>
+                                <button  onClick={() => setIsPassword(true)}>
+                                    <TickIcon className="icon" size={12} />
+                                </button>
+                                <button onClick={() => setSelectedTab6(false)}>
+                                    <CrossIcon className="icon" size={12} />
+                                </button>
+                            </div>
+                        </div>
+                    ) : null}</p>
+                    }
                     {Nopassword &&<span className="span2" onClick={() => setSelectedTab4(true)}>
                         Add password
                         <img className="add" src={add_blue} alt="" />
                     </span>}
                     {selectedTab4 ? (
                         <div className="roles_">
-                            <TextInput width={200} autoFocus onChange={(e)=>setPassword(e.target.value)}/>
+                            <TextInput width={200} autoFocus onChange={handleUpdateProfile("password")}/>
                             <br></br>
                             <div>
                                 <button  onClick={() => {
-                                    AddPassword("");
+                                   
+                                   
                                 }}>
                                     <TickIcon className="icon" size={12} />
                                 </button>

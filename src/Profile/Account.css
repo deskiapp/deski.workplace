@@ -27,12 +27,15 @@
     font-family: "SegoeUISemibold";
     color: #858585;
     font-size: 13px;
+    position: relative;
+   
 }
 .account_con .span2 {
     color: #1b55db;
     font-family: "SegoeUISemibold";
     cursor: pointer;
     font-size: 13px;
+
 }
 .account_con .span3 {
     font-family: "SegoeUISemibold";
@@ -43,6 +46,14 @@ span .edit {
     margin-left: 15px;
     height: 10px;
     width: 10px;
+    cursor: pointer;
+}
+.password_edit{
+    margin-left: 10px;
+    height: 15px;
+    width: 10px;
+    margin-top: -5px;
+    cursor: pointer;
 }
 span .add {
     margin-left: 3px;
@@ -145,6 +156,9 @@ span .add {
     margin-top: -25px;
     margin-bottom: -38px;
 }
+.roles_ .roles_firstname{
+    margin-right: 10px;
+}
 .roles_ div {
     margin-left: 147px;
 }
@@ -157,6 +171,7 @@ span .add {
     background-color: white;
     cursor: pointer;
     box-shadow: 0 0 7px 0 rgba(0, 0, 0, 0.16);
+ 
 }
 .others {
     display: block;
